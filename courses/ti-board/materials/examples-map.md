@@ -1,85 +1,62 @@
-# Examples Map
+# SDK 示例地图
 
-# MSPM0 SDK Examples Map
+本文件帮助 agent 快速把“要训练的技能”映射到“应该看的本地示例”。
 
-SDK 路径：
+基础路径：
 
-`courses/ti-board/materials/raw-sdk/mspm0_sdk_2_10_00_04/`
-
-## 例程整理规则
-
-每找到一个适合 LP_MSPM0G3507 的官方例程，就按下面格式记录。
-
----
+```text
+materials/raw-sdk/mspm0_sdk_2_10_00_04/examples/nortos/LP_MSPM0G3507/
+```
 
 ## GPIO
 
-### 例程：GPIO 输出 / LED Toggle
+| 技能 | 示例路径 | 用途 |
+|---|---|---|
+| GPIO 输出 | `driverlib/gpio_toggle_output` | LED 输出/翻转 |
+| GPIO 输入轮询 | `driverlib/gpio_software_poll` | S2 按键控制 LED |
+| GPIO 中断 | `driverlib/gpio_simultaneous_interrupts` | 外部事件触发 |
+| GPIO 输入捕获 | `driverlib/gpio_input_capture` | 输入事件观察 |
 
-SDK 路径：待填写
+## SysConfig
 
-学习目标：
+| 技能 | 示例路径 | 用途 |
+|---|---|---|
+| 生成配置 | `driverlib/gpio_software_poll` | `.syscfg` 到 `ti_msp_dl_config.*` |
+| 空工程 | `driverlib/empty` | 最小工程结构 |
+| 自定义板空工程 | `../CUSTOM_BOARD/driverlib/empty_mspm0g3507` | 自定义板起点 |
 
-- 理解 GPIO 输出配置
-- 学会点亮 LED
-- 学会翻转 GPIO 电平
+## ADC / DMA
 
-对应模块：
+| 技能 | 示例路径 | 用途 |
+|---|---|---|
+| ADC 单次采样 | `driverlib/adc12_single_conversion` | 基础采样 |
+| ADC 序列采样 | `driverlib/adc12_sequence_conversion` | 多通道/序列 |
+| ADC + DMA | `driverlib/adc12_max_freq_dma` | 高频采样 |
+| ADC 到 UART | `msp_subsystems/adc_to_uart` | 采样结果输出 |
 
-- 模块 5：单片机与裸机开发
-- 模块 6：传感器、通信与外设接口
+## 通信
 
-掌握要求：
+| 技能 | 示例路径 | 用途 |
+|---|---|---|
+| UART 回显 | `drivers/uart_echo` | 串口输入输出 |
+| I2C 控制器 | `driverlib/i2c_controller_rw_multibyte_fifo_poll` | I2C 主机读写 |
+| I2C 目标设备 | `driverlib/i2c_target_rw_multibyte_fifo_poll` | I2C 从机读写 |
+| CAN | `driverlib/mcan_loopback` | CAN 基础闭环 |
 
-- 能说清 GPIO 初始化流程
-- 能修改输出引脚
-- 能独立实现 LED 闪烁
+## 系统级训练
 
----
+| 技能 | 示例路径 | 用途 |
+|---|---|---|
+| ADC + UART | `msp_subsystems/adc_to_uart` | 采样后输出 |
+| PWM 控制 | `msp_subsystems/pushbutton_change_pwm` | 按键改变 PWM |
+| 任务调度 | `msp_subsystems/task_scheduler` | 简单调度结构 |
+| FIR 滤波 | `msp_subsystems/fir_low_pass_filter` | 信号处理 |
 
-## UART
+## Edge AI
 
-### 例程：UART Echo / UART Interrupt
-
-SDK 路径：待填写
-
-学习目标：
-
-- 理解 UART 初始化
-- 理解波特率配置
-- 理解串口发送和接收
-- 理解中断接收
-
-对应模块：
-
-- 模块 5：单片机与裸机开发
-- 模块 6：传感器、通信与外设接口
-
-掌握要求：
-
-- 能实现串口发送字符串
-- 能实现串口接收
-- 能解释 UART 数据流
-- 能和 STM32 USART 做对比
-
----
-
-## ADC
-
-### 例程：ADC Single Conversion / ADC Sequence
-
-SDK 路径：待填写
-
-学习目标：
-
-- 理解 ADC 通道配置
-- 理解采样过程
-- 理解 ADC 结果读取
-- 理解 ADC 与 DMA 的配合
-
-对应模块：
-
-- 模块 4：电子电路与硬件基础
-- 模块 5：单片机与裸机开发
-- 模块 6：传感器、通信与外设接口
-- 模块 9：信号处理与计算机视觉
+| 技能 | 示例路径 | 用途 |
+|---|---|---|
+| AI 入门 | `edgeAI/hello_world_ai` | 推理流程入门 |
+| 波形分类 | `edgeAI/waveform_classifier_ai` | 时序分类 |
+| 字符识别 | `edgeAI/character_recognition` | 图像/字符任务 |
+| 数据采集 | `edgeAI/*_data_capture` | 采集训练/测试数据 |

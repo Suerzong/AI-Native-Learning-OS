@@ -1,66 +1,45 @@
-# MSPM0 SDK Index
+# SDK 索引
 
-SDK 版本：mspm0_sdk_2_10_00_04  
-原始路径：`courses/ti-board/materials/raw-sdk/mspm0_sdk_2_10_00_04/`
+SDK 路径：
 
-## 本课程使用板卡
+```text
+materials/raw-sdk/mspm0_sdk_2_10_00_04/
+```
 
-- LP_MSPM0G3507
+当前已精简保留：
 
-## 重点关注内容
+```text
+mspm0_sdk_2_10_00_04/
+├── docs/
+├── examples/
+├── source/
+└── imports.mak
+```
 
-### 1. examples
+## 关键目录
 
-用途：查找官方例程。
+| 目录 | 用途 | 是否常用 |
+|---|---|---|
+| `examples/` | 官方示例工程 | 高频 |
+| `source/` | DriverLib、CMSIS、设备头文件等源码 | 高频 |
+| `docs/` | 官方文档 | 中频 |
+| `imports.mak` | Makefile 构建变量 | 低频 |
 
-需要重点关注：
+## 当前重点示例路径
 
-- GPIO 例程
-- Timer 例程
-- PWM 例程
-- ADC 例程
-- UART 例程
-- I2C 例程
-- SPI 例程
-- DMA 例程
-- Interrupt 例程
-- SysConfig 相关例程
+```text
+examples/nortos/LP_MSPM0G3507/
+├── driverlib/
+├── drivers/
+├── edgeAI/
+├── msp_subsystems/
+└── supplemental_examples/
+```
 
-请优先在 SDK 的 `examples/` 目录中查找与 LP_MSPM0G3507 对应的例程。
+## 自定义板模板
 
-### 2. docs
+```text
+examples/nortos/CUSTOM_BOARD/driverlib/empty_mspm0g3507/
+```
 
-用途：查找官方说明文档、API 文档、迁移指南、用户手册。
-
-请优先在 SDK 的 `docs/` 目录中查找：
-
-- SDK 用户指南
-- DriverLib 文档
-- SysConfig 文档
-- Board support 文档
-- API Reference
-
-### 3. source
-
-用途：查看 DriverLib、头文件、底层库源码。
-
-需要重点关注：
-
-- GPIO API
-- Timer API
-- ADC API
-- UART API
-- I2C API
-- SPI API
-- DMA API
-- Interrupt API
-
-### 4. tools
-
-用途：查看 SysConfig、工程生成、工具链相关内容。
-
-重点关注：
-
-- SysConfig 配置文件
-- 工程生成规则
-- CCS / GCC / IAR / Keil 相关支持
+用途：为 MSPM0G3507 自定义板建立最小空工程模板。

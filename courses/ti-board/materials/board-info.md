@@ -1,50 +1,33 @@
-# Board Info
-# LP_MSPM0G3507 Board Info
+# LP-MSPM0G3507 板卡信息
 
-## 板卡名称
+## 基本信息
 
-LP_MSPM0G3507
+- 板卡：LP-MSPM0G3507 LaunchPad
+- 主芯片：MSPM0G3507
+- 官方用户指南：`datasheets/MSPM0G3507 LaunchPad Development Kit User's Guide.pdf`
 
-## 学习目标
+## 当前已知资源
 
-掌握该开发板的基础资源、引脚、调试方式、供电方式、板载外设和常用开发流程。
+| 资源 | 引脚 | 说明 | 参考示例 |
+|---|---|---|---|
+| LED1 | PA0 | 可由 GPIO 控制 | `gpio_software_poll` |
+| S2 按键 | PB21 | 内部上拉，按下接地，低有效 | `gpio_software_poll` |
+| SWCLK | PA20 | 调试时钟 | 板卡用户指南 |
+| SWDIO | PA19 | 调试数据 | 板卡用户指南 |
 
-## 需要整理的信息
+## Agent 使用方式
 
-### 1. 板载资源
+当学习者遇到“代码和板子现象对不上”时，优先查本文件和板卡用户指南。
 
-- 板载 LED
-- 板载按键
-- 调试接口
-- 电源输入方式
-- BoosterPack 接口
-- 可用 GPIO
-- UART 引脚
-- I2C 引脚
-- SPI 引脚
-- ADC 输入引脚
-- PWM 输出引脚
+## 个性化补充
 
-### 2. 开发流程
+把实际接线、跳帽设置、外接模块记录在这里。
 
-- 创建工程
-- 选择板卡
-- 使用 SysConfig 配置外设
-- 编译
-- 下载
-- 调试
-- 查看串口输出
+```md
+## YYYY-MM-DD 接线记录
 
-### 3. 和 STM32 学习经验的对应关系
-
-| STM32 已学内容 | TI 板卡对应内容 |
-| --- | --- |
-| GPIO 输出 | GPIO 配置与输出 |
-| TIM / PWM | Timer / PWM |
-| USART | UART |
-| ADC | ADC |
-| DMA | DMA |
-| I2C | I2C |
-| SPI | SPI |
-| EXTI | GPIO Interrupt |
-
+- 外设/模块：
+- 连接引脚：
+- 电源：
+- 注意事项：
+```
