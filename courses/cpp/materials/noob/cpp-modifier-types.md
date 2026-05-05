@@ -1,0 +1,93 @@
+# C++ 修饰符类型
+
+# C++ 修饰符类型
+
+
+
+C++ 允许在 **char、int 和 double** 数据类型前放置修饰符。
+
+
+修饰符是用于改变变量类型的行为的关键字，它更能满足各种情境的需求。
+
+下面列出了数据类型修饰符：
+
+- 
+
+signed：表示变量可以存储负数。对于整型变量来说，signed 可以省略，因为整型变量默认为有符号类型。
+- 
+
+unsigned：表示变量不能存储负数。对于整型变量来说，unsigned 可以将变量范围扩大一倍。
+- 
+
+short：表示变量的范围比 int 更小。short int 可以缩写为 short。
+- 
+
+long：表示变量的范围比 int 更大。long int 可以缩写为 long。
+- 
+
+long long：表示变量的范围比 long 更大。C++11 中新增的数据类型修饰符。
+- 
+
+float：表示单精度浮点数。
+- 
+
+double：表示双精度浮点数。
+- 
+
+bool：表示布尔类型，只有 true 和 false 两个值。
+- 
+
+char：表示字符类型。
+- 
+
+wchar_t：表示宽字符类型，可以存储 Unicode 字符。
+
+修饰符 **signed、unsigned、long 和 short** 可应用于整型，**signed** 和 **unsigned** 可应用于字符型，**long** 可应用于双精度型。
+
+这些修饰符也可以组合使用，修饰符 **signed** 和 **unsigned** 也可以作为 **long** 或 **short** 修饰符的前缀。例如：**unsigned long int**。
+
+C++ 允许使用速记符号来声明**无符号短整数**或**无符号长整数**。您可以不写 int，只写单词 **unsigned、short** 或 **long**，**int** 是隐含的。例如，下面的两个语句都声明了无符号整型变量。
+
+```cpp
+signed int num1 = -10; // 定义有符号整型变量 num1，初始值为 -10
+unsigned int num2 = 20; // 定义无符号整型变量 num2，初始值为 20
+
+short int num1 = 10; // 定义短整型变量 num1，初始值为 10
+long int num2 = 100000; // 定义长整型变量 num2，初始值为 100000
+
+long long int num1 = 10000000000; // 定义长长整型变量 num1，初始值为 10000000000
+
+float num1 = 3.14f; // 定义单精度浮点数变量 num1，初始值为 3.14
+double num2 = 2.71828; // 定义双精度浮点数变量 num2，初始值为 2.71828
+
+bool flag = true; // 定义布尔类型变量 flag，初始值为 true
+
+char ch1 = 'a'; // 定义字符类型变量 ch1，初始值为 'a'
+wchar_t ch2 = L'你'; // 定义宽字符类型变量 ch2，初始值为 '你'
+```
+
+
+为了理解 C++ 解释有符号整数和无符号整数修饰符之间的差别，我们来运行一下下面这个短程序：
+ 
+
+## 实例
+
+
+#include <iostream>
+using namespace std;
+ 
+/* 
+ * 这个程序演示了有符号整数和无符号整数之间的差别
+*/
+int main()
+{
+   short int i;           // 有符号短整数
+   short unsigned int j;  // 无符号短整数
+ 
+   j = 50000;
+ 
+   i = j;
+   cout << i << " " << j;
+ 
+   return 0;
+}
