@@ -1,10 +1,20 @@
+For user  :  ti-study-session.prompt.md  作用：TI 板子一对一教学会话，讲解知识点、出题、批改。
+
 ---
+name: ti-study-session
 description: TI 板子一对一教学会话，讲解知识点、出题、批改、记录错题和掌握度
+agent: agent
 ---
 
 请执行 TI 板子一对一教学任务。
 
 $ARGUMENTS
+
+---
+
+# 教学目标
+
+帮助用户系统掌握 TI 开发板的基础概念、开发环境、外设使用、代码实验、调试方法和综合项目能力。
 
 ---
 

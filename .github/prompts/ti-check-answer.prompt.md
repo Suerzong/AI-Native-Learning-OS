@@ -1,5 +1,9 @@
+For user  :  ti-check-answer.prompt.md  作用：TI 板子批改答案，记录错误点到 mistakes.md，更新 mastery-tracker.md。
+
 ---
+name: ti-check-answer
 description: TI 板子批改答案，记录错误点到 mistakes.md，更新 mastery-tracker.md
+agent: agent
 ---
 
 请执行答案批改任务。

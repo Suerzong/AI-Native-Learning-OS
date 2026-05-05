@@ -1,5 +1,9 @@
+For user  :  ti-exam.prompt.md  作用：TI 板子阶段综合考试，考察体系理解，决定阶段是否通过。
+
 ---
+name: ti-exam
 description: TI 板子阶段综合考试，考察体系理解，记录结果并决定阶段是否通过
+agent: agent
 ---
 
 请执行 TI 板子阶段综合考试任务。

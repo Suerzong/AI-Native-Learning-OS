@@ -1,5 +1,9 @@
+For user  :  ti-daily-test.prompt.md  作用：TI 板子每日测试，生成当日测试题、批改、记录结果，决定是否允许推进。
+
 ---
+name: ti-daily-test
 description: TI 板子每日测试，生成当日测试题、批改、记录结果，决定是否允许推进
+agent: agent
 ---
 
 请执行 TI 板子每日测试任务。
