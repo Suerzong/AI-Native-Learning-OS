@@ -510,10 +510,7 @@ CMake (39-40) → 嵌入式 Linux C++ 模式 (41-42)
 - `courses/cpp/mistakes.md` — 错题与误区记录
 - `courses/cpp/mastery-tracker.md` — 掌握度追踪表
 - `courses/cpp/daily-tests.md` — 每日测试记录
-- `courses/cpp/exams.md` — 阶段考核记录
-- `courses/cpp/learner/current-state.md` — 学习者当前状态
-- `courses/cpp/learner/learning-log.md` — 学习日志
-- `courses/cpp/learner/weak-points.md` — 弱点追踪
+- `courses/cpp/learner/state.md` — 学习者状态
 - `plan/daily-plan.md` — 今日计划
 
 ## 谨慎写入
@@ -523,7 +520,6 @@ CMake (39-40) → 嵌入式 Linux C++ 模式 (41-42)
 ## 禁止写入
 - `profile.md` / `plan/ability-framework.md` / `course-index.md`
 - `courses/cpp/course-config.md`（本文件）
-- `courses/cpp/syllabus.md`
 - `.github/` 下的所有配置文件
 
 ---
@@ -532,10 +528,33 @@ CMake (39-40) → 嵌入式 Linux C++ 模式 (41-42)
 
 | 资料 | 路径 | 用途 |
 |------|------|------|
-| 课程大纲 | `courses/cpp/syllabus.md` | 阶段划分和课程对应 |
-| 核心概念 | `courses/cpp/concepts.md` | 概念速查表 |
 | 练习库 | `courses/cpp/exercises.md` | 小训练任务 |
 | 错题记录 | `courses/cpp/mistakes.md` | 错误追踪 |
 | 掌握度 | `courses/cpp/mastery-tracker.md` | 技能掌握状态 |
 | 技能地图 | `courses/cpp/skill-map/` | 各技能详细拆解 |
 | 参考资料 | `courses/cpp/materials/references.md` | runoob.com 链接索引 |
+
+---
+
+# 诊断维度
+
+每个技能从五个维度诊断。
+
+| 维度 | 诊断问题 | 证据 |
+|---|---|---|
+| 概念 | 学习者知道这个特性在解决什么问题吗？ | 能用自己的话解释 |
+| 语法 | 学习者能写出正确的语法吗？ | 能写出无编译错误的代码 |
+| C 对比 | 学习者能说出这个特性在 C 中的等价写法吗？ | 能对比 C 和 C++ 的差异 |
+| 工程 | 学习者知道这个特性在实际项目中怎么用吗？ | 能说出嵌入式 Linux / AI 中的应用场景 |
+| 调试 | 学习者知道语法出错时怎么排查吗？ | 能从编译错误信息定位问题 |
+
+## 等级判断
+
+| 等级 | 表现 |
+|---:|---|
+| 0 | 没接触过 |
+| 1 | 听过术语，能识别语法 |
+| 2 | 能跟着示例写出代码 |
+| 3 | 能独立修改和编写代码 |
+| 4 | 能迁移到相近任务 |
+| 5 | 能解释原理、对比 C、独立调试 |

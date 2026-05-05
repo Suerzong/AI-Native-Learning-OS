@@ -486,9 +486,49 @@ GPU 加速 (1.5)      Autograd (1.6)
 
 | 资料 | 路径 | 用途 |
 |------|------|------|
-| 课程大纲 | `courses/pytorch/syllabus.md` | 阶段划分和课程对应 |
-| 核心概念 | `courses/pytorch/concepts.md` | 概念速查表 |
 | 练习库 | `courses/pytorch/exercises.md` | 小训练任务 |
 | 错题记录 | `courses/pytorch/mistakes.md` | 错误追踪 |
 | 掌握度 | `courses/pytorch/mastery-tracker.md` | 技能掌握状态 |
 | 学习资源 | `courses/pytorch/materials/references.md` | 外部资源索引 |
+
+---
+
+# 诊断维度
+
+每个技能从以下维度诊断。
+
+| 维度 | 诊断问题 | 证据 |
+|---|---|---|
+| 概念 | 学习者知道这个 API/机制在解决什么问题吗？ | 能用自己的话解释 |
+| API 用法 | 学习者知道 PyTorch API 的函数签名、参数、返回值吗？能不查文档写出正确调用吗？ | 能写出函数调用并解释每个参数 |
+| Shape 推理 | 学习者能预测每一步操作后的 tensor shape 吗？ | 能在纸上写出 shape 变化链 |
+| 代码组织 | 学习者能把多行代码组织成完整的训练流程吗？ | 能写出完整的训练循环或模型定义 |
+| 调试 | 学习者知道报错信息指向什么问题吗？ | 能读 RuntimeError 并定位问题 |
+
+## 等级判断
+
+| 等级 | 表现 |
+|---:|---|
+| 0 | 没接触过 |
+| 1 | 听过术语，能识别代码 |
+| 2 | 能跟着示例运行和解释 |
+| 3 | 能做小修改（改参数、换损失函数） |
+| 4 | 能迁移到相近任务（换数据集、换模型架构） |
+| 5 | 能解释原理并独立调试（读错误信息、排查 shape 问题） |
+
+## PyTorch 特有的诊断重点
+
+### Shape 诊断
+
+给学习者一个 tensor 和一系列操作，要求在纸上写出每一步的 shape。这是判断 PyTorch 熟练度最直接的方式。
+
+### Error Message 诊断
+
+给学习者一段会报错的代码，要求：
+1. 预测会报什么错
+2. 错误信息指向哪一行
+3. 怎么修复
+
+### 完整性诊断
+
+给学习者一个残缺的训练循环，要求补全缺失步骤（zero_grad、loss.backward、optimizer.step、model.train/eval 切换）。

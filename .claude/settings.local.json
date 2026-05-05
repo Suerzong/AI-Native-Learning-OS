@@ -3,7 +3,10 @@
     "allow": [
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(powershell -Command \"Get-PnpDevice -Class Ports | Select-Object FriendlyName,Status | Format-List\")",
+      "Bash(powershell -Command \"Get-PnpDevice -Class USB | Select-Object FriendlyName,Status | Format-List\")",
+      "Bash(\"C:/ti/ccs2050/ccs/ccs_base/common/uscif/xds110/xdsdfu.exe\" -e)"
     ]
   }
 }

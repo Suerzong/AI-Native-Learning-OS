@@ -61,18 +61,7 @@
 
 课程路径：`courses/ti-board/`
 
-相关文件：
-- `courses/ti-board/README.md`
-- `courses/ti-board/syllabus.md`
-- `courses/ti-board/materials/`
-- `courses/ti-board/concepts.md`
-- `courses/ti-board/examples.md`
-- `courses/ti-board/exercises.md`
-- `courses/ti-board/labs.md`
-- `courses/ti-board/mistakes.md`
-- `courses/ti-board/mastery-tracker.md`
-- `courses/ti-board/daily-tests.md`
-- `courses/ti-board/exams.md`
+支持掌握学习教学（`/mastery-learn ti-board`）
 
 对应模块：
 - 2. 编程语言与软件基础
@@ -82,5 +71,76 @@
 - 6. 传感器、通信与外设接口
 - 12. 工程项目、机器人系统与科研能力
 
-当前学习状态：
-计划开始学习。
+---
+
+## Python 编程基础与 AI 工程准备
+
+课程路径：`courses/python/`
+
+支持掌握学习教学（`/mastery-learn python`）
+
+对应模块：
+- 2. 编程语言与软件基础
+- 10. 机器学习与深度学习
+- 12. 工程项目、机器人系统与科研能力
+
+---
+
+## C++ 编程与嵌入式 Linux 工程准备
+
+课程路径：`courses/cpp/`
+
+支持掌握学习教学（`/mastery-learn cpp`）
+
+前置要求：C 语言基础
+
+对应模块：
+- 2. 编程语言与软件基础
+- 3. 计算机系统基础
+- 8. 嵌入式 Linux 系统
+- 12. 工程项目、机器人系统与科研能力
+
+---
+
+## 数据结构与算法
+
+课程路径：`courses/data-structures/`
+
+支持掌握学习教学（`/mastery-learn data-structures`）
+
+前置要求：C 语言基础
+
+对应模块：
+- 2. 编程语言与软件基础
+- 3. 计算机系统基础
+
+当前学习状态：已开始首次训练（算法分析基础 Level 2）
+
+---
+
+## 神经网络原理与深度学习基础
+
+课程路径：`courses/neural-networks/`
+
+支持掌握学习教学（`/mastery-learn neural-networks`）
+
+前置要求：Python 基础、线性代数、微积分
+
+对应模块：
+- 1. 数学与理论基础
+- 10. 机器学习与深度学习
+- 11. 模型部署、端侧优化与 AI 硬件平台
+
+---
+
+## PyTorch 深度学习实战
+
+课程路径：`courses/pytorch/`
+
+支持掌握学习教学（`/mastery-learn pytorch`）
+
+前置要求：Python 基础、神经网络理论
+
+对应模块：
+- 10. 机器学习与深度学习
+- 11. 模型部署、端侧优化与 AI 硬件平台
