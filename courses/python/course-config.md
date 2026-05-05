@@ -1,0 +1,323 @@
+# course-config.md — Python 编程基础与 AI 工程准备
+
+## 课程身份
+
+| 属性 | 值 |
+|------|------|
+| 课程名称 | Python 编程基础与 AI 工程准备 |
+| 课程代号 | python |
+| 目标学生 | 北邮电子工程学院本科生（宋恩泽 / Ethen） |
+| 学习目标 | 掌握 Python 用于数据处理、深度学习脚本编写、自动化任务 |
+| 前置知识 | 基本计算机操作，了解编程概念（变量、循环等） |
+| 参考资料 | 菜鸟教程 Python3 (runoob.com/python3) |
+| 教学模式 | 掌握学习（Mastery Learning），一对一 AI 辅助 |
+| 优先级 | Python > C++（嵌入式底层开发除外） |
+| 总课时 | 40 课时（每课时约 60-90 分钟） |
+
+## 四层知识图谱
+
+### Layer 1: Python 基础（Lessons 1-10）
+
+**目标：能用 Python 写出基本的数据处理脚本**
+
+```
+Lesson 1:  环境搭建与第一个程序
+Lesson 2:  变量、数据类型与类型转换
+Lesson 3:  运算符（算术、比较、逻辑、位运算）
+Lesson 4:  字符串操作与格式化
+Lesson 5:  条件语句（if/elif/else）
+Lesson 6:  循环（for/while/break/continue）
+Lesson 7:  列表（list）操作
+Lesson 8:  元组（tuple）与集合（set）
+Lesson 9:  字典（dict）操作
+Lesson 10: 推导式（列表、字典、集合推导式）
+```
+
+**微目标（Micro-objectives）：**
+
+| 技能 | 微目标 |
+|------|--------|
+| 环境搭建 | 能独立安装 Python 3.10+，配置 PATH，使用 IDLE 和命令行运行 .py 文件 |
+| 变量 | 理解动态类型，能正确使用 int/float/str/bool，理解 None |
+| 类型转换 | 能使用 int(), float(), str(), bool() 进行显式转换 |
+| 运算符 | 能正确使用算术、比较、逻辑运算符，理解短路求值 |
+| 字符串 | 能使用索引、切片、常用方法（split/join/strip/replace/find） |
+| 格式化 | 能使用 f-string 和 .format() 进行字符串格式化 |
+| 条件 | 能写出嵌套条件语句，理解 truthy/falsy 值 |
+| 循环 | 能使用 for/while，理解 break/continue，能使用 enumerate/range |
+| 列表 | 能增删改查，理解切片操作，知道浅拷贝与深拷贝 |
+| 元组 | 理解不可变性，能用于函数返回多个值 |
+| 集合 | 能用于去重和集合运算 |
+| 字典 | 能增删改查，理解 keys/values/items |
+| 推导式 | 能写出列表推导式、字典推导式，理解条件过滤 |
+
+### Layer 2: 函数与面向对象（Lessons 11-20）
+
+**目标：能写出有结构的、可复用的 Python 代码**
+
+```
+Lesson 11: 函数定义与调用
+Lesson 12: 参数类型（位置、关键字、默认值、*args、**kwargs）
+Lesson 13: 返回值与作用域（global、nonlocal）
+Lesson 14: 闭包与 lambda 表达式
+Lesson 15: 装饰器（decorator）
+Lesson 16: 类与对象基础
+Lesson 17: 属性与方法
+Lesson 18: 继承与多态
+Lesson 19: 魔法方法（__init__, __str__, __repr__, __len__, __eq__ 等）
+Lesson 20: 综合练习：设计一个数据处理类
+```
+
+**微目标：**
+
+| 技能 | 微目标 |
+|------|--------|
+| 函数定义 | 能定义带文档字符串的函数，理解参数传递机制 |
+| 参数类型 | 能灵活使用各种参数形式，理解解包操作 |
+| 返回值 | 能返回多值（元组），理解 None 作为默认返回值 |
+| 作用域 | 理解 LEGB 规则，能正确使用 global/nonlocal |
+| 闭包 | 能写出闭包函数，理解自由变量 |
+| lambda | 能用 lambda 配合 sorted/filter/map |
+| 装饰器 | 能写简单装饰器，理解 @语法糖，能使用 functools.wraps |
+| 类 | 能定义类、实例属性、实例方法 |
+| 继承 | 能使用单继承和多继承，理解 MRO |
+| 魔法方法 | 能重写常用魔法方法实现自定义行为 |
+
+### Layer 3: 实用技能（Lessons 21-30）
+
+**目标：能用 Python 完成文件处理、数据读写、自动化脚本**
+
+```
+Lesson 21: 模块与包（import 机制、__init__.py、相对/绝对导入）
+Lesson 22: pip 与第三方包管理
+Lesson 23: 文件读写（open、with 语句、读写模式）
+Lesson 24: CSV 文件处理
+Lesson 25: JSON 数据处理
+Lesson 26: 异常处理（try/except/else/finally、自定义异常）
+Lesson 27: 正则表达式基础
+Lesson 28: os/sys/pathlib 系统操作
+Lesson 29: datetime 时间处理
+Lesson 30: collections/itertools 常用工具
+```
+
+**微目标：**
+
+| 技能 | 微目标 |
+|------|--------|
+| 模块 | 理解模块搜索路径，能创建和使用自定义包 |
+| pip | 能安装/卸载/升级包，理解 requirements.txt |
+| 文件 I/O | 能用 with 语句安全读写文本文件 |
+| CSV | 能用 csv 模块读写 CSV 文件 |
+| JSON | 能用 json 模块序列化/反序列化数据 |
+| 异常 | 能合理使用 try/except，能自定义异常类 |
+| 正则 | 能使用 re 模块进行基本的模式匹配和替换 |
+| 系统操作 | 能使用 os/pathlib 进行文件路径操作、目录遍历 |
+| 时间 | 能使用 datetime 进行时间格式化、计算 |
+| 工具库 | 能使用 Counter、defaultdict、deque、chain 等 |
+
+### Layer 4: 进阶与 AI 准备（Lessons 31-40）
+
+**目标：具备使用 Python 进行数据科学和深度学习的基础能力**
+
+```
+Lesson 31: 生成器（generator）与 yield
+Lesson 32: 迭代器协议与 itertools
+Lesson 33: 上下文管理器（__enter__/__exit__、contextlib）
+Lesson 34: 多线程与多进程基础
+Lesson 35: 虚拟环境与项目管理（venv、项目结构）
+Lesson 36: NumPy 基础（数组、广播、向量化操作）
+Lesson 37: Pandas 基础（DataFrame、Series、数据读取）
+Lesson 38: 数据可视化入门（matplotlib）
+Lesson 39: Python 在深度学习中的常用模式
+Lesson 40: 综合项目：数据分析流水线
+```
+
+**微目标：**
+
+| 技能 | 微目标 |
+|------|--------|
+| 生成器 | 能写生成器函数和生成器表达式，理解惰性求值 |
+| 迭代器 | 理解迭代器协议，能使用 itertools 常用函数 |
+| 上下文管理器 | 能写简单的上下文管理器 |
+| 并发 | 理解 GIL 概念，能使用 threading 和 multiprocessing 基本 API |
+| 虚拟环境 | 能创建和管理虚拟环境，理解项目目录规范 |
+| NumPy | 能创建数组、做基本运算、理解广播 |
+| Pandas | 能读取 CSV/Excel，做基本的数据筛选和统计 |
+| 可视化 | 能用 matplotlib 绘制折线图、柱状图、散点图 |
+| DL 模式 | 理解数据预处理、批处理、模型保存/加载的 Python 模式 |
+| 综合项目 | 能独立完成一个端到端的数据处理脚本 |
+
+## 依赖链（ASCII）
+
+```
+Layer 1: Python 基础
+  │
+  ├── 变量/类型 ──→ 运算符 ──→ 字符串
+  │                                    │
+  ├── 条件/循环 ────────────────────────┤
+  │                                    ▼
+  ├── 列表/元组/字典/集合 ──→ 推导式
+  │
+  ▼
+Layer 2: 函数与面向对象
+  │
+  ├── 函数定义 ──→ 参数/返回值 ──→ 作用域
+  │                      │
+  │                      ├── 闭包 ──→ lambda ──→ 装饰器
+  │                      │
+  │                      ▼
+  ├── 类/对象 ──→ 继承/多态 ──→ 魔法方法
+  │
+  ▼
+Layer 3: 实用技能
+  │
+  ├── 模块/pip ──→ 文件 I/O ──→ CSV/JSON
+  │                                    │
+  ├── 异常处理 ──→ 正则表达式           │
+  │                                    │
+  ├── os/sys ──→ datetime ──→ collections
+  │
+  ▼
+Layer 4: 进阶与 AI 准备
+  │
+  ├── 生成器/迭代器 ──→ 上下文管理器
+  │
+  ├── 并发基础 ──→ 虚拟环境
+  │
+  ├── NumPy ──→ Pandas ──→ matplotlib
+  │
+  ▼
+  深度学习 / 数据处理 / 自动化脚本
+```
+
+## 高频错误模式
+
+### 1. 可变对象陷阱
+```python
+# 错误：列表作为默认参数
+def add_item(item, lst=[]):
+    lst.append(item)
+    return lst
+
+# 正确：
+def add_item(item, lst=None):
+    if lst is None:
+        lst = []
+    lst.append(item)
+    return lst
+```
+**原因：** 默认参数在函数定义时求值一次，所有调用共享同一个列表。
+
+### 2. 浅拷贝 vs 深拷贝
+```python
+import copy
+a = [[1, 2], [3, 4]]
+b = a[:]          # 浅拷贝！b[0] 和 a[0] 是同一个对象
+c = copy.deepcopy(a)  # 深拷贝
+```
+**原因：** 切片和 .copy() 只拷贝最外层，嵌套的可变对象仍然是引用。
+
+### 3. 循环中修改列表
+```python
+# 错误：在 for 循环中删除元素
+lst = [1, 2, 3, 4, 5]
+for item in lst:
+    if item % 2 == 0:
+        lst.remove(item)  # 跳过元素！
+
+# 正确：
+lst = [item for item in lst if item % 2 != 0]
+# 或：lst[:] = [item for item in lst if item % 2 != 0]
+```
+
+### 4. 作用域混淆
+```python
+x = 10
+def foo():
+    print(x)    # UnboundLocalError!
+    x = 20
+
+# 原因：赋值操作使 x 成为局部变量，但 print 在赋值之前
+```
+
+### 5. is vs ==
+```python
+a = 256
+b = 256
+print(a is b)   # True（小整数缓存）
+
+a = 257
+b = 257
+print(a is b)   # False（可能，取决于实现）
+
+# 用 == 比较值，用 is 比较 None/True/False
+```
+
+### 6. 缩进错误
+Python 使用缩进定义代码块，混用 Tab 和空格会导致 IndentationError。
+**规则：** 始终使用 4 个空格，不要混用 Tab。
+
+### 7. 字符串不可变性
+```python
+s = "hello"
+s[0] = "H"  # TypeError!
+
+# 正确：
+s = "H" + s[1:]
+```
+
+### 8. 异常捕获过于宽泛
+```python
+# 错误：捕获所有异常
+try:
+    result = risky_operation()
+except:
+    pass  # 吞掉所有错误，包括 KeyboardInterrupt
+
+# 正确：只捕获预期的异常
+try:
+    result = risky_operation()
+except ValueError as e:
+    print(f"值错误: {e}")
+```
+
+## 教学风格
+
+### Code-First 原则
+1. **先给能跑的代码** —— 学生先运行，看到效果
+2. **再解释为什么** —— 逐行分析代码逻辑
+3. **然后让学生改** —— 修改参数/逻辑，观察变化
+4. **最后独立写** —— 在新情境中完成类似任务
+
+### 掌握学习循环
+```
+诊断 → 讲解 → 练习 → 反馈 → 迁移测试 → 更新状态
+  ↑                                        │
+  └────────── 未达标则补救 ←───────────────┘
+```
+
+### 反馈原则
+- **确认正确**：增强信心（"这段代码写得很好，特别是... "）
+- **精确指出错误**：精确到行号和具体问题
+- **解释原因**：不是"错了"，而是"为什么错"以及"正确的理解是什么"
+- **给出修正任务**：让学生自己修改，而非直接给答案
+- **验证理解**：修改后追问一个迁移问题
+
+## 文件权限矩阵
+
+| 文件 | 修改权限 | 说明 |
+|------|----------|------|
+| `course-config.md` | 配置变更时 | 课程配置，非必要不改 |
+| `AGENT.md` | Agent 升级时 | 教学系统配置 |
+| `syllabus.md` | 课时调整时 | 课时安排 |
+| `concepts.md` | 可修改 | 核心概念索引 |
+| `exercises.md` | 可修改 | 练习库，持续扩充 |
+| `mastery-tracker.md` | 每次测试后 | 技能掌握度追踪 |
+| `mistakes.md` | 每次犯错后 | 错误记录 |
+| `daily-tests.md` | 每日测试后 | 测试记录 |
+| `exams.md` | 阶段考试后 | 考试记录 |
+| `learner/current-state.md` | 每次学习后 | 学生状态 |
+| `learner/learning-log.md` | 每次学习后 | 学习日志 |
+| `learner/weak-points.md` | 诊断后 | 弱点分析 |
+| `skill-map/*.md` | 知识更新时 | 知识地图 |
+| `agent/*.md` | Agent 升级时 | 教学规则 |
