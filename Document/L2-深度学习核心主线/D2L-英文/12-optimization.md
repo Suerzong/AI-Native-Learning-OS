@@ -1,0 +1,9 @@
+# 12\. Optimization Algorithms[Â¶](#optimization-algorithms "Permalink to this heading")
+
+If you read the book in sequence up to this point you already used a number of optimization algorithms to train deep learning models. They were the tools that allowed us to continue updating model parameters and to minimize the value of the loss function, as evaluated on the training set. Indeed, anyone content with treating optimization as a black box device to minimize objective functions in a simple setting might well content oneself with the knowledge that there exists an array of incantations of such a procedure (with names such as âSGDâ and âAdamâ).
+
+To do well, however, some deeper knowledge is required. Optimization algorithms are important for deep learning. On the one hand, training a complex deep learning model can take hours, days, or even weeks. The performance of the optimization algorithm directly affects the modelâs training efficiency. On the other hand, understanding the principles of different optimization algorithms and the role of their hyperparameters will enable us to tune the hyperparameters in a targeted manner to improve the performance of deep learning models.
+
+In this chapter, we explore common deep learning optimization algorithms in depth. Almost all optimization problems arising in deep learning are _nonconvex_. Nonetheless, the design and analysis of algorithms in the context of _convex_ problems have proven to be very instructive. It is for that reason that this chapter includes a primer on convex optimization and the proof for a very simple stochastic gradient descent algorithm on a convex objective function.
+
+[ __ Previous 11.9. Large-Scale Pretraining with Transformers ](../chapter_attention-mechanisms-and-transformers/large-pretraining-transformers.html) [ __ Next 12.1. Optimization and Deep Learning ](optimization-intro.html)

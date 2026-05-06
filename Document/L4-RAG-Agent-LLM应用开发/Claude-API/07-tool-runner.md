@@ -1,0 +1,543 @@
+# Tool Runner (SDK)
+
+URL: https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-runner
+
+# Tool Runner (SDK)
+
+Use the SDK's Tool Runner abstraction to handle the agentic loop, error wrapping, and type safety automatically.
+
+---
+
+Tool Runner handles the agentic loop, error wrapping, and type safety so you don't have to. Use the [manual loop](/docs/en/agents-and-tools/tool-use/handle-tool-calls) only when you need human-in-the-loop approval, custom logging, or conditional execution. Available in Python, TypeScript, and Ruby SDKs.
+
+The tool runner provides an out-of-the-box solution for executing tools with Claude. Instead of manually handling tool calls, tool results, and conversation management, the tool runner automatically:
+
+- Executes tools when Claude calls them
+- Handles the request/response cycle
+- Manages conversation state
+- Provides type safety and validation
+
+Use the tool runner for most tool use implementations.
+
+The tool runner is currently in beta and available in the [Python](https://github.com/anthropics/anthropic-sdk-python/blob/main/tools.md), [TypeScript](https://github.com/anthropics/anthropic-sdk-typescript/blob/main/helpers.md#tool-helpers), and [Ruby](https://github.com/anthropics/anthropic-sdk-ruby/blob/main/helpers.md#3-auto-looping-tool-runner-beta) SDKs.
+
+**Automatic context management with compaction**
+
+The tool runner supports automatic [compaction](/docs/en/build-with-claude/context-editing#client-side-compaction-sdk), which generates summaries when token usage exceeds a threshold. This allows long-running agentic tasks to continue beyond context window limits.
+
+## Basic usage
+
+Define tools using the SDK helpers, then use the tool runner to execute them.
+
+### Python
+
+Use the `@beta_tool` decorator to define tools with type hints and docstrings.
+
+If you're using the async client, replace `@beta_tool` with `@beta_async_tool` and define the function with `async def`.
+
+```python
+import json
+from anthropic import Anthropic, beta_tool
+
+client = Anthropic()
+
+@beta_tool
+def get_weather(location: str, unit: str = "fahrenheit") -> str:
+    """Get the current weather in a given location.
+
+    Args:
+        location: The city and state, e.g. San Francisco, CA
+        unit: Temperature unit, either 'celsius' or 'fahrenheit'
+    """
+    return json.dumps({"temperature": "20°C", "condition": "Sunny"})
+
+@beta_tool
+def calculate_sum(a: int, b: int) -> str:
+    """Add two numbers together.
+
+    Args:
+        a: First number
+        b: Second number
+    """
+    return str(a + b)
+
+runner = client.beta.messages.tool_runner(
+    model="claude-opus-4-7",
+    max_tokens=1024,
+    tools=[get_weather, calculate_sum],
+    messages=[
+        {
+            "role": "user",
+            "content": "What's the weather like in Paris? Also, what's 15 + 27?",
+        }
+    ],
+)
+for message in runner:
+    print(message)
+```
+
+The `@beta_tool` decorator inspects the function arguments and docstring to extract a JSON schema representation. For example, `calculate_sum` becomes:
+
+```json
+{
+  "name": "calculate_sum",
+  "description": "Add two numbers together.",
+  "input_schema": {
+    "additionalProperties": false,
+    "properties": {
+      "a": {
+        "description": "First number",
+        "title": "A",
+        "type": "integer"
+      },
+      "b": {
+        "description": "Second number",
+        "title": "B",
+        "type": "integer"
+      }
+    },
+    "required": ["a", "b"],
+    "type": "object"
+  }
+}
+```
+
+### TypeScript
+
+Use `betaZodTool()` for type-safe tool definitions with Zod validation, or `betaTool()` for JSON Schema-based definitions.
+
+TypeScript offers two approaches for defining tools:
+
+**Using Zod (recommended)** - Use `betaZodTool()` for type-safe tool definitions with Zod validation (requires Zod 3.25.0 or higher):
+
+```typescript hidelines={1}
+import Anthropic from "@anthropic-ai/sdk";
+import { betaZodTool } from "@anthropic-ai/sdk/helpers/beta/zod";
+import { z } from "zod";
+
+const client = new Anthropic();
+
+const getWeatherTool = betaZodTool({
+  name: "get_weather",
+  description: "Get the current weather in a given location",
+  inputSchema: z.object({
+    location: z.string().describe("The city and state, e.g. San Francisco, CA"),
+    unit: z.enum(["celsius", "fahrenheit"]).default("fahrenheit").describe("Temperature unit")
+  }),
+  run: async (input) => {
+    return JSON.stringify({ temperature: "20°C", condition: "Sunny" });
+  }
+});
+
+const finalMessage = await client.beta.messages.toolRunner({
+  model: "claude-opus-4-7",
+  max_tokens: 1024,
+  tools: [getWeatherTool],
+  messages: [{ role: "user", content: "What's the weather like in Paris?" }]
+});
+
+for (const block of finalMessage.content) {
+  if (block.type === "text") {
+    console.log(block.text);
+  }
+}
+```
+
+**Using JSON Schema** - Use `betaTool()` for type-safe tool definitions without Zod:
+
+The input generated by Claude will not be validated at runtime. Perform validation inside the `run` function if needed.
+
+```typescript hidelines={1}
+import Anthropic from "@anthropic-ai/sdk";
+import { betaTool } from "@anthropic-ai/sdk/helpers/beta/json-schema";
+
+const client = new Anthropic();
+
+const calculateSumTool = betaTool({
+  name: "calculate_sum",
+  description: "Add two numbers together",
+  inputSchema: {
+    type: "object",
+    properties: {
+      a: { type: "number", description: "First number" },
+      b: { type: "number", description: "Second number" }
+    },
+    required: ["a", "b"]
+  },
+  run: async (input) => {
+    return String(input.a + input.b);
+  }
+});
+
+const finalMessage = await client.beta.messages.toolRunner({
+  model: "claude-opus-4-7",
+  max_tokens: 1024,
+  tools: [calculateSumTool],
+  messages: [{ role: "user", content: "What's 15 + 27?" }]
+});
+
+for (const block of finalMessage.content) {
+  if (block.type === "text") {
+    console.log(block.text);
+  }
+}
+```
+
+### Ruby
+
+Use the `Anthropic::BaseTool` class to define tools with typed input schemas.
+
+```ruby
+require "anthropic"
+
+# Initialize client
+client = Anthropic::Client.new
+
+# Define input schema
+class GetWeatherInput  str:
+    """Get the current weather in a given location."""
+    return "20°C, Sunny"
+
+@beta_tool
+def calculate_sum(a: int, b: int) -> str:
+    """Add two numbers together."""
+    return str(a + b)
+
+runner = client.beta.messages.tool_runner(
+    model="claude-opus-4-7",
+    max_tokens=1024,
+    tools=[get_weather, calculate_sum],
+    messages=[
+        {
+            "role": "user",
+            "content": "What's the weather like in Paris? Also, what's 15 + 27?",
+        }
+    ],
+)
+final_message = runner.until_done()
+print(final_message.content[0].text)
+```
+
+### TypeScript
+
+Simply `await` the runner to get the final message.
+
+```typescript hidelines={1..13}
+import Anthropic from "@anthropic-ai/sdk";
+import { betaZodTool } from "@anthropic-ai/sdk/helpers/beta/zod";
+import { z } from "zod";
+
+const client = new Anthropic();
+
+const getWeatherTool = betaZodTool({
+  name: "get_weather",
+  description: "Get the current weather in a given location",
+  inputSchema: z.object({ location: z.string() }),
+  run: async () => JSON.stringify({ temperature: "20°C", condition: "Sunny" })
+});
+
+const runner = client.beta.messages.toolRunner({
+  model: "claude-opus-4-7",
+  max_tokens: 1024,
+  tools: [getWeatherTool],
+  messages: [{ role: "user", content: "What's the weather like in Paris?" }]
+});
+
+const finalMessage = await runner;
+console.log(finalMessage.content[0].text);
+```
+
+### Ruby
+
+Use `runner.run_until_finished` to get all messages.
+
+```ruby hidelines={1..25}
+class GetWeatherInput  ({
+    ...params,
+    max_tokens: 2048 // Increase tokens for next request
+  }));
+
+  // Or add additional messages
+  runner.pushMessages({ role: "user", content: "Please be concise in your response." });
+}
+```
+
+### Ruby
+
+Use `next_message` for step-by-step control. Use `feed_messages` to inject messages and `params` to access parameters.
+
+```ruby hidelines={1..12}
+class GetWeatherInput  str:
+    """A sample tool."""
+    return f"Result for: {query}"
+
+runner = client.beta.messages.tool_runner(
+    model="claude-opus-4-7",
+    max_tokens=1024,
+    tools=[my_tool],
+    messages=[{"role": "user", "content": "Run the tool"}],
+)
+
+for message in runner:
+    tool_response = runner.generate_tool_call_response()
+
+    if tool_response is not None:
+        # tool_response is a dict: {"role": "user", "content": [...]}
+        # Check if any tool result has an error
+        for block in tool_response["content"]:
+            if block.get("is_error"):
+                # Option 1: Raise an exception to stop the loop
+                raise RuntimeError(f"Tool failed: {json.dumps(block['content'])}")
+
+                # Option 2: Log and continue (let Claude handle it)
+                # logger.error(f"Tool error: {json.dumps(block['content'])}")
+
+    # Process the message normally
+    print(message.content)
+```
+
+### TypeScript
+
+```typescript hidelines={1..13}
+import Anthropic from "@anthropic-ai/sdk";
+import { betaZodTool } from "@anthropic-ai/sdk/helpers/beta/zod";
+import { z } from "zod";
+
+const client = new Anthropic();
+
+const myTool = betaZodTool({
+  name: "my_tool",
+  description: "A sample tool",
+  inputSchema: z.object({ query: z.string() }),
+  run: async (input) => `Result for: ${input.query}`
+});
+
+const runner = client.beta.messages.toolRunner({
+  model: "claude-opus-4-7",
+  max_tokens: 1024,
+  tools: [myTool],
+  messages: [{ role: "user", content: "Run the tool" }]
+});
+
+for await (const message of runner) {
+  const toolResultMessage = await runner.generateToolResponse();
+
+  if (toolResultMessage) {
+    // Check if any tool result has an error
+    for (const block of toolResultMessage.content) {
+      if (block.type === "tool_result" && block.is_error) {
+        // Option 1: Throw to stop the loop
+        throw new Error(`Tool failed: ${JSON.stringify(block.content)}`);
+
+        // Option 2: Log and continue (let Claude handle it)
+        // console.error(`Tool error: ${JSON.stringify(block.content)}`);
+      }
+    }
+  }
+
+  // Process the message normally
+  console.log(message.content);
+}
+```
+
+### Ruby
+
+```ruby hidelines={1..12}
+class MyToolInput  str:
+    """Search documents for relevant information."""
+    return f"Found 3 documents matching: {query}"
+
+runner = client.beta.messages.tool_runner(
+    model="claude-opus-4-7",
+    max_tokens=1024,
+    tools=[search_documents],
+    messages=[
+        {
+            "role": "user",
+            "content": "Search for information about the climate of San Francisco",
+        }
+    ],
+)
+
+for message in runner:
+    tool_response = runner.generate_tool_call_response()
+
+    if tool_response is not None:
+        # tool_response is a dict: {"role": "user", "content": [...]}
+        # Modify the tool result to add cache control
+        for block in tool_response["content"]:
+            if block["type"] == "tool_result":
+                # Add cache_control to cache this tool result
+                block["cache_control"] = {"type": "ephemeral"}
+
+        # Append the modified response (this prevents auto-append of the original)
+        runner.append_messages(message, tool_response)
+
+    print(message.content)
+```
+
+### TypeScript
+
+```typescript hidelines={1..13}
+import Anthropic from "@anthropic-ai/sdk";
+import { betaZodTool } from "@anthropic-ai/sdk/helpers/beta/zod";
+import { z } from "zod";
+
+const client = new Anthropic();
+
+const searchDocuments = betaZodTool({
+  name: "search_documents",
+  description: "Search documents for relevant information",
+  inputSchema: z.object({ query: z.string() }),
+  run: async (input) => `Found 3 documents matching: ${input.query}`
+});
+
+const runner = client.beta.messages.toolRunner({
+  model: "claude-opus-4-7",
+  max_tokens: 1024,
+  tools: [searchDocuments],
+  messages: [
+    { role: "user", content: "Search for information about the climate of San Francisco" }
+  ]
+});
+
+for await (const message of runner) {
+  const toolResultMessage = await runner.generateToolResponse();
+
+  if (toolResultMessage && typeof toolResultMessage.content !== "string") {
+    // Modify the tool result to add cache control
+    for (const block of toolResultMessage.content) {
+      if (block.type === "tool_result") {
+        // Add cache_control to cache this tool result
+        block.cache_control = { type: "ephemeral" };
+      }
+    }
+    // No pushMessages call needed: the runner auto-appends both the assistant
+    // message and the (now-mutated) cached tool response.
+  }
+
+  console.log(message.content);
+}
+```
+
+### Ruby
+
+```ruby hidelines={1..12}
+class SearchDocumentsInput 
+Adding `cache_control` to tool results is particularly useful when tools return large amounts of data (like document search results) that you want to cache for subsequent API calls. See [Prompt caching](/docs/en/build-with-claude/prompt-caching) for more details on caching strategies.
+
+## Streaming
+
+Enable streaming to receive events as they arrive. Each iteration yields a stream object that you can iterate for events.
+
+### Python
+
+Set `stream=True` and use `get_final_message()` to get the accumulated message.
+
+```python hidelines={1..10}
+import anthropic
+from anthropic import beta_tool
+
+client = anthropic.Anthropic()
+
+@beta_tool
+def calculate_sum(a: int, b: int) -> str:
+    """Add two numbers together."""
+    return str(a + b)
+
+runner = client.beta.messages.tool_runner(
+    model="claude-opus-4-7",
+    max_tokens=1024,
+    tools=[calculate_sum],
+    messages=[{"role": "user", "content": "What is 15 + 27?"}],
+    stream=True,
+)
+
+# When streaming, the runner returns BetaMessageStream
+for message_stream in runner:
+    for event in message_stream:
+        print("event:", event)
+    print("message:", message_stream.get_final_message())
+
+print(runner.until_done())
+```
+
+### TypeScript
+
+Set `stream: true` and use `finalMessage()` to get the accumulated message.
+
+```typescript hidelines={1..13}
+import Anthropic from "@anthropic-ai/sdk";
+import { betaZodTool } from "@anthropic-ai/sdk/helpers/beta/zod";
+import { z } from "zod";
+
+const client = new Anthropic();
+
+const getWeatherTool = betaZodTool({
+  name: "get_weather",
+  description: "Get the current weather in a given location",
+  inputSchema: z.object({ location: z.string() }),
+  run: async () => JSON.stringify({ temperature: "20°C", condition: "Sunny" })
+});
+
+const runner = client.beta.messages.toolRunner({
+  model: "claude-opus-4-7",
+  max_tokens: 1000,
+  messages: [{ role: "user", content: "What is the weather in San Francisco?" }],
+  tools: [getWeatherTool],
+  stream: true
+});
+
+// When streaming, the runner returns BetaMessageStream
+for await (const messageStream of runner) {
+  for await (const event of messageStream) {
+    console.log("event:", event);
+  }
+  console.log("message:", await messageStream.finalMessage());
+}
+
+console.log(await runner);
+```
+
+### Ruby
+
+Use `each_streaming` to iterate over streaming events.
+
+```ruby hidelines={1..13}
+class CalculateSumInput < Anthropic::BaseModel
+  required :a, Integer
+  required :b, Integer
+end
+
+class CalculateSum < Anthropic::BaseTool
+  doc "Add two numbers together"
+  input_schema CalculateSumInput
+  def call(input)
+    (input.a + input.b).to_s
+  end
+end
+
+runner = client.beta.messages.tool_runner(
+  model: "claude-opus-4-7",
+  max_tokens: 1024,
+  tools: [CalculateSum.new],
+  messages: [{role: "user", content: "What is 15 + 27?"}]
+)
+
+runner.each_streaming do |event|
+  case event
+  when Anthropic::Streaming::TextEvent
+    print event.text
+  when Anthropic::Streaming::InputJsonEvent
+    puts "\nTool input: #{event.partial_json}"
+  end
+end
+```
+
+## Next steps
+
+- For manual control over the tool-call loop, see [Handle tool calls](/docs/en/agents-and-tools/tool-use/handle-tool-calls).
+- For running multiple tools concurrently, see [Parallel tool use](/docs/en/agents-and-tools/tool-use/parallel-tool-use).
+- For the full tool-use workflow, see [Define tools](/docs/en/agents-and-tools/tool-use/define-tools).
+
+---

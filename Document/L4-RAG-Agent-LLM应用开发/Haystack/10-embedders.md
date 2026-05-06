@@ -1,0 +1,123 @@
+[Skip to main content](<#__docusaurus_skipToContent_fallback>)[![Haystack Logo](/img/logo.svg)![Haystack Logo](/img/logo.svg)**Haystack Documentation**](</>)[2.28](</docs/embedders>)
+
+  * [2.29-unstable](</docs/next/embedders>)
+  * [2.28](</docs/embedders>)
+  * [2.27](</docs/2.27/embedders>)
+  * [2.26](</docs/2.26/embedders>)
+  * [2.25](</docs/2.25/embedders>)
+  * [2.24](</docs/2.24/embedders>)
+  * * * *
+
+  * [1.x archived documentation](</docs/faq#where-can-i-find-tutorials-and-documentation-for-haystack-1x>)
+  * [2.x archived documentation](</docs/faq#where-can-i-find-documentation-for-older-haystack-versions>)
+[Docs](</docs/intro>)[API Reference](</reference/>)[Contribute](<https://github.com/deepset-ai/haystack/blob/main/docs-website/CONTRIBUTING.md>)[GitHub](<https://github.com/deepset-ai/haystack/tree/main/docs-website>)🔍Search documentation...
+
+  * [Introduction](</docs/intro>)
+  * [Overview](</docs/installation>)
+  * [Haystack Concepts](</docs/concepts-overview>)
+  * [Document Stores](</docs/inmemorydocumentstore>)
+  * [Pipeline Components](</docs/agent>)
+    * [Agents](</docs/agent>)
+    * [Audio](</docs/audio>)
+    * [Builders](</docs/builders>)
+    * [Caching](</docs/cachechecker>)
+    * [Classifiers](</docs/classifiers>)
+    * [Connectors](</docs/connectors>)
+    * [Converters](</docs/converters>)
+    * [Downloaders](</docs/s3downloader>)
+    * [Embedders](</docs/embedders>)
+      * [Choosing the Right Embedder](</docs/choosing-the-right-embedder>)
+      * [AmazonBedrockDocumentEmbedder](</docs/amazonbedrockdocumentembedder>)
+      * [AmazonBedrockDocumentImageEmbedder](</docs/amazonbedrockdocumentimageembedder>)
+      * [AmazonBedrockTextEmbedder](</docs/amazonbedrocktextembedder>)
+      * [AzureOpenAIDocumentEmbedder](</docs/azureopenaidocumentembedder>)
+      * [AzureOpenAITextEmbedder](</docs/azureopenaitextembedder>)
+      * [CohereDocumentEmbedder](</docs/coheredocumentembedder>)
+      * [CohereDocumentImageEmbedder](</docs/coheredocumentimageembedder>)
+      * [CohereTextEmbedder](</docs/coheretextembedder>)
+      * [FastembedDocumentEmbedder](</docs/fastembeddocumentembedder>)
+      * [FastembedSparseDocumentEmbedder](</docs/fastembedsparsedocumentembedder>)
+      * [FastembedSparseTextEmbedder](</docs/fastembedsparsetextembedder>)
+      * [FastembedTextEmbedder](</docs/fastembedtextembedder>)
+      * [GoogleGenAIDocumentEmbedder](</docs/googlegenaidocumentembedder>)
+      * [GoogleGenAITextEmbedder](</docs/googlegenaitextembedder>)
+      * [GoogleGenAIMultimodalDocumentEmbedder](</docs/googlegenaimultimodaldocumentembedder>)
+      * [HuggingFaceAPIDocumentEmbedder](</docs/huggingfaceapidocumentembedder>)
+      * [HuggingFaceAPITextEmbedder](</docs/huggingfaceapitextembedder>)
+      * [JinaDocumentEmbedder](</docs/jinadocumentembedder>)
+      * [JinaDocumentImageEmbedder](</docs/jinadocumentimageembedder>)
+      * [JinaTextEmbedder](</docs/jinatextembedder>)
+      * [MistralDocumentEmbedder](</docs/mistraldocumentembedder>)
+      * [MistralTextEmbedder](</docs/mistraltextembedder>)
+      * [NvidiaDocumentEmbedder](</docs/nvidiadocumentembedder>)
+      * [NvidiaTextEmbedder](</docs/nvidiatextembedder>)
+      * [OllamaDocumentEmbedder](</docs/ollamadocumentembedder>)
+      * [OllamaTextEmbedder](</docs/ollamatextembedder>)
+      * [OpenAIDocumentEmbedder](</docs/openaidocumentembedder>)
+      * [OpenAITextEmbedder](</docs/openaitextembedder>)
+      * [OptimumDocumentEmbedder](</docs/optimumdocumentembedder>)
+      * [OptimumTextEmbedder](</docs/optimumtextembedder>)
+      * [SentenceTransformersDocumentEmbedder](</docs/sentencetransformersdocumentembedder>)
+      * [SentenceTransformersDocumentImageEmbedder](</docs/sentencetransformersdocumentimageembedder>)
+      * [SentenceTransformersSparseDocumentEmbedder](</docs/sentencetransformerssparsedocumentembedder>)
+      * [SentenceTransformersSparseTextEmbedder](</docs/sentencetransformerssparsetextembedder>)
+      * [SentenceTransformersTextEmbedder](</docs/sentencetransformerstextembedder>)
+      * [STACKITDocumentEmbedder](</docs/stackitdocumentembedder>)
+      * [STACKITTextEmbedder](</docs/stackittextembedder>)
+      * [VertexAIDocumentEmbedder](</docs/vertexaidocumentembedder>)
+      * [VertexAITextEmbedder](</docs/vertexaitextembedder>)
+      * [VLLMDocumentEmbedder](</docs/vllmdocumentembedder>)
+      * [VLLMTextEmbedder](</docs/vllmtextembedder>)
+      * [WatsonxDocumentEmbedder](</docs/watsonxdocumentembedder>)
+      * [WatsonxTextEmbedder](</docs/watsonxtextembedder>)
+      * [External Integrations](</docs/external-integrations-embedders>)
+    * [Evaluators](</docs/evaluators>)
+    * [Extractors](</docs/extractors>)
+    * [Fetchers](</docs/fetchers>)
+    * [Generators](</docs/generators>)
+    * [Joiners](</docs/joiners>)
+    * [Preprocessors](</docs/preprocessors>)
+    * [Query](</docs/queryexpander>)
+    * [Rankers](</docs/rankers>)
+    * [Readers](</docs/readers>)
+    * [Retrievers](</docs/retrievers>)
+    * [Routers](</docs/routers>)
+    * [Samplers](</docs/toppsampler>)
+    * [Tools](</docs/toolinvoker>)
+    * [Translators](</docs/laradocumenttranslator>)
+    * [Validators](</docs/jsonschemavalidator>)
+    * [Websearch](</docs/websearch>)
+    * [Writers](</docs/documentwriter>)
+  * [Tools](</docs/tool>)
+  * [Optimization](</docs/evaluation>)
+  * [Development](</docs/logging>)
+
+  * [](</>)
+  * Pipeline Components
+  * Embedders
+Version: 2.28Copy
+
+# Embedders
+
+Embedders in Haystack transform texts or documents into vector representations using pre-trained models. You can then use the embedding for tasks like question answering, information retrieval, and more. infoFor general guidance on how to choose an Embedder that would be right for you, read our [Choosing the Right Embedder](</docs/choosing-the-right-embedder>) page. These are the Embedders available in Haystack: | Embedder| Description| [AmazonBedrockTextEmbedder](</docs/amazonbedrocktextembedder>)| Computes embeddings for text (such as a query) using models through Amazon Bedrock API.| [AmazonBedrockDocumentEmbedder](</docs/amazonbedrockdocumentembedder>)| Computes embeddings for documents using models through Amazon Bedrock API.| [AmazonBedrockDocumentImageEmbedder](</docs/amazonbedrockdocumentimageembedder>)| Computes image embeddings for a document.| [AzureOpenAITextEmbedder](</docs/azureopenaitextembedder>)| Computes embeddings for text (such as a query) using OpenAI models deployed through Azure.| [AzureOpenAIDocumentEmbedder](</docs/azureopenaidocumentembedder>)| Computes embeddings for documents using OpenAI models deployed through Azure.| [CohereTextEmbedder](</docs/coheretextembedder>)| Embeds a simple string (such as a query) with a Cohere model. Requires an API key from Cohere| [CohereDocumentEmbedder](</docs/coheredocumentembedder>)| Embeds a list of documents with a Cohere model. Requires an API key from Cohere.| [CohereDocumentImageEmbedder](</docs/coheredocumentimageembedder>)| Computes the image embeddings of a list of documents and stores the obtained vectors in the embedding field of each document.| [FastembedTextEmbedder](</docs/fastembedtextembedder>)| Computes the embeddings of a string using embedding models supported by Fastembed.| [FastembedDocumentEmbedder](</docs/fastembeddocumentembedder>)| Computes the embeddings of a list of documents using the models supported by Fastembed.| [FastembedSparseTextEmbedder](</docs/fastembedsparsetextembedder>)| Embeds a simple string (such as a query) into a sparse vector using the models supported by Fastembed.| [FastembedSparseDocumentEmbedder](</docs/fastembedsparsedocumentembedder>)| Enriches a list of documents with their sparse embeddings using the models supported by Fastembed.| [GoogleGenAITextEmbedder](</docs/googlegenaitextembedder>)| Embeds a simple string (such as a query) with a Google AI model. Requires an API key from Google.| [GoogleGenAIDocumentEmbedder](</docs/googlegenaidocumentembedder>)| Embeds a list of documents with a Google AI model. Requires an API key from Google.| [GoogleGenAIMultimodalDocumentEmbedder](</docs/googlegenaimultimodaldocumentembedder>)| Embeds a list of non-textual documents with a Google AI model. Requires an API key from Google.| [HuggingFaceAPIDocumentEmbedder](</docs/huggingfaceapidocumentembedder>)| Computes document embeddings using various Hugging Face APIs.| [HuggingFaceAPITextEmbedder](</docs/huggingfaceapitextembedder>)| Embeds strings using various Hugging Face APIs.| [JinaTextEmbedder](</docs/jinatextembedder>)| Embeds a simple string (such as a query) with a Jina AI Embeddings model. Requires an API key from Jina AI.| [JinaDocumentEmbedder](</docs/jinadocumentembedder>)| Embeds a list of documents with a Jina AI Embeddings model. Requires an API key from Jina AI.| [JinaDocumentImageEmbedder](</docs/jinadocumentimageembedder>)| Computes the image embeddings of a list of documents and stores the obtained vectors in the embedding field of each document.| [MistralTextEmbedder](</docs/mistraltextembedder>)| Transforms a string into a vector using the Mistral API and models.| [MistralDocumentEmbedder](</docs/mistraldocumentembedder>)| Computes the embeddings of a list of documents using the Mistral API and models.| [NvidiaTextEmbedder](</docs/nvidiatextembedder>)| Embeds a simple string (such as a query) into a vector.| [NvidiaDocumentEmbedder](</docs/nvidiadocumentembedder>)| Enriches the metadata of documents with an embedding of their content.| [OllamaTextEmbedder](</docs/ollamatextembedder>)| Computes the embeddings of a string using embedding models compatible with the Ollama Library.| [OllamaDocumentEmbedder](</docs/ollamadocumentembedder>)| Computes the embeddings of a list of documents using embedding models compatible with the Ollama Library.| [OpenAIDocumentEmbedder](</docs/openaidocumentembedder>)| Embeds a list of documents with an OpenAI embedding model. Requires an API key from an active OpenAI account.| [OpenAITextEmbedder](</docs/openaitextembedder>)| Embeds a simple string (such as a query) with an OpenAI embedding model. Requires an API key from an active OpenAI account.| [OptimumTextEmbedder](</docs/optimumtextembedder>)| Embeds text using models loaded with the Hugging Face Optimum library.| [OptimumDocumentEmbedder](</docs/optimumdocumentembedder>)| Computes documents’ embeddings using models loaded with the Hugging Face Optimum library.| [SentenceTransformersTextEmbedder](</docs/sentencetransformerstextembedder>)| Embeds a simple string (such as a query) using a Sentence Transformer model.| [SentenceTransformersDocumentEmbedder](</docs/sentencetransformersdocumentembedder>)| Embeds a list of documents with a Sentence Transformer model.| [SentenceTransformersDocumentImageEmbedder](</docs/sentencetransformersdocumentimageembedder>)| Computes the image embeddings of a list of documents and stores the obtained vectors in the embedding field of each document.| [SentenceTransformersSparseTextEmbedder](</docs/sentencetransformerssparsetextembedder>)| Embeds a simple string (such as a query) into a sparse vector using Sentence Transformers models.| [SentenceTransformersSparseDocumentEmbedder](</docs/sentencetransformerssparsedocumentembedder>)| Enriches a list of documents with their sparse embeddings using Sentence Transformers models.| [STACKITTextEmbedder](</docs/stackittextembedder>)| Enables text embedding using the STACKIT API.| [STACKITDocumentEmbedder](</docs/stackitdocumentembedder>)| Enables document embedding using the STACKIT API.| [VertexAITextEmbedder](</docs/vertexaitextembedder>)| Computes embeddings for text (such as a query) using models through VertexAI Embeddings API. **_This integration will be deprecated soon. We recommend using[GoogleGenAITextEmbedder](</docs/googlegenaitextembedder>) integration instead._**| [VertexAIDocumentEmbedder](</docs/vertexaidocumentembedder>)| Computes embeddings for documents using models through VertexAI Embeddings API. **_This integration will be deprecated soon. We recommend using[GoogleGenAIDocumentEmbedder](</docs/googlegenaidocumentembedder>) integration instead._**| [VLLMTextEmbedder](</docs/vllmtextembedder>)| Computes the embeddings of a string using models served with vLLM.| [VLLMDocumentEmbedder](</docs/vllmdocumentembedder>)| Computes the embeddings of a list of documents using models served with vLLM.| [WatsonxTextEmbedder](</docs/watsonxtextembedder>)| Computes embeddings for text (such as a query) using IBM Watsonx models.| [WatsonxDocumentEmbedder](</docs/watsonxdocumentembedder>)| Computes embeddings for documents using IBM Watsonx models.[Edit this page](<https://github.com/deepset-ai/haystack/tree/main/docs-website/versioned_docs/version-2.28/pipeline-components/embedders.mdx>)[PreviousS3Downloader](</docs/s3downloader>)[NextChoosing the Right Embedder](</docs/choosing-the-right-embedder>)Community
+
+  * [![Discord](/img/discord.svg)](<https://discord.com/invite/haystack>)[![GitHub](/img/github.svg)](<https://github.com/deepset-ai/haystack>)[![X](/img/x.svg)](<https://x.com/haystack_ai>)[![LinkedIn](/img/linkedin.svg)](<https://www.linkedin.com/company/deepset-ai/>)[![YouTube](/img/youtube.svg)](<https://www.youtube.com/channel/UC5dfn9m310oyt-cbeegfvZw>)
+Learn
+
+  * [Tutorials](<https://haystack.deepset.ai/tutorials>)
+  * [Cookbooks](<https://haystack.deepset.ai/cookbook>)
+More
+
+  * [Integrations](<https://haystack.deepset.ai/integrations>)
+  * [Platform - Try Free](<https://landing.deepset.ai/deepset-studio-signup>)
+  * [Enterprise Support](<https://landing.deepset.ai/deepset-studio-signup>)
+Company
+
+  * [About](<https://deepset.ai/about>)
+  * [Careers](<https://deepset.ai/careers>)
+  * [Blog](<https://deepset.ai/blog>)
+Legal
+
+  * [Privacy Policy](<https://www.deepset.ai/privacy-policy>)
+  * [Imprint](<https://www.deepset.ai/imprint>)
+© 2026 deepset GmbH. All rights reserved.
