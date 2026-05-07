@@ -1,0 +1,35 @@
+Quick Start Guide
+=================
+
+1. Brushed Motor Library Documentation
+--------------------------------------
+
+-  `Library Software Overview <./Brushed_Motor_Control_Software_Overview.html>`__
+
+2. Library API Documentation
+----------------------------
+
+-  `MSPM0L1306 API Guide <../../doxygen/mspm0l1306-doc-srcs-api-guide/html/index.html>`__
+-  `MSPM0C1106 API Guide <../../doxygen/mspm0c1106-doc-srcs-api-guide/html/index.html>`__
+-  `MSPM0H3216 API Guide <../../doxygen/mspm0h3216-doc-srcs-api-guide/html/index.html>`__
+-  `MSPM0L2117 API Guide <../../doxygen/mspm0l2117-doc-srcs-api-guide/html/index.html>`__
+
+3. Supported Motor Drivers
+--------------------------
+
+3.1 DRV8706-Q1
+~~~~~~~~~~~~~~
+
+Supported MSPM0 Launchpads
+
+-  `LP-MSPM0L1306 <https://www.ti.com/tool/LP-MSPM0L1306>`__
+-  `LP-MSPM0C1106 <https://www.ti.com/tool/LP-MSPM0C1106>`__
+-  `LP-MSPM0H3216 <https://www.ti.com/tool/LP-MSPM0H3216>`__
+-  `LP-MSPM0L2117 <https://www.ti.com/tool/LP-MSPM0L2117>`__
+
+Useful Links
+
+-  `DRV8706-Q1 EVM GUI User Guide <./drv8706-q1/DRV8706-Q1_GUI_User_Guide.html>`__
+-  `DRV8706-Q1 EVM GUI Hardware User Guide <./drv8706-q1/DRV8706-Q1_Hardware_User_Guide.html>`__
+-  `DRV8706-Q1 Device Page <https://www.ti.com/product/DRV8706-Q1>`__
+-  `DRV8706-Q1 EVM Page <https://www.ti.com/tool/DRV8706S-Q1EVM>`__
