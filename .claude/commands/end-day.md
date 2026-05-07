@@ -172,3 +172,25 @@ $ARGUMENTS
 - 如果原计划受影响，必须给出后续重排建议
 - 所有重排建议必须对应十二大能力模块
 - 所有内容必须服务于 Edge AI / 嵌入式 AI 长期目标
+
+---
+
+# 自动推送
+
+文件更新完成后，执行以下 git 操作自动同步到远程仓库：
+
+```bash
+git add -A && git commit -m "$(cat <<'EOF'
+[end-day] YYYY-MM-DD 每日复盘：XXX
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+EOF
+)" && git push origin main
+```
+
+提交信息格式要求：
+- 以 `[end-day]` 开头，加上今天的日期
+- 简要说明复盘结论和后续安排
+- 示例：`[end-day] 2026-05-07 每日复盘：完成 STM32 串口实验，数学推迟至明天`
+
+如果 git 操作失败（如网络问题），提示用户但不要中断任务。

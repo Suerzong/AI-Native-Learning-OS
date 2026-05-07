@@ -67,3 +67,25 @@ $ARGUMENTS
 
 【后续可补充方向】
 ……
+
+---
+
+# 自动推送
+
+文件更新完成后，执行以下 git 操作自动同步到远程仓库：
+
+```bash
+git add -A && git commit -m "$(cat <<'EOF'
+[update-progress] YYYY-MM-DD 学习进度更新：XXX
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+EOF
+)" && git push origin main
+```
+
+提交信息格式要求：
+- 以 `[update-progress]` 开头，加上今天的日期
+- 简要说明本次更新了哪些模块的能力状态
+- 示例：`[update-progress] 2026-05-07 模块5：STM32 UART 从已学习提升至已实践`
+
+如果 git 操作失败（如网络问题），提示用户但不要中断任务。

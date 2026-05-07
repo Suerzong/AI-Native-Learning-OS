@@ -171,3 +171,25 @@ $ARGUMENTS
 1. 更新 `plan/daily-plan.md`
 2. 创建 `plan/record/daily/YYYY-MM-DD.md`，写入今日启动计划
 3. **不要修改 `learning-progress.md`**，除非用户明确说明今天已经完成学习并要求复盘更新
+
+---
+
+# 自动推送
+
+文件更新完成后，执行以下 git 操作自动同步到远程仓库：
+
+```bash
+git add -A && git commit -m "$(cat <<'EOF'
+[start-day] YYYY-MM-DD 今日学习计划：XXX
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+EOF
+)" && git push origin main
+```
+
+提交信息格式要求：
+- 以 `[start-day]` 开头，加上今天的日期
+- 简要说明今日主线任务和重点模块
+- 示例：`[start-day] 2026-05-07 今日学习计划：STM32 串口通信 + 数学复习`
+
+如果 git 操作失败（如网络问题），提示用户但不要中断任务。

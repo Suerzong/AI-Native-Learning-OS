@@ -104,3 +104,25 @@ $ARGUMENTS
 - 如果需要更新路线信息，在 `plan/roadmap.md` 中新增或更新"当前主题学习任务"部分
 - 更新 `plan/daily-plan.md` 中的今日任务安排（不要覆盖整个文件）
 - **不要更新 `learning-progress.md`**
+
+---
+
+# 自动推送
+
+文件更新完成后，执行以下 git 操作自动同步到远程仓库：
+
+```bash
+git add -A && git commit -m "$(cat <<'EOF'
+[topic-study] YYYY-MM-DD 主题学习规划：XXX
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+EOF
+)" && git push origin main
+```
+
+提交信息格式要求：
+- 以 `[topic-study]` 开头，加上今天的日期
+- 简要说明主题名称、周期和目标
+- 示例：`[topic-study] 2026-05-07 主题规划：14天 STM32 串口通信专项`
+
+如果 git 操作失败（如网络问题），提示用户但不要中断任务。

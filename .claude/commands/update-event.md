@@ -114,3 +114,25 @@ $ARGUMENTS
 
 ## 8. 晚上复盘提醒
 晚上请使用 `/end-day`，并说明实际完成情况。
+
+---
+
+# 自动推送
+
+文件更新完成后，执行以下 git 操作自动同步到远程仓库：
+
+```bash
+git add -A && git commit -m "$(cat <<'EOF'
+[update-event] YYYY-MM-DD 突发事件：XXX
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+EOF
+)" && git push origin main
+```
+
+提交信息格式要求：
+- 以 `[update-event]` 开头，加上今天的日期
+- 简要说明突发事件和计划调整
+- 示例：`[update-event] 2026-05-07 突发：电路实验改期，调整今日计划`
+
+如果 git 操作失败（如网络问题），提示用户但不要中断任务。
