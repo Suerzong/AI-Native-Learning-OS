@@ -6,7 +6,25 @@
       "Bash(git push *)",
       "Bash(powershell -Command \"Get-PnpDevice -Class Ports | Select-Object FriendlyName,Status | Format-List\")",
       "Bash(powershell -Command \"Get-PnpDevice -Class USB | Select-Object FriendlyName,Status | Format-List\")",
-      "Bash(\"C:/ti/ccs2050/ccs/ccs_base/common/uscif/xds110/xdsdfu.exe\" -e)"
+      "Bash(\"C:/ti/ccs2050/ccs/ccs_base/common/uscif/xds110/xdsdfu.exe\" -e)",
+      "Bash(git reset *)",
+      "Bash(awk '{print length, $0}')",
+      "Bash(git config *)",
+      "Bash(cd \"/c/Users/sez18/Desktop/Workspace/Edge-AI/courses/data-structures/materials/数据结构\" && rm -f *.ppt *.pdf && echo \"Removed .ppt and .pdf files\")",
+      "Bash(cd \"/c/Users/sez18/Desktop/Workspace/Edge-AI/courses/data-structures/materials/数据结构\" && rm -f task/cleanup.py task/cleanup2.py task/build_toc.py && echo \"Removed .py scripts\")",
+      "Bash(rm -rf \"/c/Users/sez18/Desktop/Workspace/Edge-AI/courses/data-structures/materials/数据结构/.claude\" && echo \"Removed .claude directory\")",
+      "Bash(cd \"/c/Users/sez18/Desktop/Workspace/Edge-AI/courses/data-structures/materials/数据结构\" && mkdir -p slides tutorial tasks && echo \"Created subdirectories\")",
+      "Bash(cd \"/c/Users/sez18/Desktop/Workspace/Edge-AI/courses/data-structures/materials/数据结构/slides\" && rm 'ch02-线性表2-链式存储\\(2\\).md' 'ch02-线性表2-链式存储\\(4\\).md' && echo \"Deleted 2 duplicate files\")",
+      "Bash(python /tmp/clean_slides.py)",
+      "Bash(ls -la ~/.claude/ 2>/dev/null | head -30)",
+      "Read(//c/Users/sez18/.claude/**)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\sez18\\Desktop\\Workspace\\Edge-AI",
+      "c:\\c\\Users\\sez18\\Desktop\\Workspace\\Edge-AI\\courses\\data-structures\\materials\\数据结构\\task",
+      "C:\\Users\\sez18\\Desktop\\Workspace\\Edge-AI\\courses\\data-structures\\materials\\数据结构\\.claude",
+      "c:\\c\\Users\\sez18\\Desktop\\Workspace\\Edge-AI\\courses\\data-structures\\materials\\数据结构",
+      "c:\\c\\Users\\sez18\\Desktop\\Workspace\\Edge-AI\\courses\\data-structures\\materials\\数据结构\\slides"
     ]
   }
 }
