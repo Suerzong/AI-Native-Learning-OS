@@ -106,3 +106,32 @@
 - 正确理解：每个 malloc 必须有对应的 free。删除节点时要先 free 再断链，或先保存指针再断链再 free
 - 纠正任务：为单链表实现 `void destroyList(ListNode* head)` 函数，释放所有节点
 - 是否已复测通过：否
+
+## 2026-05-09：创建节点时用栈变量而非 malloc
+
+- 所属技能：单链表
+- 错误表现：
+```c
+struct Node* createNode(int data) {
+    struct Node new_node;        // ← 栈变量
+    new_node.data = data;
+    return &new_node;            // ← 返回栈变量地址 = 悬空指针
+}
+```
+- 错误原因：不理解栈变量的生命周期——函数返回后栈变量被销毁，返回其地址会导致悬空指针
+- 正确理解：链表节点必须用 malloc 在堆上分配，堆内存在 free 前一直有效
+- 纠正任务：记住规则——凡是需要在函数外继续存在的数据，必须用 malloc 分配
+- 是否已复测通过：是（后续 insertAt 中仍犯一次，经提醒后修正）
+
+## 2026-05-09：指针已是指针时仍加 &
+
+- 所属技能：单链表
+- 错误表现：
+```c
+struct Node* n2 = createNode(20);  // n2 已经是指针
+n1->next = &n2;                    // ← 又加了 &，变成指针的地址
+```
+- 错误原因：不理解 createNode 返回的就是地址（指针），习惯性加 &
+- 正确理解：`n2` 本身就是 `struct Node*`（地址），直接赋值 `n1->next = n2` 即可。`&n2` 是"指针变量 n2 自身的地址"，类型是 `struct Node**`
+- 纠正任务：赋值前检查两边类型——`n1->next` 是 `struct Node*`，`n2` 也是 `struct Node*`，类型匹配直接赋值
+- 是否已复测通过：是
