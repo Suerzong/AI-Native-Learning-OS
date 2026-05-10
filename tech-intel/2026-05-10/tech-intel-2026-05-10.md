@@ -3,11 +3,11 @@
 日期：2026-05-10
 
 信息源覆盖范围：
-- GitHub Search API：quantization/inference、YOLO、edge-ai (topic, 0结果)、model-compression (topic, 0结果)、本月新 ML 项目
+- GitHub Search API：quantization/inference（932条）、YOLO（48499条）、edge-ai topic（0条）、model-compression topic（0条）、本月新 ML 项目（1281条）
 - Hacker News Algolia API：首页 20 条故事
-- arXiv API：cs.LG 分类，返回空（API 查询限制）
-- HuggingFace Papers API：超时未获取
-- 说明：WebFetch / WebSearch 不可用，edge-ai 和 model-compression topic 搜索返回 0 条（GitHub topic 标签覆盖有限）
+- arXiv API：cs.LG 分类，15 条论文（修复：添加 `-L` 跟随 HTTPS 重定向）
+- HuggingFace Papers API：15 篇每日论文（修复：使用 hf-mirror.com 国内镜像）
+- 说明：WebFetch / WebSearch 不可用；edge-ai 和 model-compression topic 搜索返回 0 条（GitHub topic 标签覆盖有限）
 
 ---
 
@@ -90,6 +90,10 @@
 | awesome-ml-systems-engineering（18 stars） | GitHub | 3 | 4 | 收藏，ML 系统工程资源列表 |
 | Meta AI 让员工不满 | HN 258pts | 2 | 1 | 暂时忽略，公司文化新闻 |
 | sagent — 多 Agent 编码框架 | GitHub 7S | 2 | 2 | 了解即可，初期项目 |
+| EMO — MoE 模块化部署（Ai2） | HF/arXiv | 4 | 4 | 可看，模块化专家裁剪 |
+| StraTA — Agent 强化学习 | HF/arXiv | 3 | 2 | 了解即可，偏 Agent RL |
+| Recursive Agent Optimization | arXiv | 3 | 2 | 了解即可，递归 Agent |
+| Optimizer-Model Consistency | arXiv | 3 | 3 | 可看，微调减少遗忘 |
 
 ## 3. Edge AI / 嵌入式 AI 动态
 
@@ -127,17 +131,49 @@
 
 ## 5. 论文与研究
 
+### HuggingFace Daily Papers（2026-05-07）
+
 | 论文 | 方向 | 难度 | 是否值得读 | 建议 |
 |---|---|---|---|---|
-| LLMs corrupt your documents when you delegate (arXiv 2604.15597) | AI 安全 / LLM delegation | 中等 | 可看 | HN 热门，了解 LLM 委托风险 |
+| EMO: Pretraining MoE for Emergent Modularity | MoE 模块化部署 | 中高 | 可看 | 模块化 MoE 可选择性裁剪专家，25% 专家仅掉 1%，与边缘部署直接相关 |
+| LiVeAction: Lightweight Neural Codec for Real-time | 轻量实时编解码 | 中等 | 可看 | 面向可穿戴/远程传感设备的轻量化编解码器，直接关联嵌入式 |
+| KernelBench-X (Tsinghua) | GPU Kernel 生成 | 中高 | 可看 | 评估 LLM 生成 Triton kernel 的基准，关联推理优化 |
+| StraTA: Agentic RL with Trajectory Abstraction | Agent 强化学习 | 高 | 了解即可 | Agent RL 方向，与 Edge AI 关系不大 |
+| TIDE (Apple) | LLM 推理优化 | 中等 | 可看 | Apple 出品，token 查找优化，与端侧推理效率相关 |
 
-arXiv API 查询（cs.LG - edge AI / quantization / model compression / efficient inference）返回空结果。可能原因：查询参数在 Atom API 中的限制。论文覆盖不完整。
+**重点关注：EMO (Ai2)**
 
-核心问题：LLM 作为代理执行文档编辑任务时，可能引入难以察觉的错误
-主要方法：实验性研究，测试 LLM 在 delegation 场景下的文档损坏率
-是否有代码：未确认
-是否适合当前阶段阅读：是，不需要深厚背景知识
-是否值得以后复现：不适用（实证研究）
+- 核心问题：MoE 模型部署时需要加载全部专家，内存开销大
+- 主要方法：通过文档边界约束 token 选择专家的 pool，使专家在预训练中自发形成语义级别的分组
+- 关键结果：1B-active / 14B-total 模型，只保留 25% 专家仅掉 1% 精度
+- 是否有代码：是，https://github.com/allenai/EMO
+- 是否适合当前阶段阅读：论文本身偏高，但概念（模块化部署、专家裁剪）值得了解
+- 是否值得以后复现：是，MoE 模块化部署是边缘 AI 的前沿方向
+
+**重点关注：LiVeAction**
+
+- 核心问题：现代传感器生成高保真数据，但可穿戴/远程设备的带宽和算力受限
+- 主要方法：轻量级、多功能、非对称神经编解码器设计
+- 是否有代码：未确认
+- 是否适合当前阶段阅读：是，概念直观
+- 是否值得以后复现：是，直接关联嵌入式 AI
+
+### arXiv cs.LG（2026-05-07）
+
+| 论文 | 方向 | 难度 | 是否值得读 | 建议 |
+|---|---|---|---|---|
+| Recursive Agent Optimization | Agent RL | 高 | 了解即可 | 递归 Agent 优化，偏理论 |
+| Optimizer-Model Consistency | LLM 微调 | 中等 | 可看 | 用预训练同款优化器做微调，减少遗忘 |
+| UniPool: Globally Shared Expert Pool for MoE | MoE 架构 | 中高 | 可看 | 与 EMO 类似方向，全局共享专家池 |
+| Concept-Based Explanations for Vision Models | 可解释 CV | 中等 | 可看 | 基于概念的视觉模型解释 |
+| Multimodal Domain Generalization Benchmark | 多模态泛化 | 中等 | 了解即可 | 多模态域泛化基准研究 |
+
+### Hacker News 热门论文
+
+- **LLMs corrupt your documents when you delegate**（HN 340pts，arXiv 2604.15597）
+  核心问题：LLM 作为代理执行文档编辑时可能引入难以察觉的错误
+  是否适合当前阶段阅读：是
+  建议：了解即可，偏 AI 安全
 
 ## 6. 今日噪音信息
 
@@ -275,7 +311,7 @@ https://github.com/intel/auto-round
 
 报告生成说明：
 - 本次数据采集时间：2026-05-10
-- GitHub API 5 个方向搜索中，edge-ai topic 和 model-compression topic 返回 0 条（GitHub topic 标签覆盖有限，不等于没有相关项目）
-- arXiv API 返回空（Atom API 查询限制），论文覆盖不完整
-- HuggingFace Papers API 超时
+- GitHub API 5 个方向搜索中，edge-ai topic 和 model-compression topic 返回 0 条（GitHub topic 标签覆盖有限）
+- arXiv API：15 条 cs.LG 论文（已修复：添加 `-L` 跟随 HTTPS 重定向）
+- HuggingFace Papers：15 篇每日论文（已修复：使用 hf-mirror.com 国内镜像替代 huggingface.co）
 - 所有评分基于当前学习阶段：神经网络第二层推进中，Python Layer 2 完成，STM32 裸机已实践

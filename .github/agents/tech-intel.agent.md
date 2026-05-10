@@ -265,14 +265,18 @@ curl -s --max-time 20 "https://hn.algolia.com/api/v1/search?tags=front_page" > t
 **3. arXiv API（论文）**
 
 ```bash
-curl -s --max-time 20 "http://export.arxiv.org/api/query?search_query=cat:cs.LG+AND+(all:edge+AI+OR+all:quantization+OR+all:model+compression+OR+all:efficient+inference)&sortBy=submittedDate&sortOrder=descending&max_results=15" > temp/arxiv_lg.json
+curl -sL --max-time 20 "https://export.arxiv.org/api/query?search_query=cat:cs.LG+AND+(all:edge+AI+OR+all:quantization+OR+all:model+compression+OR+all:efficient+inference)&sortBy=submittedDate&sortOrder=descending&max_results=15" > temp/arxiv_lg.json
 ```
 
-**4. HuggingFace Papers（可选，可能超时）**
+注意：必须使用 `-L` 参数跟随 HTTPS 重定向（arXiv API 从 HTTP 301 到 HTTPS）。使用 `https://` 协议。
+
+**4. HuggingFace Papers（使用国内镜像）**
 
 ```bash
-curl -s --max-time 25 "https://huggingface.co/api/daily_papers?limit=15" > temp/hf_papers.json
+curl -s --max-time 25 "https://hf-mirror.com/api/daily_papers?limit=15" > temp/hf_papers.json
 ```
+
+注意：`huggingface.co` 在国内不可达，必须使用 `hf-mirror.com` 镜像。API 路径完全一致。
 
 ### 数据解析
 
