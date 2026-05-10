@@ -26,26 +26,22 @@ $ARGUMENTS
 
 ## 第 1 步：抓取信息源
 
-按以下顺序抓取，每个来源用 WebFetch 获取：
+**必须使用 curl + API 方式**（WebFetch 和 WebSearch 在当前环境不可用）。
 
-1. `https://github.com/trending` — GitHub Trending（重点关注 AI/ML/embedded 方向）
-2. `https://huggingface.co/papers` — Hugging Face 最新论文
-3. `https://news.ycombinator.com/` — Hacker News 首页
-4. `https://arxiv.org/list/cs.LG/recent` — arXiv 机器学习最新论文
-5. `https://arxiv.org/list/cs.CV/recent` — arXiv 计算机视觉最新论文
+按以下顺序用 curl 抓取，中间文件保存到 `temp/` 目录：
 
-如果某个来源无法访问，跳过并在报告中注明。
+1. GitHub Search API — 量化/推理、YOLO、Edge AI、模型压缩、本月新 ML 项目
+2. Hacker News Algolia API — `https://hn.algolia.com/api/v1/search?tags=front_page`
+3. arXiv API — cs.LG 分类下 edge AI / quantization / model compression 论文
+4. HuggingFace Papers API（可选，可能超时）
 
-## 第 2 步：定向搜索
+详细命令参见 `.github/agents/tech-intel.agent.md` 的"执行说明"部分。
 
-根据已发现的重点方向，用 WebSearch 追踪一手来源，关键词包括但不限于：
-
-- "Edge AI" OR "edge inference" OR "on-device AI"
-- "model quantization" OR "model compression" OR "knowledge distillation"
-- "ExecuTorch" OR "TFLite" OR "ONNX Runtime" OR "TensorRT" OR "OpenVINO"
-- "ESP32 AI" OR "STM32 AI" OR "Jetson" OR "RK3588"
-- "YOLO" OR "object detection" OR "edge vision"
-- "AI chip" OR "NPU" OR "edge computing hardware"
+**注意事项：**
+- 用 `python`（非 `python3`）解析 JSON
+- 中间文件用 `temp/` 目录（非 `/tmp/`）
+- 必须 `sys.stdout.reconfigure(encoding='utf-8')` 处理编码
+- curl 输出重定向到文件，不要管道到 python
 
 ## 第 3 步：筛选与评分
 

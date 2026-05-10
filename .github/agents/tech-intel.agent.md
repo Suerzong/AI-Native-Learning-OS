@@ -225,17 +225,97 @@ agent: agent
 
 # 执行说明
 
-运行时请按以下顺序抓取信息源：
+## 抓取方法
 
-1. `https://github.com/trending` — GitHub Trending 页面
-2. `https://huggingface.co/papers` — Hugging Face 最新论文
-3. `https://news.ycombinator.com/` — Hacker News 首页
-4. `https://arxiv.org/list/cs.LG/recent` — arXiv 机器学习最新论文
-5. `https://arxiv.org/list/cs.CV/recent` — arXiv 计算机视觉最新论文
-6. 根据已发现的重点方向，用 WebSearch 追踪更多一手来源
-7. 对重要项目和论文，尽量获取原始链接和 GitHub repo
+由于 WebFetch 和 WebSearch 在当前环境不可用，**必须使用 curl + API** 方式抓取数据。
 
-如果某个来源无法访问，跳过并记录，在报告中说明信息覆盖范围。
+### 信息源抓取命令
+
+按以下顺序执行，所有中间文件保存到 `temp/` 目录：
+
+**1. GitHub API Search（核心来源）**
+
+用 `curl` 调用 GitHub Search API，分别搜索以下方向：
+
+```bash
+# 量化 / 推理优化
+curl -s --max-time 15 "https://api.github.com/search/repositories?q=quantization+inference+in:name,description&sort=stars&per_page=10" > temp/gh_quant.json
+
+# YOLO / 目标检测
+curl -s --max-time 15 "https://api.github.com/search/repositories?q=yolo+in:name+language:python&sort=stars&per_page=10" > temp/gh_yolo.json
+
+# Edge AI / TinyML
+curl -s --max-time 15 "https://api.github.com/search/repositories?q=topic:edge-ai+OR+topic:tinyml&sort=stars&per_page=10" > temp/gh_edge.json
+
+# 模型压缩综合
+curl -s --max-time 15 "https://api.github.com/search/repositories?q=topic:model-quantization+OR+topic:model-compression+OR+topic:knowledge-distillation&sort=stars&per_page=10" > temp/gh_compress.json
+
+# 本月新建 ML 项目
+curl -s --max-time 15 "https://api.github.com/search/repositories?q=created:>YYYY-MM-01+topic:machine-learning&sort=stars&per_page=10" > temp/gh_new.json
+```
+
+注意：`created:>YYYY-MM-01` 中的日期需要替换为当月第一天。
+
+**2. Hacker News Front Page**
+
+```bash
+curl -s --max-time 20 "https://hn.algolia.com/api/v1/search?tags=front_page" > temp/hn_front.json
+```
+
+**3. arXiv API（论文）**
+
+```bash
+curl -s --max-time 20 "http://export.arxiv.org/api/query?search_query=cat:cs.LG+AND+(all:edge+AI+OR+all:quantization+OR+all:model+compression+OR+all:efficient+inference)&sortBy=submittedDate&sortOrder=descending&max_results=15" > temp/arxiv_lg.json
+```
+
+**4. HuggingFace Papers（可选，可能超时）**
+
+```bash
+curl -s --max-time 25 "https://huggingface.co/api/daily_papers?limit=15" > temp/hf_papers.json
+```
+
+### 数据解析
+
+所有 JSON 文件用 Python 解析（注意使用 `python` 而非 `python3`，且需要 `sys.stdout.reconfigure(encoding='utf-8')` 处理中文/emoji 编码）。
+
+解析模板：
+
+```python
+import json, os, sys
+sys.stdout.reconfigure(encoding='utf-8')
+
+def parse_repos(fname, label):
+    path = os.path.join('temp', fname)
+    if not os.path.exists(path):
+        print(f'{label}: FILE NOT FOUND')
+        return
+    with open(path, encoding='utf-8') as f:
+        content = f.read()
+    if not content.strip():
+        print(f'{label}: EMPTY')
+        return
+    data = json.loads(content)
+    total = data.get('total_count', 0)
+    items = data.get('items', [])
+    print(f'=== {label} (total: {total}) ===')
+    for r in items:
+        desc = (r.get('description') or '')[:100]
+        print(f'{r["full_name"]} | {r["stargazers_count"]} | lang:{r.get("language","?")} | pushed:{r["pushed_at"][:10]} | {desc}')
+```
+
+Hacker News 用 `data.get('hits', [])` 解析，每条取 `title`、`url`、`points`、`num_comments`。
+
+arXiv 用 `xml.etree.ElementTree` 解析 Atom feed。
+
+### 注意事项
+
+- `python3` 命令在此环境不可用，必须用 `python`
+- 中间文件保存到 `temp/` 目录（工作区内），不要用 `/tmp/`（Python 无法访问）
+- 所有 curl 命令使用 `>` 重定向到文件，不要管道到 python（会失败）
+- Windows 环境下中文和 emoji 可能导致编码错误，必须 `sys.stdout.reconfigure(encoding='utf-8')`
+- 如果某个来源超时或不可用，跳过并在报告中注明
+
+## 报告保存
 
 最终输出的报告应保存到 `tech-intel/YYYY-MM-DD/` 目录下，文件名为 `tech-intel-YYYY-MM-DD.md`。
 
