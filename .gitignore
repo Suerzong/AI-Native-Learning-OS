@@ -1,0 +1,17 @@
+# Tech intel temporary data files
+temp/*.json
+temp/hf_papers.json
+temp/hn_front.json
+temp/gh_*.json
+temp/arxiv_*.json
+
+# Claude Code local settings (contains personal permissions)
+.claude/settings.local.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
