@@ -31,6 +31,7 @@ courses/                # 课程资料
   ti-board/             # TI 板子学习
 projects/               # 工程项目
 resources/              # 学习资源索引
+tech-intel/             # 每日科技情报报告（YYYY-MM-DD/ 子文件夹归档）
 ```
 
 ## 核心规则
