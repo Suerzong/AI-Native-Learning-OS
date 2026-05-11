@@ -19,3 +19,8 @@ __pycache__/
 # Large files (TI SDK and datasheets)
 courses/ti-board/materials/raw-sdk/
 courses/ti-board/materials/datasheets/*.pdf
+
+# Large temporary files
+temp/paper/
+temp/ai_tutorial_book-master.zip
+temp/ai_tutorial_book-master/
