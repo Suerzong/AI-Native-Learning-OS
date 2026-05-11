@@ -1,0 +1,659 @@
+# Daily tech intelligence source configuration.
+# `tech-intel/` is read directly by Obsidian; this file keeps sources maintainable.
+
+sources:
+  - id: openai_news
+    name: OpenAI News
+    tier: primary
+    category: official_ai_lab
+    method: rss_or_html
+    url: https://openai.com/news/
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [OpenAI, model release, API, product, research]
+    fallbacks:
+      - https://openai.com/research/
+      - https://openai.com/product/
+
+  - id: anthropic_news
+    name: Anthropic News
+    tier: primary
+    category: official_ai_lab
+    method: rss_or_html
+    url: https://www.anthropic.com/news
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [Anthropic, Claude, model release, API, safety]
+    fallbacks:
+      - https://docs.anthropic.com/
+
+  - id: google_ai_blog
+    name: Google AI Blog
+    tier: primary
+    category: official_ai_lab
+    method: rss_or_html
+    url: https://ai.googleblog.com/
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [Google AI, model release, research, product]
+    fallbacks:
+      - https://blog.google/technology/ai/
+
+  - id: google_deepmind_blog
+    name: Google DeepMind Blog
+    tier: primary
+    category: official_ai_lab
+    method: rss_or_html
+    url: https://deepmind.google/discover/blog/
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [Google DeepMind, research, model, robotics, science]
+    fallbacks:
+      - https://deepmind.google/research/
+
+  - id: google_research_blog
+    name: Google Research Blog
+    tier: primary
+    category: official_research
+    method: rss_or_html
+    url: https://research.google/blog/
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [Google Research, paper, systems, computer vision, ML]
+    fallbacks:
+      - https://research.google/
+
+  - id: meta_ai_blog
+    name: Meta AI Blog
+    tier: primary
+    category: official_ai_lab
+    method: rss_or_html
+    url: https://ai.meta.com/blog/
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [Meta AI, Llama, model release, research, open source]
+    fallbacks:
+      - https://ai.meta.com/research/
+
+  - id: apple_developer_news
+    name: Apple Developer News
+    tier: primary
+    category: developer_ecosystem
+    method: rss_or_html
+    url: https://developer.apple.com/news/
+    frequency: daily
+    priority: medium
+    enabled: true
+    relevance_tags: [Apple, developer tools, Core ML, mobile AI]
+    fallbacks:
+      - https://developer.apple.com/machine-learning/
+
+  - id: microsoft_devblogs_ai
+    name: Microsoft Developer Blogs
+    tier: primary
+    category: developer_ecosystem
+    method: rss_or_html
+    url: https://devblogs.microsoft.com/
+    frequency: daily
+    priority: medium
+    enabled: true
+    relevance_tags: [Microsoft, developer tools, Azure, AI, Windows]
+    fallbacks:
+      - https://azure.microsoft.com/blog/
+
+  - id: google_developers_blog
+    name: Google Developers Blog
+    tier: primary
+    category: developer_ecosystem
+    method: rss_or_html
+    url: https://developers.googleblog.com/
+    frequency: daily
+    priority: medium
+    enabled: true
+    relevance_tags: [Google Developers, Android, TensorFlow, Web AI]
+    fallbacks:
+      - https://android-developers.googleblog.com/
+
+  - id: amd_newsroom
+    name: AMD Newsroom
+    tier: primary
+    category: semiconductor
+    method: rss_or_html
+    url: https://www.amd.com/en/newsroom.html
+    frequency: weekly
+    priority: medium
+    enabled: true
+    relevance_tags: [AMD, GPU, AI accelerator, semiconductor]
+    fallbacks:
+      - https://www.amd.com/en/solutions/ai.html
+
+  - id: intel_newsroom
+    name: Intel Newsroom
+    tier: primary
+    category: semiconductor
+    method: rss_or_html
+    url: https://www.intel.com/content/www/us/en/newsroom/home.html
+    frequency: weekly
+    priority: medium
+    enabled: true
+    relevance_tags: [Intel, CPU, NPU, AI PC, semiconductor]
+    fallbacks:
+      - https://www.intel.com/content/www/us/en/artificial-intelligence/overview.html
+
+  - id: tsmc_news
+    name: TSMC News
+    tier: primary
+    category: semiconductor
+    method: html
+    url: https://www.tsmc.com/english/news-events/news
+    frequency: weekly
+    priority: medium
+    enabled: true
+    relevance_tags: [TSMC, semiconductor, process node, manufacturing]
+    fallbacks:
+      - https://www.tsmc.com/english/news-events
+
+  - id: asml_news
+    name: ASML News
+    tier: primary
+    category: semiconductor
+    method: html
+    url: https://www.asml.com/en/news
+    frequency: weekly
+    priority: medium
+    enabled: true
+    relevance_tags: [ASML, lithography, semiconductor, EUV]
+    fallbacks: []
+
+  - id: onnxruntime_releases
+    name: ONNX Runtime Releases
+    tier: primary
+    category: framework_release
+    method: github_releases
+    repo: microsoft/onnxruntime
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [ONNX Runtime, inference, Edge AI, deployment]
+    fallbacks:
+      - https://github.com/microsoft/onnxruntime/releases
+
+  - id: pytorch_releases
+    name: PyTorch Releases
+    tier: primary
+    category: framework_release
+    method: github_releases
+    repo: pytorch/pytorch
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [PyTorch, deep learning, training, inference]
+    fallbacks:
+      - https://github.com/pytorch/pytorch/releases
+
+  - id: executorch_releases
+    name: ExecuTorch Releases
+    tier: primary
+    category: edge_framework_release
+    method: github_releases
+    repo: pytorch/executorch
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [ExecuTorch, PyTorch Edge, on-device AI]
+    fallbacks:
+      - https://github.com/pytorch/executorch/releases
+
+  - id: pytorch_ao_releases
+    name: PyTorch AO Releases
+    tier: primary
+    category: optimization_tool
+    method: github_releases
+    repo: pytorch/ao
+    frequency: weekly
+    priority: high
+    enabled: true
+    relevance_tags: [quantization, sparsity, model compression, PyTorch]
+    fallbacks:
+      - https://github.com/pytorch/ao
+
+  - id: tensorrt_release_notes
+    name: TensorRT Release Notes
+    tier: primary
+    category: release_notes
+    method: html
+    url: https://docs.nvidia.com/deeplearning/tensorrt/latest/release-notes/index.html
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [TensorRT, NVIDIA, inference, optimization]
+    fallbacks:
+      - https://developer.nvidia.com/tensorrt
+
+  - id: nvidia_developer_blog
+    name: NVIDIA Developer Blog
+    tier: primary
+    category: official_blog
+    method: rss_or_html
+    url: https://developer.nvidia.com/blog/
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [NVIDIA, Jetson, CUDA, TensorRT, Edge AI]
+    fallbacks:
+      - https://developer.nvidia.com/blog/tag/edge-ai/
+
+  - id: pytorch_blog
+    name: PyTorch Blog
+    tier: primary
+    category: official_blog
+    method: rss_or_html
+    url: https://pytorch.org/blog/
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [PyTorch, ExecuTorch, TorchAO, deployment]
+    fallbacks:
+      - https://pytorch.org/blog/categories/edge/
+
+  - id: qualcomm_developer_blog
+    name: Qualcomm Developer Blog
+    tier: primary
+    category: official_blog
+    method: html
+    url: https://www.qualcomm.com/developer/blog
+    frequency: weekly
+    priority: medium
+    enabled: true
+    relevance_tags: [Qualcomm, NPU, mobile AI, Edge AI]
+    fallbacks:
+      - https://www.qualcomm.com/developer/artificial-intelligence
+
+  - id: arxiv_edge_ai
+    name: arXiv Edge AI Query
+    tier: primary
+    category: paper
+    method: arxiv_api
+    url: https://export.arxiv.org/api/query
+    frequency: daily
+    priority: high
+    enabled: true
+    query: "cat:cs.LG AND (all:edge AI OR all:quantization OR all:model compression OR all:efficient inference OR all:on-device)"
+    max_results: 20
+    relevance_tags: [paper, Edge AI, quantization, efficient inference]
+    fallbacks:
+      - hf_daily_papers
+      - papers_with_code_trending
+
+  - id: arxiv_cs_ai_recent
+    name: arXiv CS.AI Recent
+    tier: primary
+    category: paper
+    method: arxiv_recent
+    url: https://arxiv.org/list/cs.AI/recent
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [arXiv, artificial intelligence, paper]
+    fallbacks:
+      - https://export.arxiv.org/api/query
+
+  - id: arxiv_cs_lg_recent
+    name: arXiv CS.LG Recent
+    tier: primary
+    category: paper
+    method: arxiv_recent
+    url: https://arxiv.org/list/cs.LG/recent
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [arXiv, machine learning, paper]
+    fallbacks:
+      - https://export.arxiv.org/api/query
+
+  - id: arxiv_cs_cv_recent
+    name: arXiv CS.CV Recent
+    tier: primary
+    category: paper
+    method: arxiv_recent
+    url: https://arxiv.org/list/cs.CV/recent
+    frequency: daily
+    priority: medium
+    enabled: true
+    relevance_tags: [arXiv, computer vision, YOLO, paper]
+    fallbacks:
+      - https://export.arxiv.org/api/query
+
+  - id: arxiv_cv_edge
+    name: arXiv Computer Vision Edge Query
+    tier: primary
+    category: paper
+    method: arxiv_api
+    url: https://export.arxiv.org/api/query
+    frequency: daily
+    priority: medium
+    enabled: true
+    query: "cat:cs.CV AND (all:real-time OR all:object detection OR all:edge OR all:YOLO)"
+    max_results: 20
+    relevance_tags: [computer vision, YOLO, real-time inference]
+    fallbacks:
+      - hf_daily_papers
+
+  - id: hf_daily_papers
+    name: Hugging Face Daily Papers
+    tier: secondary
+    category: paper_trending
+    method: hf_papers
+    url: https://hf-mirror.com/api/daily_papers?limit=20
+    frequency: daily
+    priority: medium
+    enabled: true
+    relevance_tags: [paper, AI research, trending]
+    fallbacks:
+      - https://huggingface.co/papers
+
+  - id: papers_with_code_trending
+    name: Papers with Code Trending
+    tier: secondary
+    category: paper_code
+    method: html
+    url: https://paperswithcode.com/
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [paper, code, dataset, leaderboard, benchmark]
+    fallbacks:
+      - https://paperswithcode.com/latest
+
+  - id: openreview_ai
+    name: OpenReview AI Conferences
+    tier: primary
+    category: paper_review
+    method: html
+    url: https://openreview.net/
+    frequency: weekly
+    priority: medium
+    enabled: true
+    relevance_tags: [OpenReview, conference, paper, review]
+    fallbacks:
+      - https://openreview.net/group
+
+  - id: ieee_spectrum_ai
+    name: IEEE Spectrum Artificial Intelligence
+    tier: primary
+    category: engineering_media
+    method: rss_or_html
+    url: https://spectrum.ieee.org/artificial-intelligence
+    frequency: daily
+    priority: medium
+    enabled: true
+    relevance_tags: [IEEE Spectrum, engineering, AI, robotics, chips]
+    fallbacks:
+      - https://spectrum.ieee.org/semiconductors
+
+  - id: hacker_news_ai
+    name: Hacker News AI Search
+    tier: secondary
+    category: trend_signal
+    method: hn_algolia
+    url: https://hn.algolia.com/api/v1/search_by_date
+    frequency: daily
+    priority: medium
+    enabled: true
+    query: "AI OR LLM OR PyTorch OR NVIDIA OR edge AI"
+    relevance_tags: [trend, community signal, local AI]
+    fallbacks:
+      - https://news.ycombinator.com/
+
+  - id: github_trending_daily
+    name: GitHub Trending Daily
+    tier: secondary
+    category: open_source_trending
+    method: trending_page
+    url: https://github.com/trending
+    frequency: daily
+    priority: high
+    enabled: true
+    relevance_tags: [GitHub Trending, open source, developer tools]
+    fallbacks:
+      - https://github.com/trending/python?since=daily
+      - https://github.com/trending/cpp?since=daily
+
+  - id: reddit_machinelearning
+    name: Reddit r/MachineLearning
+    tier: secondary
+    category: community_signal
+    method: rss_or_html
+    url: https://www.reddit.com/r/MachineLearning/
+    frequency: daily
+    priority: low
+    enabled: true
+    relevance_tags: [Reddit, Machine Learning, community]
+    fallbacks: []
+
+  - id: reddit_localllama
+    name: Reddit r/LocalLLaMA
+    tier: secondary
+    category: community_signal
+    method: rss_or_html
+    url: https://www.reddit.com/r/LocalLLaMA/
+    frequency: daily
+    priority: medium
+    enabled: true
+    relevance_tags: [Local LLM, on-device AI, quantization]
+    fallbacks: []
+
+  - id: reddit_embedded
+    name: Reddit r/embedded
+    tier: secondary
+    category: community_signal
+    method: rss_or_html
+    url: https://www.reddit.com/r/embedded/
+    frequency: weekly
+    priority: low
+    enabled: true
+    relevance_tags: [embedded, firmware, MCU, RTOS]
+    fallbacks: []
+
+  - id: github_edge_ai_repos
+    name: GitHub Edge AI Repositories
+    tier: secondary
+    category: open_source_project
+    method: github_search
+    url: https://api.github.com/search/repositories
+    frequency: daily
+    priority: medium
+    enabled: true
+    query: "edge ai on-device inference quantization"
+    relevance_tags: [GitHub, project, Edge AI, inference]
+    fallbacks: []
+
+  - id: github_yolo_repos
+    name: GitHub YOLO Repositories
+    tier: secondary
+    category: open_source_project
+    method: github_search
+    url: https://api.github.com/search/repositories
+    frequency: daily
+    priority: medium
+    enabled: true
+    query: "YOLO ONNX Runtime TensorRT edge deployment"
+    relevance_tags: [YOLO, computer vision, deployment]
+    fallbacks: []
+
+  - id: product_hunt_ai
+    name: Product Hunt AI Products
+    tier: secondary
+    category: product_startup
+    method: trending_page
+    url: https://www.producthunt.com/
+    frequency: daily
+    priority: medium
+    enabled: true
+    relevance_tags: [Product Hunt, AI product, developer tools, startup]
+    fallbacks:
+      - https://www.producthunt.com/topics/artificial-intelligence
+
+  - id: launch_yc
+    name: Launch YC
+    tier: secondary
+    category: startup_signal
+    method: html
+    url: https://www.ycombinator.com/launches
+    frequency: weekly
+    priority: medium
+    enabled: true
+    relevance_tags: [Y Combinator, startup, AI product, developer tools]
+    fallbacks:
+      - https://www.ycombinator.com/companies
+
+  - id: semianalysis
+    name: SemiAnalysis
+    tier: secondary
+    category: semiconductor_analysis
+    method: paywalled_reference
+    url: https://www.semianalysis.com/
+    frequency: weekly
+    priority: medium
+    enabled: true
+    relevance_tags: [SemiAnalysis, AI infrastructure, GPU, semiconductor, data center]
+    fallbacks: []
+
+  - id: stratechery
+    name: Stratechery
+    tier: secondary
+    category: strategy_analysis
+    method: paywalled_reference
+    url: https://stratechery.com/
+    frequency: weekly
+    priority: low
+    enabled: true
+    relevance_tags: [strategy, business model, AI industry]
+    fallbacks: []
+
+  - id: the_information
+    name: The Information
+    tier: secondary
+    category: business_analysis
+    method: paywalled_reference
+    url: https://www.theinformation.com/
+    frequency: weekly
+    priority: low
+    enabled: true
+    relevance_tags: [tech business, Silicon Valley, AI company]
+    fallbacks: []
+
+  - id: icml
+    name: ICML
+    tier: primary
+    category: conference
+    method: html
+    url: https://icml.cc/
+    frequency: weekly
+    priority: medium
+    enabled: true
+    relevance_tags: [conference, machine learning, research]
+    fallbacks: []
+
+  - id: iclr
+    name: ICLR
+    tier: primary
+    category: conference
+    method: html
+    url: https://iclr.cc/
+    frequency: weekly
+    priority: medium
+    enabled: true
+    relevance_tags: [conference, machine learning, research]
+    fallbacks: []
+
+  - id: jiqizhixin
+    name: 机器之心
+    tier: tertiary
+    category: chinese_secondary_filter
+    method: rss_or_html
+    url: https://www.jiqizhixin.com/
+    frequency: daily
+    priority: low
+    enabled: true
+    relevance_tags: [Chinese AI media, AI paper, model, industry]
+    fallbacks: []
+
+  - id: qbitai
+    name: 量子位
+    tier: tertiary
+    category: chinese_secondary_filter
+    method: html
+    url: https://www.qbitai.com/
+    frequency: daily
+    priority: low
+    enabled: true
+    relevance_tags: [Chinese AI media, AI news, product]
+    fallbacks: []
+
+  - id: jazzyear
+    name: 甲子光年
+    tier: tertiary
+    category: chinese_secondary_filter
+    method: html
+    url: https://www.jazzyear.com/
+    frequency: weekly
+    priority: low
+    enabled: true
+    relevance_tags: [Chinese tech industry, business, AI industry]
+    fallbacks: []
+
+  - id: kr36
+    name: 36氪
+    tier: tertiary
+    category: chinese_secondary_filter
+    method: html
+    url: https://36kr.com/
+    frequency: daily
+    priority: low
+    enabled: true
+    relevance_tags: [startup, financing, Chinese tech]
+    fallbacks: []
+
+  - id: latepost
+    name: 晚点 LatePost
+    tier: tertiary
+    category: chinese_secondary_filter
+    method: html
+    url: https://www.latepost.com/
+    frequency: weekly
+    priority: low
+    enabled: true
+    relevance_tags: [Chinese tech business, big tech, strategy]
+    fallbacks: []
+
+  - id: semiconductor_industry_observer
+    name: 半导体行业观察
+    tier: tertiary
+    category: chinese_secondary_filter
+    method: html
+    url: https://www.semiinsights.com/
+    frequency: weekly
+    priority: low
+    enabled: true
+    relevance_tags: [semiconductor, Chinese chip industry]
+    fallbacks: []
+
+  - id: ifanr_appso
+    name: 爱范儿 / APPSO
+    tier: tertiary
+    category: chinese_secondary_filter
+    method: html
+    url: https://www.ifanr.com/
+    frequency: weekly
+    priority: low
+    enabled: true
+    relevance_tags: [consumer electronics, product experience, AI product]
+    fallbacks:
+      - https://www.ifanr.com/app

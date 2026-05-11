@@ -1,0 +1,73 @@
+name: Daily AI Tech Intel
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Optional report date, YYYY-MM-DD"
+        required: false
+        type: string
+      send_email:
+        description: "Send the generated email brief"
+        required: true
+        default: true
+        type: boolean
+  schedule:
+    - cron: "0 7 * * *"
+      timezone: "Asia/Shanghai"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-ai-tech-intel
+  cancel-in-progress: false
+
+jobs:
+  generate-and-send:
+    runs-on: ubuntu-latest
+    env:
+      TECH_INTEL_TO: ${{ secrets.TECH_INTEL_TO }}
+      SMTP_HOST: ${{ secrets.SMTP_HOST }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
+      SMTP_USER: ${{ secrets.SMTP_USER }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      SMTP_FROM: ${{ secrets.SMTP_FROM }}
+      GITHUB_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r tools/requirements-tech-intel.txt
+
+      - name: Generate report and send email
+        run: |
+          args=()
+          if [ -n "${{ inputs.date }}" ]; then
+            args+=(--date "${{ inputs.date }}")
+          fi
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.send_email }}" = "true" ]; then
+            args+=(--send-email)
+          fi
+          python tools/tech_intel_cloud.py "${args[@]}"
+
+      - name: Commit generated reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain tech-intel)" ]; then
+            git add tech-intel
+            git commit -m "chore: add daily tech intel report"
+            git push
+          else
+            echo "No tech-intel changes to commit."
+          fi
