@@ -1,4 +1,0 @@
-.. toctree::
-   :maxdepth: 1
-
-   Elprotronic's Flash Programmers for TI (external)  <https://www.elprotronic.com/pages/ti>

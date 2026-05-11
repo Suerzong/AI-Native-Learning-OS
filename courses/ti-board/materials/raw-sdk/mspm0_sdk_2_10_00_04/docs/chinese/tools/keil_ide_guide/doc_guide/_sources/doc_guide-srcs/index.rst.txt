@@ -1,8 +1,0 @@
-==========================================================
-Arm Keil MDK IDE for MSPM0 MCUs Documentation
-==========================================================
-
-.. toctree::
-   :maxdepth: 2
-
-   keil_ide_guide_CN

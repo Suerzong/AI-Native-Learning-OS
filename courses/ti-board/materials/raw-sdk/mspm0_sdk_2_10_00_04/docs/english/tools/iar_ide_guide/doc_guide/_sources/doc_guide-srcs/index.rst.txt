@@ -1,8 +1,0 @@
-==========================================================
-IAR Embedded Workbench IDE for MSPM0 MCUs Documentation
-==========================================================
-
-.. toctree::
-   :maxdepth: 2
-
-   iar_ide_guide
