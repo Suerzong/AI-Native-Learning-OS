@@ -24,3 +24,6 @@ courses/ti-board/materials/datasheets/*.pdf
 temp/paper/
 temp/ai_tutorial_book-master.zip
 temp/ai_tutorial_book-master/
+
+# Large resource files
+resources/data-structure-exams/
