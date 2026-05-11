@@ -1,0 +1,4568 @@
+{
+  "date": "2026-05-12",
+  "generated_at": "2026-05-11T23:04:30.551567+00:00",
+  "timezone": "Asia/Shanghai",
+  "items": [
+    {
+      "title": "microsoft/onnxruntime: 1.26.0",
+      "url": "https://github.com/microsoft/onnxruntime/releases/tag/v1.26.0",
+      "source": "ONNX Runtime Releases",
+      "source_type": "github_releases",
+      "published_at": "2026-05-09",
+      "summary": "n.b. The following was generated via LLM from Git history.",
+      "body_digest": [
+        "The following was generated via LLM from Git history.",
+        "Only the contributor list has been verified.",
+        "# ONNX Runtime Release 1.26.0 ## Announcement - Breaking Changes - **Support for CUDA 12 will be removed in 1.27.0.** - CUDA 13 will continue to be published as `onnxruntime-<os>-…",
+        "## Highlights - Added optional memory mapping for `.ort` model loads ([#28164](https://github.com/microsoft/onnxruntime/pull/28164))."
+      ],
+      "key_excerpt": "n.b.",
+      "tags": [
+        "ONNX Runtime",
+        "inference",
+        "Edge AI",
+        "deployment"
+      ],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "high",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "ad19b7ac6b52e762",
+      "fetch_status": "success"
+    },
+    {
+      "title": "microsoft/onnxruntime: ONNX Runtime v1.25.1",
+      "url": "https://github.com/microsoft/onnxruntime/releases/tag/v1.25.1",
+      "source": "ONNX Runtime Releases",
+      "source_type": "github_releases",
+      "published_at": "2026-04-28",
+      "summary": "n.b. This changelog is LLM generated.",
+      "body_digest": [
+        "This changelog is LLM generated.",
+        "Only the contributor listing has been verified.",
+        "# ONNX Runtime Release 1.25.1 ## 📢 Announcements & Breaking Changes ### ONNX Op Updates * **Enhanced ONNX operator support** with new opset versions: Reshape (opset 25), Transpose…"
+      ],
+      "key_excerpt": "n.b.",
+      "tags": [
+        "ONNX Runtime",
+        "inference",
+        "Edge AI",
+        "deployment"
+      ],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "high",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "e624c3a6353c7d76",
+      "fetch_status": "success"
+    },
+    {
+      "title": "microsoft/onnxruntime: ONNX Runtime v1.25.0",
+      "url": "https://github.com/microsoft/onnxruntime/releases/tag/v1.25.0",
+      "source": "ONNX Runtime Releases",
+      "source_type": "github_releases",
+      "published_at": "2026-04-21",
+      "summary": "## 📢 Announcements & Breaking Changes ### Build & Platform * **C++20 is now required** to build ONNX Runtime from source. Minimum toolchains: MSVC 19.29+, GCC 10+, Clang 10+.",
+      "body_digest": [
+        "## 📢 Announcements & Breaking Changes ### Build & Platform * **C++20 is now required** to build ONNX Runtime from source.",
+        "Minimum toolchains: MSVC 19.29+, GCC 10+, Clang 10+.",
+        "Users of prebuilt packages are unaffected.",
+        "([#27178](https://github.com/microsoft/onnxruntime/pull/27178)) * **CUDA minimum version raised to 12.0** — CUDA 11.x is no longer supported."
+      ],
+      "key_excerpt": "## 📢 Announcements & Breaking Changes ### Build & Platform * **C++20 is now required** to build ONNX Runtime from source.",
+      "tags": [
+        "ONNX Runtime",
+        "inference",
+        "Edge AI",
+        "deployment"
+      ],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "high",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "81c23b7c1b5d8634",
+      "fetch_status": "success"
+    },
+    {
+      "title": "pytorch/executorch: v1.2.0",
+      "url": "https://github.com/pytorch/executorch/releases/tag/v1.2.0",
+      "source": "ExecuTorch Releases",
+      "source_type": "github_releases",
+      "published_at": "2026-04-02",
+      "summary": "## Highlights ExecuTorch v1.2.0 expands on-device AI to more models and more hardware. This release adds real-time speech inference with Voxtral Realtime, promotes Cortex-M to a first-class embedded target, delivers major backend improvements, and reduces binary size for resource-constrained deployments.",
+      "body_digest": [
+        "## Highlights ExecuTorch v1.2.0 expands on-device AI to more models and more hardware.",
+        "This release adds real-time speech inference with Voxtral Realtime, promotes Cortex-M to a first-class embedded target, delivers major backend improvements, and reduces binary siz…",
+        "Aligned with PyTorch 2.11, TorchAudio 2.11, TorchVision 0.26, TorchCodec 0.11, TorchAO 0.17, and PyTorch-Tokenizers 1.2 **New model support** \\- Voxtral Realtime (streaming speech…",
+        "**Cortex-M as a first-class target** \\- Dedicated backend with CMSIS-NN integration, quantized int8 batch matmul and pad, improved pattern matching, and portable kernel usage for…"
+      ],
+      "key_excerpt": "## Highlights ExecuTorch v1.2.0 expands on-device AI to more models and more hardware.",
+      "tags": [
+        "ExecuTorch",
+        "PyTorch Edge",
+        "on-device AI"
+      ],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "high",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "551b682e21afd93c",
+      "fetch_status": "success"
+    },
+    {
+      "title": "microsoft/onnxruntime: ONNX Runtime v1.24.4",
+      "url": "https://github.com/microsoft/onnxruntime/releases/tag/v1.24.4",
+      "source": "ONNX Runtime Releases",
+      "source_type": "github_releases",
+      "published_at": "2026-03-18",
+      "summary": "This is a patch release for ONNX Runtime 1.24, containing bug fixes and execution provider updates. ## Bug Fixes - **Core**: Added PCI bus fallback for Linux GPU device discovery in containerized environments (e.g., AKS/Kubernetes) where `nvidia-drm` is not loaded but GPU PCI devices are still exposed via sysfs.",
+      "body_digest": [
+        "This is a patch release for ONNX Runtime 1.24, containing bug fixes and execution provider updates.",
+        "## Bug Fixes - **Core**: Added PCI bus fallback for Linux GPU device discovery in containerized environments (e.g., AKS/Kubernetes) where `nvidia-drm` is not loaded but GPU PCI de…",
+        "([#27591](https://github.com/microsoft/onnxruntime/pull/27591)) - **Plugin EP**: Fixed null pointer dereference when iterating output spans in `GetOutputIndex`.",
+        "([#27644](https://github.com/microsoft/onnxruntime/pull/27644)) - **Plugin EP**: Fixed bug that incorrectly assigned duplicate MetaDef IDs to fused nodes in different GraphViews (…"
+      ],
+      "key_excerpt": "This is a patch release for ONNX Runtime 1.24, containing bug fixes and execution provider updates.",
+      "tags": [
+        "ONNX Runtime",
+        "inference",
+        "Edge AI",
+        "deployment"
+      ],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "high",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "cd4f333a23d27d8f",
+      "fetch_status": "success"
+    },
+    {
+      "title": "pytorch/executorch: v1.1.0",
+      "url": "https://github.com/pytorch/executorch/releases/tag/v1.1.0",
+      "source": "ExecuTorch Releases",
+      "source_type": "github_releases",
+      "published_at": "2026-01-28",
+      "summary": "# ExecuTorch 1.1 Release Notes ## Highlights - **CUDA Backend for NVIDIA GPUs**: New experimental backend enables GPU inference with AOTInductor compilation, Triton SDPA kernels, INT4 weight quantization, and async memory allocation achieving latency reduction—validated on Voxtral, Gemma3, and Whisper with Windows support - **Metal Backend for Apple GPUs**: New experimental backend enables GPU inference on Apple Sil…",
+      "body_digest": [
+        "# ExecuTorch 1.1 Release Notes ## Highlights - **CUDA Backend for NVIDIA GPUs**: New experimental backend enables GPU inference with AOTInductor compilation, Triton SDPA kernels,…"
+      ],
+      "key_excerpt": "# ExecuTorch 1.1 Release Notes ## Highlights - **CUDA Backend for NVIDIA GPUs**: New experimental backend enables GPU inference with AOTInductor compilation, Triton SDPA kernels, INT4 weight quantization, and async memo…",
+      "tags": [
+        "ExecuTorch",
+        "PyTorch Edge",
+        "on-device AI"
+      ],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "high",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "cf01097a1e02eb25",
+      "fetch_status": "success"
+    },
+    {
+      "title": "NVIDIA Technical Blog",
+      "url": "https://developer.nvidia.com/blog/",
+      "source": "NVIDIA Developer Blog",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "News and tutorials for developers, scientists, and IT admins",
+      "body_digest": [
+        "News and tutorials for developers, scientists, and IT admins"
+      ],
+      "key_excerpt": "News and tutorials for developers, scientists, and IT admins",
+      "tags": [
+        "NVIDIA",
+        "Jetson",
+        "CUDA",
+        "TensorRT",
+        "Edge AI"
+      ],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "high",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "fb1173eb60d60206",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Agentic AI / Generative AI",
+      "url": "https://developer.nvidia.com/blog/category/generative-ai/",
+      "source": "NVIDIA Developer Blog",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 NVIDIA Developer Blog 的公开页面链接。",
+      "body_digest": [
+        "来自 NVIDIA Developer Blog 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 NVIDIA Developer Blog 的公开页面链接。",
+      "tags": [
+        "NVIDIA",
+        "Jetson",
+        "CUDA",
+        "TensorRT",
+        "Edge AI"
+      ],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "high",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "6e33635f88ffe34c",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Streaming Tokens and Tools: Multi-Turn Agentic Harness Support in NVIDIA Dynamo",
+      "url": "https://developer.nvidia.com/blog/streaming-tokens-and-tools-multi-turn-agentic-harness-support-in-nvidia-dynamo/",
+      "source": "NVIDIA Developer Blog",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 NVIDIA Developer Blog 的公开页面链接。",
+      "body_digest": [
+        "来自 NVIDIA Developer Blog 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 NVIDIA Developer Blog 的公开页面链接。",
+      "tags": [
+        "NVIDIA",
+        "Jetson",
+        "CUDA",
+        "TensorRT",
+        "Edge AI"
+      ],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "high",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "2200d67edee1a399",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Optimize Supply Chain Decision Systems Using NVIDIA cuOpt Agent Skills",
+      "url": "https://developer.nvidia.com/blog/optimize-supply-chain-decision-systems-using-nvidia-cuopt-agent-skills/",
+      "source": "NVIDIA Developer Blog",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 NVIDIA Developer Blog 的公开页面链接。",
+      "body_digest": [
+        "来自 NVIDIA Developer Blog 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 NVIDIA Developer Blog 的公开页面链接。",
+      "tags": [
+        "NVIDIA",
+        "Jetson",
+        "CUDA",
+        "TensorRT",
+        "Edge AI"
+      ],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "high",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "3b78b1ebd694d096",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Navya-215/on-device-ai-fault-classifier",
+      "url": "https://github.com/Navya-215/on-device-ai-fault-classifier",
+      "source": "GitHub Edge AI Repositories",
+      "source_type": "github_search",
+      "published_at": "2026-04-17",
+      "summary": "3-class vibration fault detection (normal/imbalance/bearing wear) using Edge Impulse on ESP32-S3 with CMSIS-NN | INT8 quantized | 18ms inference | 91.4% accuracy | TinyML Stars: 0. Updated: 2026-04-17T05:10:02Z.",
+      "body_digest": [
+        "3-class vibration fault detection (normal/imbalance/bearing wear) using Edge Impulse on ESP32-S3 with CMSIS-NN | INT8 quantized | 18ms inference | 91.4% accuracy | TinyML Stars: 0.",
+        "Updated: 2026-04-17T05:10:02Z."
+      ],
+      "key_excerpt": "3-class vibration fault detection (normal/imbalance/bearing wear) using Edge Impulse on ESP32-S3 with CMSIS-NN | INT8 quantized | 18ms inference | 91.4% accuracy | TinyML Stars: 0.",
+      "tags": [
+        "GitHub",
+        "project",
+        "Edge AI",
+        "inference"
+      ],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "medium",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "cf68b0e81ef81d42",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Jahnavi-Rav/edge-ai-inference-engine",
+      "url": "https://github.com/Jahnavi-Rav/edge-ai-inference-engine",
+      "source": "GitHub Edge AI Repositories",
+      "source_type": "github_search",
+      "published_at": "2026-04-14",
+      "summary": "Optimized on-device ML inference with TensorRT, ONNX runtime, model quantization, and hardware acceleration for edge deployment. Stars: 0.",
+      "body_digest": [
+        "Optimized on-device ML inference with TensorRT, ONNX runtime, model quantization, and hardware acceleration for edge deployment.",
+        "Updated: 2026-04-14T01:35:18Z."
+      ],
+      "key_excerpt": "Optimized on-device ML inference with TensorRT, ONNX runtime, model quantization, and hardware acceleration for edge deployment.",
+      "tags": [
+        "GitHub",
+        "project",
+        "Edge AI",
+        "inference"
+      ],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "medium",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "8eff15a4cf29d864",
+      "fetch_status": "success"
+    },
+    {
+      "title": "DaDanielL/GreenhouseMonitor",
+      "url": "https://github.com/DaDanielL/GreenhouseMonitor",
+      "source": "GitHub Edge AI Repositories",
+      "source_type": "github_search",
+      "published_at": "2026-04-12",
+      "summary": "Edge AI greenhouse monitoring system using Jetson Nano and LSTM forecasting, designed for future AWQ-based quantization and efficient on-device inference Stars: 1. Updated: 2026-04-11T20:09:05Z.",
+      "body_digest": [
+        "Edge AI greenhouse monitoring system using Jetson Nano and LSTM forecasting, designed for future AWQ-based quantization and efficient on-device inference Stars: 1.",
+        "Updated: 2026-04-11T20:09:05Z."
+      ],
+      "key_excerpt": "Edge AI greenhouse monitoring system using Jetson Nano and LSTM forecasting, designed for future AWQ-based quantization and efficient on-device inference Stars: 1.",
+      "tags": [
+        "GitHub",
+        "project",
+        "Edge AI",
+        "inference"
+      ],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "medium",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "2062fe0609b95eb1",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Starlight0000/Natural_disasters_quantization",
+      "url": "https://github.com/Starlight0000/Natural_disasters_quantization",
+      "source": "GitHub Edge AI Repositories",
+      "source_type": "github_search",
+      "published_at": "2026-03-31",
+      "summary": "This project focuses on building and optimizing deep learning models for Edge AI deployment, with an emphasis on low-latency inference, reduced memory usage, and privacy-preserving on-device computation. Stars: 0.",
+      "body_digest": [
+        "This project focuses on building and optimizing deep learning models for Edge AI deployment, with an emphasis on low-latency inference, reduced memory usage, and privacy-preservin…",
+        "Updated: 2026-03-30T20:50:43Z."
+      ],
+      "key_excerpt": "This project focuses on building and optimizing deep learning models for Edge AI deployment, with an emphasis on low-latency inference, reduced memory usage, and privacy-preserving on-device computation.",
+      "tags": [
+        "GitHub",
+        "project",
+        "Edge AI",
+        "inference"
+      ],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "medium",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "125f2916e13c96c0",
+      "fetch_status": "success"
+    },
+    {
+      "title": "CanReader/tinyml-rs",
+      "url": "https://github.com/CanReader/tinyml-rs",
+      "source": "GitHub Edge AI Repositories",
+      "source_type": "github_search",
+      "published_at": "2026-03-17",
+      "summary": "rust machine-learning tinyml edge-ai embedded no-std inference-engine cuda neural-network quantization microcontroller iot deep-learning embedded-systems arm wasm risc-v real-time low-power on-device-ai mlops Stars: 0. Updated: 2026-03-17T09:19:17Z.",
+      "body_digest": [
+        "rust machine-learning tinyml edge-ai embedded no-std inference-engine cuda neural-network quantization microcontroller iot deep-learning embedded-systems arm wasm risc-v real-time…",
+        "Updated: 2026-03-17T09:19:17Z."
+      ],
+      "key_excerpt": "rust machine-learning tinyml edge-ai embedded no-std inference-engine cuda neural-network quantization microcontroller iot deep-learning embedded-systems arm wasm risc-v real-time low-power on-device-ai mlops Stars: 0.",
+      "tags": [
+        "GitHub",
+        "project",
+        "Edge AI",
+        "inference"
+      ],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "medium",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "87f896b83eaa8860",
+      "fetch_status": "success"
+    },
+    {
+      "title": "pytorch/executorch: v1.0.1",
+      "url": "https://github.com/pytorch/executorch/releases/tag/v1.0.1",
+      "source": "ExecuTorch Releases",
+      "source_type": "github_releases",
+      "published_at": "2025-11-25",
+      "summary": "ExecuTorch version 1.0.1 is a small patch release containing fixes for the 1.0 release. # Changes * Add [pytorch-tokenizers](https://github.com/meta-pytorch/tokenizers) as a Python dependency for ExecuTorch.",
+      "body_digest": [
+        "ExecuTorch version 1.0.1 is a small patch release containing fixes for the 1.0 release.",
+        "# Changes * Add [pytorch-tokenizers](https://github.com/meta-pytorch/tokenizers) as a Python dependency for ExecuTorch.",
+        "This removes the need to install from source.",
+        "* Update coremltools dependency to version 9.0."
+      ],
+      "key_excerpt": "ExecuTorch version 1.0.1 is a small patch release containing fixes for the 1.0 release.",
+      "tags": [
+        "ExecuTorch",
+        "PyTorch Edge",
+        "on-device AI"
+      ],
+      "importance": 4,
+      "relevance": 4,
+      "confidence": "high",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "d1a56e97bfba708f",
+      "fetch_status": "success"
+    },
+    {
+      "title": "pytorch/pytorch: PyTorch 2.9.1 Release, bug fix release",
+      "url": "https://github.com/pytorch/pytorch/releases/tag/v2.9.1",
+      "source": "PyTorch Releases",
+      "source_type": "github_releases",
+      "published_at": "2025-11-13",
+      "summary": "This release is meant to fix the following issues (regressions / silent correctness): ### Tracked Regressions Significant Memory Regression in F.conv3d with bfloat16 Inputs in PyTorch 2.9.0 ([#166643](https://github.com/pytorch/pytorch/issues/166643)) This release provides work around this issue. If you are impacted please install nvidia-cudnn package version 9.15+ from pypi.",
+      "body_digest": [
+        "This release is meant to fix the following issues (regressions / silent correctness): ### Tracked Regressions Significant Memory Regression in F.conv3d with bfloat16 Inputs in PyT…",
+        "If you are impacted please install nvidia-cudnn package version 9.15+ from pypi.",
+        "([#166480](https://github.com/pytorch/pytorch/pull/166480)) ([#167111](https://github.com/pytorch/pytorch/pull/167111)) ### Torch.compile Fix Inductor bug when compiling Gemma ([#…"
+      ],
+      "key_excerpt": "This release is meant to fix the following issues (regressions / silent correctness): ### Tracked Regressions Significant Memory Regression in F.conv3d with bfloat16 Inputs in PyTorch 2.9.0 ([#166643](https://github.com…",
+      "tags": [
+        "PyTorch",
+        "deep learning",
+        "training",
+        "inference"
+      ],
+      "importance": 4,
+      "relevance": 4,
+      "confidence": "high",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "对应嵌入式 AI 与硬件平台方向，适合放入长期项目雷达。",
+      "raw_text_hash": "823bab9d41073c13",
+      "fetch_status": "success"
+    },
+    {
+      "title": "pytorch/executorch: v1.0.0",
+      "url": "https://github.com/pytorch/executorch/releases/tag/v1.0.0",
+      "source": "ExecuTorch Releases",
+      "source_type": "github_releases",
+      "published_at": "2025-10-18",
+      "summary": "We're excited to announce the release of ExecuTorch 1.0\\! This release marks the official transition out of beta status and focuses on stability, ease of use, and polish, as well as expanded support for multi-modal language models .",
+      "body_digest": [
+        "We're excited to announce the release of ExecuTorch 1.0\\!",
+        "This release marks the official transition out of beta status and focuses on stability, ease of use, and polish, as well as expanded support for multi-modal language models .",
+        "# Highlights * Expanded platform support for ARM64 Linux and experimental support for native x86 Windows, both for Python model preparation and runtime builds.",
+        "* New APIs for running multimodal models on Android, iOS, and desktop."
+      ],
+      "key_excerpt": "We're excited to announce the release of ExecuTorch 1.0\\!",
+      "tags": [
+        "ExecuTorch",
+        "PyTorch Edge",
+        "on-device AI"
+      ],
+      "importance": 4,
+      "relevance": 4,
+      "confidence": "high",
+      "action_value": [
+        "值得看",
+        "可加入知识库"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "936ad56fbcb3533a",
+      "fetch_status": "success"
+    },
+    {
+      "title": "pytorch/ao: v0.17.0",
+      "url": "https://github.com/pytorch/ao/releases/tag/v0.17.0",
+      "source": "PyTorch AO Releases",
+      "source_type": "github_releases",
+      "published_at": "2026-03-31",
+      "summary": "## Highlights We are excited to announce the 0.17 release of torchao\\! This release adds support for cuteDSL MXFP8 MoE kernels, per-head FP8 quantized low precision attention, ABI stability, and more\\!",
+      "body_digest": [
+        "## Highlights We are excited to announce the 0.17 release of torchao\\!",
+        "This release adds support for cuteDSL MXFP8 MoE kernels, per-head FP8 quantized low precision attention, ABI stability, and more\\!",
+        "### CuteDSL MXFP8 MoE Kernels We added a new CuteDSL MXFP8 quantization kernel for 3d expert weights that writes scale factors directly to blocked layout for tensorcores: [https:/…",
+        "* \\~12% speedup over previous 2 kernel “quantize then scale layout transformation” approach\\!"
+      ],
+      "key_excerpt": "## Highlights We are excited to announce the 0.17 release of torchao\\!",
+      "tags": [
+        "quantization",
+        "sparsity",
+        "model compression",
+        "PyTorch"
+      ],
+      "importance": 3,
+      "relevance": 4,
+      "confidence": "high",
+      "action_value": [
+        "了解即可"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "215029039acffaf0",
+      "fetch_status": "success"
+    },
+    {
+      "title": "pytorch/ao: v0.16.0",
+      "url": "https://github.com/pytorch/ao/releases/tag/v0.16.0",
+      "source": "PyTorch AO Releases",
+      "source_type": "github_releases",
+      "published_at": "2026-02-11",
+      "summary": "## Highlights We are excited to announce the 0.16.0 release of torchao! This release adds support for MXFP8 MoE Building Blocks for Training with Expert Parallelism and deprecated older versions of some configs and less used quantization options to keep torchao leaner!",
+      "body_digest": [
+        "## Highlights We are excited to announce the 0.16.0 release of torchao!",
+        "This release adds support for MXFP8 MoE Building Blocks for Training with Expert Parallelism and deprecated older versions of some configs and less used quantization options to ke…",
+        "We also revamped our [doc page](https://docs.pytorch.org/ao/main/), [README](https://github.com/pytorch/ao/blob/main/README.md) and made some progress in making torchao [ABI stabl…",
+        "### MXFP8 MoE Building Blocks for Training with Expert Parallelism This release includes the following differentiable building blocks for MXFP8 MoE Training with expert parallelis…"
+      ],
+      "key_excerpt": "## Highlights We are excited to announce the 0.16.0 release of torchao!",
+      "tags": [
+        "quantization",
+        "sparsity",
+        "model compression",
+        "PyTorch"
+      ],
+      "importance": 3,
+      "relevance": 4,
+      "confidence": "high",
+      "action_value": [
+        "了解即可"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "5e58d6e088cdce36",
+      "fetch_status": "success"
+    },
+    {
+      "title": "pytorch/ao: v0.15.0",
+      "url": "https://github.com/pytorch/ao/releases/tag/v0.15.0",
+      "source": "PyTorch AO Releases",
+      "source_type": "github_releases",
+      "published_at": "2025-12-23",
+      "summary": "## Highlights We are excited to announce the 0.15.0 release of torchao! This release adds: - MXFP8 MoE training demonstrates 1.2x e2e training speedup with identical convergence versus bf16, training Llama4 Scout on a 64 node GB200 Crusoe cluster!",
+      "body_digest": [
+        "## Highlights We are excited to announce the 0.15.0 release of torchao!",
+        "This release adds: - MXFP8 MoE training demonstrates 1.2x e2e training speedup with identical convergence versus bf16, training Llama4 Scout on a 64 node GB200 Crusoe cluster!",
+        "- MXFP8 MoE kernels shipped with torchao builds for CUDA 12.8+ (just pip install instead of building from source to use!) - Safetensors enablement - Quantization with parameter le…",
+        "In fact, after 3,000 steps it finishes with slightly *lower* loss than bfloat16!"
+      ],
+      "key_excerpt": "## Highlights We are excited to announce the 0.15.0 release of torchao!",
+      "tags": [
+        "quantization",
+        "sparsity",
+        "model compression",
+        "PyTorch"
+      ],
+      "importance": 3,
+      "relevance": 4,
+      "confidence": "high",
+      "action_value": [
+        "了解即可"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "315ac44c1c67d74c",
+      "fetch_status": "success"
+    },
+    {
+      "title": "pytorch/ao: v0.14.1",
+      "url": "https://github.com/pytorch/ao/releases/tag/v0.14.1",
+      "source": "PyTorch AO Releases",
+      "source_type": "github_releases",
+      "published_at": "2025-10-14",
+      "summary": "## **Highlights** We are excited to announce the 0.14.1 release of torchao\\! This release adds support for MoE training on Backwell GPUs and NVFP4 QAT\\!",
+      "body_digest": [
+        "## **Highlights** We are excited to announce the 0.14.1 release of torchao\\!",
+        "This release adds support for MoE training on Backwell GPUs and NVFP4 QAT\\!",
+        "### **(Prototype) MoE training on Blackwell GPUs** We’ve added a quantized building block for speeding up MoE training on Blackwell GPUs: torchao’s \\`\\_scaled\\_grouped\\_mm\\`\\!",
+        "It is a differentiable drop-in replacement for \\`torch.\\_grouped\\_mm\\` that dynamically quantizes inputs using the given recipe, performs a scaled grouped GEMM, then returns the r…"
+      ],
+      "key_excerpt": "## **Highlights** We are excited to announce the 0.14.1 release of torchao\\!",
+      "tags": [
+        "quantization",
+        "sparsity",
+        "model compression",
+        "PyTorch"
+      ],
+      "importance": 3,
+      "relevance": 4,
+      "confidence": "high",
+      "action_value": [
+        "了解即可"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "e9171a2a3fa4b84a",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Blog – PyTorch",
+      "url": "https://pytorch.org/blog/",
+      "source": "PyTorch Blog",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "",
+      "body_digest": [],
+      "key_excerpt": "",
+      "tags": [
+        "PyTorch",
+        "ExecuTorch",
+        "TorchAO",
+        "deployment"
+      ],
+      "importance": 3,
+      "relevance": 4,
+      "confidence": "high",
+      "action_value": [
+        "了解即可"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "962423ffb59152f9",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Learn the Basics",
+      "url": "https://pytorch.org/tutorials/beginner/basics/intro.html",
+      "source": "PyTorch Blog",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 PyTorch Blog 的公开页面链接。",
+      "body_digest": [
+        "来自 PyTorch Blog 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 PyTorch Blog 的公开页面链接。",
+      "tags": [
+        "PyTorch",
+        "ExecuTorch",
+        "TorchAO",
+        "deployment"
+      ],
+      "importance": 3,
+      "relevance": 4,
+      "confidence": "high",
+      "action_value": [
+        "了解即可"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "60b59970044f72f7",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Intro to PyTorch – YouTube Series",
+      "url": "https://pytorch.org/tutorials/beginner/introyt.html",
+      "source": "PyTorch Blog",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 PyTorch Blog 的公开页面链接。",
+      "body_digest": [
+        "来自 PyTorch Blog 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 PyTorch Blog 的公开页面链接。",
+      "tags": [
+        "PyTorch",
+        "ExecuTorch",
+        "TorchAO",
+        "deployment"
+      ],
+      "importance": 3,
+      "relevance": 4,
+      "confidence": "high",
+      "action_value": [
+        "了解即可"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "a23ac8c271a8ec4e",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Join the Ecosystem",
+      "url": "https://pytorch.org/join-ecosystem",
+      "source": "PyTorch Blog",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 PyTorch Blog 的公开页面链接。",
+      "body_digest": [
+        "来自 PyTorch Blog 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 PyTorch Blog 的公开页面链接。",
+      "tags": [
+        "PyTorch",
+        "ExecuTorch",
+        "TorchAO",
+        "deployment"
+      ],
+      "importance": 3,
+      "relevance": 4,
+      "confidence": "high",
+      "action_value": [
+        "了解即可"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "882f97b7371ccf3e",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Community Hub",
+      "url": "https://pytorch.org/community-hub/",
+      "source": "PyTorch Blog",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 PyTorch Blog 的公开页面链接。",
+      "body_digest": [
+        "来自 PyTorch Blog 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 PyTorch Blog 的公开页面链接。",
+      "tags": [
+        "PyTorch",
+        "ExecuTorch",
+        "TorchAO",
+        "deployment"
+      ],
+      "importance": 3,
+      "relevance": 4,
+      "confidence": "high",
+      "action_value": [
+        "了解即可"
+      ],
+      "student_readability": "本科生可以先读结论和例子，遇到部署、量化、推理引擎等术语时只需建立方向感。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "0e295c9724926658",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Qualcomm Developer Blog | Official Qualcomm Blog | Qualcomm",
+      "url": "https://www.qualcomm.com/developer/blog",
+      "source": "Qualcomm Developer Blog",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "Qualcomm Developer blog keeps you updated on our technology advancements. From AI, compute, gaming, robotics, IoT to Snapdragon tools, the blog gives you our perspective on where technology is headed, the latest product updates, industry news, and more.",
+      "body_digest": [
+        "Qualcomm Developer blog keeps you updated on our technology advancements.",
+        "From AI, compute, gaming, robotics, IoT to Snapdragon tools, the blog gives you our perspective on where technology is headed, the latest product updates, industry news, and more."
+      ],
+      "key_excerpt": "Qualcomm Developer blog keeps you updated on our technology advancements.",
+      "tags": [
+        "Qualcomm",
+        "NPU",
+        "mobile AI",
+        "Edge AI"
+      ],
+      "importance": 3,
+      "relevance": 3,
+      "confidence": "high",
+      "action_value": [
+        "了解即可"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "b12784c95df87f11",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Comparing GenAI Inference Engines: TensorRT-LLM, VLLM, HF TGI, and LMDeploy",
+      "url": "https://news.ycombinator.com/item?id=43620472",
+      "source": "Hacker News AI Search",
+      "source_type": "hn_algolia",
+      "published_at": "2025-04-08",
+      "summary": "Hacker News discussion. Points: 1; comments: 1.",
+      "body_digest": [
+        "Hacker News discussion.",
+        "Points: 1; comments: 1."
+      ],
+      "key_excerpt": "Hacker News discussion.",
+      "tags": [
+        "trend",
+        "community signal",
+        "local AI"
+      ],
+      "importance": 3,
+      "relevance": 3,
+      "confidence": "medium",
+      "action_value": [
+        "了解即可"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "89cfe0296113bc31",
+      "fetch_status": "success"
+    },
+    {
+      "title": "pytorch/pytorch: PyTorch 2.11.0 Release",
+      "url": "https://github.com/pytorch/pytorch/releases/tag/v2.11.0",
+      "source": "PyTorch Releases",
+      "source_type": "github_releases",
+      "published_at": "2026-03-24",
+      "summary": "# PyTorch 2.11.0 Release Notes - [Highlights](#highlights) - [Backwards Incompatible Changes](#backwards-incompatible-changes) - [Deprecations](#deprecations) - [New Features](#new-features) - [Improvements](#improvements) - [Bug fixes](#bug-fixes) - [Performance](#performance) - [Documentation](#documentation) - [Developers](#developers) - [Security](#security) # Highlights <table> <tr> <td> Added Support for <stro…",
+      "body_digest": [
+        "# PyTorch 2.11.0 Release Notes - [Highlights](#highlights) - [Backwards Incompatible Changes](#backwards-incompatible-changes) - [Deprecations](#deprecations) - [New Features](#ne…",
+        "Below are the full release notes for this release.",
+        "# Backwards Incompatible Changes ## Release Engineering ### Volta (SM 7.0) GPU support removed from CUDA…"
+      ],
+      "key_excerpt": "# PyTorch 2.11.0 Release Notes - [Highlights](#highlights) - [Backwards Incompatible Changes](#backwards-incompatible-changes) - [Deprecations](#deprecations) - [New Features](#new-features) - [Improvements](#improvemen…",
+      "tags": [
+        "PyTorch",
+        "deep learning",
+        "training",
+        "inference"
+      ],
+      "importance": 2,
+      "relevance": 3,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "2b50f220652a7acc",
+      "fetch_status": "success"
+    },
+    {
+      "title": "pytorch/pytorch: PyTorch 2.10.0 Release",
+      "url": "https://github.com/pytorch/pytorch/releases/tag/v2.10.0",
+      "source": "PyTorch Releases",
+      "source_type": "github_releases",
+      "published_at": "2026-01-22",
+      "summary": "# PyTorch 2.10.0 Release Notes - [Highlights](#highlights) - [Backwards Incompatible Changes](#backwards-incompatible-changes) - [Deprecations](#deprecations) - [New Features](#new-features) - [Improvements](#improvements) - [Bug fixes](#bug-fixes) - [Performance](#performance) - [Documentation](#documentation) - [Developers](#developers) - [Security](#security) # Highlights <table> <tr> <td> <strong>Python 3.14</st…",
+      "body_digest": [
+        "# PyTorch 2.10.0 Release Notes - [Highlights](#highlights) - [Backwards Incompatible Changes](#backwards-incompatible-changes) - [Deprecations](#deprecations) - [New Features](#ne…",
+        "Python 3.14t (freethreaded build) is experimentally supported as well.",
+        "</td> <tr> <tr> <td> Reduced kernel launch overhead with <strong>combo-kernels</strong> horizontal fusion in torchinductor </td> <tr> <tr> <td> A new <strong>varlen_attn()</strong…",
+        "</td> <tr> <tr> <td> <strong>Intel GPUs support:</strong> Expan…"
+      ],
+      "key_excerpt": "# PyTorch 2.10.0 Release Notes - [Highlights](#highlights) - [Backwards Incompatible Changes](#backwards-incompatible-changes) - [Deprecations](#deprecations) - [New Features](#new-features) - [Improvements](#improvemen…",
+      "tags": [
+        "PyTorch",
+        "deep learning",
+        "training",
+        "inference"
+      ],
+      "importance": 2,
+      "relevance": 3,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "92eef20989622461",
+      "fetch_status": "success"
+    },
+    {
+      "title": "pytorch/pytorch: 2.9 Release Notes",
+      "url": "https://github.com/pytorch/pytorch/releases/tag/v2.9.0",
+      "source": "PyTorch Releases",
+      "source_type": "github_releases",
+      "published_at": "2025-10-16",
+      "summary": "# PyTorch 2.9.0 Release Notes - [Highlights](#highlights) - [Backwards Incompatible Changes](#backwards-incompatible-changes) - [Deprecations](#deprecations) - [New Features](#new-features) - [Improvements](#improvements) - [Bug fixes](#bug-fixes) - [Performance](#performance) - [Documentation](#documentation) - [Developers](#developers) - [Security](#security) # Highlights <table> <tr> <td><strong>Unstable (API-Uns…",
+      "body_digest": [
+        "# PyTorch 2.9.0 Release Notes - [Highlights](#highlights) - [Backwards Incompatible Changes](#backwards-incompatible-changes) - [Deprecations](#deprecations) - [New Features](#new…"
+      ],
+      "key_excerpt": "# PyTorch 2.9.0 Release Notes - [Highlights](#highlights) - [Backwards Incompatible Changes](#backwards-incompatible-changes) - [Deprecations](#deprecations) - [New Features](#new-features) - [Improvements](#improvement…",
+      "tags": [
+        "PyTorch",
+        "deep learning",
+        "training",
+        "inference"
+      ],
+      "importance": 2,
+      "relevance": 3,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "810d53453c87d2db",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Normalizing Trajectory Models",
+      "url": "https://arxiv.org/abs/2605.08078",
+      "source": "arXiv CS.CV Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "Normalizing Trajectory Models. Jiatao Gu , Tianrong Chen , Ying Shen , David Berthelot , Shuangfei Zhai , Josh Susskind",
+      "body_digest": [
+        "Normalizing Trajectory Models.",
+        "Jiatao Gu , Tianrong Chen , Ying Shen , David Berthelot , Shuangfei Zhai , Josh Susskind"
+      ],
+      "key_excerpt": "Normalizing Trajectory Models.",
+      "tags": [
+        "arXiv",
+        "computer vision",
+        "YOLO",
+        "paper"
+      ],
+      "importance": 2,
+      "relevance": 3,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "53d15a8c694cf94a",
+      "fetch_status": "success"
+    },
+    {
+      "title": "EmambaIR: Efficient Visual State Space Model for Event-guided Image Reconstruction",
+      "url": "https://arxiv.org/abs/2605.08073",
+      "source": "arXiv CS.CV Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "EmambaIR: Efficient Visual State Space Model for Event-guided Image Reconstruction. Wei Yu , Yunhang Qian",
+      "body_digest": [
+        "EmambaIR: Efficient Visual State Space Model for Event-guided Image Reconstruction.",
+        "Wei Yu , Yunhang Qian"
+      ],
+      "key_excerpt": "EmambaIR: Efficient Visual State Space Model for Event-guided Image Reconstruction.",
+      "tags": [
+        "arXiv",
+        "computer vision",
+        "YOLO",
+        "paper"
+      ],
+      "importance": 2,
+      "relevance": 3,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "0bd031e575d1d861",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Proxy3D: Efficient 3D Representations for Vision-Language Models via Semantic Clustering and Alignment",
+      "url": "https://arxiv.org/abs/2605.08064",
+      "source": "arXiv CS.CV Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "Proxy3D: Efficient 3D Representations for Vision-Language Models via Semantic Clustering and Alignment. Jerry Jiang , Haowen Sun , Denis Gudovskiy , Yohei Nakata , Tomoyuki Okuno , Kurt Keutzer , Wenzhao Zheng",
+      "body_digest": [
+        "Proxy3D: Efficient 3D Representations for Vision-Language Models via Semantic Clustering and Alignment.",
+        "Jerry Jiang , Haowen Sun , Denis Gudovskiy , Yohei Nakata , Tomoyuki Okuno , Kurt Keutzer , Wenzhao Zheng"
+      ],
+      "key_excerpt": "Proxy3D: Efficient 3D Representations for Vision-Language Models via Semantic Clustering and Alignment.",
+      "tags": [
+        "arXiv",
+        "computer vision",
+        "YOLO",
+        "paper"
+      ],
+      "importance": 2,
+      "relevance": 3,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "和你正在学的神经网络/CNN 主线有关，适合收藏后在学完基础卷积网络后回看。",
+      "raw_text_hash": "36dabcae12641d34",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Flow-OPD: On-Policy Distillation for Flow Matching Models",
+      "url": "https://arxiv.org/abs/2605.08063",
+      "source": "arXiv CS.CV Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "Flow-OPD: On-Policy Distillation for Flow Matching Models. Zhen Fang , Wenxuan Huang , Yu Zeng , Yiming Zhao , Shuang Chen , Kaituo Feng , Yunlong Lin , Lin Chen , Zehui Chen , Shaosheng Cao , Feng Zhao",
+      "body_digest": [
+        "Flow-OPD: On-Policy Distillation for Flow Matching Models.",
+        "Zhen Fang , Wenxuan Huang , Yu Zeng , Yiming Zhao , Shuang Chen , Kaituo Feng , Yunlong Lin , Lin Chen , Zehui Chen , Shaosheng Cao , Feng Zhao"
+      ],
+      "key_excerpt": "Flow-OPD: On-Policy Distillation for Flow Matching Models.",
+      "tags": [
+        "arXiv",
+        "computer vision",
+        "YOLO",
+        "paper"
+      ],
+      "importance": 2,
+      "relevance": 3,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "1207191cc4f05968",
+      "fetch_status": "success"
+    },
+    {
+      "title": "6D Pose Estimation via Keypoint Heatmap Regression with RGB-D Residual Neural Networks",
+      "url": "https://arxiv.org/abs/2605.08059",
+      "source": "arXiv CS.CV Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "6D Pose Estimation via Keypoint Heatmap Regression with RGB-D Residual Neural Networks. Ismail Aljosevic , Amir Masoud Almasi , Ana Parovic , Ashkan Shafiei",
+      "body_digest": [
+        "6D Pose Estimation via Keypoint Heatmap Regression with RGB-D Residual Neural Networks.",
+        "Ismail Aljosevic , Amir Masoud Almasi , Ana Parovic , Ashkan Shafiei"
+      ],
+      "key_excerpt": "6D Pose Estimation via Keypoint Heatmap Regression with RGB-D Residual Neural Networks.",
+      "tags": [
+        "arXiv",
+        "computer vision",
+        "YOLO",
+        "paper"
+      ],
+      "importance": 2,
+      "relevance": 3,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "88f467fca93e0c51",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Towards Highly-Constrained Human Motion Generation with Retrieval-Guided Diffusion Noise Optimization",
+      "url": "https://arxiv.org/abs/2605.08054",
+      "source": "arXiv CS.CV Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "Towards Highly-Constrained Human Motion Generation with Retrieval-Guided Diffusion Noise Optimization. Hanchao Liu , Fang-Lue Zhang , Shining Zhang , Tai-Jiang Mu , Shi-Min Hu",
+      "body_digest": [
+        "Towards Highly-Constrained Human Motion Generation with Retrieval-Guided Diffusion Noise Optimization.",
+        "Hanchao Liu , Fang-Lue Zhang , Shining Zhang , Tai-Jiang Mu , Shi-Min Hu"
+      ],
+      "key_excerpt": "Towards Highly-Constrained Human Motion Generation with Retrieval-Guided Diffusion Noise Optimization.",
+      "tags": [
+        "arXiv",
+        "computer vision",
+        "YOLO",
+        "paper"
+      ],
+      "importance": 2,
+      "relevance": 3,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "3139e38f8a484cc1",
+      "fetch_status": "success"
+    },
+    {
+      "title": "MoCoTalk: Multi-Conditional Diffusion with Adaptive Router for Controllable Talking Head Generation",
+      "url": "https://arxiv.org/abs/2605.08050",
+      "source": "arXiv CS.CV Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "MoCoTalk: Multi-Conditional Diffusion with Adaptive Router for Controllable Talking Head Generation. Xinyan Ye , Jiankang Deng , Abbas Edalat",
+      "body_digest": [
+        "MoCoTalk: Multi-Conditional Diffusion with Adaptive Router for Controllable Talking Head Generation.",
+        "Xinyan Ye , Jiankang Deng , Abbas Edalat"
+      ],
+      "key_excerpt": "MoCoTalk: Multi-Conditional Diffusion with Adaptive Router for Controllable Talking Head Generation.",
+      "tags": [
+        "arXiv",
+        "computer vision",
+        "YOLO",
+        "paper"
+      ],
+      "importance": 2,
+      "relevance": 3,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "c7cd8325f3914433",
+      "fetch_status": "success"
+    },
+    {
+      "title": "SCOPE: Structured Decomposition and Conditional Skill Orchestration for Complex Image Generation",
+      "url": "https://arxiv.org/abs/2605.08043",
+      "source": "arXiv CS.CV Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "SCOPE: Structured Decomposition and Conditional Skill Orchestration for Complex Image Generation. Tianfei Ren , Zhipeng Yan , Yiming Zhao , Zhen Fang , Yu Zeng , Guohui Zhang , Hang Xu , Xiaoxiao Ma , Shiting Huang , Ke Xu , Wenxuan Huang , Lionel Z.",
+      "body_digest": [
+        "SCOPE: Structured Decomposition and Conditional Skill Orchestration for Complex Image Generation.",
+        "Tianfei Ren , Zhipeng Yan , Yiming Zhao , Zhen Fang , Yu Zeng , Guohui Zhang , Hang Xu , Xiaoxiao Ma , Shiting Huang , Ke Xu , Wenxuan Huang , Lionel Z.",
+        "Wang , Lin Chen , Zehui Chen , Jie Huang , Feng Zhao"
+      ],
+      "key_excerpt": "SCOPE: Structured Decomposition and Conditional Skill Orchestration for Complex Image Generation.",
+      "tags": [
+        "arXiv",
+        "computer vision",
+        "YOLO",
+        "paper"
+      ],
+      "importance": 2,
+      "relevance": 3,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "7a6f619f2a69141a",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Newsroom \\ Anthropic",
+      "url": "https://www.anthropic.com/news",
+      "source": "Anthropic News",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "Anthropic is an AI safety and research company that's working to build reliable, interpretable, and steerable AI systems.",
+      "body_digest": [
+        "Anthropic is an AI safety and research company that's working to build reliable, interpretable, and steerable AI systems."
+      ],
+      "key_excerpt": "Anthropic is an AI safety and research company that's working to build reliable, interpretable, and steerable AI systems.",
+      "tags": [
+        "Anthropic",
+        "Claude",
+        "model release",
+        "API",
+        "safety"
+      ],
+      "importance": 2,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "763840aa83d17d16",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Economic Futures",
+      "url": "https://www.anthropic.com/economic-futures",
+      "source": "Anthropic News",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Anthropic News 的公开页面链接。",
+      "body_digest": [
+        "来自 Anthropic News 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Anthropic News 的公开页面链接。",
+      "tags": [
+        "Anthropic",
+        "Claude",
+        "model release",
+        "API",
+        "safety"
+      ],
+      "importance": 2,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "59d9b8be6b508f2c",
+      "fetch_status": "success"
+    },
+    {
+      "title": "press@anthropic.com",
+      "url": "mailto:press@anthropic.com",
+      "source": "Anthropic News",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Anthropic News 的公开页面链接。",
+      "body_digest": [
+        "来自 Anthropic News 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Anthropic News 的公开页面链接。",
+      "tags": [
+        "Anthropic",
+        "Claude",
+        "model release",
+        "API",
+        "safety"
+      ],
+      "importance": 2,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "b7fb43121785e4ac",
+      "fetch_status": "success"
+    },
+    {
+      "title": "support@anthropic.com",
+      "url": "mailto:support@anthropic.com",
+      "source": "Anthropic News",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Anthropic News 的公开页面链接。",
+      "body_digest": [
+        "来自 Anthropic News 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Anthropic News 的公开页面链接。",
+      "tags": [
+        "Anthropic",
+        "Claude",
+        "model release",
+        "API",
+        "safety"
+      ],
+      "importance": 2,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "f1e30d124c4f0f2b",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Introducing Claude Opus 4.7 Product Apr 16, 2026 Our latest Opus model brings stronger performance across coding, agents, vision, and multi-step task…",
+      "url": "https://www.anthropic.com/news/claude-opus-4-7",
+      "source": "Anthropic News",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Anthropic News 的公开页面链接。",
+      "body_digest": [
+        "来自 Anthropic News 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Anthropic News 的公开页面链接。",
+      "tags": [
+        "Anthropic",
+        "Claude",
+        "model release",
+        "API",
+        "safety"
+      ],
+      "importance": 2,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "和你正在学的神经网络/CNN 主线有关，适合收藏后在学完基础卷积网络后回看。",
+      "raw_text_hash": "227176538d89e343",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Newsroom",
+      "url": "https://www.amd.com/en/newsroom.html",
+      "source": "AMD Newsroom",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "See whatâs new with AMD. Read our blogs, catch up on the latest press releases, and discover our media resources.",
+      "body_digest": [
+        "See whatâs new with AMD.",
+        "Read our blogs, catch up on the latest press releases, and discover our media resources."
+      ],
+      "key_excerpt": "See whatâs new with AMD.",
+      "tags": [
+        "AMD",
+        "GPU",
+        "AI accelerator",
+        "semiconductor"
+      ],
+      "importance": 2,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "13aad81918eaf0d1",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Intel Newsroom Home",
+      "url": "https://www.intel.com/content/www/us/en/newsroom/home.html",
+      "source": "Intel Newsroom",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "Intel Newsroom brings you the latest news and updates on world-changing technology that enriches the lives of everyone on Earth.",
+      "body_digest": [
+        "Intel Newsroom brings you the latest news and updates on world-changing technology that enriches the lives of everyone on Earth."
+      ],
+      "key_excerpt": "Intel Newsroom brings you the latest news and updates on world-changing technology that enriches the lives of everyone on Earth.",
+      "tags": [
+        "Intel",
+        "CPU",
+        "NPU",
+        "AI PC",
+        "semiconductor"
+      ],
+      "importance": 2,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "ada2adce7290449c",
+      "fetch_status": "success"
+    },
+    {
+      "title": "5G & Wireless",
+      "url": "https://www.intel.com/5g-wireless",
+      "source": "Intel Newsroom",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Intel Newsroom 的公开页面链接。",
+      "body_digest": [
+        "来自 Intel Newsroom 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Intel Newsroom 的公开页面链接。",
+      "tags": [
+        "Intel",
+        "CPU",
+        "NPU",
+        "AI PC",
+        "semiconductor"
+      ],
+      "importance": 2,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "d3e083691175ac64",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Artificial Intelligence",
+      "url": "https://www.intel.com/artificial-intelligence",
+      "source": "Intel Newsroom",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Intel Newsroom 的公开页面链接。",
+      "body_digest": [
+        "来自 Intel Newsroom 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Intel Newsroom 的公开页面链接。",
+      "tags": [
+        "Intel",
+        "CPU",
+        "NPU",
+        "AI PC",
+        "semiconductor"
+      ],
+      "importance": 2,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "09ac0ec36d7c0cc8",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Client Computing",
+      "url": "https://www.intel.com/client-computing",
+      "source": "Intel Newsroom",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Intel Newsroom 的公开页面链接。",
+      "body_digest": [
+        "来自 Intel Newsroom 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Intel Newsroom 的公开页面链接。",
+      "tags": [
+        "Intel",
+        "CPU",
+        "NPU",
+        "AI PC",
+        "semiconductor"
+      ],
+      "importance": 2,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "141ede811b909a3e",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Intel Foundry",
+      "url": "https://www.intel.com/intel-foundry",
+      "source": "Intel Newsroom",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Intel Newsroom 的公开页面链接。",
+      "body_digest": [
+        "来自 Intel Newsroom 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Intel Newsroom 的公开页面链接。",
+      "tags": [
+        "Intel",
+        "CPU",
+        "NPU",
+        "AI PC",
+        "semiconductor"
+      ],
+      "importance": 2,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "f746e18483414a08",
+      "fetch_status": "success"
+    },
+    {
+      "title": "News | ASML - Supplying the semiconductor industry",
+      "url": "https://www.asml.com/en/news",
+      "source": "ASML News",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "Read our latest press releases and announcements to see what's happening at ASML.",
+      "body_digest": [
+        "Read our latest press releases and announcements to see what's happening at ASML."
+      ],
+      "key_excerpt": "Read our latest press releases and announcements to see what's happening at ASML.",
+      "tags": [
+        "ASML",
+        "lithography",
+        "semiconductor",
+        "EUV"
+      ],
+      "importance": 2,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "3af464cf9e8ffd95",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Q-RAG: Long Context Multi-step Retrieval via Value-based Embedder Training",
+      "url": "https://huggingface.co/papers/2511.07328",
+      "source": "Hugging Face Daily Papers",
+      "source_type": "hf_papers",
+      "published_at": "",
+      "summary": "Retrieval-Augmented Generation (RAG) methods enhance LLM performance by efficiently filtering relevant context for LLMs, reducing hallucinations and inference cost. However, most existing RAG methods focus on single-step retrieval, which is often insufficient for answering complex questions that require multi-step search.",
+      "body_digest": [
+        "Retrieval-Augmented Generation (RAG) methods enhance LLM performance by efficiently filtering relevant context for LLMs, reducing hallucinations and inference cost.",
+        "However, most existing RAG methods focus on single-step retrieval, which is often insufficient for answering complex questions that require multi-step search.",
+        "Recently, multi-step retrieval approaches have emerged, typically involving the fine-tuning of small LLMs to perform multi-step retrieval.",
+        "This type of fine-tuning is highly resource-intensive and does not enable the use of larger LLMs."
+      ],
+      "key_excerpt": "Retrieval-Augmented Generation (RAG) methods enhance LLM performance by efficiently filtering relevant context for LLMs, reducing hallucinations and inference cost.",
+      "tags": [
+        "paper",
+        "AI research",
+        "trending"
+      ],
+      "importance": 2,
+      "relevance": 2,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "对应 Edge AI 的模型部署与端侧优化阶段，现在先建立工具链地图，暂不急着复现。",
+      "raw_text_hash": "aeede97942c95c32",
+      "fetch_status": "success"
+    },
+    {
+      "title": "News â Google DeepMind",
+      "url": "https://deepmind.google/discover/blog/",
+      "source": "Google DeepMind Blog",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "Discover our latest AI breakthroughs, projects, and updates.",
+      "body_digest": [
+        "Discover our latest AI breakthroughs, projects, and updates."
+      ],
+      "key_excerpt": "Discover our latest AI breakthroughs, projects, and updates.",
+      "tags": [
+        "Google DeepMind",
+        "research",
+        "model",
+        "robotics",
+        "science"
+      ],
+      "importance": 1,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "8ef12d90d3bce70c",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Explore models",
+      "url": "https://deepmind.google/models/",
+      "source": "Google DeepMind Blog",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Google DeepMind Blog 的公开页面链接。",
+      "body_digest": [
+        "来自 Google DeepMind Blog 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Google DeepMind Blog 的公开页面链接。",
+      "tags": [
+        "Google DeepMind",
+        "research",
+        "model",
+        "robotics",
+        "science"
+      ],
+      "importance": 1,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "0adf1d959b153f32",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Gemini Learn, build, and plan anything",
+      "url": "https://deepmind.google/models/gemini/",
+      "source": "Google DeepMind Blog",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Google DeepMind Blog 的公开页面链接。",
+      "body_digest": [
+        "来自 Google DeepMind Blog 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Google DeepMind Blog 的公开页面链接。",
+      "tags": [
+        "Google DeepMind",
+        "research",
+        "model",
+        "robotics",
+        "science"
+      ],
+      "importance": 1,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "d4e13c8ca1e4aee3",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Nano Banana Create and edit detailed images",
+      "url": "https://deepmind.google/models/gemini-image/",
+      "source": "Google DeepMind Blog",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Google DeepMind Blog 的公开页面链接。",
+      "body_digest": [
+        "来自 Google DeepMind Blog 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Google DeepMind Blog 的公开页面链接。",
+      "tags": [
+        "Google DeepMind",
+        "research",
+        "model",
+        "robotics",
+        "science"
+      ],
+      "importance": 1,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "efecc83a87f83962",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Gemini Audio Talk, create and control audio",
+      "url": "https://deepmind.google/models/gemini-audio/",
+      "source": "Google DeepMind Blog",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Google DeepMind Blog 的公开页面链接。",
+      "body_digest": [
+        "来自 Google DeepMind Blog 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Google DeepMind Blog 的公开页面链接。",
+      "tags": [
+        "Google DeepMind",
+        "research",
+        "model",
+        "robotics",
+        "science"
+      ],
+      "importance": 1,
+      "relevance": 2,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "ec4af198aa2337c1",
+      "fetch_status": "success"
+    },
+    {
+      "title": "ModelLens: Finding the Best for Your Task from Myriads of Models",
+      "url": "https://huggingface.co/papers/2605.07075",
+      "source": "Hugging Face Daily Papers",
+      "source_type": "hf_papers",
+      "published_at": "",
+      "summary": "The open-source model ecosystem now contains hundreds of thousands of pretrained models, yet picking the best model for a new dataset is increasingly infeasible: new models and unbenchmarked datasets emerge continuously, leaving practitioners with no prior records on either side. Existing approaches handle only fragments of this in-the-wild setting: AutoML and transferability estimation select models from small pred…",
+      "body_digest": [
+        "The open-source model ecosystem now contains hundreds of thousands of pretrained models, yet picking the best model for a new dataset is increasingly infeasible: new models and un…",
+        "Existing approaches handle only fragments of this in-the-wild setting: AutoML and transferability estimation select models from small predefined pools or require expensive per-mod…",
+        "We introduce ModelLens, a unified framework for model recommendation in the wild.",
+        "Our key insight is that public leaderboard interactions, though scattered and noisy, collectively trace out an implicit atlas of model capabilities across heterogeneous evaluation…"
+      ],
+      "key_excerpt": "The open-source model ecosystem now contains hundreds of thousands of pretrained models, yet picking the best model for a new dataset is increasingly infeasible: new models and unbenchmarked datasets emerge continuously…",
+      "tags": [
+        "paper",
+        "AI research",
+        "trending"
+      ],
+      "importance": 1,
+      "relevance": 2,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "64c8aa1caa57b9bd",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Latest News - Apple Developer",
+      "url": "https://developer.apple.com/news/",
+      "source": "Apple Developer News",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "Learn about the latest technologies, events, and policies for developers.",
+      "body_digest": [
+        "Learn about the latest technologies, events, and policies for developers."
+      ],
+      "key_excerpt": "Learn about the latest technologies, events, and policies for developers.",
+      "tags": [
+        "Apple",
+        "developer tools",
+        "Core ML",
+        "mobile AI"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "fdb2dcc6e347b33e",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Apple Developer",
+      "url": "https://developer.apple.com/",
+      "source": "Apple Developer News",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Apple Developer News 的公开页面链接。",
+      "body_digest": [
+        "来自 Apple Developer News 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Apple Developer News 的公开页面链接。",
+      "tags": [
+        "Apple",
+        "developer tools",
+        "Core ML",
+        "mobile AI"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "fbfec7bdc4648957",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Apple Developer Program",
+      "url": "https://developer.apple.com/programs/",
+      "source": "Apple Developer News",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Apple Developer News 的公开页面链接。",
+      "body_digest": [
+        "来自 Apple Developer News 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Apple Developer News 的公开页面链接。",
+      "tags": [
+        "Apple",
+        "developer tools",
+        "Core ML",
+        "mobile AI"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "67468f66abe8c9e6",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Hello Developer",
+      "url": "https://developer.apple.com/hello/",
+      "source": "Apple Developer News",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Apple Developer News 的公开页面链接。",
+      "body_digest": [
+        "来自 Apple Developer News 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Apple Developer News 的公开页面链接。",
+      "tags": [
+        "Apple",
+        "developer tools",
+        "Core ML",
+        "mobile AI"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "08dca53d2864702c",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Apple Platforms",
+      "url": "https://developer.apple.com/platforms/",
+      "source": "Apple Developer News",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Apple Developer News 的公开页面链接。",
+      "body_digest": [
+        "来自 Apple Developer News 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Apple Developer News 的公开页面链接。",
+      "tags": [
+        "Apple",
+        "developer tools",
+        "Core ML",
+        "mobile AI"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "e6936b747cefbfeb",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Microsoft Dev Blogs: Code, News, and Insights for Developers",
+      "url": "https://devblogs.microsoft.com/",
+      "source": "Microsoft Developer Blogs",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "Microsoft for Developers - Get the latest information, insights, and news from Microsoft.",
+      "body_digest": [
+        "Microsoft for Developers - Get the latest information, insights, and news from Microsoft."
+      ],
+      "key_excerpt": "Microsoft for Developers - Get the latest information, insights, and news from Microsoft.",
+      "tags": [
+        "Microsoft",
+        "developer tools",
+        "Azure",
+        "AI",
+        "Windows"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "f6f8be638e4cbdcd",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Skip to main content",
+      "url": "javascript:void(0)",
+      "source": "Microsoft Developer Blogs",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Microsoft Developer Blogs 的公开页面链接。",
+      "body_digest": [
+        "来自 Microsoft Developer Blogs 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Microsoft Developer Blogs 的公开页面链接。",
+      "tags": [
+        "Microsoft",
+        "developer tools",
+        "Azure",
+        "AI",
+        "Windows"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "45a47edb56720c9a",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Visual Studio",
+      "url": "https://devblogs.microsoft.com/visualstudio/",
+      "source": "Microsoft Developer Blogs",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Microsoft Developer Blogs 的公开页面链接。",
+      "body_digest": [
+        "来自 Microsoft Developer Blogs 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Microsoft Developer Blogs 的公开页面链接。",
+      "tags": [
+        "Microsoft",
+        "developer tools",
+        "Azure",
+        "AI",
+        "Windows"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "f5517922b4bec612",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Visual Studio Code",
+      "url": "https://devblogs.microsoft.com/vscode-blog",
+      "source": "Microsoft Developer Blogs",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Microsoft Developer Blogs 的公开页面链接。",
+      "body_digest": [
+        "来自 Microsoft Developer Blogs 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Microsoft Developer Blogs 的公开页面链接。",
+      "tags": [
+        "Microsoft",
+        "developer tools",
+        "Azure",
+        "AI",
+        "Windows"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "a7b6a8ea0bb36258",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Develop from the cloud",
+      "url": "https://devblogs.microsoft.com/develop-from-the-cloud/",
+      "source": "Microsoft Developer Blogs",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 Microsoft Developer Blogs 的公开页面链接。",
+      "body_digest": [
+        "来自 Microsoft Developer Blogs 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Microsoft Developer Blogs 的公开页面链接。",
+      "tags": [
+        "Microsoft",
+        "developer tools",
+        "Azure",
+        "AI",
+        "Windows"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "0c685e8dd16241b5",
+      "fetch_status": "success"
+    },
+    {
+      "title": "AMD Website Accessibility Statement",
+      "url": "https://www.amd.com/en/site-notifications/accessibility-statement.html",
+      "source": "AMD Newsroom",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 AMD Newsroom 的公开页面链接。",
+      "body_digest": [
+        "来自 AMD Newsroom 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 AMD Newsroom 的公开页面链接。",
+      "tags": [
+        "AMD",
+        "GPU",
+        "AI accelerator",
+        "semiconductor"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "7ab2acc7f0046b1b",
+      "fetch_status": "success"
+    },
+    {
+      "title": "EPYC CPU Portfolio",
+      "url": "https://www.amd.com/en/products/processors/server/epyc.html",
+      "source": "AMD Newsroom",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 AMD Newsroom 的公开页面链接。",
+      "body_digest": [
+        "来自 AMD Newsroom 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 AMD Newsroom 的公开页面链接。",
+      "tags": [
+        "AMD",
+        "GPU",
+        "AI accelerator",
+        "semiconductor"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "29bce5adbcc5ec28",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Data Center, Cloud & AI",
+      "url": "https://www.amd.com/en/products/processors/server/epyc/data-center-cloud-ai.html",
+      "source": "AMD Newsroom",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 AMD Newsroom 的公开页面链接。",
+      "body_digest": [
+        "来自 AMD Newsroom 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 AMD Newsroom 的公开页面链接。",
+      "tags": [
+        "AMD",
+        "GPU",
+        "AI accelerator",
+        "semiconductor"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "aac30d7dacf747ba",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Small Business & Hosting",
+      "url": "https://www.amd.com/en/products/processors/server/epyc/small-business.html",
+      "source": "AMD Newsroom",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 AMD Newsroom 的公开页面链接。",
+      "body_digest": [
+        "来自 AMD Newsroom 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 AMD Newsroom 的公开页面链接。",
+      "tags": [
+        "AMD",
+        "GPU",
+        "AI accelerator",
+        "semiconductor"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "2011dd8b9f8879c0",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Company overview",
+      "url": "https://www.asml.com/en/company",
+      "source": "ASML News",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 ASML News 的公开页面链接。",
+      "body_digest": [
+        "来自 ASML News 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 ASML News 的公开页面链接。",
+      "tags": [
+        "ASML",
+        "lithography",
+        "semiconductor",
+        "EUV"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "2d5f231109adb1cc",
+      "fetch_status": "success"
+    },
+    {
+      "title": "About ASML overview",
+      "url": "https://www.asml.com/en/company/about-asml",
+      "source": "ASML News",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 ASML News 的公开页面链接。",
+      "body_digest": [
+        "来自 ASML News 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 ASML News 的公开页面链接。",
+      "tags": [
+        "ASML",
+        "lithography",
+        "semiconductor",
+        "EUV"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "9fe8ea088e6addfc",
+      "fetch_status": "success"
+    },
+    {
+      "title": "ASML at a glance",
+      "url": "https://www.asml.com/en/company/about-asml/asml-at-a-glance",
+      "source": "ASML News",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 ASML News 的公开页面链接。",
+      "body_digest": [
+        "来自 ASML News 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 ASML News 的公开页面链接。",
+      "tags": [
+        "ASML",
+        "lithography",
+        "semiconductor",
+        "EUV"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "4ae15a652b7f7e19",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Vision & mission",
+      "url": "https://www.asml.com/en/company/about-asml/vision-and-mission",
+      "source": "ASML News",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 ASML News 的公开页面链接。",
+      "body_digest": [
+        "来自 ASML News 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 ASML News 的公开页面链接。",
+      "tags": [
+        "ASML",
+        "lithography",
+        "semiconductor",
+        "EUV"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "和你正在学的神经网络/CNN 主线有关，适合收藏后在学完基础卷积网络后回看。",
+      "raw_text_hash": "53366e6b17a32a15",
+      "fetch_status": "success"
+    },
+    {
+      "title": "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection",
+      "url": "https://arxiv.org/abs/2605.08070",
+      "source": "arXiv CS.AI Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection. James Petullo , Sonny George , Dylan Cashman , Nianwen Xue",
+      "body_digest": [
+        "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection.",
+        "James Petullo , Sonny George , Dylan Cashman , Nianwen Xue"
+      ],
+      "key_excerpt": "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection.",
+      "tags": [
+        "arXiv",
+        "artificial intelligence",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "07b8236f8821c0c9",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Rubric-Grounded RL: Structured Judge Rewards for Generalizable Reasoning",
+      "url": "https://arxiv.org/abs/2605.08061",
+      "source": "arXiv CS.AI Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "Rubric-Grounded RL: Structured Judge Rewards for Generalizable Reasoning. Manish Bhattarai , Ismael Boureima , Nishath Rajiv Ranasinghe , Scott Pakin , Dan O'Malley",
+      "body_digest": [
+        "Rubric-Grounded RL: Structured Judge Rewards for Generalizable Reasoning.",
+        "Manish Bhattarai , Ismael Boureima , Nishath Rajiv Ranasinghe , Scott Pakin , Dan O'Malley"
+      ],
+      "key_excerpt": "Rubric-Grounded RL: Structured Judge Rewards for Generalizable Reasoning.",
+      "tags": [
+        "arXiv",
+        "artificial intelligence",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "0c648b958984cc0d",
+      "fetch_status": "success"
+    },
+    {
+      "title": "MPD$^2$-Router: Mask-aware Multi-expert Prior-regularized Dual-head Deferral Router in Glaucoma Screening and Diagnosis",
+      "url": "https://arxiv.org/abs/2605.08024",
+      "source": "arXiv CS.AI Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "MPD$^2$-Router: Mask-aware Multi-expert Prior-regularized Dual-head Deferral Router in Glaucoma Screening and Diagnosis. Wenxin Zhan",
+      "body_digest": [
+        "MPD$^2$-Router: Mask-aware Multi-expert Prior-regularized Dual-head Deferral Router in Glaucoma Screening and Diagnosis."
+      ],
+      "key_excerpt": "MPD$^2$-Router: Mask-aware Multi-expert Prior-regularized Dual-head Deferral Router in Glaucoma Screening and Diagnosis.",
+      "tags": [
+        "arXiv",
+        "artificial intelligence",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "7507bc174186ed60",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Reason to Play: Behavioral and Brain Alignment Between Frontier LRMs and Human Game Learners",
+      "url": "https://arxiv.org/abs/2605.08019",
+      "source": "arXiv CS.AI Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "Reason to Play: Behavioral and Brain Alignment Between Frontier LRMs and Human Game Learners. Botos Csaba , Sreejan Kumar , Austin Tudor David Andrews , Laurence Hunt , Chris Summerfield , Joshua B.",
+      "body_digest": [
+        "Reason to Play: Behavioral and Brain Alignment Between Frontier LRMs and Human Game Learners.",
+        "Botos Csaba , Sreejan Kumar , Austin Tudor David Andrews , Laurence Hunt , Chris Summerfield , Joshua B.",
+        "Tenenbaum , Rui Ponte Costa , Marcelo G.",
+        "Mattar , Momchil Tomov"
+      ],
+      "key_excerpt": "Reason to Play: Behavioral and Brain Alignment Between Frontier LRMs and Human Game Learners.",
+      "tags": [
+        "arXiv",
+        "artificial intelligence",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "9d6125d92fe750c9",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Learning CLI Agents with Structured Action Credit under Selective Observation",
+      "url": "https://arxiv.org/abs/2605.08013",
+      "source": "arXiv CS.AI Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "Learning CLI Agents with Structured Action Credit under Selective Observation. Haoyang Su , Ying Wen",
+      "body_digest": [
+        "Learning CLI Agents with Structured Action Credit under Selective Observation.",
+        "Haoyang Su , Ying Wen"
+      ],
+      "key_excerpt": "Learning CLI Agents with Structured Action Credit under Selective Observation.",
+      "tags": [
+        "arXiv",
+        "artificial intelligence",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "c05c58f14b18accd",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Abductive Reasoning with Probabilistic Commonsense",
+      "url": "https://arxiv.org/abs/2605.08011",
+      "source": "arXiv CS.AI Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "Abductive Reasoning with Probabilistic Commonsense. Joseph Cotnareanu , Chiara Roverato , Han Zhou , Didier Chetelat , Yingxue Zhang , Mark Coates",
+      "body_digest": [
+        "Abductive Reasoning with Probabilistic Commonsense.",
+        "Joseph Cotnareanu , Chiara Roverato , Han Zhou , Didier Chetelat , Yingxue Zhang , Mark Coates"
+      ],
+      "key_excerpt": "Abductive Reasoning with Probabilistic Commonsense.",
+      "tags": [
+        "arXiv",
+        "artificial intelligence",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "7b14ad4134cae146",
+      "fetch_status": "success"
+    },
+    {
+      "title": "The Limits of AI-Driven Allocation: Optimal Screening under Aleatoric Uncertainty",
+      "url": "https://arxiv.org/abs/2605.07979",
+      "source": "arXiv CS.AI Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "The Limits of AI-Driven Allocation: Optimal Screening under Aleatoric Uncertainty. Santiago Cortes-Gomez , Mateo Dulce Rubio , Carlos Patino , Bryan Wilder",
+      "body_digest": [
+        "The Limits of AI-Driven Allocation: Optimal Screening under Aleatoric Uncertainty.",
+        "Santiago Cortes-Gomez , Mateo Dulce Rubio , Carlos Patino , Bryan Wilder"
+      ],
+      "key_excerpt": "The Limits of AI-Driven Allocation: Optimal Screening under Aleatoric Uncertainty.",
+      "tags": [
+        "arXiv",
+        "artificial intelligence",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "4a29efcd115b211f",
+      "fetch_status": "success"
+    },
+    {
+      "title": "TraceFix: Repairing Agent Coordination Protocols with TLA+ Counterexamples",
+      "url": "https://arxiv.org/abs/2605.07935",
+      "source": "arXiv CS.AI Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "TraceFix: Repairing Agent Coordination Protocols with TLA+ Counterexamples. Shuren Xia , Qiwei Li , Taqiya Ehsan , Jorge Ortiz",
+      "body_digest": [
+        "TraceFix: Repairing Agent Coordination Protocols with TLA+ Counterexamples.",
+        "Shuren Xia , Qiwei Li , Taqiya Ehsan , Jorge Ortiz"
+      ],
+      "key_excerpt": "TraceFix: Repairing Agent Coordination Protocols with TLA+ Counterexamples.",
+      "tags": [
+        "arXiv",
+        "artificial intelligence",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "d5a22a0c7263bd80",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping",
+      "url": "https://arxiv.org/abs/2605.08075",
+      "source": "arXiv CS.LG Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping. Maryam Maghsoudi , Shihab Shamma",
+      "body_digest": [
+        "Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping.",
+        "Maryam Maghsoudi , Shihab Shamma"
+      ],
+      "key_excerpt": "Zero-Shot Imagined Speech Decoding via Imagined-to-Listened MEG Mapping.",
+      "tags": [
+        "arXiv",
+        "machine learning",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "46c0bdbb18fa74a2",
+      "fetch_status": "success"
+    },
+    {
+      "title": "GRAPHLCP: Structure-Aware Localized Conformal Prediction on Graphs",
+      "url": "https://arxiv.org/abs/2605.08074",
+      "source": "arXiv CS.LG Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "GRAPHLCP: Structure-Aware Localized Conformal Prediction on Graphs. Peyman Baghershahi , Fangxin Wang , Debmalya Mandal , Sourav Medya",
+      "body_digest": [
+        "GRAPHLCP: Structure-Aware Localized Conformal Prediction on Graphs.",
+        "Peyman Baghershahi , Fangxin Wang , Debmalya Mandal , Sourav Medya"
+      ],
+      "key_excerpt": "GRAPHLCP: Structure-Aware Localized Conformal Prediction on Graphs.",
+      "tags": [
+        "arXiv",
+        "machine learning",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "14b83d36d8005d10",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Reinforcement Learning for Exponential Utility: Algorithms and Convergence in Discounted MDPs",
+      "url": "https://arxiv.org/abs/2605.08053",
+      "source": "arXiv CS.LG Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "Reinforcement Learning for Exponential Utility: Algorithms and Convergence in Discounted MDPs. Gugan Thoppe , L.",
+      "body_digest": [
+        "Reinforcement Learning for Exponential Utility: Algorithms and Convergence in Discounted MDPs.",
+        "Prashanth , Ankur Naskar , Sanjay Bhat"
+      ],
+      "key_excerpt": "Reinforcement Learning for Exponential Utility: Algorithms and Convergence in Discounted MDPs.",
+      "tags": [
+        "arXiv",
+        "machine learning",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "a55507fcd8ae181e",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Beyond Pairs: Your Language Model is Secretly Optimizing a Preference Graph",
+      "url": "https://arxiv.org/abs/2605.08037",
+      "source": "arXiv CS.LG Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "Beyond Pairs: Your Language Model is Secretly Optimizing a Preference Graph. Ning Liu , Chuanneng Sun , Kristina Klinkner , Shervin Malmasi",
+      "body_digest": [
+        "Beyond Pairs: Your Language Model is Secretly Optimizing a Preference Graph.",
+        "Ning Liu , Chuanneng Sun , Kristina Klinkner , Shervin Malmasi"
+      ],
+      "key_excerpt": "Beyond Pairs: Your Language Model is Secretly Optimizing a Preference Graph.",
+      "tags": [
+        "arXiv",
+        "machine learning",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "75befeb152c83b38",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Don't Get Your Kroneckers in a Twist: Gaussian Processes on High-Dimensional Incomplete Grids",
+      "url": "https://arxiv.org/abs/2605.08036",
+      "source": "arXiv CS.LG Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "Don't Get Your Kroneckers in a Twist: Gaussian Processes on High-Dimensional Incomplete Grids. Mads Greisen Højlund , August Smart Lykke-Møller , Henry Moss , Ove Christiansen",
+      "body_digest": [
+        "Don't Get Your Kroneckers in a Twist: Gaussian Processes on High-Dimensional Incomplete Grids.",
+        "Mads Greisen Højlund , August Smart Lykke-Møller , Henry Moss , Ove Christiansen"
+      ],
+      "key_excerpt": "Don't Get Your Kroneckers in a Twist: Gaussian Processes on High-Dimensional Incomplete Grids.",
+      "tags": [
+        "arXiv",
+        "machine learning",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "e452a7e9135a756b",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Adaptive Domain Decomposition Physics-Informed Neural Networks for Traffic State Estimation with Sparse Sensor Data",
+      "url": "https://arxiv.org/abs/2605.08028",
+      "source": "arXiv CS.LG Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "Adaptive Domain Decomposition Physics-Informed Neural Networks for Traffic State Estimation with Sparse Sensor Data. Eunhan Ka , Ludovic Leclercq , Satish V.",
+      "body_digest": [
+        "Adaptive Domain Decomposition Physics-Informed Neural Networks for Traffic State Estimation with Sparse Sensor Data.",
+        "Eunhan Ka , Ludovic Leclercq , Satish V."
+      ],
+      "key_excerpt": "Adaptive Domain Decomposition Physics-Informed Neural Networks for Traffic State Estimation with Sparse Sensor Data.",
+      "tags": [
+        "arXiv",
+        "machine learning",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "b60165d089f1a9ca",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Position: Mechanistic Interpretability Must Disclose Identification Assumptions for Causal Claims",
+      "url": "https://arxiv.org/abs/2605.08012",
+      "source": "arXiv CS.LG Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "Position: Mechanistic Interpretability Must Disclose Identification Assumptions for Causal Claims. Zezheng Lin , Fengming Liu",
+      "body_digest": [
+        "Position: Mechanistic Interpretability Must Disclose Identification Assumptions for Causal Claims.",
+        "Zezheng Lin , Fengming Liu"
+      ],
+      "key_excerpt": "Position: Mechanistic Interpretability Must Disclose Identification Assumptions for Causal Claims.",
+      "tags": [
+        "arXiv",
+        "machine learning",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "aa773698b809a74a",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Interpreting Reinforcement Learning Agents with Susceptibilities",
+      "url": "https://arxiv.org/abs/2605.08007",
+      "source": "arXiv CS.LG Recent",
+      "source_type": "arxiv_recent",
+      "published_at": "",
+      "summary": "Interpreting Reinforcement Learning Agents with Susceptibilities. Chris Elliott , Einar Urdshals , David Quarel , Daniel Murfet",
+      "body_digest": [
+        "Interpreting Reinforcement Learning Agents with Susceptibilities.",
+        "Chris Elliott , Einar Urdshals , David Quarel , Daniel Murfet"
+      ],
+      "key_excerpt": "Interpreting Reinforcement Learning Agents with Susceptibilities.",
+      "tags": [
+        "arXiv",
+        "machine learning",
+        "paper"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "论文内容可能偏难，当前阶段先读标题、摘要和是否有代码即可。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "87a8333d71a487f8",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Venues | OpenReview",
+      "url": "https://openreview.net/",
+      "source": "OpenReview AI Conferences",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "Promoting openness in scientific communication and the peer-review process",
+      "body_digest": [
+        "Promoting openness in scientific communication and the peer-review process"
+      ],
+      "key_excerpt": "Promoting openness in scientific communication and the peer-review process",
+      "tags": [
+        "OpenReview",
+        "conference",
+        "paper",
+        "review"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "b4f7d0a875fbb7b4",
+      "fetch_status": "success"
+    },
+    {
+      "title": "OpenReview Introduces Multi-Factor Authentication for All Users",
+      "url": "https://openreview.net/forum/mondragon|openreview_introduces_multifactor_authentication_for_all_users",
+      "source": "OpenReview AI Conferences",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 OpenReview AI Conferences 的公开页面链接。",
+      "body_digest": [
+        "来自 OpenReview AI Conferences 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 OpenReview AI Conferences 的公开页面链接。",
+      "tags": [
+        "OpenReview",
+        "conference",
+        "paper",
+        "review"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "4836ca7732e8bd73",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Survey Finds Broad Support for Greater Openness in AI Peer Review",
+      "url": "https://openreview.net/forum/shah|survey_finds_broad_support_for_greater_openness_in_ai_peer_review",
+      "source": "OpenReview AI Conferences",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 OpenReview AI Conferences 的公开页面链接。",
+      "body_digest": [
+        "来自 OpenReview AI Conferences 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 OpenReview AI Conferences 的公开页面链接。",
+      "tags": [
+        "OpenReview",
+        "conference",
+        "paper",
+        "review"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "2e85dd7ed9af7a02",
+      "fetch_status": "success"
+    },
+    {
+      "title": "A Message from AI Research Leaders: Join Us in Supporting OpenReview",
+      "url": "https://openreview.net/forum/pineau|a_message_from_ai_research_leaders_join_us_in_supporting_openreview",
+      "source": "OpenReview AI Conferences",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 OpenReview AI Conferences 的公开页面链接。",
+      "body_digest": [
+        "来自 OpenReview AI Conferences 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 OpenReview AI Conferences 的公开页面链接。",
+      "tags": [
+        "OpenReview",
+        "conference",
+        "paper",
+        "review"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "f878a6fadb3ad0fd",
+      "fetch_status": "success"
+    },
+    {
+      "title": "View all OpenReview news",
+      "url": "https://openreview.net/group?id=OpenReview.net/News&referrer=[Homepage](/)",
+      "source": "OpenReview AI Conferences",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 OpenReview AI Conferences 的公开页面链接。",
+      "body_digest": [
+        "来自 OpenReview AI Conferences 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 OpenReview AI Conferences 的公开页面链接。",
+      "tags": [
+        "OpenReview",
+        "conference",
+        "paper",
+        "review"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "7e0f802951ccc9a1",
+      "fetch_status": "success"
+    },
+    {
+      "title": "AI News & Articles - Artificial Intelligence Updates - IEEE Spectrum",
+      "url": "https://spectrum.ieee.org/artificial-intelligence",
+      "source": "IEEE Spectrum Artificial Intelligence",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "The latest advances in artificial intelligence and machine learning, generative AI, ChatGPT, LLMs, deepfakes, and more",
+      "body_digest": [
+        "The latest advances in artificial intelligence and machine learning, generative AI, ChatGPT, LLMs, deepfakes, and more"
+      ],
+      "key_excerpt": "The latest advances in artificial intelligence and machine learning, generative AI, ChatGPT, LLMs, deepfakes, and more",
+      "tags": [
+        "IEEE Spectrum",
+        "engineering",
+        "AI",
+        "robotics",
+        "chips"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "4b8a287606b2781a",
+      "fetch_status": "success"
+    },
+    {
+      "title": "2026 Conference",
+      "url": "https://icml.cc/",
+      "source": "ICML",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "",
+      "body_digest": [],
+      "key_excerpt": "",
+      "tags": [
+        "conference",
+        "machine learning",
+        "research"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "f3706825232a99cc",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Contact ICML",
+      "url": "https://icml.cc/Help/Contact",
+      "source": "ICML",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 ICML 的公开页面链接。",
+      "body_digest": [],
+      "key_excerpt": "来自 ICML 的公开页面链接。",
+      "tags": [
+        "conference",
+        "machine learning",
+        "research"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "e4f17f93e3ea4266",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Create Profile",
+      "url": "https://icml.cc/Profile/create",
+      "source": "ICML",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 ICML 的公开页面链接。",
+      "body_digest": [],
+      "key_excerpt": "来自 ICML 的公开页面链接。",
+      "tags": [
+        "conference",
+        "machine learning",
+        "research"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "b5c899da70d5f559",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Code of Conduct",
+      "url": "https://icml.cc/yearly-document/CodeOfConduct",
+      "source": "ICML",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 ICML 的公开页面链接。",
+      "body_digest": [],
+      "key_excerpt": "来自 ICML 的公开页面链接。",
+      "tags": [
+        "conference",
+        "machine learning",
+        "research"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "248cd5d3b74b67f4",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Journal To Conference Track",
+      "url": "https://icml.cc/public/JournalToConference",
+      "source": "ICML",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 ICML 的公开页面链接。",
+      "body_digest": [],
+      "key_excerpt": "来自 ICML 的公开页面链接。",
+      "tags": [
+        "conference",
+        "machine learning",
+        "research"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "fa005f8cac771aa8",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Contact ICLR",
+      "url": "https://iclr.cc/Help/Contact",
+      "source": "ICLR",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 ICLR 的公开页面链接。",
+      "body_digest": [],
+      "key_excerpt": "来自 ICLR 的公开页面链接。",
+      "tags": [
+        "conference",
+        "machine learning",
+        "research"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "high",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "da6ddd6f7496e195",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Learning Visual Feature-Based World Models via Residual Latent Action",
+      "url": "https://huggingface.co/papers/2605.07079",
+      "source": "Hugging Face Daily Papers",
+      "source_type": "hf_papers",
+      "published_at": "",
+      "summary": "World models predict future transitions from observations and actions. Existing works predominantly focus on image generation only.",
+      "body_digest": [
+        "World models predict future transitions from observations and actions.",
+        "Existing works predominantly focus on image generation only.",
+        "Visual feature-based world models, on the other hand, predict future visual features instead of raw video pixels, offering a promising alternative that is more efficient and less…",
+        "However, current feature-based approaches rely on direct regression, which leads to blurry or collapsed predictions in complex interactions, while generative modeling in high-dime…"
+      ],
+      "key_excerpt": "World models predict future transitions from observations and actions.",
+      "tags": [
+        "paper",
+        "AI research",
+        "trending"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "8b64b4239f0e5369",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Trajectory as the Teacher: Few-Step Discrete Flow Matching via Energy-Navigated Distillation",
+      "url": "https://huggingface.co/papers/2605.07924",
+      "source": "Hugging Face Daily Papers",
+      "source_type": "hf_papers",
+      "published_at": "",
+      "summary": "Discrete flow matching generates text by iteratively transforming noise tokens into coherent language, but may require hundreds of forward passes. Distillation uses the multi-step trajectory to train a student to reproduce the process in a few steps.",
+      "body_digest": [
+        "Discrete flow matching generates text by iteratively transforming noise tokens into coherent language, but may require hundreds of forward passes.",
+        "Distillation uses the multi-step trajectory to train a student to reproduce the process in a few steps.",
+        "When the student underperforms, the usual explanation is insufficient capacity.",
+        "We argue the opposite: the trajectory is the bottleneck, not the student."
+      ],
+      "key_excerpt": "Discrete flow matching generates text by iteratively transforming noise tokens into coherent language, but may require hundreds of forward passes.",
+      "tags": [
+        "paper",
+        "AI research",
+        "trending"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "c27919b41dc1e549",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Delta-Adapter: Scalable Exemplar-Based Image Editing with Single-Pair Supervision",
+      "url": "https://huggingface.co/papers/2605.07940",
+      "source": "Hugging Face Daily Papers",
+      "source_type": "hf_papers",
+      "published_at": "",
+      "summary": "Exemplar-based image editing applies a transformation defined by a source-target image pair to a new query image. Existing methods rely on a pair-of-pairs supervision paradigm, requiring two image pairs sharing the same edit semantics to learn the target transformation.",
+      "body_digest": [
+        "Exemplar-based image editing applies a transformation defined by a source-target image pair to a new query image.",
+        "Existing methods rely on a pair-of-pairs supervision paradigm, requiring two image pairs sharing the same edit semantics to learn the target transformation.",
+        "This constraint makes training data difficult to curate at scale and limits generalization across diverse edit types.",
+        "We propose Delta-Adapter, a method that learns transferable editing semantics under single-pair supervision, requiring no textual guidance."
+      ],
+      "key_excerpt": "Exemplar-based image editing applies a transformation defined by a source-target image pair to a new query image.",
+      "tags": [
+        "paper",
+        "AI research",
+        "trending"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "和你正在学的神经网络/CNN 主线有关，适合收藏后在学完基础卷积网络后回看。",
+      "raw_text_hash": "d544a5457f59b0a0",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Discovering Reinforcement Learning Interfaces with Large Language Models",
+      "url": "https://huggingface.co/papers/2605.03408",
+      "source": "Hugging Face Daily Papers",
+      "source_type": "hf_papers",
+      "published_at": "",
+      "summary": "Reinforcement learning systems rely on environment interfaces that specify observations and reward functions, yet constructing these interfaces for new tasks often requires substantial manual effort. While recent work has automated reward design using large language models (LLMs), these approaches assume fixed observations and do not address the broader challenge of synthesizing complete task interfaces.",
+      "body_digest": [
+        "Reinforcement learning systems rely on environment interfaces that specify observations and reward functions, yet constructing these interfaces for new tasks often requires substa…",
+        "While recent work has automated reward design using large language models (LLMs), these approaches assume fixed observations and do not address the broader challenge of synthesizi…",
+        "We study RL task interface discovery from raw simulator state, where both observation mappings and reward functions must be generated.",
+        "We propose LIMEN (Code available at https://github.com/Lossfunk/LIMEN), a LLM guided evolutionary framework that produces candidate interfaces as executable programs and iterative…"
+      ],
+      "key_excerpt": "Reinforcement learning systems rely on environment interfaces that specify observations and reward functions, yet constructing these interfaces for new tasks often requires substantial manual effort.",
+      "tags": [
+        "paper",
+        "AI research",
+        "trending"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "91e0b0e4d8e6554a",
+      "fetch_status": "success"
+    },
+    {
+      "title": "What if AI systems weren't chatbots?",
+      "url": "https://huggingface.co/papers/2605.07896",
+      "source": "Hugging Face Daily Papers",
+      "source_type": "hf_papers",
+      "published_at": "",
+      "summary": "The rapid convergence of artificial intelligence (AI) toward conversational chatbot interfaces marks a critical moment for the industry. This paper argues that the chatbot paradigm is not a neutral interface choice, but a dominant sociotechnical configuration whose widespread adoption reshapes social, economic, legal, and environmental systems.",
+      "body_digest": [
+        "The rapid convergence of artificial intelligence (AI) toward conversational chatbot interfaces marks a critical moment for the industry.",
+        "This paper argues that the chatbot paradigm is not a neutral interface choice, but a dominant sociotechnical configuration whose widespread adoption reshapes social, economic, leg…",
+        "We examine how treating AI primarily as conversational assistants has extensive structural downsides.",
+        "We show how chatbot-based systems often fail to adequately meet user needs, particularly in complex or high-stakes contexts, while projecting confidence and authority."
+      ],
+      "key_excerpt": "The rapid convergence of artificial intelligence (AI) toward conversational chatbot interfaces marks a critical moment for the industry.",
+      "tags": [
+        "paper",
+        "AI research",
+        "trending"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "42b98f5b405df927",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Rethinking RL for LLM Reasoning: It's Sparse Policy Selection, Not Capability Learning",
+      "url": "https://huggingface.co/papers/2605.06241",
+      "source": "Hugging Face Daily Papers",
+      "source_type": "hf_papers",
+      "published_at": "",
+      "summary": "Reinforcement learning has become the standard for improving reasoning in large language models, yet evidence increasingly suggests that RL does not teach new strategies; it redistributes probability mass over solutions the base model already contains. In this work, we ask: if RL merely steers the model toward paths it already knows, is the RL optimization loop itself necessary?",
+      "body_digest": [
+        "Reinforcement learning has become the standard for improving reasoning in large language models, yet evidence increasingly suggests that RL does not teach new strategies; it redis…",
+        "In this work, we ask: if RL merely steers the model toward paths it already knows, is the RL optimization loop itself necessary?",
+        "Through token-level analysis across multiple model families and RL algorithms, we find that RL's beneficial footprint is a sparse, predictable correction concentrated at high-entr…",
+        "Only 1--3\\% of token positions are affected, the promoted token always lies within the base model's top-5 alternatives, and targeted corrections at those few positions causally re…"
+      ],
+      "key_excerpt": "Reinforcement learning has become the standard for improving reasoning in large language models, yet evidence increasingly suggests that RL does not teach new strategies; it redistributes probability mass over solutions…",
+      "tags": [
+        "paper",
+        "AI research",
+        "trending"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "8aa5ca95fba4ce34",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Y Combinator",
+      "url": "https://www.ycombinator.com/launches",
+      "source": "Launch YC",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "",
+      "body_digest": [],
+      "key_excerpt": "",
+      "tags": [
+        "Y Combinator",
+        "startup",
+        "AI product",
+        "developer tools"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "80f0c7a4f568f460",
+      "fetch_status": "success"
+    },
+    {
+      "title": "SemiAnalysis – Bridging the gap between the world's most important industry, semiconductors, and business.",
+      "url": "https://www.semianalysis.com/",
+      "source": "SemiAnalysis",
+      "source_type": "paywalled_reference",
+      "published_at": "",
+      "summary": "Bridging the gap between the world's most important industry, semiconductors, and business.",
+      "body_digest": [
+        "Bridging the gap between the world's most important industry, semiconductors, and business."
+      ],
+      "key_excerpt": "Bridging the gap between the world's most important industry, semiconductors, and business.",
+      "tags": [
+        "SemiAnalysis",
+        "AI infrastructure",
+        "GPU",
+        "semiconductor",
+        "data center"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "c299cc9bbb1d981f",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Energy Model",
+      "url": "https://www.semianalysis.com/energy-model",
+      "source": "SemiAnalysis",
+      "source_type": "paywalled_reference",
+      "published_at": "",
+      "summary": "来自 SemiAnalysis 的公开页面链接。",
+      "body_digest": [
+        "来自 SemiAnalysis 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 SemiAnalysis 的公开页面链接。",
+      "tags": [
+        "SemiAnalysis",
+        "AI infrastructure",
+        "GPU",
+        "semiconductor",
+        "data center"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "054dc6d16ce0772a",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Stratechery by Ben Thompson – On the business, strategy, and impact of technology.",
+      "url": "https://stratechery.com/",
+      "source": "Stratechery",
+      "source_type": "paywalled_reference",
+      "published_at": "",
+      "summary": "On the business, strategy, and impact of technology.",
+      "body_digest": [
+        "On the business, strategy, and impact of technology."
+      ],
+      "key_excerpt": "On the business, strategy, and impact of technology.",
+      "tags": [
+        "strategy",
+        "business model",
+        "AI industry"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "f0387116c7ed833c",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Year in Review",
+      "url": "https://stratechery.com/category/year-in-review/",
+      "source": "Stratechery",
+      "source_type": "paywalled_reference",
+      "published_at": "",
+      "summary": "来自 Stratechery 的公开页面链接。",
+      "body_digest": [
+        "来自 Stratechery 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Stratechery 的公开页面链接。",
+      "tags": [
+        "strategy",
+        "business model",
+        "AI industry"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "d5eb9a53fc803ba1",
+      "fetch_status": "success"
+    },
+    {
+      "title": "All Articles",
+      "url": "https://stratechery.com/category/articles/",
+      "source": "Stratechery",
+      "source_type": "paywalled_reference",
+      "published_at": "",
+      "summary": "来自 Stratechery 的公开页面链接。",
+      "body_digest": [
+        "来自 Stratechery 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Stratechery 的公开页面链接。",
+      "tags": [
+        "strategy",
+        "business model",
+        "AI industry"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "25450c951299aea6",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Stratechery Plus Update",
+      "url": "https://stratechery.com/category/daily-email,intervews/",
+      "source": "Stratechery",
+      "source_type": "paywalled_reference",
+      "published_at": "",
+      "summary": "来自 Stratechery 的公开页面链接。",
+      "body_digest": [
+        "来自 Stratechery 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Stratechery 的公开页面链接。",
+      "tags": [
+        "strategy",
+        "business model",
+        "AI industry"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "5f90aa3a0d6fa5b8",
+      "fetch_status": "success"
+    },
+    {
+      "title": "An Interview with Joanna Stern About Living With AI",
+      "url": "https://stratechery.com/2026/an-interview-with-joanna-stern-about-living-with-ai/",
+      "source": "Stratechery",
+      "source_type": "paywalled_reference",
+      "published_at": "",
+      "summary": "来自 Stratechery 的公开页面链接。",
+      "body_digest": [
+        "来自 Stratechery 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 Stratechery 的公开页面链接。",
+      "tags": [
+        "strategy",
+        "business model",
+        "AI industry"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "92c3c24875a6e0f9",
+      "fetch_status": "success"
+    },
+    {
+      "title": "The Information",
+      "url": "https://www.theinformation.com/",
+      "source": "The Information",
+      "source_type": "paywalled_reference",
+      "published_at": "",
+      "summary": "The Information has a simple mission: deliver important, deeply reported articles about the technology business you won’t find elsewhere. Many of the most influential people in the industry turn to us for fresh information and original insight.",
+      "body_digest": [
+        "The Information has a simple mission: deliver important, deeply reported articles about the technology business you won’t find elsewhere.",
+        "Many of the most influential people in the industry turn to us for fresh information and original insight."
+      ],
+      "key_excerpt": "The Information has a simple mission: deliver important, deeply reported articles about the technology business you won’t find elsewhere.",
+      "tags": [
+        "tech business",
+        "Silicon Valley",
+        "AI company"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "bd7f18287229f3ab",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Start your subscription — save 25%",
+      "url": "https://www.theinformation.com/articles/cursor-staff-meet-xai-employees-layoffs-exits-mount?offer=ab-25&utm_content=article_push&utm_medium=organic&utm_campaign=AB_post&utm_term=AB_post",
+      "source": "The Information",
+      "source_type": "paywalled_reference",
+      "published_at": "",
+      "summary": "来自 The Information 的公开页面链接。",
+      "body_digest": [
+        "来自 The Information 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 The Information 的公开页面链接。",
+      "tags": [
+        "tech business",
+        "Silicon Valley",
+        "AI company"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "e3fe41c39f236496",
+      "fetch_status": "success"
+    },
+    {
+      "title": "The Executives Leading the Data Center Race",
+      "url": "https://www.theinformation.com/projects/data-center-executives",
+      "source": "The Information",
+      "source_type": "paywalled_reference",
+      "published_at": "",
+      "summary": "来自 The Information 的公开页面链接。",
+      "body_digest": [
+        "来自 The Information 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 The Information 的公开页面链接。",
+      "tags": [
+        "tech business",
+        "Silicon Valley",
+        "AI company"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "d67c1a310b6f3e50",
+      "fetch_status": "success"
+    },
+    {
+      "title": "The Next GPs 2026",
+      "url": "https://www.theinformation.com/projects/general-partners-venture-firms-2026",
+      "source": "The Information",
+      "source_type": "paywalled_reference",
+      "published_at": "",
+      "summary": "来自 The Information 的公开页面链接。",
+      "body_digest": [
+        "来自 The Information 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 The Information 的公开页面链接。",
+      "tags": [
+        "tech business",
+        "Silicon Valley",
+        "AI company"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "4be03a9b25e55200",
+      "fetch_status": "success"
+    },
+    {
+      "title": "The Next GPs 2025",
+      "url": "https://www.theinformation.com/projects/general-partners-venture-firms",
+      "source": "The Information",
+      "source_type": "paywalled_reference",
+      "published_at": "",
+      "summary": "来自 The Information 的公开页面链接。",
+      "body_digest": [
+        "来自 The Information 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 The Information 的公开页面链接。",
+      "tags": [
+        "tech business",
+        "Silicon Valley",
+        "AI company"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "medium",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "11c73e9e1cac5ebf",
+      "fetch_status": "success"
+    },
+    {
+      "title": "机器之心·数据服务",
+      "url": "https://www.jiqizhixin.com/",
+      "source": "机器之心",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "",
+      "body_digest": [],
+      "key_excerpt": "",
+      "tags": [
+        "Chinese AI media",
+        "AI paper",
+        "model",
+        "industry"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "bee27c8933499e9e",
+      "fetch_status": "success"
+    },
+    {
+      "title": "zhaoyunfeng@jiqizhixin.com",
+      "url": "mailto:zhaoyunfeng@jiqizhixin.com",
+      "source": "机器之心",
+      "source_type": "rss_or_html",
+      "published_at": "",
+      "summary": "来自 机器之心 的公开页面链接。",
+      "body_digest": [],
+      "key_excerpt": "来自 机器之心 的公开页面链接。",
+      "tags": [
+        "Chinese AI media",
+        "AI paper",
+        "model",
+        "industry"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "5fc42d6b576c68b3",
+      "fetch_status": "success"
+    },
+    {
+      "title": "量子位 – 追踪人工智能新趋势，报道科技行业新突破",
+      "url": "https://www.qbitai.com/",
+      "source": "量子位",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "追踪人工智能新趋势，报道科技行业新突破",
+      "body_digest": [],
+      "key_excerpt": "追踪人工智能新趋势，报道科技行业新突破",
+      "tags": [
+        "Chinese AI media",
+        "AI news",
+        "product"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "e59d9393beaac3cd",
+      "fetch_status": "success"
+    },
+    {
+      "title": "浙大校友用AI突破32年拉姆齐数下界",
+      "url": "https://www.qbitai.com/2026/05/415031.html",
+      "source": "量子位",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 量子位 的公开页面链接。",
+      "body_digest": [],
+      "key_excerpt": "来自 量子位 的公开页面链接。",
+      "tags": [
+        "Chinese AI media",
+        "AI news",
+        "product"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "09195e32fb4c5b60",
+      "fetch_status": "success"
+    },
+    {
+      "title": "不更新参数就能强化学习！OpenAI翁家翌提出新范式：决策只需AI手搓一个.py 文件",
+      "url": "https://www.qbitai.com/2026/05/414827.html",
+      "source": "量子位",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 量子位 的公开页面链接。",
+      "body_digest": [],
+      "key_excerpt": "来自 量子位 的公开页面链接。",
+      "tags": [
+        "Chinese AI media",
+        "AI news",
+        "product"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "e55f7580b02a38ce",
+      "fetch_status": "success"
+    },
+    {
+      "title": "行业首创空间3D显示，还能主动提醒和帮忙叫车，千问AI眼镜这操作真把我看愣了",
+      "url": "https://www.qbitai.com/2026/05/414501.html",
+      "source": "量子位",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 量子位 的公开页面链接。",
+      "body_digest": [],
+      "key_excerpt": "来自 量子位 的公开页面链接。",
+      "tags": [
+        "Chinese AI media",
+        "AI news",
+        "product"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "82e8e2739081036b",
+      "fetch_status": "success"
+    },
+    {
+      "title": "所有实验室都怕字节，所有人都在夸DeepSeek！美国研究员36小时中国AI行",
+      "url": "https://www.qbitai.com/2026/05/414141.html",
+      "source": "量子位",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 量子位 的公开页面链接。",
+      "body_digest": [],
+      "key_excerpt": "来自 量子位 的公开页面链接。",
+      "tags": [
+        "Chinese AI media",
+        "AI news",
+        "product"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "d3810a1cd5ca67ee",
+      "fetch_status": "success"
+    },
+    {
+      "title": "甲子光年|中国科技产业智库",
+      "url": "https://www.jazzyear.com/",
+      "source": "甲子光年",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "甲子光年作为中国科技产业智库，为服务决策而生，帮助决策者掌握科技风向，致力于推动中国科技产业化、产业科技化进程。",
+      "body_digest": [
+        "甲子光年作为中国科技产业智库，为服务决策而生，帮助决策者掌握科技风向，致力于推动中国科技产业化、产业科技化进程。"
+      ],
+      "key_excerpt": "甲子光年作为中国科技产业智库，为服务决策而生，帮助决策者掌握科技风向，致力于推动中国科技产业化、产业科技化进程。",
+      "tags": [
+        "Chinese tech industry",
+        "business",
+        "AI industry"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "b9890b6fe85ce6f9",
+      "fetch_status": "success"
+    },
+    {
+      "title": "独家揭秘：“两个蔡明”春晚同台背后的仿生黑科技",
+      "url": "https://www.jazzyear.com/article_info.html?id=1689",
+      "source": "甲子光年",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 甲子光年 的公开页面链接。",
+      "body_digest": [],
+      "key_excerpt": "来自 甲子光年 的公开页面链接。",
+      "tags": [
+        "Chinese tech industry",
+        "business",
+        "AI industry"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "0f49f0bdb2e4dacf",
+      "fetch_status": "success"
+    },
+    {
+      "title": "请回答2026：38位中国AI关键人物的Magic Moment和趋势判断",
+      "url": "https://www.jazzyear.com/article_info.html?id=1691",
+      "source": "甲子光年",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 甲子光年 的公开页面链接。",
+      "body_digest": [],
+      "key_excerpt": "来自 甲子光年 的公开页面链接。",
+      "tags": [
+        "Chinese tech industry",
+        "business",
+        "AI industry"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "100a9e001ae73aa0",
+      "fetch_status": "success"
+    },
+    {
+      "title": "2026崇礼论坛成功举办，俞敏洪、周鸿祎、沙宝亮等近百位大咖共话AI新风向",
+      "url": "https://www.jazzyear.com/article_info.html?id=1671",
+      "source": "甲子光年",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 甲子光年 的公开页面链接。",
+      "body_digest": [],
+      "key_excerpt": "来自 甲子光年 的公开页面链接。",
+      "tags": [
+        "Chinese tech industry",
+        "business",
+        "AI industry"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "dcfcfa9a5b76dfdf",
+      "fetch_status": "success"
+    },
+    {
+      "title": "CES 2026现场观察：AI正在“消失”",
+      "url": "https://www.jazzyear.com/article_info.html?id=1679",
+      "source": "甲子光年",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 甲子光年 的公开页面链接。",
+      "body_digest": [],
+      "key_excerpt": "来自 甲子光年 的公开页面链接。",
+      "tags": [
+        "Chinese tech industry",
+        "business",
+        "AI industry"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "343c80d6886dcdcf",
+      "fetch_status": "success"
+    },
+    {
+      "title": "36氪",
+      "url": "https://36kr.com/",
+      "source": "36氪",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "",
+      "body_digest": [],
+      "key_excerpt": "",
+      "tags": [
+        "startup",
+        "financing",
+        "Chinese tech"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "18e695596b5af904",
+      "fetch_status": "success"
+    },
+    {
+      "title": "晚点",
+      "url": "https://www.latepost.com/",
+      "source": "晚点 LatePost",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "",
+      "body_digest": [],
+      "key_excerpt": "",
+      "tags": [
+        "Chinese tech business",
+        "big tech",
+        "strategy"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "8b4f9d62827af54c",
+      "fetch_status": "success"
+    },
+    {
+      "title": "晚一点，好一点 Later better",
+      "url": "https://www.latepost.com/site/index",
+      "source": "晚点 LatePost",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 晚点 LatePost 的公开页面链接。",
+      "body_digest": [
+        "来自 晚点 LatePost 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 晚点 LatePost 的公开页面链接。",
+      "tags": [
+        "Chinese tech business",
+        "big tech",
+        "strategy"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "f9fc78120d953026",
+      "fetch_status": "success"
+    },
+    {
+      "title": "对话传祺 BU 总裁黄坚：改革要上下同欲，积小胜为大胜 做减法、提效率，做用户型企业。",
+      "url": "https://www.latepost.com/news/dj_detail?id=3537",
+      "source": "晚点 LatePost",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 晚点 LatePost 的公开页面链接。",
+      "body_digest": [
+        "来自 晚点 LatePost 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 晚点 LatePost 的公开页面链接。",
+      "tags": [
+        "Chinese tech business",
+        "big tech",
+        "strategy"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "2b00c1d0265d0daf",
+      "fetch_status": "success"
+    },
+    {
+      "title": "股价已翻两番的大金重工，正计划 “吃下” 半个欧洲市场 昨天",
+      "url": "https://www.latepost.com/news/dj_detail?id=3548",
+      "source": "晚点 LatePost",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 晚点 LatePost 的公开页面链接。",
+      "body_digest": [
+        "来自 晚点 LatePost 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 晚点 LatePost 的公开页面链接。",
+      "tags": [
+        "Chinese tech business",
+        "big tech",
+        "strategy"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "fd7be5e41093547d",
+      "fetch_status": "success"
+    },
+    {
+      "title": "五粮液追溯调整财报，掀开白酒行业的隐藏账本 05月01日",
+      "url": "https://www.latepost.com/news/dj_detail?id=3538",
+      "source": "晚点 LatePost",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 晚点 LatePost 的公开页面链接。",
+      "body_digest": [
+        "来自 晚点 LatePost 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 晚点 LatePost 的公开页面链接。",
+      "tags": [
+        "Chinese tech business",
+        "big tech",
+        "strategy"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "fab6e5bba232d7a9",
+      "fetch_status": "success"
+    },
+    {
+      "title": "爱范儿 · 关注明日产品的数字潮牌",
+      "url": "https://www.ifanr.com/",
+      "source": "爱范儿 / APPSO",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "聚焦新创和消费主题的科技媒体，成立于 2008 年 10 月，关注产品及体验，致力于“独立，前瞻，深入”的原创报道和分析评论，是国内唯一一家在产业和产品领域同时具有强势影响力的科技媒体。旗下现有 ifanr.com、SocialBase.cn、AppSolution、玩物志、创业及产品社区 MindStore 等多个细分领域的知名产品。",
+      "body_digest": [
+        "聚焦新创和消费主题的科技媒体，成立于 2008 年 10 月，关注产品及体验，致力于“独立，前瞻，深入”的原创报道和分析评论，是国内唯一一家在产业和产品领域同时具有强势影响力的科技媒体。旗下现有 ifanr.com、SocialBase.cn、AppSolution、玩物志、创业及产品社区 MindStore 等多个细分领域的知名产品。"
+      ],
+      "key_excerpt": "聚焦新创和消费主题的科技媒体，成立于 2008 年 10 月，关注产品及体验，致力于“独立，前瞻，深入”的原创报道和分析评论，是国内唯一一家在产业和产品领域同时具有强势影响力的科技媒体。旗下现有 ifanr.com、SocialBase.cn、AppSolution、玩物志、创业及产品社区 MindStore 等多个细分领域的知名产品。",
+      "tags": [
+        "consumer electronics",
+        "product experience",
+        "AI product"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "a515d11173506077",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Cartoon Saloon",
+      "url": "https://www.ifanr.com/category/cartoon-saloon",
+      "source": "爱范儿 / APPSO",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 爱范儿 / APPSO 的公开页面链接。",
+      "body_digest": [
+        "来自 爱范儿 / APPSO 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 爱范儿 / APPSO 的公开页面链接。",
+      "tags": [
+        "consumer electronics",
+        "product experience",
+        "AI product"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "0b194305b23c0bd9",
+      "fetch_status": "success"
+    },
+    {
+      "title": "ifanRank 2018",
+      "url": "https://www.ifanr.com/category/ifanrank-2018",
+      "source": "爱范儿 / APPSO",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 爱范儿 / APPSO 的公开页面链接。",
+      "body_digest": [
+        "来自 爱范儿 / APPSO 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 爱范儿 / APPSO 的公开页面链接。",
+      "tags": [
+        "consumer electronics",
+        "product experience",
+        "AI product"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "44688856f77f0010",
+      "fetch_status": "success"
+    },
+    {
+      "title": "视频 | 爱范儿视频 06:49 小米 YU7 首测：当一台性能猛兽，开启了「顾家模式」",
+      "url": "https://www.ifanr.com/video/1628756",
+      "source": "爱范儿 / APPSO",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 爱范儿 / APPSO 的公开页面链接。",
+      "body_digest": [
+        "来自 爱范儿 / APPSO 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 爱范儿 / APPSO 的公开页面链接。",
+      "tags": [
+        "consumer electronics",
+        "product experience",
+        "AI product"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "90414b6123fa7cc8",
+      "fetch_status": "success"
+    },
+    {
+      "title": "人物 | 刘学文 04-02 16:04",
+      "url": "https://www.ifanr.com/1660654",
+      "source": "爱范儿 / APPSO",
+      "source_type": "html",
+      "published_at": "",
+      "summary": "来自 爱范儿 / APPSO 的公开页面链接。",
+      "body_digest": [
+        "来自 爱范儿 / APPSO 的公开页面链接。"
+      ],
+      "key_excerpt": "来自 爱范儿 / APPSO 的公开页面链接。",
+      "tags": [
+        "consumer electronics",
+        "product experience",
+        "AI product"
+      ],
+      "importance": 1,
+      "relevance": 1,
+      "confidence": "low",
+      "action_value": [
+        "低优先级"
+      ],
+      "student_readability": "可快速浏览，重点看它是否能转化为课程学习、项目实践或长期方向判断。",
+      "current_stage_relation": "作为 AI 前沿环境感知即可，不要打断今天的课程主线。",
+      "raw_text_hash": "14797ae1162357be",
+      "fetch_status": "success"
+    }
+  ],
+  "fetch_statuses": [
+    {
+      "source_id": "openai_news",
+      "name": "OpenAI News",
+      "method": "rss_or_html",
+      "status": "rate_limited",
+      "count": 0,
+      "note": "HTTP 403: 403 Client Error: Forbidden for url: https://openai.com/news/"
+    },
+    {
+      "source_id": "anthropic_news",
+      "name": "Anthropic News",
+      "method": "rss_or_html",
+      "status": "success",
+      "count": 5,
+      "note": "5.8s"
+    },
+    {
+      "source_id": "google_ai_blog",
+      "name": "Google AI Blog",
+      "method": "rss_or_html",
+      "status": "failed",
+      "count": 0,
+      "note": "HTTPSConnectionPool(host='ai.googleblog.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71346f12dc70>: Failed to establish a new connection"
+    },
+    {
+      "source_id": "google_deepmind_blog",
+      "name": "Google DeepMind Blog",
+      "method": "rss_or_html",
+      "status": "success",
+      "count": 5,
+      "note": "1.9s"
+    },
+    {
+      "source_id": "google_research_blog",
+      "name": "Google Research Blog",
+      "method": "rss_or_html",
+      "status": "failed",
+      "count": 0,
+      "note": "HTTPSConnectionPool(host='research.google', port=443): Max retries exceeded with url: /blog/ (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71346f19a7e0>: Failed to establish a new connect"
+    },
+    {
+      "source_id": "meta_ai_blog",
+      "name": "Meta AI Blog",
+      "method": "rss_or_html",
+      "status": "failed",
+      "count": 0,
+      "note": "HTTPSConnectionPool(host='ai.meta.com', port=443): Max retries exceeded with url: /blog/ (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71346f19a1b0>: Failed to establish a new connection:"
+    },
+    {
+      "source_id": "apple_developer_news",
+      "name": "Apple Developer News",
+      "method": "rss_or_html",
+      "status": "success",
+      "count": 5,
+      "note": "3.2s"
+    },
+    {
+      "source_id": "microsoft_devblogs_ai",
+      "name": "Microsoft Developer Blogs",
+      "method": "rss_or_html",
+      "status": "success",
+      "count": 5,
+      "note": "0.4s"
+    },
+    {
+      "source_id": "google_developers_blog",
+      "name": "Google Developers Blog",
+      "method": "rss_or_html",
+      "status": "failed",
+      "count": 0,
+      "note": "HTTPSConnectionPool(host='developers.googleblog.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71346e4dcbc0>: Failed to establish a new co"
+    },
+    {
+      "source_id": "amd_newsroom",
+      "name": "AMD Newsroom",
+      "method": "rss_or_html",
+      "status": "success",
+      "count": 5,
+      "note": "0.3s"
+    },
+    {
+      "source_id": "intel_newsroom",
+      "name": "Intel Newsroom",
+      "method": "rss_or_html",
+      "status": "success",
+      "count": 5,
+      "note": "2.7s"
+    },
+    {
+      "source_id": "tsmc_news",
+      "name": "TSMC News",
+      "method": "html",
+      "status": "rate_limited",
+      "count": 0,
+      "note": "HTTP 403: 403 Client Error: Forbidden for url: https://www.tsmc.com/english/news-events/news"
+    },
+    {
+      "source_id": "asml_news",
+      "name": "ASML News",
+      "method": "html",
+      "status": "success",
+      "count": 5,
+      "note": "0.9s"
+    },
+    {
+      "source_id": "onnxruntime_releases",
+      "name": "ONNX Runtime Releases",
+      "method": "github_releases",
+      "status": "success",
+      "count": 4,
+      "note": "1.0s"
+    },
+    {
+      "source_id": "pytorch_releases",
+      "name": "PyTorch Releases",
+      "method": "github_releases",
+      "status": "success",
+      "count": 4,
+      "note": "0.7s"
+    },
+    {
+      "source_id": "executorch_releases",
+      "name": "ExecuTorch Releases",
+      "method": "github_releases",
+      "status": "success",
+      "count": 4,
+      "note": "0.5s"
+    },
+    {
+      "source_id": "pytorch_ao_releases",
+      "name": "PyTorch AO Releases",
+      "method": "github_releases",
+      "status": "success",
+      "count": 4,
+      "note": "0.5s"
+    },
+    {
+      "source_id": "tensorrt_release_notes",
+      "name": "TensorRT Release Notes",
+      "method": "html",
+      "status": "failed",
+      "count": 0,
+      "note": "HTTP 404: 404 Client Error: Not Found for url: https://docs.nvidia.com/deeplearning/tensorrt/latest/release-notes/index.html"
+    },
+    {
+      "source_id": "nvidia_developer_blog",
+      "name": "NVIDIA Developer Blog",
+      "method": "rss_or_html",
+      "status": "success",
+      "count": 5,
+      "note": "2.6s"
+    },
+    {
+      "source_id": "pytorch_blog",
+      "name": "PyTorch Blog",
+      "method": "rss_or_html",
+      "status": "success",
+      "count": 5,
+      "note": "0.9s"
+    },
+    {
+      "source_id": "qualcomm_developer_blog",
+      "name": "Qualcomm Developer Blog",
+      "method": "html",
+      "status": "success",
+      "count": 1,
+      "note": "0.5s"
+    },
+    {
+      "source_id": "arxiv_edge_ai",
+      "name": "arXiv Edge AI Query",
+      "method": "arxiv_api",
+      "status": "rate_limited",
+      "count": 0,
+      "note": "HTTP 429: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=cat%3Acs.LG+AND+%28all%3Aedge+AI+OR+all%3Aquantization+OR+all%3Amodel+compression+OR+all%3Aefficient+inference+OR+all%3Aon-device%29&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending"
+    },
+    {
+      "source_id": "arxiv_cs_ai_recent",
+      "name": "arXiv CS.AI Recent",
+      "method": "arxiv_recent",
+      "status": "success",
+      "count": 8,
+      "note": "1.3s"
+    },
+    {
+      "source_id": "arxiv_cs_lg_recent",
+      "name": "arXiv CS.LG Recent",
+      "method": "arxiv_recent",
+      "status": "success",
+      "count": 8,
+      "note": "1.3s"
+    },
+    {
+      "source_id": "arxiv_cs_cv_recent",
+      "name": "arXiv CS.CV Recent",
+      "method": "arxiv_recent",
+      "status": "success",
+      "count": 8,
+      "note": "4.2s"
+    },
+    {
+      "source_id": "arxiv_cv_edge",
+      "name": "arXiv Computer Vision Edge Query",
+      "method": "arxiv_api",
+      "status": "rate_limited",
+      "count": 0,
+      "note": "HTTP 429: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=cat%3Acs.CV+AND+%28all%3Areal-time+OR+all%3Aobject+detection+OR+all%3Aedge+OR+all%3AYOLO%29&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending"
+    },
+    {
+      "source_id": "hf_daily_papers",
+      "name": "Hugging Face Daily Papers",
+      "method": "hf_papers",
+      "status": "success",
+      "count": 8,
+      "note": "0.5s"
+    },
+    {
+      "source_id": "papers_with_code_trending",
+      "name": "Papers with Code Trending",
+      "method": "html",
+      "status": "failed",
+      "count": 0,
+      "note": "HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /papers/trending (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71346dc30470>: Failed to establish a ne"
+    },
+    {
+      "source_id": "openreview_ai",
+      "name": "OpenReview AI Conferences",
+      "method": "html",
+      "status": "success",
+      "count": 5,
+      "note": "2.0s"
+    },
+    {
+      "source_id": "ieee_spectrum_ai",
+      "name": "IEEE Spectrum Artificial Intelligence",
+      "method": "rss_or_html",
+      "status": "success",
+      "count": 1,
+      "note": "0.7s"
+    },
+    {
+      "source_id": "hacker_news_ai",
+      "name": "Hacker News AI Search",
+      "method": "hn_algolia",
+      "status": "success",
+      "count": 1,
+      "note": "1.3s"
+    },
+    {
+      "source_id": "github_trending_daily",
+      "name": "GitHub Trending Daily",
+      "method": "trending_page",
+      "status": "failed",
+      "count": 0,
+      "note": "HTTPSConnectionPool(host='github.com', port=443): Max retries exceeded with url: /trending (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x71346ea8fe60>, 'Connection to github.com timed out"
+    },
+    {
+      "source_id": "reddit_machinelearning",
+      "name": "Reddit r/MachineLearning",
+      "method": "rss_or_html",
+      "status": "failed",
+      "count": 0,
+      "note": "HTTPSConnectionPool(host='www.reddit.com', port=443): Max retries exceeded with url: /r/MachineLearning/ (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71346dcbe780>: Failed to establish a"
+    },
+    {
+      "source_id": "reddit_localllama",
+      "name": "Reddit r/LocalLLaMA",
+      "method": "rss_or_html",
+      "status": "failed",
+      "count": 0,
+      "note": "HTTPSConnectionPool(host='www.reddit.com', port=443): Max retries exceeded with url: /r/LocalLLaMA/ (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71346f19ba70>: Failed to establish a new "
+    },
+    {
+      "source_id": "reddit_embedded",
+      "name": "Reddit r/embedded",
+      "method": "rss_or_html",
+      "status": "failed",
+      "count": 0,
+      "note": "HTTPSConnectionPool(host='www.reddit.com', port=443): Max retries exceeded with url: /r/embedded/ (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x71346da64050>: Failed to establish a new co"
+    },
+    {
+      "source_id": "github_edge_ai_repos",
+      "name": "GitHub Edge AI Repositories",
+      "method": "github_search",
+      "status": "success",
+      "count": 5,
+      "note": "0.9s"
+    },
+    {
+      "source_id": "github_yolo_repos",
+      "name": "GitHub YOLO Repositories",
+      "method": "github_search",
+      "status": "success",
+      "count": 0,
+      "note": "0.4s"
+    },
+    {
+      "source_id": "product_hunt_ai",
+      "name": "Product Hunt AI Products",
+      "method": "trending_page",
+      "status": "rate_limited",
+      "count": 0,
+      "note": "HTTP 403: 403 Client Error: Forbidden for url: https://www.producthunt.com/"
+    },
+    {
+      "source_id": "launch_yc",
+      "name": "Launch YC",
+      "method": "html",
+      "status": "success",
+      "count": 1,
+      "note": "0.8s"
+    },
+    {
+      "source_id": "semianalysis",
+      "name": "SemiAnalysis",
+      "method": "paywalled_reference",
+      "status": "success",
+      "count": 2,
+      "note": "2.0s"
+    },
+    {
+      "source_id": "stratechery",
+      "name": "Stratechery",
+      "method": "paywalled_reference",
+      "status": "success",
+      "count": 5,
+      "note": "1.3s"
+    },
+    {
+      "source_id": "the_information",
+      "name": "The Information",
+      "method": "paywalled_reference",
+      "status": "success",
+      "count": 5,
+      "note": "1.4s"
+    },
+    {
+      "source_id": "icml",
+      "name": "ICML",
+      "method": "html",
+      "status": "success",
+      "count": 5,
+      "note": "2.1s"
+    },
+    {
+      "source_id": "iclr",
+      "name": "ICLR",
+      "method": "html",
+      "status": "success",
+      "count": 5,
+      "note": "1.8s"
+    },
+    {
+      "source_id": "jiqizhixin",
+      "name": "机器之心",
+      "method": "rss_or_html",
+      "status": "success",
+      "count": 2,
+      "note": "0.1s"
+    },
+    {
+      "source_id": "qbitai",
+      "name": "量子位",
+      "method": "html",
+      "status": "success",
+      "count": 5,
+      "note": "0.1s"
+    },
+    {
+      "source_id": "jazzyear",
+      "name": "甲子光年",
+      "method": "html",
+      "status": "success",
+      "count": 5,
+      "note": "0.4s"
+    },
+    {
+      "source_id": "kr36",
+      "name": "36氪",
+      "method": "html",
+      "status": "success",
+      "count": 1,
+      "note": "0.1s"
+    },
+    {
+      "source_id": "latepost",
+      "name": "晚点 LatePost",
+      "method": "html",
+      "status": "success",
+      "count": 5,
+      "note": "0.1s"
+    },
+    {
+      "source_id": "semiconductor_industry_observer",
+      "name": "半导体行业观察",
+      "method": "html",
+      "status": "failed",
+      "count": 0,
+      "note": "HTTPSConnectionPool(host='www.semiinsights.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x71346f1cd9d0>: Failed to resolve 'www.semiinsig"
+    },
+    {
+      "source_id": "ifanr_appso",
+      "name": "爱范儿 / APPSO",
+      "method": "html",
+      "status": "success",
+      "count": 5,
+      "note": "0.3s"
+    }
+  ]
+}
