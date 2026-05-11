@@ -1,64 +1,44 @@
 # Tech Intel Cloud Automation
 
-这个方案把每日 AI 晨报迁到 GitHub Actions。只要仓库在 GitHub 上，并且配置好 Secrets，即使本机关机，云端也会在每天早上运行。
+当前稳定方案把每日 AI 晨报迁到腾讯云服务器，通过 cc-connect 在微信发送。GitHub Actions 邮箱方案只作为历史备选，不再作为默认发送方式。
 
 ## 运行时间
 
 - 北京时间：每天 07:00
-- 工作流：`.github/workflows/tech-intel-daily.yml`
+- 运行位置：`/home/ubuntu/Edge-AI`
+- 定时器：`cc-connect cron`
+- 推送方式：个人微信
 - 云端脚本：`tools/tech_intel_cloud.py`
 - 生成文件：
   - `tech-intel/YYYY-MM-DD/tech-intel-YYYY-MM-DD.md`
   - `tech-intel/YYYY-MM-DD/email-YYYY-MM-DD.md`
   - `tech-intel/YYYY-MM-DD/raw-index-YYYY-MM-DD.json`
 
-## 邮件收件人
+## 微信推送
 
-默认收件人是：
+晨报发送到当前 cc-connect 绑定的个人微信会话。不要把微信 token、cc-connect token、个人账号 ID 或任何凭据写入仓库。
 
-```text
-Suerzong@outlook.com
-```
+## GitHub 备份
 
-如果在 GitHub Secrets 里设置了 `TECH_INTEL_TO`，会优先使用该值。
-
-## 必需 GitHub Secrets
-
-进入 GitHub 仓库：
-
-```text
-Settings -> Secrets and variables -> Actions -> New repository secret
-```
-
-添加以下值：
-
-```text
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=你的发件 Gmail 地址
-SMTP_PASSWORD=你的 Gmail App Password
-SMTP_FROM=你的发件 Gmail 地址
-TECH_INTEL_TO=Suerzong@outlook.com
-```
-
-注意：`SMTP_PASSWORD` 不是 Gmail 登录密码，应该是 Gmail 账号开启两步验证后生成的 App Password。
+每日生成后，云服务器必须把 `tech-intel/YYYY-MM-DD/` 提交并推送到 GitHub 私有仓库。超过普通 Git 限制的大文件走 Git LFS；密钥、token、`.cc-connect/`、`.claude/profiles/` 和 `.claude/settings.local.json` 不进入仓库。
 
 ## 安全规则
 
-- 不把邮箱密码、App Password、API Token 写入仓库。
-- `email-YYYY-MM-DD.md` 只保存可发送的正文，不保存凭据。
-- 如果 SMTP Secrets 没配，云端仍会生成 Obsidian 报告，但会跳过邮件发送。
+- 不把邮箱密码、App Password、API Token、微信 token 写入仓库。
+- `email-YYYY-MM-DD.md` 只保存可发送到微信的正文，不保存凭据。
+- 如果 GitHub push 失败，仍保存本地报告，并在微信晨报里提示需要手动检查。
 
 ## 手动测试
 
-在 GitHub 仓库页面打开：
+使用云服务器测试：
 
-```text
-Actions -> Daily AI Tech Intel -> Run workflow
+```bash
+cc-connect cron list
+cc-connect send -p Edge-AI -m "云端微信晨报通道测试"
 ```
 
-可以不填日期，默认使用北京时间当天。测试成功后，仓库会自动提交当天的 `tech-intel/` 报告，并发送 Outlook 邮件。
+测试成功后，微信会收到提示；次日 07:00 自动运行正式晨报。
 
 ## 本地自动化的处理
 
-云端稳定后，可以暂停本机 Codex 的每日 7 点自动化，避免重复发两封。
+云端稳定后，保持本机 Codex 的每日 7 点邮箱自动化为暂停状态，避免重复发送。

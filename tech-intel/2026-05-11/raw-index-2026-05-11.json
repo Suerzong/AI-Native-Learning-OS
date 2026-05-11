@@ -1,0 +1,126 @@
+{
+  "date": "2026-05-11",
+  "status": "final",
+  "sources": {
+    "github_edge_ai_repos": {
+      "status": "success",
+      "count": 15
+    },
+    "github_yolo_repos": {
+      "status": "success",
+      "count": 10
+    },
+    "github_pytorch_releases": {
+      "status": "success",
+      "count": 3
+    },
+    "github_onnxruntime_releases": {
+      "status": "success",
+      "count": 5,
+      "latest": "v1.26.0"
+    },
+    "github_executorch_releases": {
+      "status": "success",
+      "count": 3,
+      "latest": "v1.2.0"
+    },
+    "hn_frontpage": {
+      "status": "success",
+      "count": 20
+    },
+    "hn_ai": {
+      "status": "success",
+      "count": 0,
+      "note": "API returned 0 hits"
+    },
+    "arxiv_edge_ai": {
+      "status": "failed",
+      "reason": "rate_limited"
+    },
+    "arxiv_cv_edge": {
+      "status": "failed",
+      "reason": "rate_limited"
+    },
+    "hf_papers": {
+      "status": "success",
+      "count": 20
+    }
+  },
+  "top_items": [
+    {
+      "title": "ONNX Runtime v1.26.0",
+      "url": "https://github.com/microsoft/onnxruntime/releases/tag/v1.26.0",
+      "source": "GitHub Release Notes",
+      "source_type": "github_releases",
+      "published_at": "2026-05-08",
+      "tags": ["ONNX Runtime", "RISC-V", "WebGPU", "Edge AI"],
+      "importance": 5,
+      "relevance": 5,
+      "confidence": "high",
+      "action_value": ["必看", "可加入知识库"],
+      "student_readability": "本科生可读，但需要知道 ONNX 和推理引擎的基本概念",
+      "current_stage_relation": "适合建立端侧部署方向感，暂不要求复现",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Local AI needs to be the norm",
+      "url": "https://news.ycombinator.com/item?id=48085821",
+      "source": "Hacker News",
+      "source_type": "trend_signal",
+      "published_at": "2026-05-10",
+      "tags": ["Local AI", "Edge AI", "on-device inference"],
+      "importance": 4,
+      "relevance": 5,
+      "confidence": "medium",
+      "action_value": ["可看", "收藏"],
+      "student_readability": "本科生可读，主要理解本地推理与云端推理的差别",
+      "current_stage_relation": "方向判断，不应打断神经网络基础学习",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Box: Android on-device AI suite",
+      "url": "https://github.com/jegly/Box",
+      "source": "GitHub",
+      "source_type": "github_search",
+      "published_at": "2026-05-11",
+      "tags": ["Android", "on-device AI", "llama.cpp", "whisper.cpp"],
+      "importance": 4,
+      "relevance": 5,
+      "confidence": "medium",
+      "action_value": ["可加入项目库", "长期跟踪"],
+      "student_readability": "本科生可读，但完整复现需要 Android 和端侧部署基础",
+      "current_stage_relation": "适合作为未来项目库候选，当前先收藏",
+      "fetch_status": "success"
+    },
+    {
+      "title": "ExecuTorch v1.2.0",
+      "url": "https://github.com/pytorch/executorch/releases",
+      "source": "GitHub Release",
+      "source_type": "github_releases",
+      "published_at": "2026-04-01",
+      "tags": ["ExecuTorch", "PyTorch", "Edge AI", "on-device inference"],
+      "importance": 4,
+      "relevance": 5,
+      "confidence": "high",
+      "action_value": ["长期跟踪"],
+      "student_readability": "本科生可读，先理解它是 PyTorch 面向端侧部署的运行框架",
+      "current_stage_relation": "当前只需知道工具链位置，暂不安排复现",
+      "fetch_status": "success"
+    },
+    {
+      "title": "Beyond Semantic Similarity: Rethinking Retrieval for Agentic Search",
+      "url": "https://huggingface.co/papers/2605.05242",
+      "source": "HuggingFace Papers",
+      "source_type": "paper_trending",
+      "published_at": "2026-05-11",
+      "tags": ["RAG", "Agent", "retrieval", "paper"],
+      "importance": 3,
+      "relevance": 3,
+      "confidence": "medium",
+      "action_value": ["可看", "收藏"],
+      "student_readability": "本科生可读，但不属于当前 CNN 主线",
+      "current_stage_relation": "方向了解即可，不需要今天阅读原论文",
+      "fetch_status": "success"
+    }
+  ]
+}

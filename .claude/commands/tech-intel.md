@@ -74,13 +74,15 @@ $ARGUMENTS
 
 ---
 
-# 自动推送
+# GitHub 备份与微信晨报
 
-文件保存完成后，执行以下 git 操作自动同步到远程仓库：
+文件保存完成后，先检查 Git 状态，再把当天生成的 `tech-intel/YYYY-MM-DD/` 自动同步到远程私有仓库。不要暂存或提交密钥、token、`.cc-connect/`、`.claude/profiles/`、`.claude/settings.local.json` 等本机凭据。
 
 ```bash
-git add tech-intel/ && git commit -m "$(cat <<'EOF'
-[tech-intel] YYYY-MM-DD 科技情报报告
+git status --short
+git add tech-intel/YYYY-MM-DD/
+git commit -m "$(cat <<'EOF'
+[tech-intel] YYYY-MM-DD AI 微信晨报
 
 Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
 EOF
@@ -91,4 +93,10 @@ EOF
 - 以 `[tech-intel]` 开头，加上今天的日期
 - 简要说明今日最重要的发现
 
-如果 git 操作失败（如网络问题），提示用户但不要中断任务。
+如果没有变化，不要创建空提交。如果 git 操作失败（如网络问题或 GitHub 权限问题），提示用户但不要中断任务。
+
+GitHub 备份完成后，输出一版适合微信阅读的晨报摘要，并明确写出：
+
+- Obsidian 全文路径
+- GitHub 备份状态：已推送 / 无变化 / 失败需检查
+- 抓取异常摘要

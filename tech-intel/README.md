@@ -10,7 +10,7 @@ tech-intel/
   README.md
   YYYY-MM-DD/
     tech-intel-YYYY-MM-DD.md           # Obsidian 主报告
-    email-YYYY-MM-DD.md                # 邮件短版
+    email-YYYY-MM-DD.md                # 微信晨报短版（保留历史文件名）
     raw-index-YYYY-MM-DD.json          # 原始抓取索引
 ```
 
@@ -23,18 +23,19 @@ tech-intel/
 3. 抓取、解析、去重和评分。
 4. 先输出草稿，不直接写正式文件。
 5. 根据 Ethen 的反馈迭代。
-6. 确认满意后写入主报告、邮件短版和 raw-index。
+6. 确认满意后写入主报告、微信晨报短版和 raw-index。
 
 ## 云端自动化
 
-本地 Codex 自动化依赖电脑开机。若需要电脑关机时也能发送晨报，使用 GitHub Actions 云端方案：
+本地 Codex 邮箱自动化已改为暂停。稳定方案改为云服务器上的 cc-connect 定时任务：
 
-- 工作流：`.github/workflows/tech-intel-daily.yml`
+- 时间：北京时间每天 07:00
+- 工作目录：`/home/ubuntu/Edge-AI`
+- 推送方式：个人微信
 - 云端脚本：`tools/tech_intel_cloud.py`
 - 配置说明：`tech-intel/cloud-automation.md`
-- 默认收件人：`Suerzong@outlook.com`
 
-云端方案会在北京时间每天 07:00 生成 Obsidian 主报告、邮件版和 raw-index，并在 SMTP Secrets 配置完成后发送邮件。
+晨报生成后必须提交并推送到 GitHub 私有仓库。若 GitHub 备份失败，微信晨报里必须明确提示需要手动检查。
 
 ## 迭代确认机制
 
@@ -47,7 +48,7 @@ tech-intel/
 - 正文速读是否抓到了重点？
 - 本科生可读解释是否清楚？
 - 今日行动是否贴合当天学习主线？
-- 邮件版是否适合手机邮箱阅读？
+- 微信晨报版是否适合手机阅读？
 
 只有当 Ethen 明确说“满意”“可以”“定稿”“写入正式文件”等确认时，才写入正式文件。否则继续迭代。
 
@@ -58,7 +59,7 @@ tech-intel/
 - Obsidian 主报告默认保留 5 条最重要信息。
 - 总候选信号应覆盖 10-20 条，按一手官方、论文代码、开源社区、产品创业、中文线索分层。
 - 重要条目要尽量抓正文，并输出“正文速读”，让 Ethen 在 Obsidian 里能读懂要点。
-- 邮件短版仍然保持短，只保留 Top 3、今日建议和关键链接。
+- 微信晨报短版仍然保持短，只保留 Top 3、今日建议和关键链接。
 
 ## Obsidian 主报告
 
@@ -97,17 +98,17 @@ status: final
 ---
 ```
 
-## 邮件短版
+## 微信晨报短版
 
-邮件短版路径：
+微信晨报短版路径：
 
 ```text
 tech-intel/YYYY-MM-DD/email-YYYY-MM-DD.md
 ```
 
-邮件短版用于未来定时发送到邮箱。它只负责提供适合发送的 Markdown 内容，不包含 SMTP、邮箱 token 或任何私人凭据。邮件应适合 iPhone 早读：比极简摘要更丰富，但不替代 Obsidian 完整日报。
+该文件保留 `email-YYYY-MM-DD.md` 的历史命名，但用途改为未来定时发送到微信。它只负责提供适合发送的 Markdown 内容，不包含 SMTP、邮箱 token、微信 token 或任何私人凭据。微信晨报应适合手机早读：比极简摘要更丰富，但不替代 Obsidian 完整日报。
 
-邮件短版必须包含：
+微信晨报短版必须包含：
 
 ```markdown
 <!-- EMAIL_SUBJECT -->
