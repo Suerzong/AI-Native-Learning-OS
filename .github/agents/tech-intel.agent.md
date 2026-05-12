@@ -491,7 +491,7 @@ Ethen，早上好！
 <!-- EMAIL_BODY_END -->
 ```
 
-微信发送由云服务器上的 cc-connect 定时任务负责。不要写 SMTP 密码、邮箱 token、微信 token、cc-connect token 或任何私人凭据。
+微信晨报自动发送已停用。由于云服务器外网访问不稳定，默认不要再通过 cc-connect 定时推送晨报；如 Ethen 手动要求生成，只写入本地 `tech-intel/YYYY-MM-DD/` 文件，并在回复中说明抓取失败或来源不足的部分。不要写 SMTP 密码、邮箱 token、微信 token、cc-connect token 或任何私人凭据。
 
 ---
 

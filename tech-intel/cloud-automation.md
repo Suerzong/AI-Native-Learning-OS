@@ -1,44 +1,20 @@
 # Tech Intel Cloud Automation
 
-当前稳定方案把每日 AI 晨报迁到腾讯云服务器，通过 cc-connect 在微信发送。GitHub Actions 邮箱方案只作为历史备选，不再作为默认发送方式。
+云端微信晨报自动化已停用。
 
-## 运行时间
+## 停用原因
 
-- 北京时间：每天 07:00
-- 运行位置：`/home/ubuntu/Edge-AI`
-- 定时器：`cc-connect cron`
-- 推送方式：个人微信
-- 云端脚本：`tools/tech_intel_cloud.py`
-- 生成文件：
-  - `tech-intel/YYYY-MM-DD/tech-intel-YYYY-MM-DD.md`
-  - `tech-intel/YYYY-MM-DD/email-YYYY-MM-DD.md`
-  - `tech-intel/YYYY-MM-DD/raw-index-YYYY-MM-DD.json`
+腾讯云服务器访问外网不稳定，OpenAI、Google、Meta 等关键来源经常抓取失败，自动生成的 tech-intel 报告信息密度和可靠性不足。继续每天定时推送会制造噪音，因此不再作为默认方案运行。
 
-## 微信推送
+## 当前状态
 
-晨报发送到当前 cc-connect 绑定的个人微信会话。不要把微信 token、cc-connect token、个人账号 ID 或任何凭据写入仓库。
+- `cc-connect cron` 中不保留每日 tech-intel 微信晨报任务。
+- 本机 Codex 的每日邮箱自动化保持暂停状态。
+- `tech-intel/YYYY-MM-DD/` 中已有历史报告保留。
+- `tools/tech_intel_cloud.py` 仍可作为手动生成工具，但运行前应确认网络可用，并在报告中明确写出抓取失败的来源。
 
-## GitHub 备份
+## 手动方案
 
-每日生成后，云服务器必须把 `tech-intel/YYYY-MM-DD/` 提交并推送到 GitHub 私有仓库。超过普通 Git 限制的大文件走 Git LFS；密钥、token、`.cc-connect/`、`.claude/profiles/` 和 `.claude/settings.local.json` 不进入仓库。
+需要 tech-intel 时，手动运行 `/tech-intel` 或云端脚本，先检查来源质量，再决定是否保存和提交。不要把微信 token、cc-connect token、邮箱密码、API Token 或任何私人凭据写入仓库。
 
-## 安全规则
-
-- 不把邮箱密码、App Password、API Token、微信 token 写入仓库。
-- `email-YYYY-MM-DD.md` 只保存可发送到微信的正文，不保存凭据。
-- 如果 GitHub push 失败，仍保存本地报告，并在微信晨报里提示需要手动检查。
-
-## 手动测试
-
-使用云服务器测试：
-
-```bash
-cc-connect cron list
-cc-connect send -p Edge-AI -m "云端微信晨报通道测试"
-```
-
-测试成功后，微信会收到提示；次日 07:00 自动运行正式晨报。
-
-## 本地自动化的处理
-
-云端稳定后，保持本机 Codex 的每日 7 点邮箱自动化为暂停状态，避免重复发送。
+如果以后要恢复自动化，必须先解决外网访问稳定性，再重新创建定时任务。

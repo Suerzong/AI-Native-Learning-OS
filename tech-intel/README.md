@@ -27,15 +27,9 @@ tech-intel/
 
 ## 云端自动化
 
-本地 Codex 邮箱自动化已改为暂停。稳定方案改为云服务器上的 cc-connect 定时任务：
+云端微信晨报自动化已停用。原因是云服务器外网访问不稳定，很多来源抓取失败，自动推送的信息价值不足。
 
-- 时间：北京时间每天 07:00
-- 工作目录：`/home/ubuntu/Edge-AI`
-- 推送方式：个人微信
-- 云端脚本：`tools/tech_intel_cloud.py`
-- 配置说明：`tech-intel/cloud-automation.md`
-
-晨报生成后必须提交并推送到 GitHub 私有仓库。若 GitHub 备份失败，微信晨报里必须明确提示需要手动检查。
+保留手动 `/tech-intel` 流程：需要时再生成 `tech-intel/YYYY-MM-DD/` 下的 Obsidian 全文、手机阅读短版和 raw-index。若手动生成后有有效内容，再按需提交并推送到 GitHub.
 
 ## 迭代确认机制
 
