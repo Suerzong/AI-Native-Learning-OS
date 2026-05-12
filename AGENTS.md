@@ -97,6 +97,18 @@ tech-intel/             # 每日科技情报报告（YYYY-MM-DD/ 子文件夹归
 - 每次更新 learning-progress.md 必须输出完整的 12 模块能力画像
 - 不要覆盖已有记录，在原有基础上补充合并
 
+
+## Agent 运行环境与工具规则
+
+- 云服务器主工作区是 `/home/ubuntu/Edge-AI`。在云端运行命令时只使用 Linux 路径，不使用 `C:\...`、`c:\...` 或 `\tmp` 这类 Windows 路径。
+- 定位课程路径时先读 `course-index.md`。常见别名 `神经网络`、`neural`、`neural-network`、`neural-networks` 直接对应 `courses/neural-networks/`，不要为了定位课程去搜索 `profile.md`、`plan/ability-framework.md` 或 `.github/copilot-instructions.md`。
+- 搜索文本优先用 `rg`。搜索中文或普通关键词时用固定字符串模式，例如 `rg -n -F -e "神经网络" -e "neural" course-index.md courses/neural-networks/`；只有确实需要正则时才用正则。
+- 工具提示 `1 line of output`、`N lines of output` 表示命令已经有结果，不是失败。读到足够上下文后继续推进，不要围绕同一关键词反复 Grep/RG。
+- 大文件不要整篇读取。先用 `rg`、`sed -n`、文件目录或小范围片段定位，再按需要读取局部内容，避免超过上下文限制。
+- GitHub 备份和同步优先使用 `git status`、`git diff`、`git add`、`git commit`、`git push`。不要默认调用 `gh`；如果 `gh` 未安装或未登录，直接改用 `git`。
+- `ssh -T git@github.com` 返回 “successfully authenticated, but GitHub does not provide shell access” 时，即使退出码不是 0，也代表 GitHub SSH 认证成功，不要当作需要反复修复的错误。
+- 命令失败时只重试一次，并且必须改变方法或缩小范围；不要用同一个失败命令连续消耗 token。
+
 ## GitHub Copilot 配置
 
 本仓库已有 `.github/copilot-instructions.md` 和 `.github/prompts/`、`.github/agents/` 配置。Codex 配置文件（AGENTS.md、.Codex/）与 Copilot 配置互不干扰，不要修改 `.github/` 下的 Copilot 配置。

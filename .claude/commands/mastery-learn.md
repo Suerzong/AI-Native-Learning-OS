@@ -8,6 +8,18 @@ $ARGUMENTS
 
 ---
 
+
+# 运行约束：避免工具误用和重复试错
+
+- 云端默认工作区是 `/home/ubuntu/Edge-AI`，所有文件路径都按 Linux 路径处理。
+- 课程定位只读 `course-index.md`；用户说 `神经网络`、`neural`、`neural-network`、`neural-networks` 时，直接使用 `courses/neural-networks/`。
+- 不要为了定位课程去 Grep `profile.md`、`plan/ability-framework.md`、`.github/copilot-instructions.md`。
+- 搜索中文或普通关键词时优先用固定字符串：`rg -n -F -e "神经网络" -e "neural" <已知文件或目录>`。
+- `1 line of output` 不是报错；只要命令返回了相关内容，就继续教学流程。
+- 同类工具调用失败后最多换一种方法重试一次，不要连续重复同一条命令。
+
+---
+
 # 第一步：定位课程
 
 请读取 `course-index.md`，根据用户指定的课程名找到对应的课程路径。
