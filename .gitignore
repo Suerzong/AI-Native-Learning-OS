@@ -8,6 +8,10 @@ temp/arxiv_*.json
 # Claude Code local settings (contains personal permissions)
 .claude/settings.local.json
 
+
+# Private life/chat records
+personal/
+
 # OS files
 .DS_Store
 Thumbs.db
@@ -27,3 +31,9 @@ temp/ai_tutorial_book-master/
 
 # Large resource files
 resources/data-structure-exams/
+
+# Local secrets
+.env
+.env.local
+.env.*.local
+secrets/

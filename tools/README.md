@@ -22,3 +22,16 @@ python tools/domain_file_agent.py https://example.com/docs/ --ext pdf,docx,pptx 
 - `--dry-run`: 只预览匹配文件，不下载
 
 下载完成后，工具会在输出目录生成 `download_manifest.tsv`，记录文件名、原始 URL、来源页面和扩展名。
+
+## WeChat Template Push
+
+`wechat_template_push.py` sends a WeChat Official Account or test-account template message for private study reminders. It reads credentials from environment variables and does not store secrets in the repository.
+
+Required private environment variables: `WECHAT_MP_APPID`, `WECHAT_MP_SECRET`, `WECHAT_MP_OPENID`, `WECHAT_MP_TEMPLATE_ID`.
+
+Dry run:
+
+```bash
+python3 tools/wechat_template_push.py --dry-run --content "Evening review reminder"
+```
+

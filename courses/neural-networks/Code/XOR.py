@@ -8,7 +8,7 @@ y = np.array([0,1,1,1,1])
 m = X.shape[1]
 
 #---- 初始化 ----
-np.random.seed(114514)
+np.random.seed(1151)
 W1 = np.random.randn(5, 2) * 0.5
 b1 = np.zeros((5, 1))
 W2 = np.random.randn(1, 5) * 0.5
