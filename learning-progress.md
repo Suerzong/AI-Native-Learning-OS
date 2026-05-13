@@ -535,7 +535,8 @@ Python 面向对象能力是 PyTorch 模型定义（继承 nn.Module）、自定
 - 已学习：算法复杂度分析基础（大O 表示法、嵌套循环、递归复杂度）
 - 已实践：用 C 语言实现动态数组（malloc/realloc/free）、单链表（增删查改、递归遍历）
 - 初步掌握：双向链表（节点结构、插入、删除，能独立手写实现，95% 正确率）
-- 初步掌握：栈（顺序栈 push/pop/peek/isEmpty，LIFO 原则，括号匹配应用，85% 正确率）
+- 初步掌握：栈（顺序栈 push/pop/peek/isEmpty、LIFO 原则、括号匹配应用，85%）
+- 初步掌握：递归基础（Base Case/Recursive Case 结构、调用栈帧追踪、阶乘/Fib/进制转换递归、汉诺塔追踪，90%+）
 - 初步掌握：队列（循环队列 enQueue/deQueue，FIFO 原则，取模绕回，80% 正确率）
 
 模块 4：电子电路与硬件基础

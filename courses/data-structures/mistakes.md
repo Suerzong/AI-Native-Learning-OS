@@ -150,6 +150,15 @@ struct Node* createNode(int data) {
 - 纠正任务：区分栈（一端操作，top 可上可下）和队列（两端操作，front/rear 只前进不复退）
 - 是否已复测通过：是
 
+## 2026-05-13：动态数组边界用 capacity 而非 size
+
+- 所属技能：数组与动态数组
+- 错误表现：`da_get` 中写 `if (index < 0 || index >= da->capacity)`，而非 `da->size`
+- 错误原因：混淆了 capacity（已分配空间）和 size（实际元素个数）。`[size, capacity-1]` 是未初始化区域，不应访问
+- 正确理解：数组合法下标范围是 `[0, size-1]`，边界检查必须用 `da->size`，不是 `da->capacity`
+- 纠正任务：区分 size（已用）和 capacity（总容量），边界检查永远用 size
+- 是否已复测通过：否
+
 ## 2026-05-09：指针已是指针时仍加 &
 
 - 所属技能：单链表
