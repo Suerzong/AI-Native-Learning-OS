@@ -37,3 +37,8 @@ resources/data-structure-exams/
 .env.local
 .env.*.local
 secrets/
+
+# Operational state (not source code)
+*.log
+review/send_log.json
+wechat-companion/state.json

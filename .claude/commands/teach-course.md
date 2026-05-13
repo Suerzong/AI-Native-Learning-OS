@@ -11,6 +11,7 @@ $ARGUMENTS
 - `course-index.md`
 - `profile.md`
 - `plan/ability-framework.md`
+- `.github/agents/mastery-learn.agent.md`（教学引擎核心规则：诊断、微目标、即时反馈、掌握度判断）
 
 然后根据用户指定的课程和知识点，查找对应课程资料（参考 `course-index.md` 中的课程路径）。
 
