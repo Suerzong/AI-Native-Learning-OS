@@ -10,7 +10,7 @@ tech-intel/
   README.md
   YYYY-MM-DD/
     tech-intel-YYYY-MM-DD.md           # Obsidian 主报告
-    email-YYYY-MM-DD.md                # 微信晨报短版（保留历史文件名）
+    email-YYYY-MM-DD.md                # Outlook 邮件晨报短版（保留历史文件名）
     raw-index-YYYY-MM-DD.json          # 原始抓取索引
 ```
 
@@ -23,11 +23,11 @@ tech-intel/
 3. 抓取、解析、去重和评分。
 4. 先输出草稿，不直接写正式文件。
 5. 根据 Ethen 的反馈迭代。
-6. 确认满意后写入主报告、微信晨报短版和 raw-index。
+6. 确认满意后写入主报告、Outlook 邮件晨报短版和 raw-index。
 
 ## 云端自动化
 
-云端微信晨报自动化已停用。原因是云服务器外网访问不稳定，很多来源抓取失败，自动推送的信息价值不足。
+云端自动晨报默认走 Outlook 邮件，不再主动推送微信。微信仅保留 Ethen 手动触发后的对话回复。
 
 保留手动 `/tech-intel` 流程：需要时再生成 `tech-intel/YYYY-MM-DD/` 下的 Obsidian 全文、手机阅读短版和 raw-index。若手动生成后有有效内容，再按需提交并推送到 GitHub.
 
@@ -42,7 +42,7 @@ tech-intel/
 - 正文速读是否抓到了重点？
 - 本科生可读解释是否清楚？
 - 今日行动是否贴合当天学习主线？
-- 微信晨报版是否适合手机阅读？
+- 邮件晨报版是否适合手机阅读？
 
 只有当 Ethen 明确说“满意”“可以”“定稿”“写入正式文件”等确认时，才写入正式文件。否则继续迭代。
 
@@ -53,7 +53,7 @@ tech-intel/
 - Obsidian 主报告默认保留 5 条最重要信息。
 - 总候选信号应覆盖 10-20 条，按一手官方、论文代码、开源社区、产品创业、中文线索分层。
 - 重要条目要尽量抓正文，并输出“正文速读”，让 Ethen 在 Obsidian 里能读懂要点。
-- 微信晨报短版仍然保持短，只保留 Top 3、今日建议和关键链接。
+- 邮件晨报短版仍然保持短，只保留 Top 3、今日建议和关键链接。
 
 ## Obsidian 主报告
 
@@ -92,17 +92,17 @@ status: final
 ---
 ```
 
-## 微信晨报短版
+## Outlook 邮件晨报短版
 
-微信晨报短版路径：
+Outlook 邮件晨报短版路径：
 
 ```text
 tech-intel/YYYY-MM-DD/email-YYYY-MM-DD.md
 ```
 
-该文件保留 `email-YYYY-MM-DD.md` 的历史命名，但用途改为未来定时发送到微信。它只负责提供适合发送的 Markdown 内容，不包含 SMTP、邮箱 token、微信 token 或任何私人凭据。微信晨报应适合手机早读：比极简摘要更丰富，但不替代 Obsidian 完整日报。
+该文件保留 `email-YYYY-MM-DD.md` 的历史命名，用途是未来定时发送到 Outlook 邮箱。它只负责提供适合邮件阅读的 Markdown 内容，不包含 SMTP、邮箱 token、微信 token 或任何私人凭据。邮件晨报应适合手机早读：比极简摘要更丰富，但不替代 Obsidian 完整日报。
 
-微信晨报短版必须包含：
+邮件晨报短版必须包含：
 
 ```markdown
 <!-- EMAIL_SUBJECT -->

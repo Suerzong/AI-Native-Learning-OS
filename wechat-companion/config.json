@@ -1,0 +1,10 @@
+{
+  "autostart_time": "05:00",
+  "morning_time": "07:00",
+  "midday_time": "12:30",
+  "evening_time": "21:30",
+  "sleep_review_time": "23:00",
+  "timezone": "Asia/Shanghai",
+  "enabled": true,
+  "email_to": "Suerzong@outlook.com"
+}
