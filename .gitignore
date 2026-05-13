@@ -42,3 +42,6 @@ secrets/
 *.log
 review/send_log.json
 wechat-companion/state.json
+
+# Exclude tutorial book from language stats
+temp/ai_tutorial_book-master/
