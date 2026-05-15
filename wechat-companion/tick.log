@@ -30,3 +30,47 @@
 邮件已发送：[午间重置] 2026-05-15 下午加油
 [2026-05-15T21:30:01.835266] 到达 evening 时间窗口（21:30），开始执行...
 邮件已发送：[晚间复盘] 2026-05-15 今日回顾
+[2026-05-15T23:00:01.831117] 到达 sleep_review 时间窗口（23:00），开始执行...
+睡前复习已委托 review_system.py 处理
+[2026-05-16T05:00:01.183109] 到达 autostart 时间窗口（05:00），开始执行...
+[2026-05-16T05:00:01.183134] 开始自动执行 /start-day ...
+Traceback (most recent call last):
+  File "/home/ubuntu/Edge-AI/tools/companion.py", line 1077, in <module>
+    main()
+  File "/home/ubuntu/Edge-AI/tools/companion.py", line 1068, in main
+    {
+  File "/home/ubuntu/Edge-AI/tools/companion.py", line 1024, in cmd_tick
+    cmd_autostart(argparse.Namespace())
+  File "/home/ubuntu/Edge-AI/tools/companion.py", line 603, in cmd_autostart
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'claude'
+[2026-05-16T05:05:01.127366] 到达 autostart 时间窗口（05:00），开始执行...
+[2026-05-16T05:05:01.127390] 开始自动执行 /start-day ...
+Traceback (most recent call last):
+  File "/home/ubuntu/Edge-AI/tools/companion.py", line 1077, in <module>
+    main()
+  File "/home/ubuntu/Edge-AI/tools/companion.py", line 1068, in main
+    {
+  File "/home/ubuntu/Edge-AI/tools/companion.py", line 1024, in cmd_tick
+    cmd_autostart(argparse.Namespace())
+  File "/home/ubuntu/Edge-AI/tools/companion.py", line 603, in cmd_autostart
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'claude'
+[2026-05-16T07:00:01.622652] 到达 morning 时间窗口（07:00），开始执行...
+邮件已发送：[晨间启动] 2026-05-16 周六 今日三件事
