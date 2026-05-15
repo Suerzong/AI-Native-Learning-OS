@@ -24,6 +24,13 @@
 - **邮件推送**：`tools/email_push.py` — SMTP 发送到 Outlook
 - **定时任务**：cron 每 5 分钟运行 `companion.py tick`，自动派发各时段任务
 
+## 云服务器模型切换
+
+- 唯一入口：`/usr/local/bin/ccswitch`
+- 常用命令：`ccswitch current`、`ccswitch list`、`ccswitch sw <branch>`
+- 当前采用 Git 分支式 Claude 配置，配置目录为 `/home/ubuntu/.claude`
+- 不要使用旧的 `cc-switch`、`ai-model` 或旧 `set-ccswitch-profile` 入口
+
 ## 教学引擎
 
 掌握学习教学由 `.github/agents/mastery-learn.agent.md` 驱动，包含 8 步教学循环、错误分类、掌握度判断。`/mastery-learn` 和 `/teach-course` 均加载此引擎。
