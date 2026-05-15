@@ -566,7 +566,7 @@ def cmd_tick(args: argparse.Namespace) -> None:
     send_h, send_m = map(int, send_time.split(":"))
     send_minutes = send_h * 60 + send_m
     current_minutes = now.hour * 60 + now.minute
-    if abs(current_minutes - send_minutes) > 5:
+    if not (0 <= current_minutes - send_minutes <= 5):
         return
     log = load_send_log()
     today = today_str()

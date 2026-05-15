@@ -1,0 +1,156 @@
+#!/usr/bin/env python3
+"""从用户消息的列表中提取所有 URL，比较已下载的，输出新 URL 列表。"""
+import re, sys
+
+# 用户给的列表
+ALL_URLS_TEXT = """
+[蓝色科技风"创新超越逐梦新章"科技公司工作总结汇报PPT模板](https://www.1ppt.com/article/143920.html)
+[绿色"AI赋能机器狗开启智能未来时"科技行业商业计划书PPT模板](https://www.1ppt.com/article/141084.html)
+[蓝色机器人背景人工智能的基本原理与技术PPT模板](https://www.1ppt.com/article/143511.html)
+[蓝色矢量机器人背景的人工智能技术革新与应用前景PPT模板](https://www.1ppt.com/article/136124.html)
+[蓝橙配色机器人背景的AI与未来教育PPT模板](https://www.1ppt.com/article/136122.html)
+[红蓝弥散几何风"触碰未来"浅谈人工智能的创新和未来发展主题分享论坛PPT模板](https://www.1ppt.com/article/134425.html)
+[蓝色科技风AI人工智能项目中学家长课堂活动主题PPT模板](https://www.1ppt.com/article/132867.html)
+[蓝色机器人背景"科技赋能"人工智能科技通用PPT模板](https://www.1ppt.com/article/143111.html)
+[青色机器人背景的AI智慧城市应用PPT模板](https://www.1ppt.com/article/136123.html)
+[蓝色科技风机器人手臂背景的人工智能与物流PPT模板](https://www.1ppt.com/article/136121.html)
+[蓝色科技风人工智能与未来教育PPT模板](https://www.1ppt.com/article/136119.html)
+[紫色机器人圆点背景的人工智能宣传介绍PPT模板](https://www.1ppt.com/article/134655.html)
+[蓝色机器人背景的科技风人工智能宣传介绍PPT模板](https://www.1ppt.com/article/132883.html)
+[蓝色机器人手臂背景的人工智能AI新时代PPT模板](https://www.1ppt.com/article/132882.html)
+[蓝色机器人背景的"人工智能时代"人工智能介绍PPT模板](https://www.1ppt.com/article/132879.html)
+[机器人背景的一文带你了解DeepSeeK及使用攻略PPT模板](https://www.1ppt.com/article/132870.html)
+[蓝色科技风DEEPSEEK使用全攻略PPT模板](https://www.1ppt.com/article/132869.html)
+[青色机器人背景的DeepSeek正确使用教程PPT模板](https://www.1ppt.com/article/132868.html)
+[蓝色科技风"科技创新未来"互联网行业工作汇报PPT模板](https://www.1ppt.com/article/131852.html)
+[蓝色科技风人工智能应用全解析PPT模板](https://www.1ppt.com/article/144302.html)
+[蓝色"科技赋能智领未来"科技风简约工作总结计划PPT模板](https://www.1ppt.com/article/143818.html)
+[蓝色科技风人工智能大会PPT模板](https://www.1ppt.com/article/143160.html)
+[蓝色全息地球背景人工智能产品发布会PPT模板](https://www.1ppt.com/article/142729.html)
+[蓝色矢量2.5D风格的AI重构内容生态PPT模板](https://www.1ppt.com/article/141197.html)
+[蓝色机器人手臂背景的"科技创新引领未来"未来科技经济论坛PPT模板](https://www.1ppt.com/article/140020.html)
+[蓝色动感曲线背景的大数据风格年中工作总结汇报PPT模板下载](https://www.1ppt.com/article/138228.html)
+[蓝紫动感曲线背景的"创新改变世界"互联网商业计划书PPT模板](https://www.1ppt.com/article/137376.html)
+[绿色"共创数字科技挑战畅享未来"信息技术中心互联网发布会PPT模板](https://www.1ppt.com/article/136129.html)
+[蓝色全息地球手掌背景的AI绘画科技产品介绍PPT模板](https://www.1ppt.com/article/136120.html)
+[蓝绿配色波浪曲线背景的"数据创新未来"科技风产品发布会PPT模板](https://www.1ppt.com/article/134910.html)
+[棕色商务人士背景的Deepseek的使用技巧介绍PPT模板](https://www.1ppt.com/article/132884.html)
+[蓝紫矢量2.5D风格的人工智能科技PPT模板](https://www.1ppt.com/article/132881.html)
+[矢量2.5D风格的"走进人工智能"中小学生人工智能讲座PPT模板](https://www.1ppt.com/article/132878.html)
+[蓝色商务人士背景的DEEPSEEK学习科普教程PPT模板](https://www.1ppt.com/article/132873.html)
+[蓝粉配色立体风格的DEEPSEEK学习教程PPT模板](https://www.1ppt.com/article/132872.html)
+[灰色放大镜背景的DEEPSEEK了解及使用攻略PPT模板](https://www.1ppt.com/article/132871.html)
+[蓝色地球卫星背景的"科技创造未来"科技风3D模型项目计划书PPT模板](https://www.1ppt.com/article/132450.html)
+[蓝色宽屏科技风"畅想未来"互联网科技产品发布会PPT模板](https://www.1ppt.com/article/142975.html)
+[蓝色城市剪影背景的"智领未来"互联网科技企业宣传介绍PPT模板](https://www.1ppt.com/article/141295.html)
+[蓝色全息人脸背景的"科技赋能"科技项目工作总结PPT模板](https://www.1ppt.com/article/141089.html)
+[蓝黑配色机器人手臂背景的科技行业商业计划书PPT模板](https://www.1ppt.com/article/140857.html)
+[蓝色群山星空背景的"带着地球去流浪"大气科幻工作总结汇报PPT模板](https://www.1ppt.com/article/139711.html)
+[蓝色层叠几何图形背景的"聚焦技术开启未来"科技公司介绍PPT模板](https://www.1ppt.com/article/136131.html)
+[紫色智能手机背景的数码电子类产品发布会PPT模板](https://www.1ppt.com/article/134918.html)
+[蓝色科技风智能科技商业计划书PPT模板](https://www.1ppt.com/article/134657.html)
+[蓝色电路板背景的5G时代科技感PPT模板](https://www.1ppt.com/article/134653.html)
+[黑色立体星球背景的"科技新时代创新赢未来"科技风通用PPT模板](https://www.1ppt.com/article/134652.html)
+[绿色波浪曲线圆点背景的"创想无限未来"科技风公司创新发展峰会PPT模板](https://www.1ppt.com/article/134650.html)
+[蓝色全息地球背景的互联网商业计划书PPT模板](https://www.1ppt.com/article/134039.html)
+[红色"聚力赢战未来"互联网行业科技年终峰会PPT模板](https://www.1ppt.com/article/134034.html)
+[紫色星空科技风年中工作总结述职汇报PPT模板](https://www.1ppt.com/article/133952.html)
+[蓝色宽屏科技创新峰会互联网行业盛会PPT模板](https://www.1ppt.com/article/133382.html)
+[蓝色圆点线条背景的"新征程再启航"互联网科技企业年度工作汇报PPT模板](https://www.1ppt.com/article/133372.html)
+[蓝紫圆点点线背景的"新梦想创未来"科技风年度工作汇报PPT模板](https://www.1ppt.com/article/131855.html)
+[蓝色"智能科技未来"科技公司介绍PPT模板](https://www.1ppt.com/article/131854.html)
+[蓝色地球背景汇星天地一体化智能基站宣传介绍PPT模板](https://www.1ppt.com/article/144300.html)
+[蓝色全息骏马背景"创新超越逐梦新章"科技公司宣传介绍PPT模板](https://www.1ppt.com/article/143881.html)
+[蓝色宽屏未来科技风"聚力前行共赢未来"科技企业产品发布会PPT模板](https://www.1ppt.com/article/142976.html)
+[蓝色全息地球背景互联网行业企业品牌宣传PPT模板](https://www.1ppt.com/article/142728.html)
+[蓝色"科技赋能"科技风工作总结PPT模板](https://www.1ppt.com/article/140640.html)
+[蓝紫渐变细线圆点背景的科技工作汇报PPT模板下载](https://www.1ppt.com/article/139713.html)
+[宇宙星空背景的科技公司商业融资创业计划书PPT模板](https://www.1ppt.com/article/139710.html)
+[蓝紫配色科技风"向未来赋新生"产品发布会PPT模板](https://www.1ppt.com/article/137377.html)
+[蓝色城市剪影背景的"智能科技万物互联"科技物理网峰会PPT模板](https://www.1ppt.com/article/135652.html)
+[蓝紫渐变智能耳机背景的3C数码产品发布会PPT模板](https://www.1ppt.com/article/134911.html)
+[蓝紫动感圆点曲线背景的"未来将至"科技风PPT模板](https://www.1ppt.com/article/134656.html)
+[蓝色无人机背景的"智飞未来"科技风无人机科技通用PPT模板](https://www.1ppt.com/article/134265.html)
+[蓝色元宇宙概念科技项目产品解说会PPT模板](https://www.1ppt.com/article/133951.html)
+[蓝色矢量背景的科技风科技公司工作计划PPT模板](https://www.1ppt.com/article/133946.html)
+[蓝紫配色元宇宙主题科技风工作总结PPT模板](https://www.1ppt.com/article/133944.html)
+[蓝色科技风背景的大数据时代PPT模板](https://www.1ppt.com/article/132880.html)
+[蓝色发光曲线背景的"畅想未来"科技产品发布会PPT模板](https://www.1ppt.com/article/132513.html)
+[蓝色星空地球背景的"梦想征程星辰大海"科技风工作汇报PPT模板](https://www.1ppt.com/article/131853.html)
+[蓝色集蜂智翼一体化防火监管系统宣传介绍PPT模板](https://www.1ppt.com/article/144244.html)
+[蓝色地球背景"黎夜通明"科技风通用PPT模板](https://www.1ppt.com/article/144240.html)
+[蓝色无人机城市建筑背景低空经济行业发展分析PPT模板](https://www.1ppt.com/article/142289.html)
+[蓝色星空星球背景的"探索星球"星球主题PPT模板下载](https://www.1ppt.com/article/139717.html)
+[星空星球背景的火星探索PPT模板](https://www.1ppt.com/article/139709.html)
+[星空星球背景的宇宙星空主题的PPT模板](https://www.1ppt.com/article/139707.html)
+[黑色宇航员背景的科技风"拐点已至元宇宙将到"元宇宙主题PPT模板](https://www.1ppt.com/article/139703.html)
+[黑绿配色VR眼睛背景的科技数码新品发布会PPT模板](https://www.1ppt.com/article/136437.html)
+[蓝紫渐变圆点背景的元宇宙虚拟现实的方舟PPT模板](https://www.1ppt.com/article/136118.html)
+[蓝色圆点曲线背景的科技商务报告PPT模板](https://www.1ppt.com/article/135526.html)
+[紫色科技风"突破边界"科技产品发布会通用PPT模板](https://www.1ppt.com/article/134919.html)
+[黑绿矢量2.5D风格的科技风产品发布会PPT模板](https://www.1ppt.com/article/134917.html)
+[蓝紫渐变戴VR眼镜的女孩背景的VR数码产品发布会PPT模板](https://www.1ppt.com/article/134915.html)
+[蓝紫发光曲线背景的科技风产品发布会PPT模板](https://www.1ppt.com/article/134914.html)
+[蓝紫数码耳机背景的数码新品发布会PPT模板](https://www.1ppt.com/article/134913.html)
+[黑绿配色发光圆盘背景的科技风高端新品发布PPT模板](https://www.1ppt.com/article/134909.html)
+[黑绿配色VR数码产品发布会PPT模板](https://www.1ppt.com/article/134908.html)
+[蓝色城市剪影背景的科技行业峰会PPT模板](https://www.1ppt.com/article/134027.html)
+[蓝红配色圆环曲线背景的科技风元宇宙主题PPT模板](https://www.1ppt.com/article/133953.html)
+[蓝色地球星空背景的"元宇宙新风口"元宇宙概念企业宣传PPT模板](https://www.1ppt.com/article/133950.html)
+[蓝紫霓虹灯样式的赛博朋克风格PPT模板](https://www.1ppt.com/article/133948.html)
+[蓝紫渐变曲线背景的"元宇宙概念"科技产品发布会PPT模板](https://www.1ppt.com/article/133943.html)
+[青色全息地球背景的"元宇宙究竟如何理解？"元宇宙解读PPT模板](https://www.1ppt.com/article/132877.html)
+[蓝色手绘宇航员背景的元宇宙主题PPT模板](https://www.1ppt.com/article/132876.html)
+[蓝色卡通星球背景的元宇宙主题PPT模板](https://www.1ppt.com/article/132875.html)
+[蓝色矢量星球宇航员背景的元宇宙主题PPT模板](https://www.1ppt.com/article/132874.html)
+[蓝紫矢量卡通风格的航天科技主题PPT模板](https://www.1ppt.com/article/132453.html)
+[2.5D工厂背景的年终总结汇报PPT模板下载](https://www.1ppt.com/article/108720.html)
+[矢量工厂背景的生产部年终总结PPT模板下载](https://www.1ppt.com/article/104157.html)
+[毛笔书法作品背景撕纸风书法培训PPT模板](https://www.1ppt.com/article/144311.html)
+[清新水墨群山背景复古中国风艺术培训PPT模板](https://www.1ppt.com/article/142793.html)
+[蓝色矢量剪切画背景的暑假教育培训招生PPT模板](https://www.1ppt.com/article/138035.html)
+[黄色可爱矢量卡通风格的教育培训公开课PPT模板下载](https://www.1ppt.com/article/138005.html)
+[紫粉渐变背景的"有效的亲子沟通"儿童家庭教育宣传汇报PPT模板](https://www.1ppt.com/article/137914.html)
+[红色卡通一家人背景的"教育始于家庭与孩子一起成长"家庭教育指导工作主题培训PPT模板](https://www.1ppt.com/article/137687.html)
+["家庭教育才是真正的起跑线"家庭教育培训讲座PPT模板](https://www.1ppt.com/article/137678.html)
+[可爱卡通风格的父母教养与心理健康主题培训PPT模板](https://www.1ppt.com/article/137673.html)
+["教育始于家庭与孩子一起成长"开展家庭教育指导工作主题培训PPT模板](https://www.1ppt.com/article/137671.html)
+[精美插画风"父母教养方式与孩子的心理健康"主题培训PPT模板](https://www.1ppt.com/article/137670.html)
+[青色卡通一家人背景的家庭教育培训讲座PPT模板](https://www.1ppt.com/article/137662.html)
+[彩色插画风数学培训班暑假招生PPT模板下载](https://www.1ppt.com/article/137212.html)
+[黄绿配色文艺手绘绘画美术培训通用PPT模板](https://www.1ppt.com/article/134641.html)
+"""
+
+# 提取所有 URL 和名称
+urls = re.findall(r'\((https://www\.1ppt\.com/article/\d+\.html)\)\s*\n', ALL_URLS_TEXT)
+names = re.findall(r'\[([^\]]+)\]\(https://www\.1ppt\.com/article/\d+\.html\)', ALL_URLS_TEXT)
+
+# 去重
+seen = set()
+unique_urls = []
+for u in urls:
+    if u not in seen:
+        seen.add(u)
+        unique_urls.append(u)
+
+print(f"总 URL 数: {len(unique_urls)}")
+
+# 已下载的 35 个
+downloaded = [
+    143920, 143511, 136124, 136122, 134425, 132867, 143111,
+    136123, 136121, 136119, 134655, 132883, 132882, 132879,
+    132870, 132869, 132868, 131852, 144302, 143818, 143160,
+    142729, 141197, 141084, 138228, 137376, 136537, 135791,
+    135788, 140857, 139063, 138444, 137347, 136505, 135769,
+]
+
+new_urls = []
+for u in unique_urls:
+    aid = int(u.split('/')[-1].replace('.html', ''))
+    if aid not in downloaded:
+        new_urls.append(u)
+
+print(f"新 URL 数 (未下载): {len(new_urls)}")
+print()
+for u in new_urls:
+    print(u)

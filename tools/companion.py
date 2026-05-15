@@ -1015,7 +1015,7 @@ def cmd_tick(args: argparse.Namespace) -> None:
     for slot, time_str in time_slots.items():
         h, m = map(int, time_str.split(":"))
         slot_minutes = h * 60 + m
-        if abs(current_minutes - slot_minutes) > 5:
+        if not (0 <= current_minutes - slot_minutes <= 5):
             continue
         if state["sent"].get(slot, False):
             continue
@@ -1035,6 +1035,7 @@ def cmd_tick(args: argparse.Namespace) -> None:
                 print(f"review_system.py tick 失败：{result.stderr}", file=sys.stderr)
         else:
             SLOT_COMMANDS[slot](argparse.Namespace(dry_run=False))
+            state = load_state()  # 子命令已自行保存 state，重新加载避免覆盖
         save_state(state)
         return  # 每轮只处理一个 slot，防止重复发送
 
