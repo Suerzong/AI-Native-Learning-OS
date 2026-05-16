@@ -26,7 +26,7 @@ from datetime import datetime, date, timedelta
 from pathlib import Path
 
 # ── 路径 ──────────────────────────────────────────────
-REPO = Path("/home/ubuntu/Edge-AI")
+REPO = Path(os.environ.get("EDGE_AI_REPO", Path(__file__).resolve().parents[1]))
 COMPANION_DIR = REPO / "wechat-companion"
 CONFIG_PATH = COMPANION_DIR / "config.json"
 STATE_PATH = COMPANION_DIR / "state.json"

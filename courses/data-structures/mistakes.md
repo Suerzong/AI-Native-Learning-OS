@@ -98,6 +98,27 @@
 - 纠正任务：实现用 size 计数器区分空和满的循环队列
 - 是否已复测通过：是（2026-05-15 M2 队空/队满条件口述正确）
 
+## 2026-05-16：DeQueue 中 free 了队列外壳而非节点
+
+- 所属技能：队列
+- 错误表现：
+```c
+int DeQueue(LinkQueue *q, int *return_val)
+{
+    // ...
+    LinkQueue *temp = q;      // ← 无用变量
+    *return_val = q->front->data;
+    q->front = q->front->next;
+    if(q->front == NULL) { q->rear = NULL; }
+    free(q);                  // ← 应 free(p)，不是 free(q)
+    return 0;
+}
+```
+- 错误原因：DeQueue 应该 free 被移除的 QNode（即原 front 节点），但写成了 `free(q)` 释放了整个队列外壳。队列操作的是节点层面（QNode），不是队列结构体本身（LinkQueue）
+- 正确理解：出队 = 摘下 front 节点 → 保存其 data → 前移 front → free 摘下的节点。先保存 `QNode *p = q->front`，最后 `free(p)`
+- 纠正任务：重写 DeQueue，先声明 `QNode *p = q->front`，最后 `free(p)`
+- 是否已复测通过：否
+
 ### malloc 后忘记 free
 
 - 所属技能：链表 / 内存管理

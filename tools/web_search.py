@@ -64,7 +64,9 @@ def normalize(items: list[dict[str, Any]], backend: str) -> dict[str, Any]:
 
 
 def brave_search(query: str, limit: int) -> dict[str, Any]:
-    key = os.environ["BRAVE_SEARCH_API_KEY"]
+    key = os.environ.get("BRAVE_SEARCH_API_KEY")
+    if not key:
+        raise RuntimeError("BRAVE_SEARCH_API_KEY 环境变量未设置")
     params = urllib.parse.urlencode({"q": query, "count": min(limit, 20)})
     data = request_json(
         f"https://api.search.brave.com/res/v1/web/search?{params}",
@@ -83,7 +85,9 @@ def brave_search(query: str, limit: int) -> dict[str, Any]:
 
 
 def bing_search(query: str, limit: int) -> dict[str, Any]:
-    key = os.environ["BING_SEARCH_API_KEY"]
+    key = os.environ.get("BING_SEARCH_API_KEY")
+    if not key:
+        raise RuntimeError("BING_SEARCH_API_KEY 环境变量未设置")
     params = urllib.parse.urlencode({"q": query, "count": min(limit, 50), "responseFilter": "Webpages"})
     data = request_json(
         f"https://api.bing.microsoft.com/v7.0/search?{params}",
@@ -102,7 +106,9 @@ def bing_search(query: str, limit: int) -> dict[str, Any]:
 
 
 def tavily_search(query: str, limit: int) -> dict[str, Any]:
-    key = os.environ["TAVILY_API_KEY"]
+    key = os.environ.get("TAVILY_API_KEY")
+    if not key:
+        raise RuntimeError("TAVILY_API_KEY 环境变量未设置")
     payload = json.dumps(
         {
             "api_key": key,
@@ -129,7 +135,9 @@ def tavily_search(query: str, limit: int) -> dict[str, Any]:
 
 
 def serpapi_search(query: str, limit: int) -> dict[str, Any]:
-    key = os.environ["SERPAPI_API_KEY"]
+    key = os.environ.get("SERPAPI_API_KEY")
+    if not key:
+        raise RuntimeError("SERPAPI_API_KEY 环境变量未设置")
     params = urllib.parse.urlencode({"engine": "google", "q": query, "num": min(limit, 10), "api_key": key})
     data = request_json(f"https://serpapi.com/search.json?{params}")
     items = []

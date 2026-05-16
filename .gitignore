@@ -5,6 +5,9 @@ temp/hn_front.json
 temp/gh_*.json
 temp/arxiv_*.json
 
+# cc-connect WeChat bridge attachments (personal images)
+.cc-connect/
+
 # Claude Code local settings (contains personal permissions)
 .claude/settings.local.json
 
@@ -45,3 +48,4 @@ wechat-companion/state.json
 
 # Exclude tutorial book from language stats
 temp/ai_tutorial_book-master/
+ucloud-tasks/

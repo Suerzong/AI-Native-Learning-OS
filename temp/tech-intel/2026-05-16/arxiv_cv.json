@@ -1,0 +1,471 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/9b3aWL4fK//p2WuqREI7EwQ4MgQ</id>
+  <title>arXiv Query: search_query=cat:cs.CV AND (all:real-time OR all:object OR all:detection OR all:edge OR all:YOLO)&amp;id_list=&amp;start=0&amp;max_results=15</title>
+  <updated>2026-05-16T00:18:20Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=cat:cs.CV+AND+(all:real-time+OR+(all:object+OR+(all:detection+OR+(all:edge+OR+all:YOLO))))&amp;start=0&amp;max_results=15&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>15</opensearch:itemsPerPage>
+  <opensearch:totalResults>83372</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2605.15199v1</id>
+    <title>EntityBench: Towards Entity-Consistent Long-Range Multi-Shot Video Generation</title>
+    <updated>2026-05-14T17:59:55Z</updated>
+    <link href="https://arxiv.org/abs/2605.15199v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.15199v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multi-shot video generation extends single-shot generation to coherent visual narratives, yet maintaining consistent characters, objects, and locations across shots remains a challenge over long sequences. Existing evaluations typically use independently generated prompt sets with limited entity coverage and simple consistency metrics, making standardized comparison difficult. We introduce EntityBench, a benchmark of 140 episodes (2,491 shots) derived from real narrative media, with explicit per-shot entity schedules tracking characters, objects, and locations simultaneously across easy / medium / hard tiers of up to 50 shots, 13 cross-shot characters, 8 cross-shot locations, 22 cross-shot objects, and recurrence gaps spanning up to 48 shots. It is paired with a three-pillar evaluation suite that disentangles intra-shot quality, prompt-following alignment, and cross-shot consistency, with a fidelity gate that admits only accurate entity appearances into cross-shot scoring. As a baseline, we propose EntityMem, a memory-augmented generation system that stores verified per-entity visual references in a persistent memory bank before generation begins. Experiments show that cross-shot entity consistency degrades sharply with recurrence distance in existing methods, and that explicit per-entity memory yields the highest character fidelity (Cohen's d = +2.33) and presence among methods evaluated. Code and data are available at https://github.com/Catherine-R-He/EntityBench/.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T17:59:55Z</published>
+    <arxiv:comment>Project page: https://catherine-r-he.github.io/EntityBench/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Ruozhen He</name>
+    </author>
+    <author>
+      <name>Meng Wei</name>
+    </author>
+    <author>
+      <name>Ziyan Yang</name>
+    </author>
+    <author>
+      <name>Vicente Ordonez</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.15198v1</id>
+    <title>ATLAS: Agentic or Latent Visual Reasoning? One Word is Enough for Both</title>
+    <updated>2026-05-14T17:59:55Z</updated>
+    <link href="https://arxiv.org/abs/2605.15198v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.15198v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Visual reasoning, often interleaved with intermediate visual states, has emerged as a promising direction in the field. A straightforward approach is to directly generate images via unified models during reasoning, but this is computationally expensive and architecturally non-trivial. Recent alternatives include agentic reasoning through code or tool calls, and latent reasoning with learnable hidden embeddings. However, agentic methods incur context-switching latency from external execution, while latent methods lack task generalization and are difficult to train with autoregressive parallelization. To combine their strengths while mitigating their limitations, we propose ATLAS, a framework in which a single discrete 'word', termed as a functional token, serves both as an agentic operation and a latent visual reasoning unit. Each functional token is associated with an internalized visual operation, yet requires no visual supervision and remains a standard token in the tokenizer vocabulary, which can be generated via next-token prediction. This design avoids verbose intermediate visual content generation, while preserving compatibility with the vanilla scalable SFT and RL training, without architectural or methodological modifications. To further address the sparsity of functional tokens during RL, we introduce Latent-Anchored GRPO (LA-GRPO), which stabilizes the training by anchoring functional tokens with a statically weighted auxiliary objective, providing stronger gradient updates. Extensive experiments and analyses demonstrate that ATLAS achieves superior performance on challenging benchmarks while maintaining clear interpretability. We hope ATLAS offers a new paradigm inspiring future visual reasoning research.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T17:59:55Z</published>
+    <arxiv:comment>Project Page: https://atlas-oneword.github.io Code: https://github.com/ZiyuGuo99/ATLAS</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Ziyu Guo</name>
+    </author>
+    <author>
+      <name>Rain Liu</name>
+    </author>
+    <author>
+      <name>Xinyan Chen</name>
+    </author>
+    <author>
+      <name>Pheng-Ann Heng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.15193v1</id>
+    <title>Aligning Latent Geometry for Spherical Flow Matching in Image Generation</title>
+    <updated>2026-05-14T17:59:37Z</updated>
+    <link href="https://arxiv.org/abs/2605.15193v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.15193v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Latent flow matching for image generation usually transports Gaussian noise to variational autoencoder latents along linear paths. Both endpoints, however, concentrate in thin spherical shells, and a Euclidean chord leaves those shells even when preprocessing aligns their radii. By decomposing each latent token into radial and angular components, we show through component-swap probes that decoded perceptual and semantic content is carried predominantly by direction, with radius contributing much less. We therefore project data latents onto a fixed token radius, use the radial projection of Gaussian noise as the spherical prior, finetune the decoder with the encoder frozen, and replace linear interpolation with spherical linear interpolation. The resulting geodesic paths stay on the sphere at every timestep, and their velocity targets are purely angular by construction. Under matched training, the method consistently improves class-conditional ImageNet-256 FID across different image tokenizers, leaves the diffusion architecture unchanged, and requires no auxiliary encoder or representation-alignment objective.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T17:59:37Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Tuna Han Salih Meral</name>
+    </author>
+    <author>
+      <name>Kaan Oktay</name>
+    </author>
+    <author>
+      <name>Hidir Yesiltepe</name>
+    </author>
+    <author>
+      <name>Adil Kaan Akan</name>
+    </author>
+    <author>
+      <name>Pinar Yanardag</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.15190v1</id>
+    <title>RAVEN: Real-time Autoregressive Video Extrapolation with Consistency-model GRPO</title>
+    <updated>2026-05-14T17:59:30Z</updated>
+    <link href="https://arxiv.org/abs/2605.15190v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.15190v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Causal autoregressive video diffusion models support real-time streaming generation by extrapolating future chunks from previously generated content. Distilling such generators from high-fidelity bidirectional teachers yields competitive few-step models, yet a persistent gap between the history distributions encountered during training and those arising at inference constrains generation quality over long horizons. We introduce the Real-time Autoregressive Video Extrapolation Network (RAVEN), a training-time test framework that repacks each self rollout into an interleaved sequence of clean historical endpoints and noisy denoising states. This formulation aligns training attention with inference-time extrapolation and allows downstream chunk losses to supervise the history representations on which future predictions depend. We further propose Consistency-model Group Relative Policy Optimization (CM-GRPO), which reformulates a consistency sampling step as a conditional Gaussian transition and applies online Reinforcement Learning (RL) directly to this kernel, avoiding the Euler-Maruyama auxiliary process adopted in prior flow-model RL formulations. Experiments demonstrate that RAVEN surpasses recent causal video distillation baselines across quality, semantic, and dynamic degree evaluations, and that CM-GRPO provides further gains when combined with RAVEN.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T17:59:30Z</published>
+    <arxiv:comment>Project Page: https://yanzuo.lu/raven</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yanzuo Lu</name>
+    </author>
+    <author>
+      <name>Ronglai Zuo</name>
+    </author>
+    <author>
+      <name>Jiankang Deng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.15187v1</id>
+    <title>Articraft: An Agentic System for Scalable Articulated 3D Asset Generation</title>
+    <updated>2026-05-14T17:59:18Z</updated>
+    <link href="https://arxiv.org/abs/2605.15187v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.15187v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A bottleneck in learning to understand articulated 3D objects is the lack of large and diverse datasets. In this paper, we propose to leverage large language models (LLMs) to close this gap and generate articulated assets at scale. We reduce the problem of generating an articulated 3D asset to that of writing a program that builds it. We then introduce a new agentic system, Articraft, that writes such programs automatically. We design a programmatic interface and harness to help the LLM do so effectively. The LLM writes code against a domain-specific SDK for defining parts, composing geometry, specifying joints, and writing tests to validate the resulting assets. The harness exposes a restricted workspace and interface to the LLM, validates the resulting assets, and returns structured feedback. In this way, the LLM is not distracted by details such as authoring a URDF file or managing a complex software environment. We show that this produces higher-quality assets than both state-of-the-art articulated-asset generators and general-purpose coding agents. Using Articraft, we build Articraft-10K, a curated dataset of over 10K articulated assets spanning 245 categories, and show its utility both for training models of articulated assets and in downstream applications such as robotics simulation and virtual reality.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.GR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T17:59:18Z</published>
+    <arxiv:comment>Project page: https://articraft3d.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Matt Zhou</name>
+    </author>
+    <author>
+      <name>Ruining Li</name>
+    </author>
+    <author>
+      <name>Xiaoyang Lyu</name>
+    </author>
+    <author>
+      <name>Zhaomou Song</name>
+    </author>
+    <author>
+      <name>Zhening Huang</name>
+    </author>
+    <author>
+      <name>Chuanxia Zheng</name>
+    </author>
+    <author>
+      <name>Christian Rupprecht</name>
+    </author>
+    <author>
+      <name>Andrea Vedaldi</name>
+    </author>
+    <author>
+      <name>Shangzhe Wu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.15186v1</id>
+    <title>VGGT-Edit: Feed-forward Native 3D Scene Editing with Residual Field Prediction</title>
+    <updated>2026-05-14T17:59:04Z</updated>
+    <link href="https://arxiv.org/abs/2605.15186v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.15186v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>High-quality 3D scene reconstruction has recently advanced toward generalizable feed-forward architectures, enabling the generation of complex environments in a single forward pass. However, despite their strong performance in static scene perception, these models remain limited in responding to dynamic human instructions, which restricts their use in interactive applications. Existing editing methods typically rely on a 2D-lifting strategy, where individual views are edited independently and then lifted back into 3D space. This indirect pipeline often leads to blurry textures and inconsistent geometry, as 2D editors lack the spatial awareness required to preserve structure across viewpoints. To address these limitations, we propose VGGT-Edit, a feed-forward framework for text-conditioned native 3D scene editing. VGGT-Edit introduces depth-synchronized text injection to align semantic guidance with the backbone's spatial poses, ensuring stable instruction grounding. This semantic signal is then processed by a residual transformation head, which directly predicts 3D geometric displacements to deform the scene while preserving background stability. To ensure high-fidelity results, we supervise the framework with a multi-term objective function that enforces geometric accuracy and cross-view consistency. We also construct the DeltaScene Dataset, a large-scale dataset generated through an automated pipeline with 3D agreement filtering to ensure ground-truth quality. Experiments show that VGGT-Edit substantially outperforms 2D-lifting baselines, producing sharper object details, stronger multi-view consistency, and near-instant inference speed.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T17:59:04Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Kaixin Zhu</name>
+    </author>
+    <author>
+      <name>Yiwen Tang</name>
+    </author>
+    <author>
+      <name>Yifan Yang</name>
+    </author>
+    <author>
+      <name>Renrui Zhang</name>
+    </author>
+    <author>
+      <name>Bohan Zeng</name>
+    </author>
+    <author>
+      <name>Ziyu Guo</name>
+    </author>
+    <author>
+      <name>Ruichuan An</name>
+    </author>
+    <author>
+      <name>Zhou Liu</name>
+    </author>
+    <author>
+      <name>Qizhi Chen</name>
+    </author>
+    <author>
+      <name>Delin Qu</name>
+    </author>
+    <author>
+      <name>Jaehong Yoon</name>
+    </author>
+    <author>
+      <name>Wentao Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.15185v1</id>
+    <title>Quantitative Video World Model Evaluation for Geometric-Consistency</title>
+    <updated>2026-05-14T17:59:04Z</updated>
+    <link href="https://arxiv.org/abs/2605.15185v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.15185v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Generative video models are increasingly studied as implicit world models, yet evaluating whether they produce physically plausible 3D structure and motion remains challenging. Most existing video evaluation pipelines rely heavily on human judgment or learned graders, which can be subjective and weakly diagnostic for geometric failures. We introduce PDI-Bench (Perspective Distortion Index), a quantitative framework for auditing geometric coherence in generated videos. Given a generated clip, we obtain object-centric observations via segmentation and point tracking (e.g., SAM 2, MegaSaM, and CoTracker3), lift them to 3D world-space coordinates via monocular reconstruction, and compute a set of projective-geometry residuals capturing three failure dimensions: scale-depth alignment, 3D motion consistency, and 3D structural rigidity. To support systematic evaluation, we build PDI-Dataset, covering diverse scenarios designed to stress these geometric constraints. Across state-of-the-art video generators, PDI reveals consistent geometry-specific failure modes that are not captured by common perceptual metrics, and provides a diagnostic signal for progress toward physically grounded video generation and physical world model. Our code and dataset can be found at https://pdi-bench.github.io/.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T17:59:04Z</published>
+    <arxiv:comment>12 pages, 5 figures. Project page : https://pdi-bench.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Jiaxin Wu</name>
+    </author>
+    <author>
+      <name>Yihao Pi</name>
+    </author>
+    <author>
+      <name>Yinling Zhang</name>
+    </author>
+    <author>
+      <name>Yuheng Li</name>
+    </author>
+    <author>
+      <name>Xueyan Zou</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.15171v1</id>
+    <title>Evidential Reasoning Advances Interpretable Real-World Disease Screening</title>
+    <updated>2026-05-14T17:56:07Z</updated>
+    <link href="https://arxiv.org/abs/2605.15171v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.15171v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Disease screening is critical for early detection and timely intervention in clinical practice. However, most current screening models for medical images suffer from limited interpretability and suboptimal performance. They often lack effective mechanisms to reference historical cases or provide transparent reasoning pathways. To address these challenges, we introduce EviScreen, an evidential reasoning framework for disease screening that leverages region-level evidence from historical cases. The proposed EviScreen offers retrospection interpretability through regional evidence retrieved from dual knowledge banks. Using this evidential mechanism, the subsequent evidence-aware reasoning module makes predictions using both the current case and evidence from historical cases, thereby enhancing disease screening performance. Furthermore, rather than relying on post-hoc saliency maps, EviScreen enhances localization interpretability by leveraging abnormality maps derived from contrastive retrieval. Our method achieves superior performance on our carefully established benchmarks for real-world disease screening, yielding notably higher specificity at clinical-level recall. Code is publicly available at https://github.com/DopamineLcy/EviScreen.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T17:56:07Z</published>
+    <arxiv:comment>ICML 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Chenyu Lian</name>
+    </author>
+    <author>
+      <name>Hong-Yu Zhou</name>
+    </author>
+    <author>
+      <name>Jing Qin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.15141v1</id>
+    <title>Causal Forcing++: Scalable Few-Step Autoregressive Diffusion Distillation for Real-Time Interactive Video Generation</title>
+    <updated>2026-05-14T17:46:36Z</updated>
+    <link href="https://arxiv.org/abs/2605.15141v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.15141v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Real-time interactive video generation requires low-latency, streaming, and controllable rollout. Existing autoregressive (AR) diffusion distillation methods have achieved strong results in the chunk-wise 4-step regime by distilling bidirectional base models into few-step AR students, but they remain limited by coarse response granularity and non-negligible sampling latency. In this paper, we study a more aggressive setting: frame-wise autoregression with only 1--2 sampling steps. In this regime, we identify the initialization of a few-step AR student as the key bottleneck: existing strategies are either target-misaligned, incapable of few-step generation, or too costly to scale. We propose \textbf{Causal Forcing++}, a principled and scalable pipeline that uses \emph{causal consistency distillation} (causal CD) for few-step AR initialization. The core idea is that causal CD learns the same AR-conditional flow map as causal ODE distillation, but obtains supervision from a single online teacher ODE step between adjacent timesteps, avoiding the need to precompute and store full PF-ODE trajectories. This makes the initialization both more efficient and easier to optimize. The resulting pipeline, \ours, surpasses the SOTA 4-step chunk-wise Causal Forcing under the \textit{\textbf{frame-wise 2-step setting}} by 0.1 in VBench Total, 0.3 in VBench Quality, and 0.335 in VisionReward, while reducing first-frame latency by 50\% and Stage 2 training cost by $\sim$$4\times$. We further extend the pipeline to action-conditioned world model generation in the spirit of Genie3. Project Page: https://github.com/thu-ml/Causal-Forcing and https://github.com/shengshu-ai/minWM .</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T17:46:36Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Min Zhao</name>
+    </author>
+    <author>
+      <name>Hongzhou Zhu</name>
+    </author>
+    <author>
+      <name>Kaiwen Zheng</name>
+    </author>
+    <author>
+      <name>Zihan Zhou</name>
+    </author>
+    <author>
+      <name>Bokai Yan</name>
+    </author>
+    <author>
+      <name>Xinyuan Li</name>
+    </author>
+    <author>
+      <name>Xiao Yang</name>
+    </author>
+    <author>
+      <name>Chongxuan Li</name>
+    </author>
+    <author>
+      <name>Jun Zhu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.15116v1</id>
+    <title>DriveCtrl: Conditioned Sim-to-Real Driving Video Generation</title>
+    <updated>2026-05-14T17:29:35Z</updated>
+    <link href="https://arxiv.org/abs/2605.15116v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.15116v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large-scale labelled driving video data is essential for training autonomous driving systems. Although simulation offers scalable and fully annotated data, the domain gap between synthetic and real-world driving videos significantly limits its utility for downstream deployment. Existing video generation methods are not well-suited for this task, as they fail to simultaneously preserve scene structure, object dynamics, temporal consistency, and visual realism, all of which are critical for maintaining annotation validity in generated data. In this paper, we present DriveCtrl, a depth-conditioned controllable sim-to-real video generation framework for realistic driving video synthesis. Built upon a pretrained video foundation model, DriveCtrl introduces a structure-aware adapter that enables depth-guided generation while preserving the scene layout and motion patterns of the source simulation, producing temporally coherent driving videos that remain aligned with the original simulated sequences. We further introduce a scalable data generation pipeline that transforms simulator videos into realistic driving footage matching the visual style of a target real-world dataset. The pipeline supports three conditioning signals: structural depth, reference-dataset style, and text prompts, while preserving frame-level annotations for downstream perception tasks. To better assess this task, we propose a driving-domain-specific knowledge-informed evaluation metric called Driving Video Realism Score (DVRS) that assesses the realism of generated videos. Experiments demonstrate that DriveCtrl consistently outperforms the base model and competing alternatives in realism, temporal quality, and perception task performance, substantially narrowing the sim-to-real gap for driving video generation.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T17:29:35Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Haonan Zhao</name>
+    </author>
+    <author>
+      <name>Yiting Wang</name>
+    </author>
+    <author>
+      <name>Jingkun Chen</name>
+    </author>
+    <author>
+      <name>Valentina Donzella</name>
+    </author>
+    <author>
+      <name>Thomas Bashford-Rogers</name>
+    </author>
+    <author>
+      <name>Kurt Debattista</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.15088v1</id>
+    <title>SAGE3D: Soft-guided attention and graph excitation for 3D point cloud corner detection</title>
+    <updated>2026-05-14T17:08:35Z</updated>
+    <link href="https://arxiv.org/abs/2605.15088v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.15088v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present SAGE3D, a hybrid Transformer-based model for corner detection in airborne LiDAR point clouds. We propose a multi-stage solution built on a hierarchical encoder-decoder architecture that progressively downsamples point clouds through Set Abstraction layers and recovers per-point predictions via Feature Propagation. We introduce two innovations: Soft-Guided Attention, which injects ground-truth corner labels as a log-prior into attention logits during training to improve precision; then an Excitatory Graph Neural Network positioned at strategic resolutions in the hierarchy, employing positive-only message passing where high-confidence corners reinforce predictions through learned boosting, optimizing for recall. The hierarchical design enables multi-scale feature extraction while our guided attention and excitatory modules ensure corner signals are amplified rather than diluted across scales.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T17:08:35Z</published>
+    <arxiv:comment>5 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Batuhan Arda Bekar</name>
+    </author>
+    <author>
+      <name>Can Sarı</name>
+    </author>
+    <author>
+      <name>Hüseyin Can Gülkan</name>
+    </author>
+    <author>
+      <name>Barış Özcan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.15071v1</id>
+    <title>On the Cultural Anachronism and Temporal Reasoning in Vision Language Models</title>
+    <updated>2026-05-14T16:58:16Z</updated>
+    <link href="https://arxiv.org/abs/2605.15071v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.15071v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-Language Models (VLMs) are increasingly applied to cultural heritage materials, from digital archives to educational platforms. This work identifies a fundamental issue in how these models interpret historical artifacts. We define this phenomenon as cultural anachronism, the tendency to misinterpret historical objects using temporally inappropriate concepts, materials, or cultural frameworks. To quantify this phenomenon, we introduce the Temporal Anachronism Benchmark for Vision-Language Models (TAB-VLM), a dataset of 600 questions across six categories, designed to evaluate temporal reasoning on 1,600 Indian cultural artifacts spanning prehistoric to modern periods. Systematic evaluations of ten state-of-the-art models reveal significant deficiencies on our benchmark, and even the best model (GPT-5.2) achieves only 58.7% overall accuracy. The performance gap persists across varying architectures and scales, suggesting that cultural anachronism represents a significant limitation in visual AI systems, regardless of model size. These findings highlight the disparity between current VLM capabilities and the requirements for accurately interpreting cultural heritage materials, particularly for non-Western visual cultures underrepresented in training data. Our benchmark provides a foundation for enhancing temporal cognition in multimodal AI systems that interact with historical artifacts. The dataset and code are available in our project page.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T16:58:16Z</published>
+    <arxiv:comment>Project Page: https://khushboo0012.github.io/tab-vlm-webpage/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Mukul Ranjan</name>
+    </author>
+    <author>
+      <name>Prince Jha</name>
+    </author>
+    <author>
+      <name>Khushboo Kumari</name>
+    </author>
+    <author>
+      <name>Zhiqiang Shen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.15062v1</id>
+    <title>Computational Imaging Priors for Wireless Capsule Endoscopy: Monte Carlo-Guided Hemoglobin Mapping for Rare-Anomaly Detection</title>
+    <updated>2026-05-14T16:52:33Z</updated>
+    <link href="https://arxiv.org/abs/2605.15062v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.15062v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Background. RGB-trained capsule-endoscopy classifiers underperform on small-vessel vascular findings by
+  conflating hemoglobin contrast with bile and illumination falloff. Thus, here we test whether a Monte
+  Carlo-inspired analytic model can compute hemoglobin from RGB signal built upon extracted classifier.
+  Methods. On Kvasir-Capsule (47,238 frames, video-level 70/15/15 split, 11 evaluable classes) we evaluate two
+  software-only configurations against RGB-only EfficientNet-B0 across 6 seeds: (i) a prior P_blood =
+  sigma(alpha * (H_norm - 0.5)) * Phi(r) fused as 2 zero-init auxiliary channels; (ii) a distillation head
+  training a 3-channel RGB backbone to predict P_blood. Significance: paired DeLong, McNemar, bootstrap CIs
+  with Bonferroni correction.
+  Results. Across 6 seeds (n=6,423), the analytic prior provides a small but direction-consistent macro-AUC
+  improvement: RGB-only 0.760 +/- 0.027, input-fusion 0.783 +/- 0.024 (paired Delta = +0.023, sign-positive on
+  5/6 seeds), distillation 0.773 +/- 0.028. The largest robust per-class lift is on Lymphangiectasia, where AUC
+  rises from RGB 0.238 +/- 0.057 to input-fusion 0.337 +/- 0.019, sign-consistent across all 6 seeds. On rare
+  focal-vascular classes (Angiectasia, Blood - fresh) the prior's per-seed effects are bimodal: seed=42 reaches
+  Angiectasia AUC 0.528 -&gt; 0.916, but the cross-seed mean is 0.646 -&gt; 0.608 with sigma_PI = 0.23 - reported as
+  a high-variance per-seed exemplar.
+  Conclusion. A Monte Carlo-inspired analytic prior provides a small, direction-consistent macro-AUC
+  improvement on Kvasir-Capsule across 6 seeds with the largest robust per-class lift on Lymphangiectasia; the
+  distillation variant runs on plain 3-channel RGB and yields a free interpretability heatmap.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T16:52:33Z</published>
+    <arxiv:comment>24 pages, 6 figures, 3 tables. Code and trained-model checkpoints at https://github.com/integritynoble/GI_Multi_Task . 6-seed (seeds 41, 42, 43, 44, 45, 47) mean +/- SD ablation as the headline; per-class single-seed=42 analyses in Appendix A</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Chengshuai Yang</name>
+    </author>
+    <author>
+      <name>Lei Xing</name>
+    </author>
+    <author>
+      <name>Gregory Entin</name>
+    </author>
+    <author>
+      <name>Roopa Vemulapalli</name>
+    </author>
+    <author>
+      <name>Lisa Casey</name>
+    </author>
+    <author>
+      <name>Raiyan Tripti Zaman</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.15055v1</id>
+    <title>DiffusionOPD: A Unified Perspective of On-Policy Distillation in Diffusion Models</title>
+    <updated>2026-05-14T16:49:09Z</updated>
+    <link href="https://arxiv.org/abs/2605.15055v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.15055v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Reinforcement learning has emerged as a powerful tool for improving diffusion-based text-to-image models, but existing methods are largely limited to single-task optimization. Extending RL to multiple tasks is challenging: joint optimization suffers from cross-task interference and imbalance, while cascade RL is cumbersome and prone to catastrophic forgetting. We propose DiffusionOPD, a new multi-task training paradigm for diffusion models based on Online Policy Distillation (OPD). DiffusionOPD first trains task-specific teachers independently, then distills their capabilities into a unified student along the student own rollout trajectories. This decouples single-task exploration from multi-task integration and avoids the optimization burden of solving all tasks jointly from scratch. Theoretically, we lift the OPD framework from discrete tokens to continuous-state Markov processes, deriving a closed-form per-step KL objective that unifies both stochastic SDE and deterministic ODE refinement via mean-matching. We formally and empirically demonstrate that this analytic gradient provides lower variance and better generality compared to conventional PPO-style policy gradients. Extensive experiments show that DiffusionOPD consistently surpasses both multi-reward RL and cascade RL baselines in training efficiency and final performance, while achieving state-of-the-art results on all evaluated benchmarks.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T16:49:09Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Quanhao Li</name>
+    </author>
+    <author>
+      <name>Junqiu Yu</name>
+    </author>
+    <author>
+      <name>Kaixun Jiang</name>
+    </author>
+    <author>
+      <name>Yujie Wei</name>
+    </author>
+    <author>
+      <name>Zhen Xing</name>
+    </author>
+    <author>
+      <name>Pandeng Li</name>
+    </author>
+    <author>
+      <name>Ruihang Chu</name>
+    </author>
+    <author>
+      <name>Shiwei Zhang</name>
+    </author>
+    <author>
+      <name>Yu Liu</name>
+    </author>
+    <author>
+      <name>Zuxuan Wu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.15054v1</id>
+    <title>LATERN: Test-Time Context-Aware Explainable Video Anomaly Detection</title>
+    <updated>2026-05-14T16:48:03Z</updated>
+    <link href="https://arxiv.org/abs/2605.15054v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.15054v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-language models (VLMs) have recently emerged as a promising paradigm for video anomaly detection (VAD) due to their strong visual reasoning ability and natural language-based explainability. In this paper, we aim to address a key limitation of such pipelines, which perform segment-level inference independently owing to token constraints and reason without structured temporal context, allowing VLMs to interpret anomalies as deviations from evolving video dynamics rather than producing fragmented predictions and explanations. To specify, we propose a context-aware framework named LATERN, which reformulates VAD as a temporal evidence aggregation process. LATERN consists of two complementary modules: Context-Aware Anomaly Scoring (CEA) and Recursive Evidence Aggregation (REA). CEA introduces a novel image-grounded memory mechanism, which selectively chooses historical content via frame diversity and visual-textual alignment as expanded context to help generate reliable anomaly scores. Building upon these scores, REA performs recursive temporal aggregation to identify coherent anomaly intervals and produce event-level decisions and explanations grounded in visual-textual evidence. Extensive experiments on challenging benchmarks, including UCF-Crime and XD-Violence, show that LATERN enhances detection accuracy and explanation consistency for frozen VLMs during test time, while generating temporally coherent and semantically grounded event-level explanations.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T16:48:03Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Mitchell Piehl</name>
+    </author>
+    <author>
+      <name>Muchao Ye</name>
+    </author>
+  </entry>
+</feed>

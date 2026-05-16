@@ -51,3 +51,66 @@ Microsoft Graph dry run:
 ```bash
 python3 tools/graph_email_push.py --dry-run --body "Evening review reminder"
 ```
+
+## UCloud Task Scraper
+
+`ucloud_task_scraper.py` 抓取 BUPT 教学平台（UCloud）上的所有待办任务，输出 JSON + Obsidian Markdown 到 `ucloud-tasks/YYYY-MM-DD.*`。
+
+### 架构
+
+UCloud 是 BladeX 微服务 SPA（Vue.js + CAS 认证）。脚本不爬页面 HTML，而是直接调用后端 API：
+
+| API 端点 | 说明 |
+| --- | --- |
+| `/ykt-site/site/student/undone` | 未完成教学活动 |
+| `/ykt-site/assignment/student/list/sort` | 作业 |
+| `/ykt-activity/survey/page/student/todo` | 问卷 |
+| `/ykt-site/evaluate-student/taskPage` | 互评任务 |
+| `/ykt-site/examination/list-stu` | 考试 |
+
+API base: `https://apiucloud.bupt.edu.cn`
+
+Auth: cookies（`token` / `refresh_token` / `identity`），通过 `Blade-Auth` header 传递，`refresh_token` grant 自动续期。
+
+### 首次使用
+
+```bash
+# 1. 在浏览器登录 https://ucloud.bupt.edu.cn/uclass/
+# 2. 从浏览器自动提取 cookies
+python3 tools/ucloud_cookie_helper.py
+
+# 如果自动提取失败，手动粘贴（DevTools > Application > Cookies > ucloud.bupt.edu.cn）：
+python3 tools/ucloud_cookie_helper.py --manual
+
+# 3. 抓取待办任务
+python3 tools/ucloud_task_scraper.py
+```
+
+### 日常使用
+
+```bash
+python3 tools/ucloud_task_scraper.py                    # 输出到 ucloud-tasks/
+python3 tools/ucloud_task_scraper.py --print-report     # 终端打印
+python3 tools/ucloud_task_scraper.py --date 2026-05-20  # 指定日期
+```
+
+### Cookie 过期
+
+Blade-Auth token 约 2 小时过期，脚本自动用 `refresh_token` 续期。如 refresh_token 也失效，重新运行 `ucloud_cookie_helper.py`。
+
+### 输出示例
+
+```
+ucloud-tasks/
+  2026-05-16.json    # 结构化数据（可用于自动化）
+  2026-05-16.md      # Obsidian 可读报告
+```
+
+### 集成到 Daily Workflow
+
+可以加入 GitHub Actions cron 或本地 cron，每天定时抓取：
+
+```bash
+# crontab: 每天 8:00、12:00、18:00 抓取
+0 8,12,18 * * * cd ~/Edge-AI && python3 tools/ucloud_task_scraper.py
+```

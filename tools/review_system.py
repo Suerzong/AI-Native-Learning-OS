@@ -26,7 +26,7 @@ from pathlib import Path
 from typing import Optional
 
 # ── 路径 ──────────────────────────────────────────────
-REPO = Path("/home/ubuntu/Edge-AI")
+REPO = Path(os.environ.get("EDGE_AI_REPO", Path(__file__).resolve().parents[1]))
 REVIEW_DIR = REPO / "review"
 CONFIG_PATH = REVIEW_DIR / "config.json"
 QUEUE_PATH = REVIEW_DIR / "queue.json"
@@ -602,6 +602,63 @@ def cmd_set_time(args: argparse.Namespace) -> None:
 # 子命令：status
 # ═══════════════════════════════════════════════════════
 
+# ═══════════════════════════════════════════════════════
+# 子命令：quiz
+# ═══════════════════════════════════════════════════════
+
+def cmd_quiz(args: argparse.Namespace) -> None:
+    """输出 JSON 格式的待复习卡片，供交互式 CLI 复习使用"""
+    cards = load_queue()
+    today = today_str()
+
+    due: list[dict] = []
+    for c in cards:
+        nr = c.get("next_review", "")
+        if nr and nr <= today:
+            due.append(c)
+
+    if len(due) < 5:
+        soon = date.today() + timedelta(days=3)
+        seen = {id(c) for c in due}
+        for c in cards:
+            nr = c.get("next_review", "")
+            if nr and today < nr <= soon.isoformat() and id(c) not in seen:
+                due.append(c)
+                seen.add(id(c))
+
+    def sort_key(c: dict) -> tuple:
+        is_unretested = 1 if (c.get("source") == "mistakes" and not c.get("retested")) else 0
+        acc_str = c.get("accuracy", "-")
+        acc_val = 100
+        m = re.search(r"(\d+)", acc_str) if acc_str else None
+        if m:
+            acc_val = int(m.group(1))
+        idx = c.get("interval_idx", 0)
+        return (0 if is_unretested else 1, acc_val, idx)
+
+    due.sort(key=sort_key)
+    limit = min(args.limit, len(due))
+    selected = due[:limit]
+
+    output = []
+    for c in selected:
+        output.append({
+            "id": card_key(c),
+            "source": c.get("source", ""),
+            "course": c.get("course", ""),
+            "module": c.get("module", ""),
+            "content": c.get("content", ""),
+            "weakness": c.get("weakness", ""),
+            "corrective": c.get("corrective", ""),
+            "retested": c.get("retested", False),
+            "accuracy": c.get("accuracy", "-"),
+            "review_count": c.get("review_count", 0),
+            "interval_idx": c.get("interval_idx", 0),
+        })
+
+    print(json.dumps(output, ensure_ascii=False, indent=2))
+
+
 def cmd_status(args: argparse.Namespace) -> None:
     cfg = load_config()
     cards = load_queue()
@@ -649,9 +706,11 @@ def main() -> None:
     p_fb.add_argument("text", help="格式：知识点=评分, 知识点=评分")
     p_gen = sub.add_parser("generate", help="生成复习报告")
     p_gen.add_argument("--output", action="store_true", help="打印报告到终端")
-    p_send = sub.add_parser("send", help="发送复习报告")
+    p_quiz = sub.add_parser("quiz", help="输出 JSON 格式的待复习卡片")
+    p_quiz.add_argument("--limit", type=int, default=8, help="最大卡片数")
+    p_send = sub.add_parser("send", help="发送复习报告（已弃用）")
     p_send.add_argument("--dry-run", action="store_true", help="只打印不发送")
-    sub.add_parser("tick", help="定时检查并自动执行")
+    sub.add_parser("tick", help="定时检查并自动执行（已弃用）")
     p_time = sub.add_parser("set-time", help="调整推送时间")
     p_time.add_argument("time", help="HH:MM 格式")
     sub.add_parser("status", help="查看系统状态")
@@ -659,10 +718,15 @@ def main() -> None:
     if not args.command:
         parser.print_help()
         return
+    if args.command == "send":
+        print("提示: send 已弃用。请使用 /review 进行交互式复习。", file=sys.stderr)
+    if args.command == "tick":
+        print("提示: tick 已弃用。复习不再通过 cron 运行。请使用 /review。", file=sys.stderr)
     {
         "ingest": cmd_ingest, "feedback": cmd_feedback,
-        "generate": cmd_generate, "send": cmd_send,
-        "tick": cmd_tick, "set-time": cmd_set_time, "status": cmd_status,
+        "generate": cmd_generate, "quiz": cmd_quiz,
+        "send": cmd_send, "tick": cmd_tick,
+        "set-time": cmd_set_time, "status": cmd_status,
     }[args.command](args)
 
 

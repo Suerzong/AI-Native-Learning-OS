@@ -17,7 +17,7 @@ on:
       timezone: "Asia/Shanghai"
 
 permissions:
-  contents: write
+  contents: write  # 仅对 tech-intel/ 目录写入，通过 git add tech-intel 限定
 
 concurrency:
   group: daily-ai-tech-intel

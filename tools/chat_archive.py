@@ -29,7 +29,7 @@ except ImportError:  # pragma: no cover - this script runs on Linux.
 
 
 TZ = ZoneInfo("Asia/Shanghai")
-REPO = Path(os.environ.get("EDGE_AI_REPO", "/home/ubuntu/Edge-AI"))
+REPO = Path(os.environ.get("EDGE_AI_REPO", Path(__file__).resolve().parents[1]))
 CC_SESSIONS = Path(os.environ.get("CC_CONNECT_SESSIONS", "/home/ubuntu/.cc-connect/sessions"))
 CHAT_DIR = REPO / "personal" / "chat"
 RAW_DIR = CHAT_DIR / "raw"
