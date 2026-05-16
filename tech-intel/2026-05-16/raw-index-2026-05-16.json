@@ -1,0 +1,145 @@
+[
+  {
+    "title": "multi-turboquant: Unified KV cache compression for LLM inference",
+    "url": "https://github.com/aivrar/multi-turboquant",
+    "source": "GitHub Search",
+    "source_type": "github_search",
+    "published_at": "2026-05-11",
+    "summary": "TurboQuant, IsoQuant, PlanarQuant, TriAttention 等 10 种 KV Cache 压缩方法集成，GPU 验证，多 GPU 规划",
+    "tags": [
+      "LLM",
+      "KV Cache",
+      "quantization",
+      "inference",
+      "GPU"
+    ],
+    "importance": 3,
+    "relevance": 3,
+    "confidence": "medium",
+    "action_value": [
+      "收藏",
+      "学完 Transformer 后回看"
+    ],
+    "student_readability": "需要理解 Transformer 和注意力机制才能看懂",
+    "current_stage_relation": "当前在学神经网络基础，距离理解 KV Cache 还需学完 Transformer",
+    "fetch_status": "success"
+  },
+  {
+    "title": "LensGuard-model: YOLOv8 edge AI pipeline for hidden camera detection",
+    "url": "https://github.com/pollyannaanalytics/LensGuard-model",
+    "source": "GitHub Search",
+    "source_type": "github_search",
+    "published_at": "2026-05-15",
+    "summary": "End-to-end edge AI pipeline: training YOLOv8 to detect pinhole cameras, quantizing and exporting for edge deployment",
+    "tags": [
+      "Edge AI",
+      "YOLOv8",
+      "quantization",
+      "deployment",
+      "computer vision"
+    ],
+    "importance": 4,
+    "relevance": 4,
+    "confidence": "medium",
+    "action_value": [
+      "加入项目收藏夹",
+      "学完 YOLO 后参考"
+    ],
+    "student_readability": "需要理解目标检测和模型部署的基本概念",
+    "current_stage_relation": "正在学 CNN，学完目标检测后可回看量化→部署部分",
+    "fetch_status": "success"
+  },
+  {
+    "title": "MeMo: Memory as a Model",
+    "url": "https://arxiv.org/abs/2605.15156",
+    "source": "arXiv",
+    "source_type": "arxiv_api",
+    "published_at": "2026-05-14",
+    "summary": "LLM 动态记忆框架：让模型自主决定何时写入新记忆、何时更新，不依赖微调或 RAG",
+    "tags": [
+      "LLM",
+      "memory",
+      "continual learning"
+    ],
+    "importance": 3,
+    "relevance": 2,
+    "confidence": "high",
+    "action_value": [
+      "了解即可"
+    ],
+    "student_readability": "需要理解 LLM 基本概念",
+    "current_stage_relation": "了解即可，后续学 RAG 和 Agent 时回看",
+    "fetch_status": "success"
+  },
+  {
+    "title": "PyTorch AO v0.17.0: MXFP8 MoE kernels + per-head FP8 attention",
+    "url": "https://github.com/pytorch/ao/releases/tag/v0.17.0",
+    "source": "GitHub Release",
+    "source_type": "github_releases",
+    "published_at": "2026-03-30",
+    "summary": "torchao v0.17.0 新增 MXFP8 MoE 量化内核和 per-head FP8 低精度注意力，与 PyTorch 2.12.0 MX 量化导出互补",
+    "tags": [
+      "PyTorch",
+      "quantization",
+      "MoE",
+      "MX format",
+      "FP8"
+    ],
+    "importance": 3,
+    "relevance": 4,
+    "confidence": "high",
+    "action_value": [
+      "与 PyTorch 2.12.0 MX 量化一起收藏"
+    ],
+    "student_readability": "需要了解量化基本概念",
+    "current_stage_relation": "学完 PyTorch 基础后进入模型部署阶段时需要",
+    "fetch_status": "success"
+  },
+  {
+    "title": "Watch a neural net learn to play Snake (PPO RL Demo)",
+    "url": "https://ppo.gradexp.xyz/",
+    "source": "Hacker News",
+    "source_type": "hn_algolia",
+    "published_at": "2026-05-16",
+    "summary": "浏览器中实时展示 PPO 算法训练神经网络玩贪吃蛇的交互式可视化，HN 111 分",
+    "tags": [
+      "RL",
+      "PPO",
+      "visualization",
+      "education"
+    ],
+    "importance": 2,
+    "relevance": 2,
+    "confidence": "medium",
+    "action_value": [
+      "闲时花 5 分钟体验"
+    ],
+    "student_readability": "交互式 Demo，无需前置知识",
+    "current_stage_relation": "可帮助建立神经网络学习的直觉，但不影响当前主线",
+    "fetch_status": "success"
+  },
+  {
+    "title": "turboquant-model: 4-bit weight quantization + KV cache compression",
+    "url": "https://github.com/IbadKhalid7/turboquant-model",
+    "source": "GitHub Search",
+    "source_type": "github_search",
+    "published_at": "2026-05-15",
+    "summary": "面向 Apple Silicon/CUDA/ROCm 的 4-bit 量化 + KV Cache 压缩，支持多模型推理",
+    "tags": [
+      "quantization",
+      "KV cache",
+      "on-device AI",
+      "Apple Silicon",
+      "MLX"
+    ],
+    "importance": 2,
+    "relevance": 3,
+    "confidence": "medium",
+    "action_value": [
+      "了解即可"
+    ],
+    "student_readability": "需要理解量化和 LLM 推理",
+    "current_stage_relation": "距离当前阶段较远，先了解方向",
+    "fetch_status": "success"
+  }
+]
