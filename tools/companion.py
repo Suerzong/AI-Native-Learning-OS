@@ -601,7 +601,7 @@ def cmd_autostart(args: argparse.Namespace) -> None:
         "used_encouragements": [], "used_tips": [],
     }
     result = subprocess.run(
-        ["claude", "-p", "/start-day 自动生成今日计划", "--dangerously-skip-permissions"],
+        ["/home/ubuntu/.npm-global/bin/claude", "-p", "/start-day 自动生成今日计划", "--dangerously-skip-permissions"],
         cwd=str(REPO), capture_output=True, text=True, timeout=600
     )
     if result.returncode == 0:

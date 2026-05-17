@@ -21,6 +21,7 @@ import smtplib
 import ssl
 import sys
 import time
+from dataclasses import asdict
 from datetime import datetime
 from email.message import EmailMessage
 from pathlib import Path
@@ -36,6 +37,9 @@ TASKS_DIR = WORKSPACE / "ucloud-tasks"
 SNAPSHOT_FILE = TASKS_DIR / ".latest.json"
 TIMEZONE = ZoneInfo("Asia/Shanghai")
 
+TYPE_CN = {"assignment": "作业", "exam": "考试", "survey": "问卷",
+           "evaluation": "互评", "activity": "活动"}
+
 # Email config (reuse same env as email_push.py)
 SMTP_HOST = os.getenv("SMTP_HOST", "smtp.qq.com")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "465"))
@@ -43,9 +47,6 @@ SMTP_USER = os.getenv("SMTP_USER", "")
 SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "")
 SMTP_FROM = os.getenv("SMTP_FROM", "") or SMTP_USER
 EMAIL_TO = os.getenv("TECH_INTEL_TO", "Suerzong@outlook.com")
-
-TYPE_CN = {"assignment": "作业", "exam": "考试", "survey": "问卷",
-           "evaluation": "互评", "activity": "活动"}
 
 
 def load_env_file() -> None:
@@ -79,6 +80,68 @@ def save_snapshot(tasks: list[dict], date: str) -> None:
                     "deadline": t["deadline"]}
                    for t in tasks],
     }, ensure_ascii=False, indent=2))
+
+
+def save_daily_outputs(date: str, all_tasks: list[dict]) -> None:
+    """Write ucloud-tasks/YYYY-MM-DD.json + .md for start-day consumption."""
+    TASKS_DIR.mkdir(parents=True, exist_ok=True)
+
+    # JSON
+    json_path = TASKS_DIR / f"{date}.json"
+    json_data = {
+        "date": date,
+        "fetched_at": datetime.now(TIMEZONE).isoformat(),
+        "total": len(all_tasks),
+        "tasks": all_tasks,
+    }
+    json_path.write_text(json.dumps(json_data, ensure_ascii=False, indent=2),
+                         encoding="utf-8")
+
+    # Markdown report
+    now = datetime.now(TIMEZONE).strftime("%H:%M")
+    lines = [
+        f"# UCloud 待办任务 — {date}",
+        "",
+        f"抓取时间：{date} {now}，共 **{len(all_tasks)}** 个待办。",
+        "",
+    ]
+
+    urgent = [t for t in all_tasks
+              if t.get("deadline") and _days_until(t["deadline"]) <= 3]
+    if urgent:
+        lines.append("## 临近截止（3 天内）")
+        lines.append("")
+        for t in urgent:
+            dl = t["deadline"][:16] if t["deadline"] else "未设置"
+            lines.append(f"- [{t['title']}]({t['url']}) — 截止 {dl}")
+        lines.append("")
+
+    lines.extend([
+        "## 全部待办",
+        "",
+        "| # | 任务 | 类型 | 截止时间 |",
+        "| --- | --- | --- | --- |",
+    ])
+    for i, t in enumerate(all_tasks, 1):
+        dl = t["deadline"][:16] if t.get("deadline") else "未设置"
+        tn = TYPE_CN.get(t.get("task_type", ""), t.get("task_type", ""))
+        lines.append(f"| {i} | [{t['title']}]({t['url']}) | {tn} | {dl} |")
+
+    lines.append("")
+    md_path = TASKS_DIR / f"{date}.md"
+    md_path.write_text("\n".join(lines), encoding="utf-8")
+
+    print(f"  [每日输出] {json_path.name} / {md_path.name}")
+
+
+def _days_until(deadline: str) -> float:
+    """Return days until deadline (negative if past)."""
+    try:
+        dl = datetime.strptime(deadline[:19], "%Y-%m-%d %H:%M:%S").replace(
+            tzinfo=TIMEZONE)
+        return (dl - datetime.now(TIMEZONE)).total_seconds() / 86400
+    except (ValueError, TypeError):
+        return 999
 
 
 def compare_tasks(current: list[dict], previous: list[dict]) -> tuple[list[dict], list[dict]]:
@@ -226,6 +289,9 @@ def main() -> int:
 
     # Save snapshot
     save_snapshot(all_tasks, date)
+
+    # Save daily JSON + MD for start-day consumption
+    save_daily_outputs(date, all_tasks)
 
     if args.scrape_only:
         print("  scrape-only mode, skipping comparison.")
