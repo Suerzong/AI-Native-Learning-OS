@@ -1,0 +1,665 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/5Eht0vXAAenqH2nC6sln8WP4pjc</id>
+  <title>arXiv Query: search_query=cat:cs.CV AND (all:real-time OR all:object OR all:detection OR all:edge OR all:YOLO)&amp;id_list=&amp;start=0&amp;max_results=20</title>
+  <updated>2026-05-13T23:17:35Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=cat:cs.CV+AND+(all:real-time+OR+(all:object+OR+(all:detection+OR+(all:edge+OR+all:YOLO))))&amp;start=0&amp;max_results=20&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>20</opensearch:itemsPerPage>
+  <opensearch:totalResults>83231</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12497v1</id>
+    <title>From Web to Pixels: Bringing Agentic Search into Visual Perception</title>
+    <updated>2026-05-12T17:59:51Z</updated>
+    <link href="https://arxiv.org/abs/2605.12497v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12497v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Visual perception connects high-level semantic understanding to pixel-level perception, but most existing settings assume that the decisive evidence for identifying a target is already in the image or frozen model knowledge. We study a more practical yet harder open-world case where a visible object must first be resolved from external facts, recent events, long-tail entities, or multi-hop relations before it can be localized. We formalize this challenge as Perception Deep Research and introduce WebEye, an object-anchored benchmark with verifiable evidence, knowledge-intensive queries, precise box/mask annotations, and three task views: Search-based Grounding, Search-based Segmentation, and Search-based VQA. WebEyes contains 120 images, 473 annotated object instances, 645 unique QA pairs, and 1,927 task samples. We further propose Pixel-Searcher, an agentic search-to-pixel workflow that resolves hidden target identities and binds them to boxes, masks, or grounded answers. Experiments show that Pixel-Searcher achieves the strongest open-source performance across all three task views, while failures mainly arise from evidence acquisition, identity resolution, and visual instance binding.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T17:59:51Z</published>
+    <arxiv:comment>Project page: https://pixel-searcher.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Bokang Yang</name>
+    </author>
+    <author>
+      <name>Xinyi Sun</name>
+    </author>
+    <author>
+      <name>Kaituo Feng</name>
+    </author>
+    <author>
+      <name>Xingping Dong</name>
+    </author>
+    <author>
+      <name>Dongming Wu</name>
+    </author>
+    <author>
+      <name>Xiangyu Yue</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12496v1</id>
+    <title>CausalCine: Real-Time Autoregressive Generation for Multi-Shot Video Narratives</title>
+    <updated>2026-05-12T17:59:51Z</updated>
+    <link href="https://arxiv.org/abs/2605.12496v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12496v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Autoregressive video generation aims at real-time, open-ended synthesis. Yet, cinematic storytelling is not merely the endless extension of a single scene; it requires progressing through evolving events, viewpoint shifts, and discrete shot boundaries. Existing autoregressive models often struggle in this setting. Trained primarily for short-horizon continuation, they treat long sequences as extended single shots, inevitably suffering from motion stagnation and semantic drift during long rollouts. To bridge this gap, we introduce CausalCine, an interactive autoregressive framework that transforms multi-shot video generation into an online directing process. CausalCine generates causally across shot changes, accepts dynamic prompts on the fly, and reuses context without regenerating previous shots. To achieve this, we first train a causal base model on native multi-shot sequences to learn complex shot transitions prior to acceleration. We then propose Content-Aware Memory Routing (CAMR), which dynamically retrieves historical KV entries according to attention-based relevance scores rather than temporal proximity, preserving cross-shot coherence under bounded active memory. Finally, we distill the causal base model into a few-step generator for real-time interactive generation. Extensive experiments demonstrate that CausalCine significantly outperforms autoregressive baselines and approaches the capability of bidirectional models while unlocking the streaming interactivity of causal generation. Demo available at https://yihao-meng.github.io/CausalCine/</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T17:59:51Z</published>
+    <arxiv:comment>Project page: https://yihao-meng.github.io/CausalCine/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yihao Meng</name>
+    </author>
+    <author>
+      <name>Zichen Liu</name>
+    </author>
+    <author>
+      <name>Hao Ouyang</name>
+    </author>
+    <author>
+      <name>Qiuyu Wang</name>
+    </author>
+    <author>
+      <name>Ka Leong Cheng</name>
+    </author>
+    <author>
+      <name>Yue Yu</name>
+    </author>
+    <author>
+      <name>Hanlin Wang</name>
+    </author>
+    <author>
+      <name>Haobo Li</name>
+    </author>
+    <author>
+      <name>Jiapeng Zhu</name>
+    </author>
+    <author>
+      <name>Yanhong Zeng</name>
+    </author>
+    <author>
+      <name>Xing Zhu</name>
+    </author>
+    <author>
+      <name>Yujun Shen</name>
+    </author>
+    <author>
+      <name>Qifeng Chen</name>
+    </author>
+    <author>
+      <name>Huamin Qu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12480v1</id>
+    <title>OmniNFT: Modality-wise Omni Diffusion Reinforcement for Joint Audio-Video Generation</title>
+    <updated>2026-05-12T17:56:59Z</updated>
+    <link href="https://arxiv.org/abs/2605.12480v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12480v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent advances in joint audio-video generation have been remarkable, yet real-world applications demand strong per-modality fidelity, cross-modal alignment, and fine-grained synchronization. Reinforcement Learning (RL) offers a promising paradigm, but its extension to multi-objective and multi-modal joint audio-video generation remains unexplored. Notably, our in-depth analysis first reveals that the primary obstacles to applying RL in this stem from: (i) multi-objective advantages inconsistency, where the advantages of multimodal outputs are not always consistent within a group; (ii) multi-modal gradients imbalance, where video-branch gradients leak into shallow audio layers responsible for intra-modal generation; (iii) uniform credit assignment, where fine-grained cross-modal alignment regions fail to get efficient exploration. These shortcomings suggest that vanilla RL fine-tuning strategy with a single global advantage often leads to suboptimal results. To address these challenges, we propose OmniNFT, a novel modality-aware online diffusion RL framework with three key innovations: (1) Modality-wise advantage routing, which routes independent per-reward advantages to their respective modality generation branches. (2) Layer-wise gradient surgery, which selectively detaches video-branch gradients on shallow audio layers while retaining those for cross-modal interaction layers. (3) Region-wise loss reweighting, which modulates policy optimization toward critical regions related to audio-video synchronization and fine-grained alignment. Extensive experiments on JavisBench and VBench with the LTX-2 backbone demonstrate that OmniNFT achieves comprehensive improvements in audio and video perceptual quality, cross-modal alignment, and audio-video synchronization.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T17:56:59Z</published>
+    <arxiv:comment>Project page: https://zghhui.github.io/OmniNFT/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Guohui Zhang</name>
+    </author>
+    <author>
+      <name>XiaoXiao Ma</name>
+    </author>
+    <author>
+      <name>Jie Huang</name>
+    </author>
+    <author>
+      <name>Hang Xu</name>
+    </author>
+    <author>
+      <name>Hu Yu</name>
+    </author>
+    <author>
+      <name>Siming Fu</name>
+    </author>
+    <author>
+      <name>Yuming Li</name>
+    </author>
+    <author>
+      <name>Zeyue Xue</name>
+    </author>
+    <author>
+      <name>Lin Song</name>
+    </author>
+    <author>
+      <name>Haoyang Huang</name>
+    </author>
+    <author>
+      <name>Nan Duan</name>
+    </author>
+    <author>
+      <name>Feng Zhao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12451v1</id>
+    <title>FuTCR: Future-Targeted Contrast and Repulsion for Continual Panoptic Segmentation</title>
+    <updated>2026-05-12T17:41:19Z</updated>
+    <link href="https://arxiv.org/abs/2605.12451v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12451v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Continual Panoptic Segmentation (CPS) requires methods that can quickly adapt to new categories over time. The nature of this dense prediction task means that training images may contain a mix of labeled and unlabeled objects. As nothing is known about these unlabeled objects a priori, existing methods often simply group any unlabeled pixel into a single "background" class during training. In effect, during training, they repeatedly tell the model that all the different background categories are the same (even when they aren't). This makes learning to identify different background categories as they are added challenging since these new categories may require using information the model was previously told was unimportant and ignored. Thus, we propose a Future-Targeted Contrastive and Repulsive (FuTCR) framework that addresses this limitation by restructuring representations before new classes are introduced. FuTCR first discovers confident future-like regions by grouping model-predicted masks whose pixels are consistently classified as background but exhibit non-background logits. Next, FuTCR applies pixel-to-region contrast to build coherent prototypes from these unlabeled regions, while simultaneously repelling background features away from known-class prototypes to explicitly reserve representational space for future categories. Experiments across six CPS settings and a range of dataset sizes show FuTCR improves relative new-class panoptic quality over the state-of-the-art by up to 28%, while preserving or improving base-class performance with gains up to 4%.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T17:41:19Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Nicholas Ikechukwu</name>
+    </author>
+    <author>
+      <name>Keanu Nichols</name>
+    </author>
+    <author>
+      <name>Deepti Ghadiyaram</name>
+    </author>
+    <author>
+      <name>Bryan A. Plummer</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12449v1</id>
+    <title>LychSim: A Controllable and Interactive Simulation Framework for Vision Research</title>
+    <updated>2026-05-12T17:40:38Z</updated>
+    <link href="https://arxiv.org/abs/2605.12449v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12449v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>While self-supervised pretraining has reduced vision systems' reliance on synthetic data, simulation remains an indispensable tool for closed-loop optimization and rigorous out-of-distribution (OOD) evaluation. However, modern simulation platforms often present steep technical barriers, requiring extensive expertise in computer graphics and game development. In this work, we present LychSim, a highly controllable and interactive simulation framework built upon Unreal Engine 5 to bridge this gap. LychSim is built around three key designs: (1) a streamlined Python API that abstracts away underlying engine complexities; (2) a procedural data pipeline capable of generating diverse, high-fidelity environments with varying out-of-distribution (OOD) visual challenges, paired with rich 2D and 3D ground truths; and (3) a native integration of the Model Context Protocol (MCP) that transforms the simulator into a dynamic, closed-loop playground for reasoning agentic LLMs. We further annotate scene-level procedural rules and object-level pose alignments to enable semantically aligned 3D ground truths and automated scene modification. We demonstrate LychSim's capability across multiple downstream applications, including serving as a synthetic data engine, powering reinforcement learning-based adversarial examiners, and facilitating interactive, language-driven scene layout generation. To benefit the broader vision community, LychSim will be made publicly available, including full source code and various data annotations.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T17:40:38Z</published>
+    <arxiv:comment>3D-LLM/VLA Workshop at CVPR 2026. Project page: https://lychsim.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Wufei Ma</name>
+    </author>
+    <author>
+      <name>Chloe Wang</name>
+    </author>
+    <author>
+      <name>Siyi Chen</name>
+    </author>
+    <author>
+      <name>Jiawei Peng</name>
+    </author>
+    <author>
+      <name>Patrick Li</name>
+    </author>
+    <author>
+      <name>Alan Yuille</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12431v1</id>
+    <title>GaitProtector: Impersonation-Driven Gait De-Identification via Training-Free Diffusion Latent Optimization</title>
+    <updated>2026-05-12T17:27:56Z</updated>
+    <link href="https://arxiv.org/abs/2605.12431v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12431v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Conventional gait de-identification methods often encounter an inherent trade-off: they either provide insufficient identity suppression or introduce spatiotemporal distortions that impede structure-sensitive downstream applications. We propose GaitProtector, an impersonation-driven gait de-identification framework that formulates privacy protection as a unified objective with two tightly coupled components: (i) obfuscation, which repels the protected gait from the source identity, and (ii) impersonation, which attracts it toward a selected target identity. The target identity serves as a semantic anchor that biases optimization toward structurally plausible gait patterns under the pretrained diffusion prior, helping preserve dominant body shape and motion dynamics. We instantiate this idea through a training-free diffusion latent optimization pipeline. Instead of retraining a generator for each dataset, we invert each input silhouette sequence into the latent trajectory of a pretrained 3D video diffusion model and iteratively optimize latent codes with a differentiable adversarial objective to synthesize protected gaits. Experiments on the CASIA-B dataset show that GaitProtector achieves a 56.7% impersonation success rate under black-box gait recognition and reduces Rank-1 identification accuracy from 89.6% to 15.0%, while maintaining favorable visual and temporal quality. We further evaluate downstream utility on the Scoliosis1K dataset, where diagnostic accuracy decreases only from 91.4% to 74.2%. To the best of our knowledge, this work is the first to leverage pretrained 3D diffusion priors in a training-free manner for silhouette-based gait de-identification.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T17:27:56Z</published>
+    <arxiv:comment>Accepted to the 20th IEEE International Conference on Automatic Face and Gesture Recognition (FG 2026)</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Huiran Duan</name>
+    </author>
+    <author>
+      <name>Qian Zhou</name>
+    </author>
+    <author>
+      <name>Zhongliang Guo</name>
+    </author>
+    <author>
+      <name>Junhao Dong</name>
+    </author>
+    <author>
+      <name>Yuqi Li</name>
+    </author>
+    <author>
+      <name>Guoying Zhao</name>
+    </author>
+    <author>
+      <name>Yingli Tian</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12413v1</id>
+    <title>Beyond Localization: A Comprehensive Diagnosis of Perspective-Conditioned Spatial Reasoning in MLLMs from Omnidirectional Images</title>
+    <updated>2026-05-12T17:11:17Z</updated>
+    <link href="https://arxiv.org/abs/2605.12413v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12413v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multimodal Large Language Models (MLLMs) show strong visual perception, yet remain limited in reasoning about space under changing viewpoints. We study this challenge as Perspective-Conditioned Spatial Reasoning (PCSR) in 360-degree omnidirectional images, where broad scene coverage reduces ambiguity from partial observations without eliminating the need for viewpoint-dependent inference. To assess this capability, we introduce PCSR-Bench, a diagnostic benchmark of 84,373 question-answer pairs from 2,600 omnidirectional images across 26 indoor environments. PCSR-Bench contains eight tasks spanning foundational perception (e.g., object counting, relative distance, and relative direction) and advanced PCSR, including compositional chains, egocentric rotation, perspective re-anchoring, ego-distortion, and limited-FOV visibility. We evaluate 14 representative MLLMs and observe a substantial perception-reasoning gap: accuracy reaches 57.59% on foundational relative direction, but drops to 13.49% on egocentric rotation, 7.13% on egocentric distortion, and 0.64% on open-ended compositional reasoning. To probe the plasticity of this gap, we conduct an RL-based diagnostic study on a 7B-scale model. Reward shaping improves a matched 7B baseline from 31.10% to 60.06% under a controlled setting, suggesting that PCSR is partial plasticity rather than being fully immutable. Still, the gains are task-selective, sensitive to reward design including both weight allocation and reward formulation, and partially dependent on the evaluation protocol. These results position PCSR as a key bottleneck in current MLLMs and highlight limited but meaningful room for recovery under targeted optimization.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T17:11:17Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yuangong Chen</name>
+      <arxiv:affiliation>The Hong Kong Polytechnic University</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Wai Keung Wong</name>
+      <arxiv:affiliation>The Hong Kong Polytechnic University</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Jiaxing Li</name>
+      <arxiv:affiliation>Guangzhou University</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Ioannis Patras</name>
+      <arxiv:affiliation>Queen Mary University of London</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Xu Zheng</name>
+      <arxiv:affiliation>Queen Mary University of London</arxiv:affiliation>
+      <arxiv:affiliation>HKUST</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12389v1</id>
+    <title>SEMIR: Semantic Minor-Induced Representation Learning on Graphs for Visual Segmentation</title>
+    <updated>2026-05-12T16:52:02Z</updated>
+    <link href="https://arxiv.org/abs/2605.12389v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12389v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Segmenting small and sparse structures in large-scale images is fundamentally constrained by voxel-level, lattice-bound computation and extreme class imbalance -- dense, full-resolution inference scales poorly and forces most pipelines to rely on fixed regionization or downsampling, coupling computational cost to image resolution and attenuating boundary evidence precisely where minority structures are most informative. We introduce SEMIR (Semantic Minor-Induced Representation Learning), a representation framework that decouples inference from the native grid by learning a task-adapted, topology-preserving latent graph representation with exact decoding. SEMIR transforms the underlying grid graph into a compact, boundary-aligned graph minor through parameterized edge contraction, node deletion, and edge deletion, while preserving an exact lifting map from minor predictions to lattice labels. Minor construction is formalized as a few-shot structure learning problem that replaces hand-tuned preprocessing with a boundary-alignment objective: minor parameters are learned by maximizing agreement between predicted boundary elements and target-specific semantic edges under a boundary Dice criterion, and the induced minor is annotated with scale- and rotation-robust geometric and intensity descriptors and supports efficient region-level inference via message passing on a graph neural network (GNN) with relational edge features. We benchmark SEMIR on three tumor segmentation datasets -- BraTS 2021, KiTS23, and LiTS -- where targets exhibit high structural variability and distributional uncertainty. SEMIR yields consistent improvements in minority-structure Dice at practical runtime. More broadly, SEMIR establishes a framework for learning task-adapted, topology-preserving latent representations with exact decoding for high-resolution structured visual data.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T16:52:02Z</published>
+    <arxiv:comment>20 pages, 3 figures. Accepted at ICML 2026. Includes appendices</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Luke James Miller</name>
+    </author>
+    <author>
+      <name>Yugyung Lee</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12377v1</id>
+    <title>Fast Image Super-Resolution via Consistency Rectified Flow</title>
+    <updated>2026-05-12T16:42:38Z</updated>
+    <link href="https://arxiv.org/abs/2605.12377v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12377v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion models (DMs) have demonstrated remarkable success in real-world image super-resolution (SR), yet their reliance on time-consuming multi-step sampling largely hinders their practical applications. While recent efforts have introduced few- or single-step solutions, existing methods either inefficiently model the process from noisy input or fail to fully exploit iterative generative priors, compromising the fidelity and quality of the reconstructed images. To address this issue, we propose FlowSR, a novel approach that reformulates the SR problem as a rectified flow from low-resolution (LR) to high-resolution (HR) images. Our method leverages an improved consistency learning strategy to enable high-quality SR in a single step. Specifically, we refine the original consistency distillation process by incorporating HR regularization, ensuring that the learned SR flow not only enforces self-consistency but also converges precisely to the ground-truth HR target. Furthermore, we introduce a fast-slow scheduling strategy, where adjacent timesteps for consistency learning are sampled from two distinct schedulers: a fast scheduler with fewer timesteps to improve efficiency, and a slow scheduler with more timesteps to capture fine-grained texture details. Extensive experiments demonstrate that FlowSR achieves outstanding performance in both efficiency and image quality.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T16:42:38Z</published>
+    <arxiv:comment>Accepted by ICCV 2025</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Jiaqi Xu</name>
+    </author>
+    <author>
+      <name>Wenbo Li</name>
+    </author>
+    <author>
+      <name>Haoze Sun</name>
+    </author>
+    <author>
+      <name>Fan Li</name>
+    </author>
+    <author>
+      <name>Zhixin Wang</name>
+    </author>
+    <author>
+      <name>Long Peng</name>
+    </author>
+    <author>
+      <name>Jingjing Ren</name>
+    </author>
+    <author>
+      <name>Haoran Yang</name>
+    </author>
+    <author>
+      <name>Xiaowei Hu</name>
+    </author>
+    <author>
+      <name>Renjing Pei</name>
+    </author>
+    <author>
+      <name>Pheng-Ann Heng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12325v1</id>
+    <title>VIP: Visual-guided Prompt Evolution for Efficient Dense Vision-Language Inference</title>
+    <updated>2026-05-12T16:08:18Z</updated>
+    <link href="https://arxiv.org/abs/2605.12325v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12325v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Pursuing training-free open-vocabulary semantic segmentation in an efficient and generalizable manner remains challenging due to the deep-seated spatial bias in CLIP. To overcome the limitations of existing solutions, this work moves beyond the CLIP-based paradigm and harnesses the recent spatially-aware dino.txt framework to facilitate more efficient and high-quality dense prediction. While dino.txt exhibits robust spatial awareness, we find that the semantic ambiguity of text queries gives rise to severe mismatch within its dense cross-modal interactions. To address this, we introduce \textcolor{oursblue}{\textbf{VI}}sual-guided \textcolor{oursblue}{\textbf{P}}rompt evolution (\textcolor{oursblue}{\textbf{\textit{VIP}}}) to rectify the semantic expressiveness of text queries in dino.txt, unleashing its potential for fine-grained object perception. Towards this end, \VIP integrates alias expansion with a visual-guided distillation mechanism to mine valuable semantic cues, which are robustly aggregated in a saliency-aware manner to yield a high-fidelity prediction. Extensive evaluations demonstrate that \VIP: \ding{182} surpasses the top-leading methods by $1.4\% \sim 8.4\%$ average mIoU, \ding{183} generalizes well to diverse challenging domains, and \ding{184} requires marginal inference time and memory overhead. \href{https://github.com/MiSsU-HH/VIP}{Our code is publicly available at GitHub \faGithub}.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T16:08:18Z</published>
+    <arxiv:comment>Accepted by ICML2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Hao Zhu</name>
+    </author>
+    <author>
+      <name>Shuo Jin</name>
+    </author>
+    <author>
+      <name>Wenbin Liao</name>
+    </author>
+    <author>
+      <name>Jiayu Xiao</name>
+    </author>
+    <author>
+      <name>Yan Zhu</name>
+    </author>
+    <author>
+      <name>Siyue Yu</name>
+    </author>
+    <author>
+      <name>Feng Dai</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12309v1</id>
+    <title>G$^2$TR: Generation-Guided Visual Token Reduction for Separate-Encoder Unified Multimodal Models</title>
+    <updated>2026-05-12T15:56:22Z</updated>
+    <link href="https://arxiv.org/abs/2605.12309v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12309v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The development of separate-encoder Unified multimodal models (UMMs) comes with a rapidly growing inference cost due to dense visual token processing. In this paper, we focus on understanding-side visual token reduction for improving the efficiency of separate-encoder UMMs. While this topic has been widely studied for MLLMs, existing methods typically rely on attention scores, text-image similarity and so on, implicitly assuming that the final objective is discriminative reasoning. This assumption does not hold for UMMs, where understanding-side visual tokens must also preserve the model's capabilities for editing images. We propose G$^2$TR, a generation-guided visual token reduction framework for separate-encoder UMMs. Our key insight is that the generation branch provides a task-agnostic signal for identifying understanding-side visual tokens that are not only semantically relevant but also important for latent-space image reconstruction and generation. G$^2$TR estimates token importance from consistency with VAE latent, performs balanced token selection, and merges redundant tokens into retained representatives to reduce information loss. The method is training-free, plug-and-play, and applied only after the understanding encoding stage, making it compatible with existing UMM inference pipelines. Experiments on image understanding and editing benchmarks show that G$^2$TR substantially reduces visual tokens and prefill computation by 1.94x while maintaining both reasoning accuracy and editing quality, outperforming baselines on almost all benchmarks.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T15:56:22Z</published>
+    <arxiv:comment>Code is at: https://github.com/lijunxian111/G2TR</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Junxian Li</name>
+    </author>
+    <author>
+      <name>Kai Liu</name>
+    </author>
+    <author>
+      <name>Zizhong Ding</name>
+    </author>
+    <author>
+      <name>Zhixin Wang</name>
+    </author>
+    <author>
+      <name>Zhikai Chen</name>
+    </author>
+    <author>
+      <name>Renjing Pei</name>
+    </author>
+    <author>
+      <name>Yulun Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12305v1</id>
+    <title>Images in Sentences: Scaling Interleaved Instructions for Unified Visual Generation</title>
+    <updated>2026-05-12T15:54:49Z</updated>
+    <link href="https://arxiv.org/abs/2605.12305v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12305v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>While recent advancements in multimodal language models have enabled image generation from expressive multi-image instructions, existing methods struggle to maintain performance under complex interleaved instructions. This limitation stems from the structural separation of images and text in current paradigms, which forces models to bridge difficult long-range dependencies to match descriptions with visual targets. To address these challenges, we propose \texttt{I}mages i\texttt{N} \texttt{SE}n\texttt{T}ences (\textit{a.k.a}, INSET), a unified generation model that seamlessly embeds images as native vocabulary within textual instructions. By positioning visual features directly at their corresponding semantic slots, INSET leverages the contextual locality of transformers for precise object binding, effectively treating images as dense, expressive language tokens. Furthermore, we introduce a scalable data engine that synthesizes 15M high-quality interleaved samples from standard image and video datasets, utilizing VLMs and LLMs to construct rich, long-horizon sequences. Evaluation results on InterleaveBench demonstrate that INSET significantly outperforms state-of-the-art methods in multi-image consistency and text alignment, with performance gaps widening as input complexity increases. Beyond standard generation, our approach inherently extends to multimodal image editing, integrating visual content as part of the instruction to facilitate highly expressive and creative visual manipulations.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T15:54:49Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yabo Zhang</name>
+    </author>
+    <author>
+      <name>Kunchang Li</name>
+    </author>
+    <author>
+      <name>Dewei Zhou</name>
+    </author>
+    <author>
+      <name>Xinyu Huang</name>
+    </author>
+    <author>
+      <name>Xun Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12303v1</id>
+    <title>From Model Uncertainty to Human Attention: Localization-Aware Visual Cues for Scalable Annotation Review</title>
+    <updated>2026-05-12T15:54:05Z</updated>
+    <link href="https://arxiv.org/abs/2605.12303v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12303v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>High-quality labeled data is essential for training robust machine learning models, yet obtaining annotations at scale remains expensive. AI-assisted annotation has therefore become standard in large-scale labeling workflows. However, in tasks where model predictions carry two independent components, a class label and spatial boundaries, a model may classify an object with high confidence while mislocalizing it. Existing AI-assisted workflows offer annotators no signal about where spatial errors are most likely. Without such guidance, humans may systematically underinspect subtly misplaced boxes. We address this by studying the effect of visualizing spatial uncertainty via a purpose-built interface. In a controlled study with 120 participants, those receiving uncertainty cues achieve higher label quality while being faster overall. A box-level analysis confirms that the cues redirect annotator effort toward high-uncertainty predictions and away from well-localized boxes. These findings establish localization uncertainty as a lever to improve human-in-the-loop annotation. Code is available at https://mos-ks.github.io/MUHA/.</summary>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T15:54:05Z</published>
+    <arxiv:primary_category term="cs.HC"/>
+    <author>
+      <name>Moussa Kassem Sbeyti</name>
+    </author>
+    <author>
+      <name>Joshua Holstein</name>
+    </author>
+    <author>
+      <name>Philipp Spitzer</name>
+    </author>
+    <author>
+      <name>Nadja Klein</name>
+    </author>
+    <author>
+      <name>Gerhard Satzger</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12282v1</id>
+    <title>Large-Small Model Collaboration for Farmland Semantic Change Detection</title>
+    <updated>2026-05-12T15:40:19Z</updated>
+    <link href="https://arxiv.org/abs/2605.12282v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12282v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Farmland Semantic Change Detection (SCD) is essential for cultivated land protection, yet existing benchmarks and models remain insufficient for fine-grained farmland conversion monitoring. Current datasets often lack dedicated "from-to" annotations, while visual change detection models are easily disturbed by phenology-induced pseudo-changes caused by crop rotation, seasonal variation, and illumination differences. To address these challenges, we construct HZNU-FCD, a large-scale fine-grained farmland SCD benchmark with a unified five-class farmland-to-non-farmland annotation protocol. It contains 4,588 bitemporal image pairs with pixel-level labels for practical farmland protection. Based on this benchmark, we propose a large-small collaborative SCD framework that integrates a task-driven small visual model with a frozen large vision-language model. The small model, Fine-grained Difference-aware Mamba (FD-Mamba), learns dense change representations for boundary preservation and small-region localization. The large-model pathway, Cross-modal Logical Arbitration (CMLA), introduces CLIP-based textual priors for prompt-guided semantic arbitration and pseudo-change suppression. To enable effective collaboration, we design a hard-region co-training strategy that supervises the CMLA semantic score map only on low-confidence pixels. Experiments show that our method achieves 97.63% F1, 96.32% IoU, and 96.35% SCD_IoU_mean on HZNU-FCD with only 6.65M trainable parameters. Compared with the multimodal ChangeCLIP-ViT, which leverages vision-language information for change detection, our method improves F1 by 10.19 percentage points on HZNU-FCD. It also achieves 91.43% F1 and 84.21% IoU on LEVIR-CD, and 93.85% F1 and 88.41% IoU on WHU-CD, demonstrating strong robustness and generalization. The code is available at https://github.com/Lovelymili/FD-Mamba.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T15:40:19Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Xinjia Li</name>
+    </author>
+    <author>
+      <name>Rui Wang</name>
+    </author>
+    <author>
+      <name>Qiurong Peng</name>
+    </author>
+    <author>
+      <name>Lingfei Ye</name>
+    </author>
+    <author>
+      <name>Dengrong Zhang</name>
+    </author>
+    <author>
+      <name>Haoyu Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12266v1</id>
+    <title>CAD-feature enhanced machine learning for manufacturing effort estimation on sheet metal bending parts</title>
+    <updated>2026-05-12T15:30:12Z</updated>
+    <link href="https://arxiv.org/abs/2605.12266v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12266v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Graph-based machine learning has emerged as a promising approach for manufacturability analysis by learning directly from CAD models represented as Boundary Representations (B-reps), exploiting both surface geometry and topological connectivity. However, purely geometric representations often lack the process-specific semantics required for accurate manufacturability prediction: many manufacturing factors, such as surface roles or bend intent, are not explicitly encoded in shape alone and are difficult for data-driven models to infer reliably. We propose a hybrid approach that addresses this challenge by enriching B-rep attributed adjacency graphs with manufacturing features recognized through a rule-based module. Applied to sheet metal bending, recognized features, such as bend characteristics, flange lengths, and surface roles are integrated as node attributes, concentrating the learning signal on process-relevant geometric patterns. Experiments on both a large-scale synthetic manufacturability benchmark and a real-world industrial dataset with measured bending times, one of the first such validations on genuine production data, demonstrate that combining domain knowledge with graph-based learning improves prediction accuracy across both tasks. The results demonstrate that hybrid modeling offers a feasible and effective path toward deployable tools for manufacturability assessment and effort estimation in industrial CAD environments.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T15:30:12Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Matteo Ballegeer</name>
+    </author>
+    <author>
+      <name>Toon Van Camp</name>
+    </author>
+    <author>
+      <name>Willem Jaspers</name>
+    </author>
+    <author>
+      <name>Alp Bayar</name>
+    </author>
+    <author>
+      <name>Aung Nyein Soe</name>
+    </author>
+    <author>
+      <name>Martin Roelfs</name>
+    </author>
+    <author>
+      <name>Dries F. Benoit</name>
+    </author>
+    <author>
+      <name>Bieke Decraemer</name>
+    </author>
+    <author>
+      <name>Joost R. Duflou</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12259v1</id>
+    <title>From Image Hashing to Scene Change Detection</title>
+    <updated>2026-05-12T15:28:13Z</updated>
+    <link href="https://arxiv.org/abs/2605.12259v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12259v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Image hashing provides compact representations for efficient storage and retrieval but is inherently limited to global comparison and cannot reason about where changes occur. This limitation prevents hashing from being directly applicable to scene change detection, where spatial localization is essential. In this work, we revisit hashing from a scene change detection perspective and propose HashSCD, a patch-wise hashing framework that enables both efficient global change detection and localized change identification. HashSCD encodes spatially aligned patches into compact hash codes and aggregates them through an XOR-like operation, allowing change detection and localization to be performed directly in the Hamming space without repeated inference on previous images. The model is trained in an unsupervised manner using contrastive learning at both patch and global levels. Experiments demonstrate that HashSCD achieves competitive performance compared to state-of-the-art unsupervised hashing and scene change detection methods, while significantly reducing computational cost and storage requirements.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T15:28:13Z</published>
+    <arxiv:comment>18 pages; accepted to ICPR 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Anh-Kiet Duong</name>
+    </author>
+    <author>
+      <name>Marie-Claire Iatrides</name>
+    </author>
+    <author>
+      <name>Petra Gomez-Krämer</name>
+    </author>
+    <author>
+      <name>Jean-Michel Carozza</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12220v1</id>
+    <title>TriBand-BEV: Real-Time LiDAR-Only 3D Pedestrian Detection via Height-Aware BEV and High-Resolution Feature Fusion</title>
+    <updated>2026-05-12T14:58:16Z</updated>
+    <link href="https://arxiv.org/abs/2605.12220v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12220v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Safe autonomous agents and mobile robots need fast real time 3D perception, especially for vulnerable road users (VRUs) such as pedestrians. We introduce a new bird's eye view (BEV) encoding, which maps the full 3D LiDAR point cloud into a light-weight 2D BEV tensor with three height bands. We explicitly reformulate 3D detection as a 2D detection problem and then reconstruct 3D boxes from the BEV outputs. A single network detects cars, pedestrians, and cyclists in one pass. The backbone uses area attention at deep stages, a hierarchical bidirectional neck over P1 to P4 fuses context and detail, and the head predicts oriented boxes with distribution focal learning for side offsets and a rotated IoU loss. Training applies a small vertical re bin and a mild reflectance jitter in channel space to resist memorization. We use an interquartile range (IQR) filter to remove noisy and outlier LiDAR points during 3D reconstruction. On KITTI dataset, TriBand-BEV attains 58.7/52.6/47.2 pedestrian BEV AP(%) for easy, moderate, and hard at 49 FPS on a single consumer GPU, surpassing Complex-YOLO, with gains of +12.6%, +7.5%, and +3.1%. Qualitative scenes show stable detection under occlusion. The pipeline is compact and ready for real time robotic deployment. Our source code is publicly available on GitHub.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T14:58:16Z</published>
+    <arxiv:comment>Accepted for publication in the Proceedings of the 2026 International Conference on Autonomous Agents and Multiagent Systems (AAMAS 2026)</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Mohammad Khoshkdahan</name>
+    </author>
+    <author>
+      <name>Alexey Vinel</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12179v1</id>
+    <title>SyncDPO: Enhancing Temporal Synchronization in Video-Audio Joint Generation via Preference Learning</title>
+    <updated>2026-05-12T14:22:13Z</updated>
+    <link href="https://arxiv.org/abs/2605.12179v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12179v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent advancements in video-audio joint generation have achieved remarkable success in semantic correspondence. However, achieving precise temporal synchronization, which requires fine-grained alignment between audio events and their visual triggers, remains a challenging problem. The post-training method for joint generation is largely dominated by Supervised Fine-Tuning, but the commonly used Mean Squared Error loss provides insufficient penalties for subtle temporal misalignments. Direct Preference Optimization offers an alternative by introducing explicit misaligned counterparts to better improve temporal sensitivity. In this paper we propose a post-training framework SyncDPO, leveraging DPO to improve the temporal sensitivity of V-A joint generation. Conventional DPO pipelines typically depend on costly sampling-and-ranking procedures to construct preference pairs, resulting in substantial computational cost. To improve efficiency, we introduce a suite of on-the-fly rule-based negative construction strategies that distort temporal structures without incurring additional annotation or sampling. We demonstrate that the temporal alignment capability can be effectively reinforced by providing explicit negative supervision through temporally distorted V-A pairs. Accordingly, we implement a curriculum learning strategy that progressively increases the difficulty of negative samples, transitioning from coarse misalignment to subtle inconsistencies. Extensive objective and subjective experiments across four diverse benchmarks, ranging from ambient sound videos to human speech videos, demonstrate that SyncDPO significantly outperforms other methods in improving model's temporal alignment capability. It also demonstrates superior generalization on out-of-distribution benchmark by capturing intrinsic motion-sound dynamics. Demo and code is available in https://syncdpo.github.io/syncdpo/.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T14:22:13Z</published>
+    <arxiv:comment>Preprint. Under review</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Xin Cheng</name>
+    </author>
+    <author>
+      <name>Xihua Wang</name>
+    </author>
+    <author>
+      <name>Ying Ba</name>
+    </author>
+    <author>
+      <name>Yuyue Wang</name>
+    </author>
+    <author>
+      <name>Kaisi Guan</name>
+    </author>
+    <author>
+      <name>Yinbo Wang</name>
+    </author>
+    <author>
+      <name>Wenpu Li</name>
+    </author>
+    <author>
+      <name>Ruihua Song</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12163v1</id>
+    <title>Self-Consistent Latent Reasoning: Long Latent Sequence Reasoning for Vision-Language Model</title>
+    <updated>2026-05-12T14:13:08Z</updated>
+    <link href="https://arxiv.org/abs/2605.12163v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12163v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In language reasoning, longer chains of thought consistently yield better performance, which naturally suggests that visual latent reasoning may likewise benefit from longer latent sequences. However, we discover a counterintuitive phenomenon: the performance of existing latent visual reasoning methods systematically degrades as the latent sequence grows longer. We reveal the root cause: Information Gain Collapse -- autoregressive generation makes each step highly dependent on prior outputs, so subsequent tokens can barely introduce new information. We further identify that heavily pooled ($\geq 128\times$) image embeddings used as supervision targets provide no more signal than meaningless placeholders. Motivated by these insights, we propose SCOLAR (Self-COnsistent LAtent Reasoning), which introduces a lightweight detransformer that leverages the LLM's full-sequence hidden states to generate auxiliary visual tokens in a single shot, with each token independently anchored to the original visual space. Combined with three-stage SFT and ALPO reinforcement learning, SCOLAR extends acceptable latent CoT length by over $30\times$, achieves state-of-the-art among open-source models on real-world reasoning benchmarks (+14.12% over backbone), and demonstrates strong out-of-distribution generalization.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T14:13:08Z</published>
+    <arxiv:comment>17 pages, 6 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Chenfeng Wang</name>
+    </author>
+    <author>
+      <name>Wei He</name>
+    </author>
+    <author>
+      <name>Xuhan Zhu</name>
+    </author>
+    <author>
+      <name>Chunpeng Zhou</name>
+    </author>
+    <author>
+      <name>Qizhen Li</name>
+    </author>
+    <author>
+      <name>Song Yan</name>
+    </author>
+    <author>
+      <name>Yufei Zheng</name>
+    </author>
+    <author>
+      <name>Chengjun Yu</name>
+    </author>
+    <author>
+      <name>Fan Lu</name>
+    </author>
+    <author>
+      <name>Wei Zhai</name>
+    </author>
+    <author>
+      <name>Yang Cao</name>
+    </author>
+    <author>
+      <name>Pengfei Yu</name>
+    </author>
+    <author>
+      <name>Zheng-Jun Zha</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.12145v1</id>
+    <title>Cross-Modal-Domain Generalization Through Semantically Aligned Discrete Representations</title>
+    <updated>2026-05-12T14:03:30Z</updated>
+    <link href="https://arxiv.org/abs/2605.12145v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.12145v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multimodal learning seeks to integrate information across diverse sensory sources, yet current approaches struggle to balance cross-modal generalizability with modality-specific structure. Continuous (implicit) methods preserve fine-grained priors but render generalization challenging, while discrete (explicit) approaches enforce shared prototypes at the expense of modality specificity. We introduce CoDAAR (Cross-modal Discrete Alignment And Reconstruction), a novel framework that resolves this long-standing trade-off by establishing semantic consensus across modality-specific codebooks through index-level alignment. This design uniquely allows CoDAAR to preserve modality-unique structures while achieving generalizable cross-modal representations within a unified discrete space. CoDAAR combines two complementary mechanisms: Discrete Temporal Alignment (DTA), which enables fine-grained temporal quantization, and Cascading Semantic Alignment (CSA), which promotes progressive cross-modal semantic agreement. Together, they establish a competition-free unified representation space. Trained with self-supervised reconstruction objectives on paired multimodal sequences, CoDAAR demonstrates robust cross-modal and cross-domain generalization. Across Cross-Modal Generalization benchmarks, including event classification, localization, video segmentation, and cross-dataset transfer, CoDAAR achieves state-of-the-art performance, establishing a new paradigm for discrete and generalizable multimodal representation learning.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-12T14:03:30Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Souptik Sen</name>
+    </author>
+    <author>
+      <name>Raneen Younis</name>
+    </author>
+    <author>
+      <name>Zahra Ahmadi</name>
+    </author>
+  </entry>
+</feed>
