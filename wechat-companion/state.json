@@ -3,7 +3,7 @@
   "sent": {
     "morning": false,
     "midday": true,
-    "evening": false,
+    "evening": true,
     "sleep_review": false,
     "autostart": false
   },
