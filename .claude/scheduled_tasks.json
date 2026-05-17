@@ -1,34 +1,3 @@
 {
-  "tasks": [
-    {
-      "id": "ee98c339",
-      "cron": "50 7 * * *",
-      "prompt": "运行 UCloud 任务监控。执行：cd /home/ubuntu/Edge-AI && python3 tools/ucloud_monitor.py。如果抓取或邮件发送失败，记录错误但不中断。",
-      "createdAt": 1778918576689,
-      "recurring": true,
-      "createdBySessionId": "8efc09e5-8d93-445a-ab0f-d3d95f143d35",
-      "createdByPid": 2009851,
-      "createdByProcStart": "42684072"
-    },
-    {
-      "id": "a82c635c",
-      "cron": "7 12 * * *",
-      "prompt": "运行 UCloud 任务监控。执行：cd /home/ubuntu/Edge-AI && python3 tools/ucloud_monitor.py。如果抓取或邮件发送失败，记录错误但不中断。",
-      "createdAt": 1778918576731,
-      "recurring": true,
-      "createdBySessionId": "8efc09e5-8d93-445a-ab0f-d3d95f143d35",
-      "createdByPid": 2009851,
-      "createdByProcStart": "42684072"
-    },
-    {
-      "id": "436253d6",
-      "cron": "3 18 * * *",
-      "prompt": "运行 UCloud 任务监控。执行：cd /home/ubuntu/Edge-AI && python3 tools/ucloud_monitor.py。如果抓取或邮件发送失败，记录错误但不中断。",
-      "createdAt": 1778918576759,
-      "recurring": true,
-      "createdBySessionId": "8efc09e5-8d93-445a-ab0f-d3d95f143d35",
-      "createdByPid": 2009851,
-      "createdByProcStart": "42684072"
-    }
-  ]
+  "tasks": []
 }

@@ -133,6 +133,21 @@
 
 ---
 
+## FPGA 数字逻辑设计与 Verilog 编程
+
+课程路径：`courses/fpga-verilog/`
+
+支持掌握学习教学（`/mastery-learn fpga-verilog`）
+
+前置要求：数字逻辑基础、C 语言基础
+
+对应模块：
+- 4. 电子电路与硬件基础
+- 5. 单片机与裸机开发
+- 6. 传感器、通信与外设接口
+
+---
+
 ## PyTorch 深度学习实战
 
 课程路径：`courses/pytorch/`
