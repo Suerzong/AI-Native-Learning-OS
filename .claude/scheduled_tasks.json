@@ -1,3 +1,14 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "id": "e89f7581",
+      "cron": "17 7 * * *",
+      "prompt": "每日时评题目原创生成 — 每天 3 道全新命题，不从题库抽取。\n\n步骤：\n\n1. `date '+%Y-%m-%d'` 获取今天日期\n2. 如果 `daily-commentary/YYYY-MM-DD/` 已存在，跳过不生成\n3. 如果不存在：\n\n   a. 浏览过去 7 天的题目（`daily-commentary/` 下最近 7 个日期文件夹的 topic-*.md 文件名），确保今天不重复\n   \n   b. 从 5 个方向（科技与社会、教育反思、人文思考、时事评论、哲理思辨）中选 3 个不同方向\n   \n   c. **完全原创命制** 3 道题目。要求：\n      - 题目有争议空间，不能是显而易见的问题\n      - 结合当下热点更好（2026年5月的新闻、趋势、讨论）\n      - 题目描述 2-4 句，给出背景和矛盾点，最后一句是明确提问\n      - 格式参考 `daily-commentary/2026-05-17/topic-01-*` 的 markdown 结构\n\n   d. 创建文件夹并写入 3 个 topic-0X-方向-题目.md 文件\n\n4. 把今天生成的 3 道题目追加到 `topic-bank.md` 的对应方向分类下（归档用）\n\n5. git add daily-commentary/ && git commit -m \"[daily-commentary] YYYY-MM-DD 原创命题\"\n\n只做上面的操作，完成后输出今天生成的 3 道题目标题。",
+      "createdAt": 1779008223810,
+      "recurring": true,
+      "createdBySessionId": "56b01cab-4f6b-424b-b4ef-df389ffbbb3e",
+      "createdByPid": 2459279,
+      "createdByProcStart": "53387650"
+    }
+  ]
 }
