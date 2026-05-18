@@ -1,12 +1,14 @@
 {
   "date": "2026-05-18",
   "sent": {
-    "morning": false,
+    "morning": true,
     "midday": false,
     "evening": false,
     "sleep_review": false,
     "autostart": true
   },
-  "used_encouragements": [],
+  "used_encouragements": [
+    16
+  ],
   "used_tips": []
 }
