@@ -1,5 +1,5 @@
 {
-  "date": "2026-05-20",
+  "date": "2026-05-21",
   "sent": {
     "morning": true,
     "midday": false,
@@ -8,7 +8,7 @@
     "autostart": true
   },
   "used_encouragements": [
-    7
+    28
   ],
   "used_tips": []
 }
