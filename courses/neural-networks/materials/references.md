@@ -1,28 +1,24 @@
 # 学习资源索引
 
-本文件收集神经网络与深度学习相关的学习资料。
+---
+
+# 主要教材（教学权威来源）
+
+| 资料 | 路径 | 说明 |
+|------|------|------|
+| 《神经网络与深度学习》 | [《神经网络与深度学习》.md](《神经网络与深度学习》.md) | **邱锡鹏著，复旦大学出版社，2019。** 15 章 + 附录 A-E。每次授课前必须读取对应章节。 |
 
 ---
 
-# 主要参考（runoob.com）
+# 辅助参考
 
-| 主题 | 链接 | 对应章节 |
+## 中文教材
+
+| 资料 | 说明 | 推荐用途 |
 |------|------|---------|
-| 神经网络简介 | https://www.runoob.com/python3/python3-neural-network.html | 01 |
-| 感知机 | https://www.runoob.com/python3/python3-perceptron.html | 02 |
-| 线性回归 | https://www.runoob.com/python3/python3-linear-regression.html | 03 |
-| 逻辑回归 | https://www.runoob.com/python3/python3-logistic-regression.html | 04 |
-| 激活函数 | https://www.runoob.com/python3/python3-activation-function.html | 05 |
-| 损失函数 | https://www.runoob.com/python3/python3-loss-function.html | 06 |
-| 反向传播 | https://www.runoob.com/python3/python3-backpropagation.html | 11-12 |
-| 梯度下降 | https://www.runoob.com/python3/python3-gradient-descent.html | 13 |
-| 深度学习简介 | https://www.runoob.com/python3/python3-deep-learning.html | 21 |
-| 卷积神经网络 | https://www.runoob.com/python3/python3-cnn.html | 22-25 |
-| 循环神经网络 | https://www.runoob.com/python3/python3-rnn.html | 26-28 |
-
----
-
-# 进阶学习资料
+| 《动手学深度学习》(李沐) | 实践导向，含大量 PyTorch 代码 | 代码实现参考 |
+| 周志华《机器学习》 | 机器学习理论经典，"西瓜书" | 机器学习理论基础 |
+| 李宏毅机器学习课程 | 中文讲解，覆盖面广 | 入门辅助 |
 
 ## 经典教程
 
@@ -30,86 +26,70 @@
 |------|------|---------|
 | CS231n（Stanford） | 卷积神经网络与计算机视觉 | CNN 深入理解 |
 | CS224n（Stanford） | 自然语言处理与深度学习 | RNN/Transformer |
-| Deep Learning Book（Ian Goodfellow） | 深度学习 "圣经" | 理论深入 |
+| Deep Learning Book（Goodfellow） | 深度学习"圣经" | 理论深入 |
 | 3Blue1Brown 神经网络系列 | 可视化讲解反向传播 | 直觉建立 |
-| 李宏毅机器学习课程 | 中文讲解，覆盖面广 | 入门体系 |
 
-## 工具文档
+## 在线教程（快速查阅）
 
-| 工具 | 文档链接 | 用途 |
-|------|---------|------|
-| NumPy | https://numpy.org/doc/ | 基础数值计算 |
-| PyTorch | https://pytorch.org/docs/stable/ | 深度学习框架 |
-| Matplotlib | https://matplotlib.org/stable/ | 数据可视化 |
-| ONNX | https://onnx.ai/ | 模型交换格式 |
-| TFLite | https://www.tensorflow.org/lite | 端侧推理 |
+| 主题 | 链接 | 备注 |
+|------|------|------|
+| runoob 神经网络教程 | https://www.runoob.com/python3/ | 已降级为辅助参考 |
 
-## 论文（经典架构）
+---
+
+# 工具文档
+
+| 工具 | 用途 |
+|------|------|
+| NumPy | https://numpy.org/doc/ |
+| PyTorch | https://pytorch.org/docs/stable/ |
+| Matplotlib | https://matplotlib.org/stable/ |
+
+---
+
+# Edge AI / 端侧部署专题文档
+
+| 文档 | 说明 |
+|------|------|
+| [TFLite-模型转换与量化.md](TFLite-模型转换与量化.md) | TFLite 转换、PTQ 4 种量化方案、Delegate 硬件加速 |
+| [ONNX-导出与Runtime.md](ONNX-导出与Runtime.md) | ONNX 概念、框架导出、ORT 推理、量化 |
+| [ONNX-Runtime-移动端.md](ONNX-Runtime-移动端.md) | ORT Mobile 架构、Android/iOS 集成 |
+| [PyTorch-ONNX-量化.md](PyTorch-ONNX-量化.md) | torch.onnx.export 详解、ORT 量化流水线 |
+| [CMSIS-NN-ARM-MCU部署.md](CMSIS-NN-ARM-MCU部署.md) | Cortex-M 算子加速、TFLite Micro 对接 |
+
+## 外部部署工具
+
+| 工具 | 用途 |
+|------|------|
+| ONNX Runtime | 跨平台推理引擎 |
+| TFLite Micro | MCU 端推理 |
+| TensorRT | NVIDIA GPU 推理优化 |
+| CMSIS-NN | ARM Cortex-M NN 库 |
+| TVM | 编译器级自动优化 |
+
+---
+
+# 论文（经典架构）
 
 | 论文 | 年份 | 关键贡献 |
 |------|------|---------|
 | LeNet-5 (LeCun) | 1998 | 最早的 CNN |
 | AlexNet (Krizhevsky) | 2012 | ImageNet 突破，ReLU、Dropout |
 | VGG (Simonyan) | 2014 | 小卷积核堆叠 |
-| ResNet (He) | 2015 | 残差连接，解决深层网络退化 |
+| ResNet (He) | 2015 | 残差连接 |
 | Attention Is All You Need | 2017 | Transformer |
 | BERT | 2018 | 预训练语言模型 |
 
 ---
 
-# Edge AI 相关资料
+# 学习路径建议
 
-| 主题 | 说明 | 用途 |
-|------|------|------|
-| ONNX Runtime | 跨平台推理引擎 | 模型部署 |
-| TFLite Micro | MCU 端推理框架 | 嵌入式部署 |
-| TensorRT | NVIDIA 推理优化 | GPU 端加速 |
-| CMSIS-NN | ARM 的 NN 库 | Cortex-M 部署 |
-| TVM | 编译器级优化框架 | 自动优化 |
-
----
-
-# 代码参考
-
-## NumPy 从零实现
-
-| 实现 | 说明 |
-|------|------|
-| 2 层网络前向传播 | skill-map/perceptron.md |
-| 激活函数 | skill-map/activation.md |
-| 损失函数 | skill-map/loss.md |
-| 反向传播 | skill-map/backprop.md |
-| 优化器 | skill-map/optimization.md |
-| 2D 卷积 | skill-map/cnn.md |
-
-## PyTorch 实现
-
-| 实现 | 说明 |
-|------|------|
-| MLP 分类 | skill-map/perceptron.md → 第三层 |
-| CNN (LeNet) | skill-map/cnn.md |
-| LSTM/GRU | skill-map/rnn.md |
-| Dropout + BN | skill-map/regularization.md |
-
----
-
-# 学习路径推荐
+## 系统学习（推荐）
+1. 按教材第 1→2→3→...→15 章顺序推进
+2. 每节先读教材原文，再看辅助资料
+3. 每个公式都手推一遍
+4. 核心算法用 NumPy 从零实现
 
 ## 数学基础不足时
-
-1. 先看 3Blue1Brown 的 "线性代数的本质" 系列
-2. 再看 3Blue1Brown 的 "微积分的本质" 系列
-3. 然后开始本课程
-
-## 想快速上手时
-
-1. 跳过理论推导，直接从第三层开始
-2. 先用 PyTorch 跑通模型
-3. 遇到不理解的再回第一、二层补
-
-## 想深入理解时
-
-1. 按课程顺序完整学习
-2. 每个公式都手推一遍
-3. 每个实现都用 NumPy 从零写
-4. 参考 Deep Learning Book 对应章节
+1. 教材附录 A-E 随时查阅
+2. 3Blue1Brown "线性代数的本质"/"微积分的本质" 系列
