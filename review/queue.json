@@ -21,12 +21,12 @@
     "content": "错题：递归忘记写终止条件",
     "weakness": "程序运行时栈溢出（Segmentation fault）",
     "corrective": "重写 fibonacci 函数，先写 `if (n <= 1) return n;` 再写递归调用",
-    "retested": false,
+    "retested": true,
     "accuracy": "-",
     "last_test": "",
-    "interval_idx": 0,
-    "next_review": "2026-05-18",
-    "review_count": 1,
+    "interval_idx": 1,
+    "next_review": "2026-05-21",
+    "review_count": 2,
     "added_date": "2026-05-13"
   },
   {
@@ -111,12 +111,12 @@
     "content": "错题：矩阵维度搞混（行向量 vs 列向量）",
     "weakness": "写 `x @ W` 还是 `W @ x` 不确定；shape (3,) 和 shape (3,1) 分不清",
     "corrective": "对每个矩阵运算先写出 shape，再决定用 @ 还是需要转置",
-    "retested": false,
+    "retested": true,
     "accuracy": "-",
     "last_test": "",
-    "interval_idx": 0,
-    "next_review": "2026-05-18",
-    "review_count": 1,
+    "interval_idx": 1,
+    "next_review": "2026-05-21",
+    "review_count": 2,
     "added_date": "2026-05-13"
   },
   {
@@ -145,8 +145,8 @@
     "accuracy": "-",
     "last_test": "",
     "interval_idx": 0,
-    "next_review": "2026-05-18",
-    "review_count": 1,
+    "next_review": "2026-05-21",
+    "review_count": 2,
     "added_date": "2026-05-13"
   },
   {
@@ -175,8 +175,8 @@
     "accuracy": "-",
     "last_test": "",
     "interval_idx": 0,
-    "next_review": "2026-05-18",
-    "review_count": 1,
+    "next_review": "2026-05-21",
+    "review_count": 2,
     "added_date": "2026-05-12"
   },
   {
@@ -190,8 +190,8 @@
     "accuracy": "-",
     "last_test": "",
     "interval_idx": 0,
-    "next_review": "2026-05-18",
-    "review_count": 1,
+    "next_review": "2026-05-21",
+    "review_count": 2,
     "added_date": "2026-05-13"
   },
   {
@@ -1060,8 +1060,8 @@
     "accuracy": "-",
     "last_test": "",
     "interval_idx": 0,
-    "next_review": "2026-05-18",
-    "review_count": 1,
+    "next_review": "2026-05-21",
+    "review_count": 2,
     "added_date": "2026-05-14"
   },
   {
@@ -1075,8 +1075,8 @@
     "accuracy": "-",
     "last_test": "",
     "interval_idx": 0,
-    "next_review": "2026-05-18",
-    "review_count": 1,
+    "next_review": "2026-05-21",
+    "review_count": 2,
     "added_date": "2026-05-14"
   },
   {
@@ -1090,8 +1090,8 @@
     "accuracy": "-",
     "last_test": "",
     "interval_idx": 0,
-    "next_review": "2026-05-18",
-    "review_count": 1,
+    "next_review": "2026-05-21",
+    "review_count": 2,
     "added_date": "2026-05-14"
   },
   {
