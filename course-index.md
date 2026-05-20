@@ -1,5 +1,35 @@
 # Course Index
 
+## 工科数学分析 / 高等数学类课程
+
+课程路径：`courses/engineering-math-analysis/`
+
+支持掌握学习教学（`/mastery-learn engineering-math-analysis`）
+
+别名：
+- `math-analysis`
+- `advanced-math`
+- `高等数学`
+- `数学分析`
+- `工科数学分析`
+
+教学边界：
+只进行数学教学，内容限定为定义、定理、证明思路、例题、习题、错题、复测和考试训练；不引入 AI、编程、信号处理、电路或工程项目内容。
+
+资料：
+- `courses/engineering-math-analysis/README.md`
+- `courses/engineering-math-analysis/course-config.md`
+- `courses/engineering-math-analysis/materials/toc.md`
+- `courses/engineering-math-analysis/materials/source-manifest.md`
+- `courses/engineering-math-analysis/materials/typing-conventions.md`
+
+对应模块：
+- 1. 数学与理论基础
+
+当前学习状态：课程已创建，尚未开始首次教学。
+
+---
+
 ## 电路分析基础
 
 路径：`courses/circuit-analysis/`
