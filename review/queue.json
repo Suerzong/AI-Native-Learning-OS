@@ -214,7 +214,7 @@
     "course": "neural-networks",
     "module": "LSTM 门控机制",
     "content": "错题：LSTM 遗忘门与完整更新混淆（2026-05-12）",
-    "weakness": "题目问\"遗忘后\"的 Cell State，回答了完整更新公式 f_t*C_{t-1} + i_t*C̃_t",
+    "weakness": "- 错误原因：",
     "corrective": "区分\"遗忘后\"、\"输入后\"、\"完整更新\"三种问法",
     "retested": true,
     "accuracy": "-",
@@ -1723,5 +1723,20 @@
     "next_review": "2026-05-17",
     "review_count": 0,
     "added_date": "2026-05-17"
+  },
+  {
+    "source": "mistakes",
+    "course": "engineering-math-analysis",
+    "module": "定理条件遗漏",
+    "content": "错题：定理条件遗漏",
+    "weakness": "直接套用中值定理、Taylor 公式、审敛准则，但没有检查连续、可导、单调、有界等条件。",
+    "corrective": "做题时先写“可用条件清单”，再计算。",
+    "retested": false,
+    "accuracy": "-",
+    "last_test": "",
+    "interval_idx": 0,
+    "next_review": "2026-05-21",
+    "review_count": 0,
+    "added_date": "2026-05-21"
   }
 ]
