@@ -1,0 +1,1181 @@
+{
+  "sections": {
+    "0.1": {
+      "core": [
+        "电脑五大单元：输入单元、输出单元、控制单元、算术逻辑单元、记忆单元",
+        "CPU = 控制单元 + 算术逻辑单元，负责指令解释和执行",
+        "内存(RAM)是CPU直接访问的临时存储，断电丢失",
+        "硬盘是永久存储，速度远慢于内存",
+        "存储金字塔：CPU缓存 → 内存 → 硬盘，速度递减容量递增",
+        "冯·诺伊曼架构：指令和数据共同存储在内存中",
+        "频率(Hz)表示CPU每秒振荡次数，决定指令执行速度",
+        "北桥连接高速设备(CPU/内存/显卡)，南桥连接低速设备(硬盘/USB)"
+      ],
+      "background": [
+        "理解硬件架构是学习Linux系统管理的基础，Linux核心职责就是管理CPU/内存/磁盘资源",
+        "MCU(STM32)开发者熟悉CPU/内存/外设概念，但PC架构更复杂(多级缓存、南北桥分离、DMA通道)",
+        "Linux作为操作系统直接管理硬件资源，了解硬件有助于理解系统调用和驱动的工作方式"
+      ],
+      "understand": [
+        "冯·诺伊曼架构和哈佛架构的区别(指令和数据总线是否分离)",
+        "摩尔定律：集成电路晶体管数量每两年翻一番"
+      ]
+    },
+    "0.2": {
+      "core": [
+        "CPU主要厂商Intel/AMD，架构x86/x86-64，主频/外频/倍频概念",
+        "内存规格DRAM/SDRAM/DDR，容量和频率影响系统性能",
+        "硬盘分类HDD(机械)和SSD(固态)，接口SATA和NVMe",
+        "GPU用途：图形渲染和通用计算(GPGPU)，AI训练和推理的加速器",
+        "主板芯片组：南北桥分工(北桥高速/南桥低速)，现代CPU集成北桥",
+        "BIOS(传统)和UEFI(现代)的区别：UEFI支持GPT分区和图形界面",
+        "PCIe是当前主流高速总线，连接GPU/NVMe SSD等高速设备",
+        "Linux设备命名：/dev/sda(第一块SATA/SAS硬盘)、/dev/nvme0n1(NVMe SSD)"
+      ],
+      "background": [
+        "嵌入式AI部署中理解GPU/加速器架构很重要(Jetson的CPU+GPU+NPU异构架构)",
+        "Linux系统管理需了解磁盘类型(SATA/SSD/NVMe)以选择合适的I/O调度策略和分区方案",
+        "UEFI+GPT是现代Linux安装的标准方式，兼容性好、支持2TB以上磁盘"
+      ],
+      "understand": [
+        "ARM架构在移动端和嵌入式端的主导地位",
+        "树莓派Raspberry Pi和Jetson等嵌入式主板的硬件架构特点"
+      ]
+    },
+    "0.3": {
+      "core": [
+        "计算机使用二进制(0/1)表示所有数据，因物理上易实现(高低电平)",
+        "位(bit)最小单位，字节(byte)=8bit是基本存储单位",
+        "十进制→二进制/十六进制转换方法",
+        "单位换算：1KB=1024B, 1MB=1024KB, 1GB=1024MB, 1TB=1024GB",
+        "注意硬盘厂商用1000进制(1GB=1000MB)，操作系统用1024进制",
+        "字符编码：ASCII(7bit/128字符)、Unicode(统一编码万国码)",
+        "整数表示中补码是计算机中实际使用的编码方式",
+        "大端序和小端序：字节在内存中的排列顺序(x86小端/网络大端)"
+      ],
+      "background": [
+        "嵌入式开发常需处理二进制位操作(寄存器配置、协议解析)，理解数据表示是基础",
+        "大端小端问题在网络编程(x86小端/网络大端)和交叉编译文件格式中经常遇到",
+        "编码问题(UTF-8 vs GBK)在Linux系统配置和日志处理中常见"
+      ],
+      "understand": [
+        "浮点数的IEEE 754表示标准(单精度float/双精度double)",
+        "十六进制在内存调试(hexdump/xxd)和网络抓包中的使用"
+      ]
+    },
+    "0.4": {
+      "core": [
+        "操作系统OS的核心职责：硬件抽象和资源管理(CPU/内存/磁盘/设备)",
+        "OS分层结构：硬件 → 内核(kernel) → 系统调用 → 应用程序",
+        "高级语言 → 汇编 → 机器码的编译层级",
+        "编译流程：预处理 → 编译 → 汇编 → 链接",
+        "解释型语言(Python)和编译型语言(C/C++)的执行方式区别",
+        "API(应用程序编程接口)和系统调用的关系",
+        "内核是操作系统核心(管理硬件)，不是桌面环境(GNOME/KDE)",
+        "Linux内核是单内核(monolithic kernel)，设备驱动可编译为模块(.ko)动态加载"
+      ],
+      "background": [
+        "MCU裸机开发中只有一个while(1)循环直接操作硬件寄存器；Linux中应用通过系统调用访问硬件，由内核统一管理",
+        "理解OS分层有助于后续学习：文件操作API(fopen)→系统调用(open)→VFS→设备驱动→硬件",
+        "编译流程在交叉编译(Edge AI部署关键)中尤其重要，需区分host编译器和target运行环境"
+      ],
+      "understand": [
+        "微内核和混合内核架构(如Minix/Windows NT)",
+        "Linux最初由Linus Torvalds开发(受Minix启发)，采用了单内核设计"
+      ]
+    },
+    "1.1": {
+      "core": [
+        "Linux是一套操作系统，严格说Linux只是内核(kernel)",
+        "完整的操作系统应称为GNU/Linux：Linux内核 + GNU工具集",
+        "操作系统定义：一组管理和控制硬件资源的系统软件",
+        "Linux是Unix-like操作系统，遵循POSIX标准，支持多用户多任务",
+        "Unix/Linux核心特点：多用户多任务、一切皆文件、模块化设计",
+        "Linux优势：开源免费、稳定安全、可裁剪(适合嵌入式)、强大命令行",
+        "GNU GPL许可证：自由软件的核心许可证，保证开源传递(传染性)",
+        "GNU计划(Richard Stallman, 1984)：创建自由Unix-like操作系统"
+      ],
+      "background": [
+        "从MCU(裸机/实时系统)过渡到Linux需理解操作系统抽象层的价值：不必直接操作硬件寄存器",
+        "开源许可证(GPL/LGPL/BSD/MIT)在嵌入式开发中影响库的选择和商业发布策略",
+        "学习Linux不仅是学命令，更是理解一种哲学：Everything is a file"
+      ],
+      "understand": [
+        "GNU是GNU's Not Unix的递归缩写(黑客文化经典)",
+        "POSIX标准的意义：不同Unix-like系统间的程序可移植性"
+      ]
+    },
+    "1.2": {
+      "core": [
+        "Linus Torvalds 1991年发布Linux 0.01，源于对Minix教学操作系统的不满",
+        "Linux 0.01仅有约10000行代码，仅支持i386架构",
+        "Linux采用GPL v2许可证发布(1992年)",
+        "开源社区模式：全球开发者协作开发，Linus Torvalds掌舵维护",
+        "Linux吉祥物：Tux(企鹅)，由Larry Ewing设计",
+        "Linux内核版本编号：A.B.C格式(A主版本 B重大改进 C补丁)",
+        "Linux基金会(2007)管理Linux商标和Linus的工作",
+        "稳定版和开发版：偶数次要号=稳定版(2.6)，奇数=开发版(2.5)"
+      ],
+      "background": [
+        "Linux是开源协作的成功范例，理解Linux社区文化有助于参与开源项目和查找资料",
+        "嵌入式Linux(如Yocto/Buildroot)继承了相同的内核和社区模式",
+        "Linux版本号在2.6时代(2003-2011)持续多年使用2.6.x编号，3.0之后简化"
+      ],
+      "understand": [
+        "Minix(Andrew Tanenbaum的教学用微内核)和Linux的著名辩论：微内核vs单内核",
+        "Linux内核官方发布网站kernel.org"
+      ]
+    },
+    "1.3": {
+      "core": [
+        "Linux是服务器操作系统的主导者(Web服务器/数据库/云计算)",
+        "Android基于Linux内核，是全球最广泛的移动操作系统",
+        "嵌入式Linux应用：路由器/IoT设备/工业控制/汽车信息娱乐系统",
+        "超级计算机TOP500中的绝大多数运行Linux",
+        "云原生和容器技术(Docker/Kubernetes)构建在Linux内核特性上",
+        "Linux在Embedded AI/Edge AI中的角色：提供AI推理的完整软件栈",
+        "嵌入式Linux与传统嵌入式(裸机/RTOS)的对比",
+        "Linux在嵌入式领域支持广泛硬件架构：ARM/MIPS/RISC-V/x86"
+      ],
+      "background": [
+        "Edge AI部署几乎都选择Linux，因为它支持完整的AI框架(ONNX Runtime/TensorFlow Lite/PyTorch)",
+        "理解Linux在当前技术生态中的地位有助于规划职业发展方向(云计算/嵌入式/嵌入式AI)",
+        "RTOS(FreeRTOS)和嵌入式Linux的选择：实时性要求高→RTOS，功能丰富→Linux"
+      ],
+      "understand": [
+        "Windows WSL(Windows Subsystem for Linux)允许Windows运行Linux应用",
+        "macOS基于Darwin(BSD Unix衍生)，和Linux共享Unix传统但不同"
+      ]
+    },
+    "1.4": {
+      "core": [
+        "Linux学习路径：终端基础 → 文件管理 → 权限 → Shell编程 → 系统管理 → 网络服务",
+        "学习方法论：多用终端、少用GUI、多看man page",
+        "命令行是Linux的核心操作方式，在服务器和嵌入式环境中没有GUI",
+        "遇到问题先查man page，再查网络(Google/Stack Overflow)",
+        "重要学习工具：man page / Linux文档项目 / 鸟哥教材",
+        "实际动手是唯一有效的学习方式：在终端中敲命令验证",
+        "搭建实验环境：虚拟机(Ubuntu/Debian)或云服务器最能模拟真实环境",
+        "养成阅读/var/log/syslog的习惯——日志是诊断问题的关键"
+      ],
+      "background": [
+        "从MCU开发者视角看：学习Linux不是背命令，是理解系统运作逻辑和设计哲学",
+        "错误处理和调试能力比记住选项更重要(man page随时可查)",
+        "嵌入式开发环境：SSH连接到板端 + 命令行操作是日常开发模式"
+      ],
+      "understand": [
+        "Linux认证体系：RHCE/LPIC等",
+        "进阶读物推荐：TLCL(The Linux Command Line)和APUE"
+      ]
+    },
+    "2.1": {
+      "core": [
+        "Linux支持几乎所有主流硬件架构(x86/ARM/MIPS/RISC-V)",
+        "硬件兼容性取决于内核是否包含对应驱动，部分专有硬件可能不兼容",
+        "Linux设备文件：一切硬件都以文件形式存在于/dev目录",
+        "/dev/sdX：SATA/SAS/SCSI磁盘设备，/dev/sda第一块 /dev/sdb第二块",
+        "/dev/nvme0n1：NVMe SSD设备(第一块)",
+        "/dev/ttyS0：串口设备，/dev/ttyUSB0：USB串口设备",
+        "查看硬件信息常用命令：lspci(PCI设备)、lsusb(USB设备)、lscpu(CPU信息)、lsblk(块设备)",
+        "Linux使用内核模块(.ko文件)管理驱动，可按需加载/卸载(lsmod查看)"
+      ],
+      "background": [
+        "嵌入式AI部署中需确认目标板(如Jetson Nano/树莓派)的硬件在Linux下的驱动支持程度",
+        "设备文件是Linux一切皆文件哲学的体现：操作设备就像操作普通文件(open/read/write/ioctl)",
+        "与MCU对比：MCU直接读写寄存器操控外设，Linux通过设备文件和驱动抽象访问硬件"
+      ],
+      "understand": [
+        "部分硬件厂商不提供Linux驱动，只能靠社区逆向工程(如某些WiFi/显卡)",
+        "udev规则：系统动态设备管理和命名(如/dev/sda的生成)"
+      ]
+    },
+    "2.2": {
+      "core": [
+        "磁盘分区是把硬盘划分为逻辑上独立的区域，每个区可独立格式化",
+        "分区表格式：MBR(传统，支持2TB磁盘，最多4主分区)和GPT(现代，更大容量)",
+        "MBR概念：主分区(primary)/扩展分区(extended)/逻辑分区(logical)",
+        "MBR最多4主分区或3主+1扩展(扩展内可建多个逻辑分区)",
+        "GPT没有扩展分区概念，最多128个分区，支持2TB以上磁盘",
+        "分区标识：/dev/sda1(第一块磁盘第一个分区)、/dev/sda2等",
+        "常用分区工具：fdisk(MBR分区)、gdisk(GPT分区)、parted(两者都支持)",
+        "BIOS+MBR和UEFI+GPT是两种主流搭配方式",
+        "分区形式影响Linux安装和引导方式(GRUB配置)"
+      ],
+      "background": [
+        "分区是安装Linux前最重要的决策之一，后续调整分区很麻烦(涉及数据搬迁)",
+        "嵌入式Linux的存储分区方案通常更简单(一个根分区+数据分区+OTA分区)",
+        "GPT+UEFI是现代标准选择，Ubuntu默认使用"
+      ],
+      "understand": [
+        "分区对齐(partition alignment)对SSD性能和寿命的影响",
+        "Linux内核通过分区表中的类型码识别分区用途(0x83=Linux, 0x82=swap, 0x8e=LVM)"
+      ]
+    },
+    "2.3": {
+      "core": [
+        "Linux最少需要/根分区和swap分区两个基本分区",
+        "常见独立分区：/ /boot /home /var /tmp /usr",
+        "swap分区作用：内存回收(Linux内核内存管理)和休眠支持(休眠需>=RAM大小)",
+        "/boot分区：存放内核(vmlinuz)和引导加载器(GRUB)，建议1GB以上",
+        "独立分区的优势：隔离风险(某个分区满不影响其他)、方便重装、不同挂载选项",
+        "推荐分区方案示例(512GB磁盘+16GB RAM)：/ 100GB, /home 剩余, swap 16GB",
+        "需要考虑因素：用途(桌面/服务器/嵌入式)、磁盘容量、内存容量",
+        "LVM(逻辑卷管理器)可以灵活调整分区大小，但增加复杂度"
+      ],
+      "background": [
+        "嵌入式Linux中分区更紧凑：boot分区+根文件系统+数据分区+OTA升级分区",
+        "理解分区规划有助于后续学习mount命令、/etc/fstab和LVM机制",
+        "swap在内存较大的机器上需求降低，但服务器通常仍保留作为内核内存回收的备选"
+      ],
+      "understand": [
+        "swap文件可以替代swap分区(更灵活但性能略差于独立分区)",
+        "Btrfs/ZFS等现代文件系统内置子卷(subvolume)，可替代分区逻辑"
+      ]
+    },
+    "3.1": {
+      "core": [
+        "练习机建议配置：CPU双核、内存2GB以上、磁盘20GB以上",
+        "安装前确定分区方案：至少包含/ /boot /home swap等分区",
+        "CentOS 7使用XFS作为默认文件系统(取代ext4成为RHEL/CentOS默认)",
+        "/boot建议ext4或xfs格式，使用GPT分区格式",
+        "swap分区大小建议规则：RAM≤2GB时swap=2倍RAM；2-8GB时swap=RAM；>8GB时swap=4-8GB",
+        "网络配置：安装时设置静态IP或DHCP",
+        "主机名(hostname)设置：用于网络标识和SSH连接",
+        "时区设置：Asia/Shanghai (CST, UTC+8)",
+        "创建普通用户(日常使用)和设置root密码(系统管理)"
+      ],
+      "background": [
+        "当前学习环境是Ubuntu，安装流程理解概念即可(所有Linux发行版安装步骤相似)",
+        "Ubuntu安装时分区策略不同(默认LVM+LUKS加密)，但核心分区概念相同",
+        "嵌入式Linux安装完全不同(通过烧录工具将镜像写入SD卡/eMMC)，但分区概念通用"
+      ],
+      "understand": [
+        "CentOS 7生命周期已于2024年结束(EOL)，推荐Rocky Linux/AlmaLinux作为替代",
+        "Kickstart可以实现自动化无人值守安装(批量部署)"
+      ]
+    },
+    "3.2": {
+      "core": [
+        "安装介质：光盘/DVD或USB启动盘(刻录为启动盘)",
+        "启动引导：从BIOS/UEFI设置启动顺序为安装介质优先",
+        "Anaconda安装程序：CentOS/RHEL的图形化安装程序(文本模式也可)",
+        "安装步骤概览：选择语言→设置时间日期→选择安装源→软件选择→安装位置→网络主机名→开始安装",
+        "软件选择：最小安装(Minimal，无GUI，服务器推荐)或带GUI的服务器",
+        "安装位置(Installation Destination)：选择磁盘→设置分区方案→确认写入磁盘",
+        "安装中设置root密码和创建普通用户(不要日常使用root)",
+        "安装完成重启后首次启动配置：许可证同意(EULA)、Kdump设置等"
+      ],
+      "background": [
+        "Ubuntu使用Subiquity安装程序(18.04+)或Ubiquity(旧版)，流程类似",
+        "嵌入式Linux安装通常通过balenaEtcher或dd命令将镜像写入SD卡",
+        "理解安装流程有助于排查引导故障(GRUB配置错误、缺失内核、initramfs问题)"
+      ],
+      "understand": [
+        "网络安装(通过网络ISO启动)和DVD安装(完整离线)的区别",
+        "Kdump的作用：内核崩溃时的内存转储(vmcore)调试机制"
+      ]
+    },
+    "4.1": {
+      "core": [
+        "Linux登录方式：虚拟终端(Ctrl+Alt+F1~F6切换)和图形终端(Ctrl+Alt+F7)",
+        "登录提示符login:输入用户名，Password:输入密码(不回显)",
+        "切换用户命令：su(切换用户)和sudo(以其他用户权限执行命令)",
+        "exit/logout命令退出当前登录会话",
+        "终端(terminal)是输入输出环境，Shell是运行在其中的命令解释器",
+        "BASH(Bourne Again SHell)是Linux默认的Shell",
+        "图形界面下使用终端模拟器(gnome-terminal/konsole)",
+        "远程登录：SSH协议，使用ssh user@host命令登录远程Linux服务器",
+        "Shell提示符：普通用户$，root用户#",
+        "终端尺寸和回滚行数：Shift+PageUp回滚查看之前的输出"
+      ],
+      "background": [
+        "SSH是嵌入式Linux开发和调试的标配工具(通过SSH连接板端执行命令/传输文件)",
+        "区分本地终端和远程终端对排查问题很重要(网络中断时远程会话会断开)",
+        "从MCU开发(通过USB串口线+串口助手看输出)过渡到Linux(SSH/串口终端登录)是第一步思维转换"
+      ],
+      "understand": [
+        "tty(Teletypewriter)名称是历史遗留(源自电传打字机时代)",
+        "终端模拟器的种类：Windows端Putty/MobaXterm vs Linux端gnome-terminal"
+      ]
+    },
+    "4.2": {
+      "core": [
+        "命令行格式：command [-options] [arguments]，三者用空格分隔",
+        "选项格式：短选项(-h)、长选项(--help)、组合选项(-lah = -l -a -h)",
+        "常用基础命令：date(显示日期时间)、cal(显示日历)、bc(命令行计算器)",
+        "Tab键：命令/文件名自动补全，双击Tab显示所有候选",
+        "Ctrl+C：中断当前正在执行的命令(不是复制!)",
+        "Ctrl+D：输入结束(EOF)或退出当前Shell",
+        "方向键↑↓：浏览命令历史(↑上一条 ↓下一条)",
+        "一行多条命令用分号;分隔",
+        "命令太长用反斜杠\\换行继续",
+        "clear或Ctrl+L：清屏"
+      ],
+      "background": [
+        "命令行自动补全(Tab)是最高效的功能之一，需养成习惯——减少打字错误和记忆负担",
+        "Ctrl+C在Linux中是中断信号(SIGINT)，和Windows习俗Ctrl+C(复制)完全不同，初学者极易按错",
+        "在嵌入式板端通过串口终端输入命令时，Tab补全依赖于终端仿真器的支持"
+      ],
+      "understand": [
+        "命令解释器从sh到bash再到zsh/fish的演变历史",
+        "Windows Terminal(Win11默认)和PowerShell的对比"
+      ]
+    },
+    "4.3": {
+      "core": [
+        "man(manual)命令：查阅系统命令/函数/配置文件的帮助文档",
+        "man page格式：NAME(名称)/SYNOPSIS(语法)/DESCRIPTION(描述)/OPTIONS(选项)/EXAMPLES(示例)/SEE ALSO(参见)",
+        "man page章节编号：1(用户命令)、5(配置文件格式)、8(系统管理命令)",
+        "man翻页操作：空格(下一页)、b(上一页)、/pattern(搜索)、q(退出)",
+        "man -k keyword(或apropos)：按关键词搜索相关man page",
+        "man -f command(或whatis)：显示命令的简短一行描述",
+        "info命令：GNU项目的帮助文档格式(超文本链接，比man更详细)",
+        "info翻页：Tab(跟随链接)、n/p/u(下一个/上一个/上层节点)",
+        "命令自带的快速参考：command --help 或 command -h",
+        "/usr/share/doc：软件包的额外文档目录(含示例配置等)"
+      ],
+      "background": [
+        "man page是Linux学习最重要的工具：man is your best friend",
+        "在嵌入式环境中(无GUI/网络受限)，man page是唯一的本地文档来源",
+        "学会查man page比死记命令选项更重要——知道怎么查而不是背"
+      ],
+      "understand": [
+        "man page的排版工具是groff/troff(Unix传统排版工具)",
+        "tldr(too long didn't read)工具：man page的简化版示例(更适合快速查阅)"
+      ]
+    },
+    "4.4": {
+      "core": [
+        "nano是终端文本编辑器，比vim更简单直观，适合Linux初学者",
+        "启动：nano filename(文件不存在则创建新文件)",
+        "界面布局：顶部标题栏(文件名和状态)、中间编辑区、底部快捷键提示",
+        "常用快捷键：Ctrl+O(保存)、Ctrl+X(退出)、Ctrl+K(剪切行)、Ctrl+U(粘贴)",
+        "Ctrl+W(搜索)、Ctrl+G(帮助)、Ctrl+_(跳转到指定行)",
+        "编辑文件后未保存直接退出会提示确认",
+        "nano是Pico编辑器(Unix Pine邮件程序的编辑器)的GPL复刻版本",
+        "配置文件：/etc/nanorc(全局)和~/.nanorc(用户自定义)"
+      ],
+      "background": [
+        "nano友好易用适合临时编辑，但建议尽快过渡到vim(更强的编辑能力和通用性)",
+        "在嵌入式系统上nano通常预装(体积小)，vim可能需要额外安装",
+        "学会一个终端编辑器是必需的——在无GUI的服务器或嵌入式板端编辑配置文件"
+      ],
+      "understand": [
+        "Pico是UW Pine邮件程序的一部分，许可证限制导致GNU开发nano替代",
+        "Emacs是另一个强大的终端编辑器(功能极丰富但学习曲线更陡)"
+      ]
+    },
+    "4.5": {
+      "core": [
+        "Linux关机不能直接拔电源——需先将内存缓冲区数据同步到磁盘",
+        "sync命令：将内存缓冲区中的数据强制写入磁盘",
+        "shutdown命令：标准关机指令，/sbin/shutdown -h now(立即关机)",
+        "shutdown -r now：立即重启系统",
+        "shutdown +10 message：10分钟后关机并广播消息给所有登录用户",
+        "reboot命令(重启)和halt命令(停止系统)",
+        "建议使用shutdown而不用halt/poweroff(前者会正确通知所有进程)",
+        "关机流程：通知登录用户 → 终止进程 → 同步文件系统 → 卸载分区 → 关闭系统或断电",
+        "查看当前登录用户：who命令",
+        "Linux从掉电中恢复时fsck会自动检查文件系统完整性"
+      ],
+      "background": [
+        "MCU开发中直接断电无大碍(无文件系统一致性概念)，Linux断电可能导致文件系统损坏",
+        "嵌入式Linux板端开发中，正确关机方法同样重要(尤其是在写SD卡/eMMC时)",
+        "理解关机流程有助于排查启动问题(非正常关机后的fsck检查和可能的系统修复)"
+      ],
+      "understand": [
+        "systemd下systemctl reboot/poweroff/halt是更现代的管理方式",
+        "强制重启应急：按住电源键或使用Magic SysRq键(Alt+SysRq+REISUB)"
+      ]
+    },
+    "5.1": {
+      "core": [
+        "Linux是多用户系统：每个用户有唯一UID(用户ID)",
+        "用户分类：root(超级用户, UID=0)、系统用户(UID 1-999)、普通用户(UID 1000+)",
+        "/etc/passwd：用户账户信息文件(用户名:密码:x:UID:GID:描述:家目录:Shell)",
+        "/etc/shadow：用户密码哈希文件(仅root可读，安全敏感)",
+        "/etc/group：群组信息文件",
+        "root(超级用户)：系统最高权限，不受普通权限限制",
+        "用户和群组关系：一个用户可属于多个组，每个用户有一个主组(初始组)",
+        "查看当前用户：whoami命令；查看UID/GID：id命令",
+        "查看所属组：groups命令"
+      ],
+      "background": [
+        "多用户模型是Linux和MCU裸机(单用户单任务)的核心区别之一——Linux的权限隔离保障系统安全",
+        "理解和遵循最小权限原则：日常用普通用户操作，需要提权时使用sudo(不是直接切root)",
+        "嵌入式Linux通常只有一个root用户(简化管理)，但理解用户模型有助于交叉编译和多用户环境"
+      ],
+      "understand": [
+        "/etc/passwd中的x表示密码已迁移到/etc/shadow(影子密码shadow password机制)",
+        "NIS/LDAP等集中式用户认证系统(企业环境)"
+      ]
+    },
+    "5.2": {
+      "core": [
+        "文件权限三组：owner/group/others，权限三位：r(读4) w(写2) x(执行1)",
+        "ls -l输出解析：-rwxr-xr-- 1 user group size date filename(首字符：-文件 d目录 l链接)",
+        "权限数字法：r=4 w=2 x=1组合相加(chmod 755)；符号法：chmod u+x file",
+        "chown user:group file修改拥有者；chgrp group file修改所属组",
+        "目录权限特性：r(列出) w(增删) x(进入)——缺x即使有r也无法cd进入",
+        "umask决定新建默认权限：文件666-umask，目录777-umask(常见022→644/755)",
+        "SUID/SGID/SBIT(粘滞位)特殊权限位的作用",
+        "777权限是安全隐患，不应作为万能解决方案"
+      ],
+      "background": [
+        "权限问题是Linux新手最常遇到且最困惑的问题之一——Permission denied是最频繁的错误提示",
+        "在嵌入式AI部署中，模型文件和推理引擎的可执行权限直接影响能否正确运行",
+        "777权限是安全风险的信号(任何用户都可写)，不应作为万能解决方案",
+        "MCU开发没有文件权限概念，过渡到Linux后这是最重要的安全机制之一"
+      ],
+      "understand": [
+        "SUID/SGID/SBIT(粘滞位)特殊权限位的作用",
+        "ACL(访问控制列表)可以对单个用户或组设置细粒度权限(Ch13深化)"
+      ]
+    },
+    "5.3": {
+      "core": [
+        "FHS(Filesystem Hierarchy Standard)：文件系统层级标准，定义Linux目录结构和用途",
+        "核心系统目录：/bin(用户命令)/boot(内核与引导)/dev(设备文件)/etc(配置文件)",
+        "用户目录：/home(普通用户家目录)/root(root家目录)/tmp(临时文件重启清空)",
+        "程序与库：/usr(用户软件资源)/lib(共享库)/opt(第三方应用)/sbin(系统管理命令)",
+        "虚拟文件系统：/proc(进程信息伪文件系统)/sys(设备和内核参数/sysfs)",
+        "可变数据：/var(日志/缓存/spool)/run(运行时PID文件)/media(可移除媒体挂载点)",
+        "挂载点：/mnt(临时手动挂载) /media(自动挂载可移除设备)",
+        "/srv：服务数据目录(Web/ FTP等服务文件)"
+      ],
+      "background": [
+        "FHS是约定不是强制——嵌入式Linux通常精简目录结构(合并/bin和/sbin到/usr)",
+        "/proc和/sys是虚拟文件系统(不在磁盘上)，用于与内核交互——这是Linux独特的文件接口设计",
+        "迁移到嵌入式Linux时，理解完整的FHS有助于理解目标系统是精简版(如BusyBox的目录结构)"
+      ],
+      "understand": [
+        "/usr/local和/opt的区别：前者是系统管理员本机编译安装(默认prefix)，后者一般用于第三方预编译包",
+        "/lost+found：文件系统检查(fsck)后恢复的碎片文件目录"
+      ]
+    },
+    "6.1": {
+      "core": [
+        "绝对路径：从根目录/开始写的完整路径(/home/user/file.txt)",
+        "相对路径：相对于当前工作目录的路径(../doc/file.txt)",
+        "特殊目录符号：.(当前目录) ..(上级目录) ~(当前用户家目录) ~user(指定用户家目录)",
+        "pwd：显示当前工作目录(Print Working Directory)",
+        "cd：切换目录 cd /path(绝对) cd relative/path(相对) cd ~(回主目录) cd -(回上次目录)",
+        "ls：列出目录内容 ls -l(详细信息) ls -a(含隐藏文件) ls -lh(人类可读大小) ls -lt(按时间排序)",
+        "ls -ld：显示目录本身的信息(而非目录内内容)",
+        "命令搜索路径：PATH环境变量定义的目录顺序(用echo $PATH查看)",
+        "文件名区分大小写(File.txt和file.txt不同)",
+        "隐藏文件：以.开头的文件，ls -a才能看到"
+      ],
+      "background": [
+        "熟练使用相对/绝对路径在Shell脚本编写中至关重要(路径写错是脚本中最常见的错误源)",
+        "嵌入式部署时需要区分板端路径和构建机路径(交叉编译时文件路径映射关系)",
+        "STM32开发中文件系统概念较弱(通常直接烧录固件到Flash)，Linux中路径导航是日常核心操作"
+      ],
+      "understand": [
+        "OLDPWD变量保存上次目录路径(cd -命令的实现原理)",
+        "pushd/popd/dirs：目录栈操作(适合在多个目录间快速切换)"
+      ]
+    },
+    "6.2": {
+      "core": [
+        "mkdir：创建目录 mkdir dirname, mkdir -p a/b/c(递归创建父目录)",
+        "rmdir：删除空目录(不能删除非空目录，需用rm -r)",
+        "touch：创建空文件或更新现有文件的时间戳",
+        "cp：复制文件 cp src dst, cp -r(目录递归复制), cp -i(覆盖前询问), cp -a(归档复制，保留属性)",
+        "mv：移动或重命名文件 mv src dst(也用于重命名)",
+        "rm：删除文件 rm file, rm -r(递归删除目录), rm -f(强制不提示), rm -rf(危险!)",
+        "basename/dirname：从路径中提取文件名和目录名(脚本编程常用)",
+        "文件名规则：区分大小写，支持除/和\\0外几乎所有字符(但空格和中文建议避免)",
+        "Linux没有回收站！rm删除的文件无法直接恢复",
+        "通配符(globbing)：*匹配任意长度字符 ?匹配单个字符 [abc]匹配字符集合"
+      ],
+      "background": [
+        "rm -rf误删没有撤销操作——是Linux最危险的命令组合，在脚本中使用时需特别谨慎(确保变量不为空)",
+        "cp/mv默认不提示覆盖(!)，建议养成加-i的习惯或设置alias cp='cp -i'",
+        "嵌入式部署时安装文件到目标板经常使用cp/scp，权限保留很重要(cp -a)",
+        "在脚本中使用rm -rf \\\"$VAR\\\"时需确保VAR不为空(否则=rm -rf /)"
+      ],
+      "understand": [
+        "cp/mv/rm的底层机制：cp读取源文件内容写入目标位置，mv若在同一文件系统则只更新目录项",
+        "install命令：类似cp但可设置权限和所有者(常用于Makefile安装目标)"
+      ]
+    },
+    "6.3": {
+      "core": [
+        "cat：连续显示文件内容 cat -n(带行号)；tac：反向从最后一行显示",
+        "less：分页查看(支持上下翻页/搜索/pattern，比more强大，适合大文件)",
+        "head：查看开头部分 head -n 20 file；tail：查看末尾 tail -n 20 file, tail -f(实时跟踪)",
+        "nl：显示带行号内容(格式比cat -n更灵活)",
+        "od：以八进制/十六进制查看二进制文件 od -h(十六进制) od -c(ASCII字符)",
+        "file：查看文件类型(二进制可执行/文本/图像/压缩等)",
+        "wc：统计行数/字数/字节数 wc -l -w -c",
+        "文本文件用cat/less/nano查看，二进制文件用od/hexdump查看"
+      ],
+      "background": [
+        "tail -f是查看日志文件最常用的方式(实时跟踪/var/log/syslog输出)",
+        "less支持搜索和翻页且不会一次性读入整个文件(适合大文件)，比more更强大",
+        "嵌入式调试中cat /proc/cpuinfo、cat /sys/class/gpio等查看系统信息非常常见",
+        "日志分析是排查嵌入式Linux问题的首选方法"
+      ],
+      "understand": [
+        "more的历史：最早的分页程序，现已基本被less取代(Less is More)",
+        "hexdump或xxd：更灵活的二进制文件十六进制转储工具"
+      ]
+    },
+    "6.4": {
+      "core": [
+        "umask：决定新建文件和目录的默认权限(补码机制)",
+        "文件默认666减去umask(umask=022 → 644)",
+        "目录默认777减去umask(umask=022 → 755)",
+        "常见umask值：022(文件644/目录755)、002(文件664/目录775)、077(文件600/目录700)",
+        "umask命令查看当前值：umask；设置：umask 022",
+        "隐藏权限(chattr)：文件系统级属性，比chmod的rwx更底层",
+        "chattr +i file：文件不可修改(immutable，即使root也不能改)",
+        "chattr +a file：只能追加内容(append-only，适合日志文件)",
+        "lsattr查看文件隐藏权限",
+        "隐藏权限和普通权限(rwx)是不同的权限层，互不影响"
+      ],
+      "background": [
+        "嵌入式Linux的rootfs中常用chattr +i保护关键配置文件(防止意外修改)",
+        "umask在构建交叉编译工具链和部署时影响可执行文件的权限",
+        "隐藏权限是chmod之上的额外保护层，理解有助于系统安全加固"
+      ],
+      "understand": [
+        "chattr支持的其他属性：+u(不可删除/undeletable) +s(安全删除/zero)",
+        "不同文件系统(ext4/xfs)对chattr属性的支持程度不同"
+      ]
+    },
+    "6.5": {
+      "core": [
+        "which：在PATH中查找命令的完整路径(which ls → /bin/ls)",
+        "whereis：查找命令的二进制文件、源代码和man page位置",
+        "locate：基于数据库的快速文件名搜索(updatedb更新数据库，非实时)",
+        "find：功能最强大的实时文件搜索工具 find [路径] [条件]",
+        "find按名称：find / -name \"*.conf\"；按类型：-type f/d/l",
+        "find按大小：find / -size +100M(大于100MB)；按时间：-mtime -7(7天内修改)",
+        "find -exec：对搜索结果执行操作 find ... -exec rm {} \\;",
+        "find和grep区别：find搜文件名/grep搜文件内容"
+      ],
+      "background": [
+        "find和grep是Linux中最常用的搜索工具组合(find搜文件名/grep搜文件内容)",
+        "locate速度快但数据库非实时(可能找不到刚创建的文件)，find慢但总是最新",
+        "嵌入式调试中find常用来定位配置文件(find /etc -name \"*.conf\")、查找大日志文件",
+        "which常用于确定命令的实际路径(排查命令已安装但找不到的问题)"
+      ],
+      "understand": [
+        "locate/updatedb由mlocate或plocate包提供",
+        "find -mtime(天为单位)和-mmin(分钟为单位)的区别"
+      ]
+    },
+    "6.6": {
+      "core": [
+        "目录至少需要x权限才能cd进入",
+        "目录需要r权限才能ls列出内容(但无x权限时无法cd)",
+        "目录需要w权限才能创建/删除文件(但不检查文件本身的w权限)",
+        "文件需要r权限才能读取内容(cat/less/重定向读取)",
+        "文件需要w权限才能修改内容(vi/nano/重定向写入)",
+        "文件需要x权限才能作为程序/脚本执行",
+        "要读取/path/to/file.txt：路径上每层目录都需x权限 + 文件需r权限",
+        "要删除目录中的文件：目录需w+x权限 + 文件本身权限无关",
+        "执行Shell脚本需文件的r+x权限(读取内容解释执行)或二进制x权限",
+        "Sticky Bit(/tmp目录默认有)：防止用户删除目录中不属于自己的文件"
+      ],
+      "background": [
+        "目录的w权限(不检查文件本身的w)意味着可以删除目录中任何人的文件——这常被忽视",
+        "访问路径上每一层目录权限都影响最终访问——排查Permission denied时需逐层检查",
+        "嵌入式部署中权限问题的典型症状：Permission denied但不知道是路径的哪一层目录权限不够",
+        "学会使用ls -ld逐层检查目录权限的排查方法"
+      ],
+      "understand": [
+        "粘滞位(Sticky Bit, chmod +t)的设置和查看(/tmp权限drwxrwxrwt)",
+        "文件删除的实质是修改目录项(dentry)，不是操作文件本身——所以目录w权限控制删除"
+      ]
+    },
+    "7.1": {
+      "core": [
+        "Linux文件系统核心结构：superblock(整体信息) + inode(索引节点/元数据) + block(数据块)",
+        "inode存储文件元数据(权限/所有者/大小/时间戳/数据块指针)，不包含文件名",
+        "文件名存放在目录文件dentry中(dentry = 文件名→inode映射)",
+        "硬链接(ln)：多个文件名指向同一inode，删除一个不影响其他(不能跨文件系统/不能链接目录)",
+        "符号链接(ln -s)：独立inode指向目标文件路径字符串，可跨FS/目录，目标删除后断裂",
+        "ls -i查看inode编号；ls -l第三列为硬链接计数",
+        "ext4(传统默认稳定)和xfs(大文件大容量)是Linux主流文件系统",
+        "嵌入式Linux常用：squashfs(只读压缩) jffs2/ubifs(Flash文件系统)"
+      ],
+      "background": [
+        "inode是理解Linux文件系统的核心概念——文件系统和MCU的Flash地址空间完全不同",
+        "ext4是传统默认(成熟稳定)，xfs更优(大文件/大容量/并行I/O)",
+        "嵌入式Linux常用文件系统：ext4(RootFS)、squashfs(只读压缩)、jffs2/ubifs(Flash)",
+        "MCU开发者没有文件系统概念(直接读写Flash地址)，需要从逻辑分层理解inode→block→dentry"
+      ],
+      "understand": [
+        "文件系统碎片化：ext4抗碎片能力比NTFS/FAT强(有块分配策略)",
+        "Btrfs：写时复制(CoW)文件系统，支持快照/压缩/子卷"
+      ]
+    },
+    "7.2": {
+      "core": [
+        "df：查看磁盘分区使用情况 df -h(人类可读GB/MB) df -T(显示文件系统类型) df -i(inode使用)",
+        "du：查看目录或文件占用磁盘大小 du -sh dir(目录总计) du -sh *(当前目录各项大小)",
+        "ln：创建链接 ln source target(硬链接) ln -s source target(软链接)",
+        "硬链接前后ls -li查看inode编号相同；软链接inode不同且显示目标路径",
+        "删除原文件后：硬链接仍可用(数据还在inode中)；软链接变为断开状态(红色闪烁)",
+        "ls -l第三列是硬链接计数：普通文件计数=链接数，目录计数=2+子目录数",
+        "查看文件系统信息：lsblk(列出块设备)、blkid(查看UUID和类型)、file -s /dev/sda1",
+        "du和df数值不同的可能原因：文件已删除但进程仍占用(未释放)"
+      ],
+      "background": [
+        "du和df数值不同是排查磁盘空间不足的常用技巧(lsof | grep deleted查看已删未释放文件)",
+        "硬链接在备份系统中很有用(节省空间，同一个数据多路径访问)",
+        "软链接在嵌入式Linux中极常用：库版本管理(libxxx.so → libxxx.so.1.0.0)、配置文件链接"
+      ],
+      "understand": [
+        "文件系统的保留块(reserved blocks)默认5%，仅root可用(防系统因磁盘满崩溃)",
+        "文件空洞(file hole)的概念：稀疏文件(sparse file)中未写入的block不占用实际磁盘空间"
+      ]
+    },
+    "7.3": {
+      "core": [
+        "分区操作：fdisk(交互式MBR分区工具)和gdisk(GPT分区工具)",
+        "格式化(创建文件系统)：mkfs.ext4 /dev/sda1、mkfs.xfs /dev/sda2",
+        "挂载(mount)：将设备文件系统关联到目录树 mount /dev/sda1 /mnt",
+        "查看已挂载设备：mount(无参数)、df -h",
+        "卸载(umount)：umount /mnt 或 umount /dev/sda1(注意拼写是u-mount不是un-mount)",
+        "挂载条件：挂载点必须是已存在的空目录",
+        "磁盘检验：fsck /dev/sda1 (必须先卸载或只读挂载)",
+        "查看分区表：fdisk -l /dev/sda、gdisk -l /dev/sda、parted /dev/sda print",
+        "常用挂载选项：ro(只读) noexec(禁止执行二进制) nosuid(禁止SUID)",
+        "mount -o loop file.iso /mnt：挂载光盘映像文件(使用loop设备)"
+      ],
+      "background": [
+        "mount是Linux文件系统模型的灵魂——整个系统只有一个统一的目录树",
+        "MCU开发中挂载没有直接对应概念(Linux的挂载类似于给SD卡分配盘符但更灵活统一)",
+        "嵌入式Linux中挂载点设计影响系统稳定性(如/var/log独立分区防止日志填满根分区)",
+        "loop设备在嵌入式开发中常用于挂载固件镜像文件进行调试"
+      ],
+      "understand": [
+        "格式化和挂载是两步独立操作：格式化是建立文件系统结构，挂载是接入目录树",
+        "自动挂载：autofs服务按需自动挂载可移除设备"
+      ]
+    },
+    "7.4": {
+      "core": [
+        "/etc/fstab：文件系统表，系统启动时自动挂载的配置文件",
+        "fstab每行六个字段：设备(UUID或标签) 挂载点 文件系统类型 mount选项 dump备份标志 fsck检查顺序",
+        "使用UUID而非设备名(/dev/sda1)在fstab中更可靠(设备名可能因磁盘顺序变化改变)",
+        "blkid：查看文件系统的UUID和类型 blkid /dev/sda1",
+        "mount -a：重新挂载fstab中所有条目(修改fstab后用此命令验证)",
+        "常见mount选项：defaults(rw,suid,dev,exec,auto,nouser,async)、noatime(不更新访问时间提升性能)",
+        "swap启用：swapon /dev/sda2(激活swap分区)，swapon -s(查看swap状态)",
+        "fstab中swap条目：UUID=xxx none swap sw 0 0",
+        "错误的fstab配置可能导致系统无法启动(进入emergency mode修复)"
+      ],
+      "background": [
+        "嵌入式Linux中fstab配置简单(通常只有根分区和几个关键挂载点)",
+        "使用label而非UUID在批量部署嵌入式设备时更方便(多台设备共用镜像)",
+        "fstab错误导致无法启动是常见的Linux故障——需进入单用户模式或使用Live USB修复"
+      ],
+      "understand": [
+        "systemd.mount单元：systemd替代传统fstab的新方式(fstab仍被systemd兼容)",
+        "tmpfs：基于内存的临时文件系统，常用于挂载到/tmp或/var/run"
+      ]
+    },
+    "8.1": {
+      "core": [
+        "压缩目的：节省磁盘空间、减少网络传输时间",
+        "压缩原理：消除冗余数据(重复模式用短标记替代)",
+        "常见压缩算法：LZ77(gzip/zip)、BWT(bzip2)、LZMA(xz/7z)",
+        "压缩率与速度的权衡：压缩率越高(体积越小)速度越慢",
+        "压缩率比较(对文本文件)：xz > bzip2 > gzip(速度和压缩率反向)",
+        "查看压缩前后文件大小：ls -lh、du -h",
+        "压缩命令(gzip/bzip2/xz)默认删除原文件！保留需加-k或-c重定向",
+        "解压工具：gunzip/bunzip2/unxz",
+        "zcat/zless/zgrep：不解压直接查看.gz文件内容"
+      ],
+      "background": [
+        "嵌入式AI部署中模型文件(.tflite/.onnx)常需压缩后再传输到板端",
+        "固件更新包(.tar.gz/.tar.xz)是嵌入式Linux最常见的软件发布形式",
+        "备份大量日志文件时压缩是必要的(单日志可达几GB)"
+      ],
+      "understand": [
+        "压缩算法的版本演进：gzip 1.x / bzip2 1.x / xz 5.x",
+        "7z格式(LZMA算法)在PC端压缩率最高但Linux原生支持较少"
+      ]
+    },
+    "8.2": {
+      "core": [
+        "gzip：.gz格式，最通用，速度适中 gzip file(压缩) gzip -d file.gz(解压)",
+        "gzip -k：保留原文件(-k for keep) gzip -#：指定压缩级别(1最快9最大)",
+        "zcat：查看.gz文件内容(等于gunzip -c)",
+        "bzip2：.bz2格式，压缩率高于gzip但更慢 bzip2 file",
+        "bzip2 -k：保留原文件 bzip2 -d file.bz2(解压)",
+        "bzcat/bzmore/bzless：查看.bz2压缩文件内容",
+        "xz：.xz格式，压缩率最高(最慢) xz file, xz -d file.xz, xz -k",
+        "xz -#：1-9压缩级别 xz -T N：使用N个线程(多核加速)",
+        "xzcat/xzmore/xzless：查看.xz文件内容",
+        "所有压缩命令都不处理目录(需先用tar打包)"
+      ],
+      "background": [
+        "gzip是最通用的选择(兼容性最好，解压速度最快，CPU占用低)",
+        "xz适合固件打包(最大压缩率，减少固件体积和传输时间)",
+        "嵌入式环境资源受限时优先选gzip(解压速度快、CPU占用低)",
+        "嵌入式部署中xz解压需要liblzma库支持(busybox可能不带)"
+      ],
+      "understand": [
+        "zlib库：gzip解压的编程接口(嵌入式软件中常见)",
+        "compress：.Z格式，古老压缩工具(已很少使用，仅遗留系统)"
+      ]
+    },
+    "8.3": {
+      "core": [
+        "tar(Tape ARchive)：打包工具，将多个文件目录合并为单个.tar文件(只打包不压缩)",
+        "创建压缩打包(.tar.gz)：tar -czvf archive.tar.gz /path(组合gzip压缩)",
+        "解压：tar -xzvf archive.tar.gz；查看内容(不解压)：tar -tvf archive.tar.gz",
+        "其他格式：-jvf(.tar.bz2) -Jvf(.tar.xz)",
+        "tar -C：切换到指定目录执行(tar -C /target -xzf file.tar.gz解压到目标路径)",
+        "tar --exclude=\"*.log\"：排除特定文件",
+        "tar保留文件权限和所有者信息(适合备份和固件发布)",
+        "嵌入式固件发布标准格式：tar.gz / tar.xz"
+      ],
+      "background": [
+        "tar在嵌入式Linux中100%会遇到(下载交叉编译工具链、解压根文件系统、部署应用)",
+        "tar保留了文件权限和所有者信息(重要备份属性)——cpio和zip不保留",
+        "嵌入式固件(.tar.gz/.tar.xz)是标准发布格式之一(另一种是.squashfs镜像)",
+        "tar选项的-可以省略：tar czvf和tar -czvf都合法"
+      ],
+      "understand": [
+        "tar的历史起源：Tape Archive(磁带存档)，源自Unix早期",
+        "cpio和pax：其他归档工具(较少使用，特定场景)"
+      ]
+    },
+    "9.1": {
+      "core": [
+        "vi是最经典的Unix文本编辑器，vim是vi improved(增强版)",
+        "vim三大模式：命令模式(默认)、插入模式(输入文本)、末行模式(执行命令)",
+        "模式切换：命令模式按i → 插入模式；Esc回到命令模式；: → 末行模式",
+        "打开文件：vim filename、vim +n filename(打开到第n行)",
+        "进入插入模式：i(当前插入) I(行首) a(后插入) A(行尾) o(下一行插入) O(上一行插入)",
+        "保存退出：:wq(写入退出) :q!(强制退出不保存) :w(仅写入) :q(仅退出)",
+        "命令模式基本操作：h/j/k/l(左/下/上/右) x(删除光标处字符) dd(删除行) yy(复制行) p(粘贴)",
+        "退出vim是新手最经典的卡住问题——先按Esc确保在命令模式再输入命令",
+        "vim vs vi：vim提供了语法高亮、多级撤销、可视模式、分屏等增强功能"
+      ],
+      "background": [
+        "vim是Linux系统管理员和嵌入式工程师的必备工具——配置嵌入式板端时只有终端编辑器可用",
+        "学习vim是长期投资：熟练后编辑速度远快于鼠标操作",
+        "嵌入式板端大多只有vi(简化版)或vim-tiny(功能裁剪)，需用最基本操作",
+        "无GUI环境(服务器/板端)时vim是唯一可靠的编辑器"
+      ],
+      "understand": [
+        "vim的作者：Bram Moolenaar(荷兰程序员，2023年去世)",
+        "vim vs Emacs：经典的编辑器战争(text editor war)"
+      ]
+    },
+    "9.2": {
+      "core": [
+        "光标移动：h/j/k/l(左/下/上/右) w(下个词首) b(上个词首) 0(行首) $(行尾)",
+        "翻页：Ctrl+F/B(上下翻页) Ctrl+D/U(上下翻半页)",
+        "搜索：/pattern(向下) ?pattern(向上) n/N(下一个/上一个结果)",
+        "替换：:s/old/new(当前行) :%s/old/new/g(全文) :1,10s/old/new/g(指定行)",
+        "删除：dd(整行) dw(词) d$(到行尾) dG(到文件尾)；复制：yy(行) yw(词)；粘贴：p/P",
+        "撤销/重做：u(撤销) Ctrl+r(重做)",
+        "可视模式：v(字符) V(行) Ctrl+v(块选择，批量注释技巧)",
+        "分屏：:sp(水平) :vsp(垂直) Ctrl+ww(切换)；多文件：:n/:N/:w"
+      ],
+      "background": [
+        "Ctrl+v块选择→按I→插入内容→Esc是多行注释的经典技巧",
+        "多行替换(:%s/old/new/g)是vim最高效的功能之一——批量修改配置文件",
+        "分屏功能在同时编辑多个配置文件时非常实用(如修改nginx配置)",
+        "在嵌入式板端无法使用图形diff工具时，vimdiff是强大的替代方案"
+      ],
+      "understand": [
+        "寄存器操作：\"ayy(复制到寄存器a) \"ap(从寄存器a粘贴)",
+        "宏：qa(开始录制宏到a) → 操作 → q(停止录制) → @a(回放宏)"
+      ]
+    },
+    "9.3": {
+      "core": [
+        "vim语法高亮：:syntax on(启用) 或 :syntax enable",
+        "vim行号显示：:set nu(显示行号) :set nonu(隐藏行号)",
+        "vim配置文件：~/.vimrc(用户自定义) /etc/vim/vimrc(全局配置)",
+        ".vimrc常用设置举例：set nu, set ts=4(tab缩进4空格), set expandtab(tab转空格)",
+        "vim编码设置：set encoding=utf-8, set fileencodings=utf-8,gbk",
+        "交换文件：vim崩溃后产生.swp文件，可恢复未保存的编辑内容",
+        "vimdiff：比较文件差异 vimdiff file1 file2(比diff更直观)",
+        "代码补全：Ctrl+n / Ctrl+p(单词补全) Ctrl+x+o(Omni补全)",
+        "在vim中执行Shell命令：:!command 如:!gcc %(编译当前C文件)",
+        "可视块操作：Ctrl+v选矩形区域后I/D批量插入/删除"
+      ],
+      "background": [
+        ".vimrc配置是每位vim用户的必修课(根据个人习惯定制缩进/快捷键/配色)",
+        "vimdiff在对比配置文件、代码审查时非常实用(是git diff的工具之一)",
+        "vim的交换文件(swap file)恢复功能在SSH会话意外断开时能救命",
+        "嵌入式环境中的vim通常是vim-tiny(不支持语法高亮和插件)"
+      ],
+      "understand": [
+        "neovim：vim的现代化复刻(better API、内置终端仿真器、异步插件)",
+        "vim插件管理器：vim-plug / Vundle(可扩展功能但嵌入式环境不可用)"
+      ]
+    },
+    "10.1": {
+      "core": [
+        "Shell是命令解释器：接收用户输入的命令并调用对应程序执行",
+        "Shell同时也是脚本编程语言(支持变量/条件/循环/函数)",
+        "BASH = Bourne Again SHell，GNU项目对sh(Bourne Shell)的改进版本",
+        "Linux默认Shell是/bin/bash",
+        "其他Shell：sh(原始Bourne)、zsh(Z Shell增强版)、fish(Friendly Interactive Shell)",
+        "登录Shell和非登录Shell的区别：加载的配置文件不同",
+        "登录Shell启动文件顺序：/etc/profile → ~/.bash_profile → ~/.bashrc",
+        "终端(terminal)和Shell的关系：终端提供输入输出设备，Shell运行在其中",
+        "查看当前Shell：echo $SHELL；查看可用Shell：cat /etc/shells",
+        "切换默认Shell：chsh -s /bin/zsh"
+      ],
+      "background": [
+        "理解Shell对后续学习Shell脚本至关重要(Shell脚本就是用bash语法写的)",
+        "从MCU思维过渡：MCU的while(1)主循环轮询处理不同事件 ≈ Shell的交互式命令循环",
+        "嵌入式Linux的Shell默认是BusyBox的ash(简化版sh)——不支持bash的高级特性(数组/关联数组等)",
+        "不同Shell的语法兼容性：bash脚本在sh中运行可能报错(需注意shebang指定解释器)"
+      ],
+      "understand": [
+        "Ctrl+Alt+F1~F7切换虚拟控制台(每个控制台运行独立的登录Shell)",
+        "ShellShock漏洞(CVE-2014-6271)：bash的环境变量处理安全漏洞(影响大量服务器)"
+      ]
+    },
+    "10.2": {
+      "core": [
+        "变量定义：name=\"value\"(等号两边不能有空格——新手最常见错误!)",
+        "变量引用：$name或${name}；值含空格必须加引号：双引号保留$含义，单引号全字面量",
+        "环境变量：影响Shell行为的变量(PATH/HOME/SHELL等)，子进程继承环境变量",
+        "export将自定义变量提升为环境变量(子进程可继承)；自定义变量不传递给子进程",
+        "PATH：命令搜索路径，各路径用:分隔——理解PATH可解决大多数命令找不到问题",
+        "env查看环境变量/set查看所有变量(含自定义)；unset name删除变量",
+        "变量扩展：${var:-default}(默认值) ${var:?error}(空值时报错)",
+        "read -p \"提示\" variable从键盘读取输入；declare -i(整数) -a(数组)声明类型"
+      ],
+      "background": [
+        "PATH是Linux中最关键的环境变量——理解PATH能解决大多数命令找不到的问题",
+        "嵌入式交叉编译时，需将交叉编译工具链bin目录添加到PATH的最前面",
+        "export的作用：让子Shell或子进程继承当前Shell中定义的变量",
+        "变量引用加双引号习惯：尽量使用\"$var\"而非$var(避免含空格的值被拆分)"
+      ],
+      "understand": [
+        "变量的生效范围：当前Shell(普通变量)/子Shell(export)/全局(写入配置文件如~/.bashrc)",
+        "RANDOM：bash内置随机数变量($RANDOM返回0-32767之间的随机整数)"
+      ]
+    },
+    "10.3": {
+      "core": [
+        "alias：设置命令别名(alias ll='ls -l')；unalias取消别名；alias查看当前所有别名",
+        "常用别名：alias rm='rm -i'(防误删) alias grep='grep --color=auto'",
+        "别名仅当前Shell有效——持久化需写入~/.bashrc",
+        "history查看命令历史 history n(最近n条)",
+        "历史命令复用：!!(上一条) !n(第n条) !string(最近以string开头的命令)",
+        "Ctrl+R：反向搜索历史命令(最实用的历史检索方式)",
+        "历史文件：~/.bash_history(退出Shell时写入)；HISTSIZE/FILESIZE控制保留条数",
+        "HISTTIMEFORMAT在history中显示时间戳；history -c清空 -w立即写入"
+      ],
+      "background": [
+        "Ctrl+R是提高命令行效率的关键习惯——学会用Ctrl+R替代反复按↑翻几十次",
+        "在嵌入式调试中常需重复长命令(交叉编译命令/SCP传输/板端测试)，历史命令是救星",
+        "安全提醒：history可能泄露密码(在命令行直接输入密码会被记录到~/.bash_history)",
+        "history的水印功能(HISTTIMEFORMAT)有助于回溯操作时间线"
+      ],
+      "understand": [
+        "fc命令(Fix Command)：历史命令的编辑和重新执行",
+        "history在共享服务器上的隐私问题(需注意~/.bash_history的权限设置)"
+      ]
+    },
+    "10.4": {
+      "core": [
+        "登录Shell启动文件加载顺序：/etc/profile → ~/.bash_profile → ~/.bashrc",
+        "非登录Shell只加载~/.bashrc→ /etc/bashrc(读取层级)",
+        "~/.bashrc：用户自定义配置文件(别名/函数/提示符/PATH扩展)——最常修改的Shell文件",
+        "/etc/profile：全局配置(影响所有用户)",
+        "~/.bash_logout：退出登录Shell时执行的操作",
+        "提示符PS1：定义Shell提示符显示样式 \\u(用户名) \\h(主机名) \\w(路径) \\$($或#)",
+        "修改PS1示例：PS1='[\\u@\\h \\W]\\$ '",
+        "语系/编码：locale命令查看当前语言环境 LANG和LC_ALL变量",
+        "终端类型：TERM环境变量(影响终端颜色和功能，常用xterm-256color)",
+        "通配符(globbing)：*任意字符 ?单个字符 [abc]字符集 [^abc]排除"
+      ],
+      "background": [
+        "修改~/.bashrc是每个Linux用户的必经之路(配置别名/扩展PATH/自定义提示符)",
+        "嵌入式Linux的Shell环境通常不完整(busybox ash无颜色提示、有限通配符支持)",
+        "语系问题：LANG=C可以避免中文乱码(服务器环境推荐，提高兼容性)",
+        "通配符和正则表达式是完全不同的语法体系——必须明确区分(初学者极易混淆)"
+      ],
+      "understand": [
+        "stty：终端设置命令(stty -a查看所有终端参数)",
+        "set -o：Shell选项控制(set -o vi启用vi模式编辑命令行, set -o emacs用emacs模式)"
+      ]
+    },
+    "10.5": {
+      "core": [
+        "标准输入stdin(文件描述符0)默认键盘；标准输出stdout(1)默认屏幕；标准错误stderr(2)默认屏幕",
+        "重定向stdout：> file(覆盖) >> file(追加)；重定向stderr：2> file 2>> file",
+        "合并stdout和stderr：command > file 2>&1(注意顺序) 或 bash简写command &> file",
+        "重定向stdin：< file从文件读取输入",
+        "Here Document：<< delimiter ... delimiter(内联输入边界标记)",
+        "/dev/null：黑洞设备丢弃所有写入数据 command &> /dev/null(静默运行)",
+        "tee：同时输出到屏幕和文件 command | tee file(追加用tee -a)",
+        "管道和重定向的区别：管道连接命令和命令，重定向连接命令和文件"
+      ],
+      "background": [
+        "重定向是日常Linux操作最强大的功能之一——日志管理、错误排查",
+        "编译时同时保存输出到文件并查看进展：make 2>&1 | tee build.log",
+        "分别保存stdout和stderr有助于分析错误(command > out.log 2> err.log)",
+        "/dev/null在Shell脚本中极为重要(不关心输出时丢弃)"
+      ],
+      "understand": [
+        "文件描述符除0/1/2外可通过exec自定义(exec 3<>file 打开文件并指向fd3)",
+        "重定向顺序陷阱：command > file 2>&1(正确) vs command 2>&1 > file(错误)"
+      ]
+    },
+    "10.6": {
+      "core": [
+        "管道(|)：将左边命令的stdout连接到右边命令的stdin，格式：cmd1 | cmd2 | cmd3",
+        "管道只传递stdout不传递stderr(需2>&1合并后再管道)",
+        "grep过滤：grep pattern file -i(忽略大小写) -v(反向匹配) -n(行号) -r(递归)",
+        "sort排序：-n(数字) -r(逆序) -k N(按第N列)；uniq去重(需先sort)：-c(统计次数)",
+        "wc统计：-l(行数) -w(单词数) -c(字符数)",
+        "cut按列切割：-d分隔符 -f字段(如cut -d: -f1 /etc/passwd)",
+        "tr字符替换：tr 'a-z' 'A-Z' < file(小写转大写)",
+        "管道链是Unix哲学的体现：组合简单工具完成复杂任务(如dmesg | grep error | tail -20)"
+      ],
+      "background": [
+        "管道是Unix哲学的集中体现：每个命令做一件事并做好——通过管道组合简单工具完成复杂任务",
+        "数据流链条：命令输出 → 管道过滤 → 排序 → 结果",
+        "嵌入式日志分析中管道是关键技能：dmesg | grep error | tail -20",
+        "管道链是迈向Shell脚本自动化的重要一步(从手动组装到脚本固化)",
+        "管道和重定向的本质区别：管道连接命令和命令，重定向连接命令和文件"
+      ],
+      "understand": [
+        "named pipe(FIFO)：文件系统中的有名管道，用于无关进程间的通信",
+        "管道在Shell内部的实现：pipe()系统调用 + fork()子进程"
+      ]
+    },
+    "11.1": {
+      "core": [
+        "正则表达式(Regular Expression / RE)：一种字符串模式匹配的语言",
+        "正则表达式 ≠ Shell通配符(glob) —— 两套完全不同语法和语义",
+        "基础正则表达式(BRE)和扩展正则表达式(ERE)的区别",
+        "支持正则的工具：grep/sed/awk/vim/perl/python",
+        "正则表达式应用场景：日志分析、文本提取、数据清洗、表单验证",
+        "正则不是命令——是一种模式描述语言，被grep/sed/awk等命令使用",
+        "在命令行中正则表达式需用引号包围(防止Shell解释特殊字符)",
+        "通配符(*)匹配任意字符，正则(*)表示前一个字符重复任意次——含义完全不同"
+      ],
+      "background": [
+        "正则表达式是文本处理的核心技能，对嵌入式日志排查和数据解析(如解析传感器输出)至关重要",
+        "MCU开发者可能不太熟悉文本处理(嵌入式大多无复杂文本)，过渡到Linux后需要掌握",
+        "学习正则需要耐心——不是一天能掌握的，从基础正则开始逐步积累"
+      ],
+      "understand": [
+        "正则表达式引擎：POSIX(传统Linux工具) vs PCRE(Perl兼容，更强大)",
+        "正则表达式在Python/JavaScript等编程语言中的广泛应用"
+      ]
+    },
+    "11.2": {
+      "core": [
+        "基本正则BRE元字符：.(匹配任意单字符) *(前一个字符重复0或多次) ^(行首) $(行尾)",
+        "BRE字符集：[]匹配集合内任一个[abc] [a-z]；[^]排除字符集[^abc]",
+        "BRE重复次数：\\{n\\}(恰好n次) \\{n,\\}(至少n次) \\{n,m\\}(n到m次)",
+        "转义符\\：使特殊字符变为字面量(\\\\.匹配点号)",
+        "grep -c(计数) -n(显示行号) -o(只显示匹配部分) -v(反向匹配) -i(忽略大小写) -r(递归搜索)",
+        ".*表示任意长度任意字符(贪婪匹配，尽可能多)",
+        "正则≠通配符：正则中*表示重复前一个字符，通配符中*表示任意字符",
+        "^$匹配空行(行首直接跟行尾)"
+      ],
+      "background": [
+        "grep是最常用的正则工具——学会grep可快速定位日志中的关键信息",
+        "在嵌入式调试中：grep 'error' log.txt | grep -v 'ignored'(排除无关联的假阳性)",
+        "grep -r在代码搜索中极高效(替代在多个文件中手动搜索)",
+        "正则的贪婪匹配：.*匹配尽可能多的字符(需要时\\{n,m\\}限制)"
+      ],
+      "understand": [
+        "grep名字由来：Global search Regular Expression and Print out",
+        "egrep等价于grep -E(支持扩展正则)，fgrep等价于grep -F(纯字符串搜索)"
+      ]
+    },
+    "11.3": {
+      "core": [
+        "扩展正则(ERE)使用grep -E或egrep命令调用",
+        "+：前一个字符重复1次或多次(不同于BRE的*允许0次)",
+        "?：前一个字符出现0次或1次(可选匹配)",
+        "|：或操作符 a|b匹配a或b",
+        "()：分组 (dog)+匹配dog一次或多次, gr(a|e)y匹配gray或grey",
+        "{}：精确重复次数(不需要反斜杠!) {n} {n,} {n,m}",
+        "()和[]的区别：[]是字符集(匹配单个字符)，()是分组(匹配多字符模式)",
+        "扩展正则更适合复杂模式匹配(IP/邮箱/URL)"
+      ],
+      "background": [
+        "扩展正则比基础正则更强大，日常推荐使用grep -E(省去反斜杠)",
+        "()分组结合|或操作是最重要的高级用法",
+        "实际工作中，IP地址匹配、邮箱验证、路径提取都需要扩展正则"
+      ],
+      "understand": [
+        "Perl兼容正则表达式(PCRE)在Web开发和编程中更常用",
+        "正则表达式在词法分析器(yacc/lex)中的基础应用"
+      ]
+    },
+    "11.4": {
+      "core": [
+        "sed(Stream Editor)：流编辑器，按行处理文本 sed 's/old/new/'替换 sed 's/old/new/g'全局替换",
+        "sed -i直接修改原文件(不加-i仅输出到stdout)；地址范围：sed '1,5s///'或'/pattern/s///'",
+        "sed删除：sed '3d'(第3行) sed '/pattern/d'(匹配行)；插入追加：sed '3i\\text'/sed '3a\\text'",
+        "awk：按列处理的文本处理语言 awk 'pattern {action}' file",
+        "awk默认按空白分割列，$1 $2 ... $NF引用各列；-F:指定分隔符如awk -F: '{print $1}' /etc/passwd",
+        "awk内置变量：NR(行号) NF(列数) FS(字段分隔符) OFS(输出分隔符)",
+        "awk printf格式化：awk '{printf \"%-10s %d\\n\", $1, $3}'",
+        "diff文件比较：diff -u(统一格式，git diff风格)"
+      ],
+      "background": [
+        "sed + awk + grep是Unix文本处理三剑客——掌握后可完成几乎所有文本处理需求",
+        "sed适合：批量替换配置文件中的参数(sed -i 's/old/new/g' /etc/config/*.conf)",
+        "awk适合：从结构化数据中提取特定字段和统计(分析日志/生成报告)",
+        "diff在代码审查和补丁生成中常用(diff -u生成patch文件，patch命令应用)",
+        "sed -i批量修改是嵌入式配置管理的常用技巧"
+      ],
+      "understand": [
+        "cmp：字节级别文件比较(比diff更底层)",
+        "patch命令：应用diff生成的补丁文件(源代码管理基础)"
+      ]
+    },
+    "12.1": {
+      "core": [
+        "Shell Script：将多条Shell命令写入文本文件，依次执行(批处理 + 编程逻辑)",
+        "脚本第一行：#!/bin/bash(Shebang) —— 指定解释器路径",
+        "执行方式1：bash script.sh(子Shell执行，不需要x权限)",
+        "执行方式2：./script.sh(需chmod +x赋予执行权限)",
+        "执行方式3：source script.sh(当前Shell执行，变量配置会保留)",
+        "三种执行方式的区别：子Shell不继承自定义变量 / source在当前Shell运行",
+        "创建脚本步骤：touch script.sh → vim script.sh → chmod +x → ./script.sh",
+        "脚本中使用注释：以#开头(Shebang本身也是一种注释)",
+        "变量使用前建议初始化，引用时加双引号",
+        "脚本退出状态码：exit 0(成功) exit 1(失败) —— $?查看上条命令退出码"
+      ],
+      "background": [
+        "Shell脚本是Linux运维和嵌入式自动化的核心工具——告别手工重复操作",
+        "嵌入式AI部署中常见脚本：数据处理脚本 / 编译构建脚本 / 板端配置脚本 / 启动脚本",
+        "从使用者到自动化者的转变标志：开始写脚本替代手动输入命令",
+        "执行方式区别是初学者最常见的错误点(忘记加x权限 / source和./搞混 / 路径不对)"
+      ],
+      "understand": [
+        "Shebang路径必须正确(/bin/bash vs /usr/bin/bash，FreeBSD路径不同)",
+        "脚本的调试第一招：echo + exit(分段定位问题)"
+      ]
+    },
+    "12.2": {
+      "core": [
+        "变量使用：name=\"value\"(等号无空格)，echo $name引用",
+        "交互输入：read -p \"提示信息: \" variable",
+        "命令替换：$(command) 或 `command`(推荐$()，可嵌套)",
+        "算术运算：$((expression)) —— bash内置整数运算(不支持浮点)",
+        "备份脚本示例：tar -czvf backup_$(date +%Y%m%d).tar.gz /path",
+        "脚本参数：$0(脚本名) $1-$9(第1-9个参数) $#(参数个数) $@(所有参数)",
+        "shift：左移参数列表(处理超过9个参数时循环移位)",
+        "exit与返回值：exit 0(正常) exit 1(通用错误)",
+        "test命令同义：test condition 或 [ condition ]",
+        "变量引用建议加双引号：\"$var\"(防止空值和空格导致的分词问题)"
+      ],
+      "background": [
+        "命令替换$(...)是脚本中最常用的技术之一(将命令输出捕获为变量)",
+        "date +%Y%m%d在备份脚本中极常用(生成日期命名的备份文件)",
+        "$@和$*的区别：$@是独立参数序列(推荐)，$*是单个字符串(有空格问题)",
+        "嵌入式启动脚本(init脚本/systemd unit ExecStart)大量使用参数传递模式"
+      ],
+      "understand": [
+        "子Shell执行时的变量隔离现象(管道中的while循环修改的变量在外层读不到)",
+        "basename/dirname在脚本参数路径处理中的常用技巧"
+      ]
+    },
+    "12.3": {
+      "core": [
+        "test命令：test condition 或 [ condition ](注意中括号两边必须有空格!)",
+        "文件测试：-e(文件存在) -f(普通文件) -d(目录) -s(文件非空) -r/-w/-x(权限)",
+        "字符串测试：-z(空串) -n(非空串) =(相等) !=(不等)",
+        "整数比较：-eq(等于) -ne(不等于) -gt(大于) -lt(小于) -ge(大于等于) -le(小于等于)",
+        "组合条件：&&(AND) ||(OR) !(NOT)",
+        "[ ]和[[ ]]的区别：[[ ]]是bash扩展关键字，支持&&/||内部使用、支持正则=~",
+        "[ ]的空格要求是初学者最常见的语法错误![ \"$a\" = \"$b\" ]",
+        "实际应用：先检查文件是否可读 → 再读取内容",
+        "test在if/while/until条件判断中广泛应用"
+      ],
+      "background": [
+        "[ ]的空格要求是Shell脚本最经典的陷阱——少一个空格就语法错误",
+        "[[ ]]更安全(处理空变量不会报语法错误)，建议在bash脚本中使用",
+        "文件测试在嵌入式脚本中常用：检查设备文件是否存在(/dev/video0)、配置文件是否可读",
+        "整数比较用-eq而不是==(这是新手最容易搞混的语法——==用于字符串)"
+      ],
+      "understand": [
+        "(( ))语法支持C风格整数比较：if (( a > b )) —— 不需要-eq",
+        "&&和||的短路求值：[ -f file ] && echo \"exists\"(条件成立才执行后面的)"
+      ]
+    },
+    "12.4": {
+      "core": [
+        "if基本语法：if [ condition ]; then command; fi",
+        "if-elif-else完整语法：if ... then ... elif ... then ... else ... fi",
+        "case多分支语法：case $var in pattern1) commands ;; pattern2) commands ;; esac",
+        "case中的通配符：*通配(默认分支) ?单字符 [abc]字符集",
+        "case适合处理根据输入参数执行不同操作(如init脚本的start/stop/restart)",
+        "条件判断中的命令替换：if [ -f \"$(which command)\" ]",
+        "逻辑AND和OR在条件中的组合",
+        "实际应用案例：根据磁盘使用率决定是否发出告警"
+      ],
+      "background": [
+        "case的用途和C语言switch-case类似——嵌入式init脚本的标准模式(service start/stop/restart)",
+        "if的fi闭合和case的esac闭合是Shell语法特点(反向拼写)",
+        "条件判断在自动化运维脚本中的核心地位(根据系统状态做不同操作)"
+      ],
+      "understand": [
+        "&&和||实现简单条件分支的短路求值特性",
+        "退出状态码返回范围0-255(程序退出码约定)"
+      ]
+    },
+    "12.5": {
+      "core": [
+        "for循环语法：for var in list; do command; done",
+        "for列表形式：for i in 1 2 3 4 5; for file in *.txt; for i in $(seq 1 10)",
+        "C风格for：for (( i=1; i<=10; i++ ))(bash扩展，不是POSIX sh)",
+        "while循环：while [ condition ]; do command; done",
+        "until循环：until [ condition ]; do command; done(条件为真时停止)",
+        "break：跳出整个循环 continue：跳过当前迭代进入下一轮",
+        "循环中逐行读取：while read line; do echo $line; done < file",
+        "实际应用：批量重命名文件、遍历目录处理日志、批量部署"
+      ],
+      "background": [
+        "循环中管道的副作用必须注意：while read在管道中会在子Shell执行(循环外变量修改不保留)",
+        "嵌入式板端批量部署场景：for循环复制文件到多个目录 / 循环检查多个设备状态",
+        "Shell循环比Python循环慢很多——大量数据处理时建议用awk或Python而非Shell循环",
+        "seq命令生成数字序列：for i in $(seq 1 100)"
+      ],
+      "understand": [
+        "循环嵌套：外循环遍历目录，内循环处理每个目录中的文件",
+        "无限循环：while true; do ...; done (用于守护进程/持续监控脚本)"
+      ]
+    },
+    "12.6": {
+      "core": [
+        "bash -x：执行脚本时显示每条命令的跟踪信息(前面+号标记)，最常用的调试方式",
+        "bash -n：检查脚本语法但不执行(检测未闭合的if/for/缺then等语法错误)",
+        "bash -v：显示脚本的原始内容(verbose模式，输出每行原始源码)",
+        "脚本中指定调试模式：#!/bin/bash -x 或在脚本内部set -x启用 / set +x关闭",
+        "分段调试：在需要跟踪的部分前后加set -x和set +x(减少调试输出噪音)",
+        "变量展开排查：在关键位置加echo \"变量名=$变量名\" + exit 0(逐步推进)",
+        "常见语法错误：if缺少fi / for缺少done / case缺少esac / [ ]空格缺失",
+        "使用trap命令捕获信号进行调试：trap 'echo line $LINENO' DEBUG"
+      ],
+      "background": [
+        "bash -x是Shell脚本调试的核心工具——输出每个命令及其展开后的实际参数",
+        "语法错误(丢失fi/忘记then/括号不匹配/引号不闭合)在编写复杂脚本时极易出现",
+        "分段set -x/+x避免被不相关的部分刷屏",
+        "Shell脚本写得越长越需要调试技巧——建议短脚本先逻辑清晰再加调试"
+      ],
+      "understand": [
+        "ShellCheck：在线Shell脚本静态检查工具(有命令行版本，推荐安装)",
+        "脚本日志函数：定义log() { echo \"$(date): $*\" >> script.log; } 实现分级日志"
+      ]
+    }
+  }
+}

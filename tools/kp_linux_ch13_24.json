@@ -1,0 +1,948 @@
+{
+  "sections": {
+    "13.1": {
+      "core": [
+        "Linux 是多用户多任务操作系统，每个用户必须有独立帐号才能登录系统",
+        "/etc/passwd 文件存储用户帐号信息，每一行对应一个用户，包含 7 个字段：帐号:密码占位符:UID:GID:注释:家目录:Shell",
+        "/etc/shadow 文件存储加密后的密码和帐号有效期信息，仅 root 可读，防止密码哈希泄露",
+        "/etc/group 文件存储群组信息，包含群组名:群组密码:GID:群组成员列表",
+        "UID 是用户 ID，0 代表 root，1-999 为系统服务帐号，1000+ 为普通用户",
+        "GID 是用户初始群组 ID；用户还可通过 /etc/group 中成员字段加入多个辅助群组",
+        "有效群组 (effective group) 与初始群组的概念：新建文件时使用当前有效群组",
+        "useradd/usermod/userdel 和 groupadd/groupmod/groupdel 是管理用户和群组的专用命令，不应直接编辑 /etc/passwd"
+      ],
+      "background": [
+        "本章建立在前置章节 Ch5（文件权限 rwx 模型）基础上，从用户维度理解权限体系的源头",
+        "多用户机制是 Linux 从设计之初就内置的特性（源自 UNIX 的分时系统传统），不同于 MCU 的单用户裸机模型",
+        "理解帐号系统是后续学习 ACL、sudo、服务独立帐号的基础",
+        "嵌入式 Linux 系统通常只有 1-2 个用户但同样依赖帐号体系实现权限隔离"
+      ],
+      "understand": [
+        "影子密码 (shadow password) 机制是从早期 UNIX 的 /etc/passwd 直接存密码演化而来",
+        "NIS、LDAP 等网络认证服务可让多台机器共享同一套用户帐号数据库",
+        "PAM (Pluggable Authentication Modules) 模块化认证框架在此之上提供灵活认证策略"
+      ]
+    },
+    "13.2": {
+      "core": [
+        "useradd 创建用户时自动分配 UID、创建家目录 (/home/用户名)、设置 Shell (/bin/bash)、写入 /etc/passwd 和 /etc/shadow",
+        "useradd -m 强制创建家目录；-g 指定初始群组；-G 指定附加群组；-s 指定登录 Shell；-d 指定家目录路径",
+        "passwd 命令设置或修改用户密码；root 可设置任何用户的密码，普通用户只能修改自己的密码",
+        "usermod 修改已有用户属性：-L 锁定帐号（在密码前加 !）、-U 解锁、-aG 追加到附加群组",
+        "userdel -r 删除用户同时删除其家目录和邮件池，不加 -r 则只删除帐号条目",
+        "groupadd/gpasswd/groupdel 管理群组；gpasswd -a 添加成员、-d 移除成员",
+        "finger 和 id 命令可查看用户信息和所属群组；who/w 查看当前登录用户",
+        "帐号管理错误可能导致系统无法登录：创建用户后必须立即设置密码"
+      ],
+      "background": [
+        "嵌入式板端多用户虽不常见，但部署服务时习惯为每个服务创建独立系统帐号以隔离权限",
+        "useradd 的默认值来自 /etc/default/useradd 和 /etc/login.defs 配置文件",
+        "系统帐号（UID < 1000）用于运行系统服务（如 sshd、ntp），无登录 Shell 和家目录"
+      ],
+      "understand": [
+        "chsh 和 chfn 可分别修改用户登录 Shell 和个人信息（finger 信息）",
+        "系统帐号密码通常设为无效（!!），防止通过登录获取 Shell",
+        "useradd -r 创建系统帐号，分配 100-999 之间的 UID"
+      ]
+    },
+    "13.3": {
+      "core": [
+        "ACL (Access Control List) 在传统 rwx 三层权限之上提供针对特定用户或群组的细粒度权限控制",
+        "ACL 解决的核心问题：传统 rwx 只能设置 owner/group/others 三类，无法精确到单个用户",
+        "setfacl -m u:用户名:权限 给特定用户增加 ACL 条目；setfacl -m g:群组名:权限 给特定群组增加",
+        "setfacl -x u:用户名 删除指定用户的 ACL 条目；setfacl -b 删除所有 ACL 条目",
+        "getfacl 查看文件或目录的 ACL 设置；输出中 mask 字段表示 ACL 权限掩码",
+        "目录设置默认 ACL (setfacl -m d:u:用户名:权限 目录名) 后，新建子文件和子目录自动继承 ACL",
+        "ACL 生效后 ls -l 输出的权限位末尾显示 + 号标识（如 -rw-rw----+）",
+        "ACL 的原理是在 inode 的扩展属性区域存储额外的权限映射表"
+      ],
+      "background": [
+        "嵌入式共享文件夹场景中 ACL 非常实用：板端不同服务共享一个数据目录但需要不同访问级别",
+        "ACL 是对传统 UNIX DAC (Discretionary Access Control) 的扩展但不是替代",
+        "文件系统必须支持 ACL 挂载选项（ext4 默认支持，挂载时加 acl 选项确认）"
+      ],
+      "understand": [
+        "ACL 条目有明确的优先级顺序：owner → ACL user entries → ACL group entries → mask → others",
+        "ACL 掩码 (mask) 限制了 ACL 用户和 ACL 群组的最大有效权限",
+        "NFSv4 支持更复杂的 ACL 模型（Windows 兼容），与 POSIX ACL 不同"
+      ]
+    },
+    "13.4": {
+      "core": [
+        "su [用户名] 切换用户但不加载目标用户环境变量；su - [用户名] 切换用户并加载完整登录环境（login shell）",
+        "su 需要知道目标用户的密码（root 切换任意用户不需要密码）",
+        "su - 和 su 的区别是命令界面设计者容易踩坑的地方：不加 - 会导致 PATH 等环境变量仍为原用户",
+        "sudo 允许授权用户以其他用户身份执行命令，只需输入自己的密码（或配置 NOPASSWD）",
+        "sudo 配置在 /etc/sudoers 文件中，必须用 visudo 编辑（语法检查防止配置错误导致 sudo 永久失效）",
+        "sudo 配置格式：用户名 主机名=(可执行身份:可执行群组) 命令路径；ALL 表示全部",
+        "sudo 的优势：精确授权（只给特定命令的 root 权限）、操作日志（/var/log/auth.log 记录每条 sudo 命令）",
+        "su 适合临时切换到其他用户做交互式操作；sudo 适合执行单个提权命令"
+      ],
+      "background": [
+        "嵌入式系统中 ssh 登录后频繁使用 sudo 管理服务、查看日志、重启守护进程",
+        "sudo 比直接用 root 登录安全：可审计、可回收、可精确限定权限范围",
+        "sudo -u 用户名 命令 可切换到任意非 root 用户执行命令，部署场景常用"
+      ],
+      "understand": [
+        "sudo 的 NOPASSWD 标签可在特定命令上免密码执行，适合脚本自动化场景",
+        "visudo 会锁定 /etc/sudoers 文件防止并发写入，并在保存前做语法检查",
+        "sudo -i 可模拟 root 登录 shell；sudo -s 使用当前 shell 环境执行 root shell"
+      ]
+    },
+    "14.1": {
+      "core": [
+        "磁盘配额 (Quota) 限制用户或群组可使用的磁盘空间上限和 inode 数量上限",
+        "Quota 分为 soft limit（软限制，超出后有宽限期 grace time）和 hard limit（硬限制，绝对上限）",
+        "Quota 生效需要文件系统挂载时启用 usrquota 和 grpquota 选项",
+        "quotacheck 扫描文件系统生成配额数据库；edquota 编辑用户/群组的配额限制",
+        "quotaon/quotaoff 启用/关闭配额；repquota 报告文件系统配额使用情况",
+        "Quota 对 /home 分区特别重要：防止某个用户写满磁盘影响整个系统",
+        "宽限期 (grace time) 是 soft limit 超出后可继续使用的缓冲时间，超时后 soft limit 充当 hard limit"
+      ],
+      "background": [
+        "嵌入式设备存储容量有限（几 GB 的 eMMC 或 SD 卡），日志写满存储是常见故障场景",
+        "Quota 是传统硬盘容量限制方案，现代场景中被 LVM 的 lvresize 部分替代，但日志类服务常配合 logrotate 使用",
+        "必须先安装 quota 工具包 (apt install quota 或 yum install quota)"
+      ],
+      "understand": [
+        "Quota 可单独限制 inode 数量（防止用户创建海量小文件耗尽 inode 表）",
+        "Quota 只对普通用户生效，root 不受配额限制",
+        "XFS 文件系统的 Quota 管理命令与 ext4 不同（使用 xfs_quota）"
+      ]
+    },
+    "14.2": {
+      "core": [
+        "RAID (Redundant Array of Independent Disks) 将多块物理磁盘组合成一块逻辑磁盘，提高性能或可靠性",
+        "RAID 0 (条带化): 数据分散写入所有盘，性能最高但无冗余，坏一块盘所有数据丢失",
+        "RAID 1 (镜像): 数据完全复制到两块盘，写性能略降但读性能提升，一块盘故障数据完好",
+        "RAID 5 (带奇偶校验的条带化): 至少 3 块盘，一块盘故障可重建，奇偶校验分布在各盘",
+        "RAID 10 (先镜像后条带): RAID 1 + RAID 0 组合，兼顾性能和冗余，最少 4 块盘",
+        "软件 RAID 通过 mdadm 工具实现，不需要专用硬件 RAID 卡",
+        "mdadm --create 创建 RAID 阵列；--detail 查看状态；--fail 标记故障盘；--remove/--add 替换磁盘",
+        "/proc/mdstat 查看当前系统 RAID 状态"
+      ],
+      "background": [
+        "嵌入式 Edge AI 服务器（如 Jetson）若配有大容量存储时可考虑 RAID 保护系统数据",
+        "软件 RAID 相比硬件 RAID 成本低但占用 CPU 资源；Edge AI 设备本就有 CPU 富余",
+        "RAID ≠ 备份：RAID 防硬件故障但不防误删、病毒、软件损坏"
+      ],
+      "understand": [
+        "RAID 级别选择取决于需求：性能优先选 RAID 0/10，冗余优先选 RAID 1/5/6",
+        "RAID 6 比 RAID 5 多一个分布式奇偶校验，可容忍两块盘同时故障",
+        "硬件 RAID 卡有专用 cache 和 BBU (电池备份单元)，软件 RAID 依赖主机内存"
+      ]
+    },
+    "14.3": {
+      "core": [
+        "LVM (Logical Volume Manager) 解决传统分区无法动态调整大小的问题",
+        "LVM 三层抽象：PV (Physical Volume, 物理卷) → VG (Volume Group, 卷组) → LV (Logical Volume, 逻辑卷)",
+        "pvcreate/pvremove 管理 PV；vgcreate/vgextend/vgreduce 管理 VG；lvcreate/lvresize/lvremove 管理 LV",
+        "物理分区先标记为 LVM 类型 (8e) 后才能加入 LVM 体系",
+        "lvresize -L +5G /dev/vgname/lvname 可在线扩展逻辑卷大小（不需要卸载）",
+        "扩展 LV 后还需要 resize2fs 或 xfs_growfs 扩展文件系统以识别新增空间",
+        "LVM 支持快照 (snapshot)：lvcreate -s -n snap_name -L 1G /dev/vgname/lvname 创建只读或读写快照",
+        "缩容操作复杂且有风险：必须先卸载、检查文件系统、缩小文件系统、再缩小 LV"
+      ],
+      "background": [
+        "嵌入式设备使用 LVM 可灵活调整分区大小适应不同项目需求，但 boot 分区不能放在 LVM 中（GRUB 无法直接识别）",
+        "LVM 快照是备份的有力工具：在快照上进行备份，源卷继续服务",
+        "从 MCU 视角理解：PV 相当于物理存储芯片，VG 是一个存储池，LV 是动态分配的存储区域"
+      ],
+      "understand": [
+        "LVM 支持精简配置 (thin provisioning)：按需分配物理存储而非预先分配全部空间",
+        "LVM 支持条带化 (lvcreate -i2 -I64) 类似 RAID 0 但不等于 RAID",
+        "LVM 缓存 (lvmcache) 可用 SSD 为 HDD 做读写缓存加速"
+      ]
+    },
+    "15.1": {
+      "core": [
+        "例行性工作调度 (scheduled task) 让系统在指定时间自动执行命令或脚本，无需人工干预",
+        "Linux 调度分为两类：一次性 (at) 和周期性 (crontab)",
+        "调度任务广泛应用于系统维护（日志轮替、备份、安全扫描、软件更新）",
+        "at 和 crontab 守护进程 (atd / crond) 必须运行才能执行调度任务",
+        "systemctl status atd 和 systemctl status crond 检查调度服务是否运行",
+        "crontab 和各种 anacron 的区别：cron 要求系统开机运行，anacron 处理系统关机期间遗漏的任务",
+        "at 和 crontab 的访问控制：/etc/at.allow /etc/at.deny 和 /etc/cron.allow /etc/cron.deny",
+        "嵌入式 Edge AI 设备常见调度场景：定时上传模型推理日志、定时重新校准传感器、定时系统重启"
+      ],
+      "background": [
+        "例行调度是服务器和嵌入式设备自动化运维的基础设施，从 MCU 的定时器中断概念迁移理解",
+        "crontab 是嵌入式设备日志轮替 (logrotate) 和数据上报的核心驱动机制",
+        "调度任务的环境变量有限（PATH 通常只有 /usr/bin:/bin），必须使用绝对路径运行命令"
+      ],
+      "understand": [
+        "anacron 适合非 24/7 运行的设备（如笔记本），开机后会检查过去错过的任务并补执行",
+        "系统级 crontab (/etc/crontab) 比用户级 crontab 多一个用户字段",
+        "cron 不会加载用户的 .bashrc 等配置文件，环境变量需在脚本内自行设置"
+      ]
+    },
+    "15.2": {
+      "core": [
+        "at 命令用于安排只执行一次的任务，在指定时间点运行指定命令或脚本",
+        "at 时间格式灵活：at 14:00（今天下午 2 点）、at 2pm tomorrow、at now + 2 hours",
+        "at 交互模式输入命令后按 Ctrl+D 保存任务；atq 查看待执行的 at 任务队列",
+        "atrm [任务编号] 删除尚未执行的 at 任务；at -c [任务编号] 查看任务的具体命令内容",
+        "at 任务在后台以独立 Shell 环境执行，输出结果会通过邮件发送给用户（默认无 mail 程序则丢失）",
+        "at 适合一次性延迟任务：编译完成后关机、夜间大文件传输、单次数据库维护",
+        "batch 命令是 at 的变体：在系统负载低于 0.8 时才执行"
+      ],
+      "background": [
+        "嵌入式设备 OTA 更新场景：下载固件后 at 安排一个稍晚的重启时间，给系统留缓冲",
+        "at 优于 sleep 方案：sleep 占用一个终端会话，at 是独立守护进程管理",
+        "at 任务在 /var/spool/at/ 目录下存储为文本文件"
+      ],
+      "understand": [
+        "at 任务执行时的 PATH 和 umask 继承自 atd 守护进程而非当前用户",
+        "系统重启后 at 任务不会丢失（持久化在磁盘），但已过期的 at 任务不会补执行",
+        "CentOS 默认不安装 at，需 yum install at；Ubuntu 通常预装"
+      ]
+    },
+    "15.3": {
+      "core": [
+        "crontab -e 编辑当前用户的周期性任务列表；crontab -l 查看；crontab -r 删除全部",
+        "crontab 时间格式：分(0-59) 时(0-23) 日(1-31) 月(1-12) 周(0-7) 命令",
+        "特殊符号：* 表示任意、, 表示多个值、- 表示范围、/n 表示步长（每 n 单位）",
+        "常用示例：*/5 * * * *（每 5 分钟）、0 2 * * *（每天凌晨 2 点）、0 0 * * 0（每周日凌晨）",
+        "crontab 命令路径必须使用绝对路径（如 /usr/bin/tar 而非 tar），因为 cron 环境的 PATH 很有限",
+        "crontab 输出默认通过邮件发送；可在命令尾部追加 > /dev/null 2>&1 丢弃输出或将输出重定向到日志",
+        "系统 crontab (/etc/crontab) 多一个用户字段：分 时 日 月 周 用户 命令",
+        "/etc/cron.hourly/ /etc/cron.daily/ /etc/cron.weekly/ /etc/cron.monthly/ 是 run-parts 机制调度的脚本目录"
+      ],
+      "background": [
+        "Edge AI 推理设备的 crontab 典型应用：每小时上传推理统计、每天凌晨清理旧日志、每周模型热更新",
+        "crontab 文件和 Shell 脚本配合使用：cron 调用脚本，脚本完成复杂逻辑",
+        "crontab 环境变量问题是最常见的故障模式——记得在脚本第一行 export PATH 或在 crontab 中设置 PATH 变量"
+      ],
+      "understand": [
+        "% 在 crontab 中有特殊含义（表示换行），要在命令中使用 % 需加反斜杠转义",
+        "crontab -e 默认使用 vi 编辑器，可通过 EDITOR 环境变量切换",
+        "anacron 通过记录时间戳文件判断任务是否在指定周期内被执行"
+      ]
+    },
+    "16.1": {
+      "core": [
+        "程序 (program) 是存储在磁盘上的可执行文件；进程 (process) 是程序被加载到内存后的运行实例",
+        "每个进程有唯一的 PID (Process ID)；PPID 指向父进程",
+        "Linux 是多任务操作系统，CPU 在进程间快速切换（时间片轮转），让用户感觉多个程序同时运行",
+        "进程的三种基本状态：运行 (Running)、暂停 (Stopped/Trapped)、睡眠 (Sleeping 可中断/不可中断)",
+        "fork 是创建新进程的系统调用：父进程调用 fork()，内核复制出一个子进程（写时复制 COW）",
+        "进程有独立的虚拟地址空间（MMU 机制），一个进程崩溃不会影响其他进程——这是与 MCU 裸机最大的区别",
+        "Linux 进程从 init/systemd（PID=1）开始逐级 fork 产生，形成树状结构",
+        "孤儿进程：父进程先退出，子进程被 init 收养；僵尸进程：子进程先退出但父进程没有回收其退出状态"
+      ],
+      "background": [
+        "从 MCU 裸机理解迁移：MCU 的 while(1) 是单个永远运行的进程，Linux 的进程是带 MMU 隔离保护的独立运行实体",
+        "嵌入式 AI 推理通常作为独立进程运行，与采集进程、通信进程分离（多进程架构）",
+        "理解父子进程关系对调试守护进程行为至关重要"
+      ],
+      "understand": [
+        "写时复制 (Copy-on-Write, COW) 优化：fork 后子进程共享父进程内存页，只有写入时才复制",
+        "vfork() 是 fork 的变体，子进程先运行且共享父进程地址空间（历史遗留，现代 Linux 已很少使用）",
+        "进程的 nice 值影响调度优先级（-20 最高，19 最低），普通用户只能调高不能调低"
+      ]
+    },
+    "16.2": {
+      "core": [
+        "工作控制 (job control) 管理单个终端中运行的前台和后台任务",
+        "命令后加 & 放入后台运行：command &；后台任务持续运行但不会占用终端输入",
+        "Ctrl+Z 将前台任务暂停并放入后台（stopped 状态）；bg %编号 将后台暂停的任务转为运行",
+        "fg %编号 将后台任务调回前台；jobs 查看当前终端的所有后台任务状态",
+        "nohup 命令让进程在终端关闭后继续运行：nohup command &（忽略 SIGHUP 信号）",
+        "直接关闭终端会向该终端所有进程发送 SIGHUP 信号导致进程退出（除非使用 nohup 或 disown）",
+        "后台任务的标准输出和错误输出仍会打印到终端，应重定向到文件（command > log.txt 2>&1 &）",
+        "工作管理仅对当前 Shell 的会话有效，不同终端的工作管理相互独立"
+      ],
+      "background": [
+        "嵌入式设备通过 SSH 远程操作时，长时间推理任务应用 nohup 或 tmux/screen 来保证断开后继续运行",
+        "tmux 和 screen 是更强大的终端复用工具（后续章节覆盖），比 & + disown 更易管理",
+        "工作控制将 MCU 的中断概念类比到终端层：Ctrl+C 是中断信号，Ctrl+Z 是暂停信号"
+      ],
+      "understand": [
+        "kill -STOP [PID] 和 kill -CONT [PID] 可跨终端暂停和恢复进程",
+        "disown -h [作业编号] 阻止后台任务在 Shell 退出时收到 SIGHUP",
+        "setsid 命令可以在新会话中运行程序，彻底脱离父进程的终端控制"
+      ]
+    },
+    "16.3": {
+      "core": [
+        "ps 查看当前系统进程快照：ps aux 显示所有进程（BSD 风格）、ps -ef 显示所有进程（标准语法）",
+        "ps aux 输出字段：USER、PID、%CPU、%MEM、VSZ（虚拟内存）、RSS（物理内存）、STAT（状态）、START、TIME、COMMAND",
+        "STAT 字段常见值：R (Running)、S (Sleeping)、D (不可中断睡眠)、Z (僵尸)、T (Stopped)、< (高优先级)、N (低优先级)",
+        "top 实时动态查看进程信息：按 CPU 或内存占用排序、监视系统负载平均值 (load average)",
+        "kill [信号] [PID] 向进程发送信号：SIGTERM(15) 请求终止、SIGKILL(9) 强制终止、SIGHUP(1) 重读配置",
+        "killall [进程名] 按名称发送信号；pkill 支持按进程名模式匹配发送信号",
+        "nice 和 renice 调整进程优先级：nice -n 5 ./program 启动时设置、renice -n 5 -p PID 运行时调整",
+        "优先级越高（nice 值越小）并不意味着绝对优先——完全公平调度器 (CFS) 按比例分配 CPU 时间"
+      ],
+      "background": [
+        "Edge AI 推理场景：用 top 监控推理进程的 CPU 和内存占用，排查 OOM 或性能瓶颈",
+        "kill -HUP 让守护进程重载配置而不重启——嵌入式设备 OTA 后用此方式热加载模型",
+        "僵尸进程排查是系统管理员的基本功：发现大量 Z 状态进程说明父进程未正确 wait()"
+      ],
+      "understand": [
+        "load average 的三个值（1 分钟/5 分钟/15 分钟）超过 CPU 核心数表示系统过载",
+        "htop 是 top 的增强版（需额外安装），支持树状进程显示和鼠标操作",
+        "/proc/[PID]/ 目录包含进程的详细信息：fd 子目录中的文件描述符可查看进程打开了哪些文件"
+      ]
+    },
+    "16.4": {
+      "core": [
+        "/proc 文件系统是虚拟文件系统，内核以文件形式暴露系统和进程的信息给用户空间",
+        "/proc/cpuinfo 查看 CPU 信息；/proc/meminfo 查看内存使用；/proc/version 查看内核版本",
+        "/proc/[PID]/ 下的文件反映特定进程的状态：fd 目录中的文件描述符、environ 环境变量、cmdline 命令行参数",
+        "fuser [文件路径] 找出正在使用某个文件或目录的进程 PID",
+        "lsof 列出当前系统所有打开的文件（包括普通文件、目录、设备、socket 等）",
+        "lsof -i :端口号 查看占用特定端口的进程（排查端口冲突的利器）",
+        "/proc/[PID]/fd/ 中的文件描述符链接指向打开的文件：0=stdin、1=stdout、2=stderr",
+        "一切皆文件的哲学在 /proc 中得到极致体现：系统信息、进程状态、硬件配置都以文件接口呈现"
+      ],
+      "background": [
+        "嵌入式 AI 部署中 lsof 常用于排查推理进程是否打开了正确的设备文件（如 /dev/video0、/dev/ttyTHS1）",
+        "/proc 中的信息是实时生成的，读取时从内核数据结构中动态提取",
+        "从 MCU 理解：/proc 类似 MCU 调试时的寄存器查看界面，但以文件系统形式呈现"
+      ],
+      "understand": [
+        "/proc/sys/ 下的文件可动态调整内核参数（如 net.ipv4.ip_forward），用 sysctl 命令管理",
+        "sysfs (/sys) 是 /proc 的补充，以更规整的层次结构暴露设备和驱动信息",
+        "fuser -k 可直接杀死占用文件的进程，慎用"
+      ]
+    },
+    "17.1": {
+      "core": [
+        "daemon（守护进程）是后台运行且不与任何终端关联的进程，提供持续的系统或网络服务",
+        "术语展开：D(isk) A(nd) E(xecution) MON(itor) — 原指磁盘和执行监视器，现泛指标志性的后台服务进程",
+        "systemd 是当前 Linux 主流的 init 系统和服务管理器（PID=1），替代了传统的 SysV init 和 Upstart",
+        "systemd 的启动目标是并行化：尽可能同时启动无依赖关系的服务，缩短系统启动时间",
+        "服务单元 (service unit) 是最常见的 systemd 单元类型；此外还有 socket/timer/mount/device 等单元类型",
+        "daemon 的命名惯例：传统 SysV 时代以 d 结尾（sshd、crond）；systemd 时代不强制但保留惯例",
+        "嵌入式设备中 daemon 的概念至关重要：板端推理服务就是一个 daemon，应配置为开机自启",
+        "systemctl list-units --type=service --all 查看所有服务单元"
+      ],
+      "background": [
+        "从 MCU 理解：daemon ≈ MCU 中上电后一直运行的后台任务，但 daemon 有完善的状态管理、日志、自启机制",
+        "systemd 兼容 SysV 的 init 脚本但远不止于此：还管理挂载、socket、定时器、设备等",
+        "Ubuntu 15.04+ 和 CentOS 7+ 均使用 systemd，当前主流嵌入式 Linux (Yocto/Buildroot) 也已采用"
+      ],
+      "understand": [
+        "SysV init 的缺点：串行启动慢、rc.d 脚本难以管理依赖、进程监控能力弱",
+        "systemd 的单元依赖通过 Before/After 和 Wants/Requires 指令声明",
+        "systemd 的 cgroup 集成可精确跟踪和控制服务及其子进程的资源使用"
+      ]
+    },
+    "17.2": {
+      "core": [
+        "systemctl status [服务名] 查看服务状态、最近日志、PID、是否开机自启",
+        "systemctl start/stop [服务名] 立即启动/停止服务；restart 重启、reload 重载配置不中断服务",
+        "systemctl enable [服务名] 设置开机自启（在 /etc/systemd/system/multi-user.target.wants/ 创建符号链接）",
+        "systemctl disable [服务名] 取消开机自启；is-enabled 查看自启状态",
+        "systemctl --failed 列出启动失败的服务；systemctl list-dependencies [服务名] 查看服务依赖",
+        "systemctl mask [服务名] 彻底禁用服务（链接到 /dev/null，即使手动 start 也无法启动）",
+        "systemctl daemon-reload 在修改 .service 文件后重新加载 systemd 配置",
+        "systemctl 也管理非服务单元：systemctl status cronie.timer、systemctl list-sockets"
+      ],
+      "background": [
+        "嵌入式 Edge AI 板端部署中，推理服务应配置为 enable + start，确保设备上电后推理服务自动运行",
+        "systemctl enable 和 start 是两个独立操作，新手常混淆（enable ≠ 立即启动）",
+        "systemd 的服务监控能力：服务崩溃后自动重启（Restart=always 配置）——无需外部 watchdog"
+      ],
+      "understand": [
+        "systemctl is-active/is-enabled 返回状态码，适合在脚本中判断服务状态",
+        "systemd 的 socket 激活机制：按需启动服务，连接到来时才启动守护进程",
+        "systemd notify 机制：服务通过 sd_notify() 通知 systemd 自己已就绪"
+      ]
+    },
+    "17.3": {
+      "core": [
+        "systemd 服务配置文件后缀为 .service，存储在 /lib/systemd/system/（发行版自带）和 /etc/systemd/system/（用户自定义）",
+        "service 文件分三部分：[Unit] 描述和依赖、[Service] 启动方式和行为、[Install] 安装信息",
+        "[Unit] 段关键指令：Description（描述）、After（在什么之后启动）、Requires（硬依赖）、Wants（软依赖）",
+        "[Service] 段关键指令：Type=simple/forking/oneshot/dbus/notify、ExecStart、ExecStop、ExecReload",
+        "Type=simple（默认）：ExecStart 启动后即认为服务已运行；Type=forking：进程会 fork 到后台（传统 daemon 模式）",
+        "[Service] 段：Restart=always/on-failure/no（服务退出后自动重启策略）、RestartSec=5（重启间隔）",
+        "[Install] 段：WantedBy=multi-user.target（生成 enable 符号链接的目标）",
+        "自定义服务配置优先放在 /etc/systemd/system/（覆盖 /lib/ 下的同名文件），修改后执行 systemctl daemon-reload"
+      ],
+      "background": [
+        "Edge AI 推理服务的 .service 文件应包含 Restart=always，确保崩溃后自动恢复",
+        "嵌入式设备的 AI 推理服务通常 Type=simple（直接前台运行），日志由 journald 自动捕获",
+        "编写自己的 .service 文件是部署环节的核心技能——让应用程序成为系统管理的服务"
+      ],
+      "understand": [
+        "systemd 的 7 种 service 类型 (simple/forking/oneshot/dbus/notify/exec/idle) 适配不同程序",
+        "systemd-analyze blame 可分析系统启动时各服务的耗时",
+        "环境变量可通过 Environment= 或 EnvironmentFile= 在 service 文件中设置"
+      ]
+    },
+    "18.1": {
+      "core": [
+        "登录文件 (log file) 记录系统运行过程中的各种事件：系统启动、用户登录、服务状态、硬件故障、安全事件",
+        "日志的核心用途：故障排查（系统或应用出问题时先查日志）、安全审计（查看登录尝试、权限变更）、性能分析",
+        "Linux 日志通常集中存储在 /var/log/ 目录下",
+        "关键日志文件：/var/log/syslog（系统总日志）、/var/log/auth.log（认证和授权日志）、/var/log/kern.log（内核日志）",
+        "日志格式通常包含时间戳、主机名、进程名[PID]、消息内容",
+        "日志轮替 (logrotate) 是必需机制：日志持续增长会撑满磁盘，必须按大小或时间切割、压缩、删除旧日志",
+        "从 MCU 理解：MCU 通过串口打印调试信息、Linux 则将调试和运行记录持久化到日志文件"
+      ],
+      "background": [
+        "嵌入式设备日志管理非常重要：设备通常无人值守，出问题时日志是唯一的排查线索",
+        "Edge AI 设备推理日志（推理耗时、准确率、异常帧）应统一写入日志系统而非 stdout",
+        "日志是系统安全的见证者：SSH 爆破攻击会在 /var/log/auth.log 留下频繁登录失败痕迹"
+      ],
+      "understand": [
+        "Linux 的 syslog 协议 (RFC 5424) 定义日志优先级从 emerg(0) 到 debug(7)",
+        "CentOS 与 Ubuntu 日志文件名不同：CentOS 用 /var/log/messages，Ubuntu 用 /var/log/syslog",
+        "日志文件应设置合适权限（通常 640），auth.log 等包含敏感信息的日志应仅 root 可读"
+      ]
+    },
+    "18.2": {
+      "core": [
+        "rsyslogd 是系统日志守护进程，负责收集来自内核、服务、应用程序的日志消息并写入日志文件",
+        "rsyslog 配置文件 /etc/rsyslog.conf 及 /etc/rsyslog.d/*.conf 定义日志规则",
+        "日志规则格式：设施(facility).优先级(priority)  动作(action)",
+        "facility 指定日志来源：kern、user、mail、auth、daemon、syslog、lpr、cron、local0-local7",
+        "priority 指定最低日志级别：debug、info、notice、warning、err、crit、alert、emerg",
+        "示例规则：auth.* 表示所有 auth 设施所有级别的日志；cron.info 表示 cron 设施 info 及以上级别的日志",
+        "action 通常是一个文件路径（如 /var/log/auth.log），也可指向远程日志服务器 (@192.168.1.100:514)",
+        "local0-local7 留给应用程序自定义使用——嵌入式推理程序可用 local0 作为日志设施"
+      ],
+      "background": [
+        "rsyslog 解决的核心问题：统一管理系统中五花八门的日志源",
+        "嵌入式 AI 推理程序应将日志写入 local0-local7 设施，与系统日志分离便于分析",
+        "rsyslog 支持远程日志转发：将所有设备日志集中到一台日志服务器——适合多节点嵌入式部署"
+      ],
+      "understand": [
+        "rsyslog 是 syslogd 的增强版：支持 TCP 传输、TLS 加密、数据库存储、消息过滤",
+        "rsyslog 的模块化架构：输入模块 (imuxsock/imklog/imtcp) 和输出模块 (omfile/omfwd/ommysql)",
+        "CentOS 7 使用 rsyslog，Ubuntu 同样使用 rsyslog 作为默认日志系统"
+      ]
+    },
+    "18.3": {
+      "core": [
+        "logrotate 是日志轮替工具：按时间或大小自动分割、压缩、删除旧日志文件，防止磁盘被日志撑满",
+        "logrotate 主配置文件 /etc/logrotate.conf，各服务的轮替配置在 /etc/logrotate.d/ 目录下",
+        "logrotate 配置参数：daily/weekly/monthly（轮替频率）、rotate N（保留 N 个旧文件）、compress（压缩旧日志）",
+        "size 参数以文件大小触发轮替（如 size 100M），配合频率参数使用",
+        "轮替后旧日志通常命名为 syslog.1、syslog.2.gz（压缩后），或带日期后缀 syslog-20260522.gz",
+        "postrotate/endscript 块定义轮替后执行的命令（如重启 rsyslog 让日志文件同步）",
+        "logrotate 由 cron 每天执行（/etc/cron.daily/logrotate），也可手动调用 logrotate -f /etc/logrotate.conf",
+        "嵌入式设备存储空间有限，日志轮替配置尤为关键——设置较小的 maxsize 和 rotate 数量"
+      ],
+      "background": [
+        "嵌入式设备几 GB 的存储空间很容易被日志撑满，合理配置 logrotate 是系统稳定性的基本保障",
+        "Model 推理的详细日志（每帧耗时、结果）应单独配置轮替，防止与 syslog 竞争磁盘空间",
+        "logrotate 的拷贝截断 (copytruncate) 模式适用于不支持重新打开日志文件的程序"
+      ],
+      "understand": [
+        "logrotate 的 dateext 选项使用日期而非序号命名旧日志；dateformat 自定义日期格式",
+        "missingok 选项在日志文件不存在时不报错；notifempty 选项在日志为空时跳过轮替",
+        "logrotate 的 sharedscripts 选项确保多个匹配日志仅执行一次 postrotate 脚本"
+      ]
+    },
+    "18.4": {
+      "core": [
+        "systemd-journald 是 systemd 的原生日志系统，以二进制格式收集所有 systemd 服务的日志",
+        "journalctl 是查询 journald 日志的命令行工具，支持丰富过滤条件",
+        "journalctl -u sshd.service 查看特定服务的日志；journalctl -k 查看内核日志",
+        "journalctl --since '1 hour ago' 按时间过滤；--until '2026-05-22 10:00' 指定时间范围",
+        "journalctl -p err 按日志级别过滤；-o verbose/json-pretty 自定义输出格式",
+        "journald 日志默认存储在 /var/log/journal/ 或 /run/log/journal/ 内存中（重启丢失）",
+        "journald 与 rsyslog 可共存：journald 收集所有日志，rsyslog 读取 journald 的数据并写入文本文件",
+        "journalctl -f 实时跟踪新日志（类似 tail -f）"
+      ],
+      "background": [
+        "嵌入式设备上 journalctl 是最快捷的日志查看方式——无需记住各个日志文件路径",
+        "journald 的二进制格式比文本日志更紧凑，节省存储空间",
+        "journalctl -u your-inference-service.service 是 Edge AI 部署后故障排查的第一条命令"
+      ],
+      "understand": [
+        "journald 的日志持久化配置在 /etc/systemd/journald.conf（Storage=auto/persistent/volatile）",
+        "journalctl --disk-usage 查看日志占用的磁盘大小；journalctl --vacuum-size=100M 清理到指定大小",
+        "journald 支持日志转发到远程日志服务器 (ForwardToSyslog=yes 转发到 rsyslog)"
+      ]
+    },
+    "18.5": {
+      "core": [
+        "日志分析的核心方法：先确定时间窗口（故障发生时间），再按日志类型逐步过滤排查",
+        "grep、awk、sed 是日志分析的文本三剑客：grep 提取关键行、awk 按字段分析、sed 替换和格式化",
+        "sshd 登录失败排查：grep 'Failed password' /var/log/auth.log | awk '{print $1,$2,$3,$9,$11}'",
+        "last 和 lastb 命令查看最近成功和失败的登录记录（读取 /var/log/wtmp 和 /var/log/btmp 二进制日志）",
+        "dmesg 命令查看内核环形缓冲区日志（记录硬件检测、驱动加载、设备热插拔等信息）",
+        "日志分析常见模式：时间关联（多个日志文件中的相关事件时间点匹配）",
+        "logwatch 等自动化日志分析工具可定期汇总异常日志并发送报告",
+        "日志分析是嵌入式设备远程故障排查的主要手段——设备无显示器、无键盘，只能通过日志了解运行状态"
+      ],
+      "background": [
+        "Edge AI 设备运维中，日志分析是定位推理异常（OOM、模型加载失败、推理超时）的一线工具",
+        "从 MCU 的串口 printf 调试到 Linux 的全文日志搜索是思维模型的重要升级",
+        "熟练使用 grep 在日志中快速定位问题是嵌入式工程师的核心技能"
+      ],
+      "understand": [
+        "auditd (Linux Audit Framework) 提供更细粒度的系统调用审计日志",
+        "systemd-coredump 收集程序崩溃时的 core dump 文件，配合 gdb 可分析崩溃现场",
+        "SELinux 的 AVC 消息在 /var/log/audit/audit.log 中，使用 audit2why 解读"
+      ]
+    },
+    "19.1": {
+      "core": [
+        "Linux 开机完整流程：BIOS/UEFI → Boot Loader (GRUB) → Kernel → initramfs → systemd (init)",
+        "BIOS/UEFI 阶段：上电自检 (POST)，从启动设备读取第一个扇区（MBR）或 EFI 分区中的引导程序",
+        "Boot Loader (GRUB) 阶段：加载并显示启动菜单，根据配置 (grub.cfg) 加载内核和 initramfs 到内存",
+        "Kernel 阶段：解压缩内核映像，初始化硬件驱动、内存管理、调度器等核心子系统",
+        "initramfs (initrd) 阶段：包含必要的驱动模块和工具，让内核能挂载真正的根文件系统",
+        "systemd 阶段：执行 PID=1 的 systemd，挂载 /etc/fstab 中的文件系统，启动所有配置的服务",
+        "启动日志可通过 dmesg 查看：dmesg | less 可看到从内核加载开始的详细启动信息",
+        "systemd-analyze 查看启动总耗时；systemd-analyze blame 查看各服务启动耗时排名"
+      ],
+      "background": [
+        "理解开机流程是嵌入式 Linux 移植和调试的基础——设备无法启动时需要判断卡在哪一阶段",
+        "从 MCU 理解：MCU 上电从复位向量开始执行（类似 BIOS），然后初始化硬件（类似 kernel 阶段），最后进入 main（类似 init）",
+        "嵌入式设备（如树莓派、Jetson）有自己的启动 ROM 和 bootloader（如 U-Boot），但概念与 PC 开机流程类似"
+      ],
+      "understand": [
+        "UEFI 替代 BIOS 的主要优势：支持 GPT 分区表、安全启动 (Secure Boot)、网络引导",
+        "Coreboot 和 U-Boot 是嵌入式领域常见的 bootloader 选择",
+        "PXE 网络引导允许无盘工作站通过网络加载操作系统"
+      ]
+    },
+    "19.2": {
+      "core": [
+        "内核模块 (kernel module) 是 .ko (Kernel Object) 文件，可在运行时不重新编译内核就加载驱动或功能",
+        "模块机制让内核保持精简：只需加载必要的驱动，其他驱动按需加载（不用把所有驱动都编译进内核）",
+        "lsmod 列出当前已加载的内核模块及其依赖关系和引用计数",
+        "modinfo [模块名] 查看模块详细信息：描述、作者、参数、许可证、依赖",
+        "modprobe [模块名] 加载模块（自动解决依赖关系）；modprobe -r [模块名] 卸载模块",
+        "insmod [模块文件路径] 低层级模块加载命令（不自动处理依赖）；rmmod 卸载模块",
+        "模块存放在 /lib/modules/$(uname -r)/ 目录下，依赖 depmod 更新的 modules.dep 依赖关系文件",
+        "模块参数可在 modprobe 命令行传递（modprobe 模块名 参数名=值）或在 /etc/modprobe.d/ 配置"
+      ],
+      "background": [
+        "嵌入式 Linux 内核裁剪时，驱动通常编译为模块而非内置（方便按需加载和调试）",
+        "Edge AI 加速器驱动（如 NVIDIA Jetson 的 nvgpu、Intel Movidius 的 vpu）以内核模块形式加载",
+        "insmod 和 modprobe 的区别是常见面试题：modprobe 是高级接口，自动处理依赖"
+      ],
+      "understand": [
+        "/etc/modprobe.d/blacklist.conf 可禁止特定模块自动加载（驱动冲突时有用）",
+        "模块的 license 声明影响是否可使用 GPL-only 的符号（EXPORT_SYMBOL_GPL）",
+        "设备树 (DT) 匹配的驱动模块会在系统启动时由内核自动加载"
+      ]
+    },
+    "19.3": {
+      "core": [
+        "GRUB2 (GRand Unified Bootloader version 2) 是当前主流 Linux 发行版的默认引导加载程序",
+        "GRUB 配置文件：/boot/grub2/grub.cfg（CentOS）或 /boot/grub/grub.cfg（Ubuntu）——禁止手动编辑",
+        "用户应修改 /etc/default/grub 和 /etc/grub.d/ 下的模板文件，然后执行 update-grub 或 grub2-mkconfig 重新生成",
+        "/etc/default/grub 关键参数：GRUB_TIMEOUT（启动菜单等待时间）、GRUB_CMDLINE_LINUX（内核启动参数）",
+        "GRUB_CMDLINE_LINUX 中可传递内核参数：console=ttyS0,115200（串口控制台——嵌入式调试的关键参数）",
+        "GRUB 菜单允许进入恢复模式和单用户模式（维护模式，无需密码即可 root 访问）",
+        "grub-install 安装 GRUB 到磁盘 MBR 或 EFI 分区；--boot-directory 指定 /boot 目录位置",
+        "GRUB 的链式加载 (chainload) 可引导其他操作系统，实现多系统启动"
+      ],
+      "background": [
+        "嵌入式 ARM 设备通常使用 U-Boot 而非 GRUB，但启动参数传递的理念相同（kernel command line）",
+        "GRUB_CMDLINE_LINUX 中传递 console=ttyS0 是嵌入式开发者通过串口调试内核的必备技能",
+        "理解 GRUB 的启动参数传递机制有助于理解 U-Boot 的 bootargs 环境变量"
+      ],
+      "understand": [
+        "GRUB2 的救援模式 (rescue mode) 可在 GRUB 配置损坏时手动引导内核",
+        "GRUB2 支持 cryptodisk（加密磁盘）、LVM、RAID 中的 /boot 分区",
+        "grub2-set-default 和 grub2-reboot 可选择默认启动项或单次启动项"
+      ]
+    },
+    "19.4": {
+      "core": [
+        "开机故障诊断思路：先从日志判断卡在哪个阶段（BIOS→GRUB→kernel→init→systemd→services）",
+        "GRUB 问题的症状：黑屏除了 GRUB 菜单什么都不显示——检查 /etc/default/grub 配置后用 live CD 修复",
+        "内核 panic (kernel panic) 的症状：屏幕显示内核错误栈后死机——通常是驱动不兼容或内核参数错误",
+        "initramfs 问题：卡在「switch_root: can't execute /sbin/init」或者挂载根文件系统失败（检查 /etc/fstab）",
+        "修复模式：GRUB 菜单中选择 recovery mode / single user mode 进入维护模式",
+        "单用户模式以 root 身份提供最小 shell，用于修复文件系统、重置密码、修复配置",
+        "启动日志保留在 /var/log/boot.log（系统服务启动日志）和 dmesg（内核日志）中",
+        "init=/bin/bash 内核参数可跳过 systemd 直接启动 bash——极端修复手段"
+      ],
+      "background": [
+        "嵌入式设备内核 panic 排查：通常在串口控制台看到 panic 信息，需要检查内核配置和硬件兼容性",
+        "initramfs 错误在嵌入式系统中常见：根文件系统在 SD 卡上但内核找不到对应的驱动模块",
+        "单用户模式维护是嵌入式系统现场调试的标准姿势"
+      ],
+      "understand": [
+        "内核启动参数 rd.break 在 initramfs 中中断启动，可检查内存根文件系统内容",
+        "systemd.unit=rescue.target 和 systemd.unit=emergency.target 等价于传统的 runlevel 1",
+        "内核参数 nomodeset 可禁用 KMS (Kernel Mode Setting)，解决显卡驱动导致的启动黑屏"
+      ]
+    },
+    "20.1": {
+      "core": [
+        "hostnamectl 设置和查看主机名：hostnamectl set-hostname 新主机名；网络的主机名修改需同时更新 /etc/hosts",
+        "timedatectl 管理系统时间和时区：timedatectl list-timezones 查看可用时区；timedatectl set-timezone Asia/Shanghai",
+        "NTP 时间同步：timedatectl set-ntp yes 启用自动时间同步；chrony 是新一代 NTP 实现",
+        "chronyd 是 chrony 的守护进程；chronyc sources -v 查看时间同步源状态",
+        "网络配置：Ubuntu 使用 netplan（/etc/netplan/*.yaml）；CentOS 使用 /etc/sysconfig/network-scripts/ifcfg-*",
+        "ip addr 查看网络接口和 IP 地址；ip link set dev eth0 up/down 启用/禁用网络接口",
+        "nmcli 是 NetworkManager 的命令行工具：nmcli dev status、nmcli con show",
+        "嵌入式设备通常使用静态 IP 或 DHCP 自动获取，netplan 配置重启后持久生效"
+      ],
+      "background": [
+        "系统基本设置是嵌入式设备首次上电后必须完成的步骤——没有显示器、键盘，通过串口或 SSH 完成初始化",
+        "时间同步对 AI 推理设备至关重要：模型推理结果的时间戳必须准确，否则数据无法对齐分析",
+        "chrony 代替 NTP 的优势：更快初始同步、更好应对网络延迟波动、支持硬件时间戳"
+      ],
+      "understand": [
+        "hwclock 管理硬件时钟（RTC 芯片）；hwclock -w 将系统时间写入硬件时钟",
+        "systemd-resolved 管理系统 DNS 解析；resolvectl status 查看 DNS 状态",
+        "nmcli 比直接编辑配置文件更可靠——自动触发 NetworkManager 重新加载"
+      ]
+    },
+    "20.2": {
+      "core": [
+        "dmidecode 读取 DMI (Desktop Management Interface) 信息：dmidecode -t memory 查看内存条；dmidecode -t system 查看主板信息",
+        "lshw 列完整的硬件配置：lshw -short 简要列表；lshw -class network 查看网络硬件",
+        "lspci -v 查看 PCI 设备详细信息；lsusb 查看 USB 设备",
+        "lsblk 显示块设备（磁盘和分区）的树状拓扑；blkid 查看块设备的 UUID 和文件系统类型",
+        "fdisk -l 和 parted -l 查看磁盘分区表；smartctl 查看磁盘 S.M.A.R.T. 健康状态（需要安装 smartmontools）",
+        "lscpu 查看 CPU 架构、核心数、频率；free -h 查看内存总量和使用情况",
+        "收集硬件信息是系统资产管理、兼容性检查、性能评估的第一步",
+        "嵌入式 AI 设备需特别关注的硬件指标：CPU 核心数（推理多线程）、内存大小（模型加载限制）、可用的加速器（GPU/NPU）"
+      ],
+      "background": [
+        "嵌入式设备选型和部署前必须用这些工具彻底了解目标硬件规格",
+        "在没有外部文档的嵌入式板上，lshw 和 lspci 是了解硬件配置的主要手段",
+        "将硬件信息记录到设备档案中，便于后续故障排查和性能调优"
+      ],
+      "understand": [
+        "lsblk -f 可同时查看文件系统类型和 UUID（挂载时用 UUID 而非设备名，避免设备名变化）",
+        "nproc 命令直接返回 CPU 核心数，适合在脚本中获取",
+        "sensors 命令（lm-sensors 包）读取 CPU 温度、主板温度等传感器数据"
+      ]
+    },
+    "20.3": {
+      "core": [
+        "备份的第一原则：重要数据必须备份到「不同设备」（同一条磁盘坏了备份也丢了）",
+        "备份的核心问题不是「用什么工具」而是「备份什么」——区分关键数据和可重装数据",
+        "关键数据 (must backup)：配置文件 (/etc/)、数据库、用户数据 (/home/)、自定义服务配置、密钥和证书",
+        "可重装数据 (can reinstall)：操作系统本身、通过包管理器安装的软件包（记录了清单即可）",
+        "备份前先做完整性检查：系统健康状态确认、磁盘是否要挂了 (smartctl)、需要备份的文件是否损坏",
+        "备份对网络带宽和存储成本的评估：全量备份体积大但恢复简单、增量备份体积小但恢复链条复杂",
+        "备份的可恢复性验证是备份策略中最常被忽略的环节——从不验证的备份不是真正的备份",
+        "云备份和本地备份的组合策略：本地磁盘做快照、远程服务器做异地备份（防火灾/盗窃）"
+      ],
+      "background": [
+        "嵌入式 Edge AI 设备备份的关键：模型和配置文件比系统本身更重要（模型训练成本远高于硬件成本）",
+        "备份策略应写入文档并在设备部署前确定，而非出事后才想",
+        "3-2-1 备份法则：3 份副本、2 种不同介质、1 份异地"
+      ],
+      "understand": [
+        "rsync 是远程增量备份的首选工具（--link-dest 实现快照风格增量备份）",
+        "备份脚本必须在 crontab 中设置，并监控备份结果（失败时发送告警）",
+        "GPG 加密备份文件：敏感数据应加密后传输到云端备份"
+      ]
+    },
+    "20.4": {
+      "core": [
+        "完全备份 (full backup)：备份全部选定数据，体积最大但恢复最简单——直接从一份完整副本恢复",
+        "增量备份 (incremental backup)：只备份自上次备份（任何类型）以来变化的数据——体积小但恢复需要完整链条",
+        "差异备份 (differential backup)：只备份自上次完全备份以来变化的数据——介于完全和增量之间",
+        "备份频率应根据数据变更频率和数据重要程度决定：关键业务数据每天/每小时、系统配置每周",
+        "常用备份工具：dd（块级别完全复制，适合磁盘/分区镜像）、tar（文件级打包，灵活配合 cron）、rsync（远程增量同步）",
+        "dd if=/dev/sda of=/backup/sda.img bs=4M 备份整个磁盘；dd 的 bs 参数影响速度",
+        "tar czvf backup-$(date +%Y%m%d).tar.gz /etc /home /var/www 打包关键目录",
+        "备份工具的选择取决于场景：dd 适合系统快速重建、tar 适合文件级粒度恢复、rsync 适合远程同步和增量"
+      ],
+      "background": [
+        "Edge AI 设备最实用的备份组合：系统完全备份 (dd) + 配置/模型增量 (rsync) + 日志裁剪",
+        "嵌入式设备存储和带宽有限，增量备份策略比完全备份更实用",
+        "备份策略的关键设计：选择在哪台机器上运行备份脚本、备份文件存到哪里、保留多少个版本"
+      ],
+      "understand": [
+        "重复数据删除 (deduplication) 备份：检测重复数据块只存一份，节省存储空间",
+        "裸机恢复 (bare-metal restore)：从完全备份（dd 或特定工具）直接恢复整个系统到新硬件",
+        "git 也可作为配置文件备份工具——/etc 目录放入 git 仓库可追踪每次修改"
+      ]
+    },
+    "21.2": {
+      "core": [
+        "C 程序从源码到可执行文件的完整编译过程：预处理 (cpp) → 编译 (cc1) → 汇编 (as) → 链接 (ld)",
+        "预处理阶段：处理 #include、#define 宏展开，生成 .i 中间文件",
+        "编译阶段：将 C 代码翻译为汇编代码，生成 .s 文件——这是最耗时的阶段",
+        "汇编阶段：将汇编代码翻译为机器指令，生成 .o 目标文件（包含符号表和重定位信息）",
+        "链接阶段：将多个 .o 文件合并，解析外部符号引用，分配最终地址，生成可执行文件",
+        "gcc 常用参数：-o 指定输出文件名、-Wall 开启所有常见警告、-O2 优化级别、-g 包含调试符号",
+        "gcc -c 只编译不链接（生成 .o 文件）、-I 指定头文件搜索路径、-L 指定库文件搜索路径、-l 指定链接的库名",
+        "编译阶段常见错误：语法错误、头文件找不到（缺少 -I 路径）、未定义引用（忘记链接某 .o 或库）"
+      ],
+      "background": [
+        "嵌入式交叉编译中只需替换编译器前缀（gcc → arm-linux-gnueabihf-gcc），编译流程完全一致",
+        "从 MCU 的 Keil/IAR 一键编译到理解每一步的底层细节是嵌入式 Linux 工程师的必修课",
+        "编译流程知识对调试链接错误、符号冲突、运行时库缺失等问题至关重要"
+      ],
+      "understand": [
+        "gcc -E 只执行预处理不编译，可用于查看宏展开后的代码",
+        "gcc -v 显示编译过程中的详细命令，包含调用的子程序路径",
+        "ELF 文件格式的三个主要段：.text（代码）、.data（已初始化数据）、.bss（未初始化数据）"
+      ]
+    },
+    "21.3": {
+      "core": [
+        "make 是自动化构建工具，根据 Makefile 中的规则决定哪些文件需要重新编译，避免全量编译",
+        "Makefile 核心规则格式：目标(target): 依赖(dependencies)\n\t命令(recipe) — 注意命令前必须是 TAB 不能是空格",
+        "make 的工作原理：如果目标文件不存在，或依赖文件的修改时间新于目标文件，则执行命令重建目标",
+        "Makefile 中的变量：CC=gcc、CFLAGS=-Wall -O2；使用变量用 $(CC) 语法",
+        "自动变量：$@（目标名称）、$<（第一个依赖名称）、$^（所有依赖名称列表）",
+        "Makefile 通配规则：%.o: %.c 表示所有 .c 文件到 .o 文件的通用编译规则",
+        "伪目标 .PHONY: clean 避免目标名与文件名冲突（clean 不是文件而是一个操作）",
+        "增量编译是 make 的核心价值：只重新编译修改过的源文件，大型项目中大幅节省时间"
+      ],
+      "background": [
+        "make 是从单文件编译到多文件项目管理的关键工具，嵌入式项目必须掌握",
+        "交叉编译时通过设置变量 CC=arm-linux-gnueabihf-gcc 即可让 Makefile 适配 ARM 编译",
+        "Makefile 是 CMake 的底层——理解 Makefile 有助于理解 CMake 生成的构建系统"
+      ],
+      "understand": [
+        "make -j4 使用 4 个线程并行编译，大幅加快大型项目编译速度",
+        "make VPATH 或 vpath 指定源文件搜索路径（源文件和目标文件可分离存放）",
+        "Makefile 的条件判断和函数功能：$(strip)、$(wildcard)、$(patsubst) 等内建函数"
+      ]
+    },
+    "21.4": {
+      "core": [
+        "Tarball 是 .tar.gz 或 .tar.bz2 格式的源码包，是开源软件发布的传统形式",
+        "从 Tarball 安装软件的标准三步流程：./configure → make → make install",
+        "./configure 是 shell 脚本，检测系统环境（编译器版本、库是否存在、头文件路径），生成 Makefile",
+        "./configure --prefix=/usr/local 指定安装路径（默认 /usr/local）",
+        "configure 自动生成 config.h 和 Makefile：config.h 包含编译时的系统特性宏定义",
+        "make 执行编译（根据生成的 Makefile 编译源码）；make install 将编译产物复制到安装目录",
+        "Tarball 安装的软件不会出现在包管理器的数据库中（rpm/apt 不知道它们的存在）——手动维护麻烦",
+        "编译依赖性错误是最常见的故障：./configure 报错通常意味着缺少某个开发包（-devel/-dev 包）"
+      ],
+      "background": [
+        "嵌入式交叉编译中 configure 需要指定 --host=arm-linux（目标平台）和 --build=x86_64-linux（编译平台）",
+        "Tarball 安装方式在嵌入式领域仍然常见：官方 apt 中没有特定版本的库、或需要修改源码定制功能",
+        "make uninstall 不一定可用（很多 Tarball 不提供卸载目标）——安装后保存安装文件列表"
+      ],
+      "understand": [
+        "make clean 清除编译中间文件；make distclean 清除所有生成文件（包括 Makefile），回到原始状态",
+        "configure 的 --enable-xxx 和 --with-xxx 控制编译特性开关（如 --enable-optimizations）",
+        "config.log 文件记录了 configure 失败的详细原因——排查配置问题的第一手资料"
+      ]
+    },
+    "21.5": {
+      "core": [
+        "静态库 (.a)：编译时将库代码复制到可执行文件中，生成的可执行文件独立运行，体积大",
+        "动态库 (.so)：运行时加载到内存，多个程序可共享同一份库代码，体积小但存在运行时依赖",
+        "静态库创建：ar rcs libxxx.a file1.o file2.o；动态库创建：gcc -shared -fPIC -o libxxx.so file1.o file2.o",
+        "-fPIC (Position Independent Code) 是生成动态库必需的编译选项，保证代码可在任意内存地址运行",
+        "链接动态库时编译阶段使用 -l 和 -L，运行时需要 ldconfig 更新缓存或设置 LD_LIBRARY_PATH",
+        "ldconfig 扫描 /etc/ld.so.conf 中的路径，生成 /etc/ld.so.cache 加速库查找",
+        "ldd [可执行文件] 查看该程序依赖哪些动态库以及是否已找到（missing 表示库未发现）",
+        "动态库版本号管理：libxxx.so -> libxxx.so.1 -> libxxx.so.1.0.0 逐级链接，主版本号变化表示不兼容的 API 变更"
+      ],
+      "background": [
+        "嵌入式交叉编译中动态库问题是最常见的坑：板端找不到 x86 主机上编译时链接的 .so 文件",
+        "嵌入式设备存储空间有限，动态库共享可显著节省空间（多个程序共用同一份 .so）",
+        "交叉编译的 .so 必须用目标平台的工具链编译——把 x86 的 .so 直接拷到 ARM 板上无法运行"
+      ],
+      "understand": [
+        "LD_PRELOAD 环境变量可优先加载指定动态库，常用于替换系统库函数的行为（如内存调试工具）",
+        "ar -t libxxx.a 查看静态库中包含哪些目标文件",
+        "nm 和 objdump 工具可分析 .a/.so 中的符号表和重定位信息"
+      ]
+    },
+    "22.1": {
+      "core": [
+        "软件包管理器 (package manager) 解决软件安装中的核心问题：依赖关系管理、版本管理、统一安装/卸载/升级",
+        "RPM 系 (Red Hat Package Manager) 用于 RHEL/CentOS/Fedora，包文件后缀 .rpm",
+        "Debian 系 (DEB) 用于 Debian/Ubuntu/Mint，包文件后缀 .deb",
+        "包管理器的两大层次：底层工具（rpm/dpkg 直接管理单个包）和上层工具（yum/dnf/apt 自动解决依赖）",
+        "软件仓库 (repository) 是包管理器读取的软件源：Ubuntu 在 /etc/apt/sources.list 和 /etc/apt/sources.list.d/",
+        "包依赖关系：一个包依赖的其他包（dependencies）、与另一个包冲突 (conflicts)、建议安装 (suggests)",
+        "GPG 签名验证：包管理器通过公钥验签确认包未被篡改；apt-key 或 trust 管理密钥",
+        "包管理器的操作不可逆（卸载删除配置谨慎执行）——移除关键包可能导致系统不可用"
+      ],
+      "background": [
+        "鸟哥以 CentOS 的 RPM/YUM 为教学，当前环境为 Ubuntu——重点理解包管理器的通用概念",
+        "Ubuntu 对照：rpm 对应 dpkg、yum 对应 apt、.rpm 对应 .deb、yum.repos.d 对应 sources.list.d",
+        "嵌入式 Linux (Yocto/Buildroot) 使用自己的包管理系统（通常不是 rpm/deb 系），但概念相通"
+      ],
+      "understand": [
+        "snap 和 flatpak 是新一代跨发行版包管理方案（沙盒隔离、自动更新）",
+        "pip (Python) 和 gem (Ruby) 是语言级包管理器，与系统包管理器不同但需要配合使用",
+        "软件包的命名约定：-dev/-devel 后缀表示开发包（包含头文件和 .so 符号链接）"
+      ]
+    },
+    "22.2": {
+      "core": [
+        "rpm -ivh package.rpm 安装 RPM 包（i=install、v=verbose、h=progress bar）",
+        "rpm -e package 卸载包；--nodeps 跳过依赖检查（强制卸载，可能影响其他软件）",
+        "rpm -q package 查询包是否已安装；-qa 列出所有已安装包；-qi 包详细信息；-ql 包安装的文件列表",
+        "rpm -qf /path/to/file 查询某个文件属于哪个已安装的 RPM 包",
+        "rpm -V package 验证已安装包的完整性（对比文件和原始元数据）",
+        "RPM 包安装后的元数据写入 /var/lib/rpm/ 数据库，rpm 命令查询依赖这个数据库",
+        "rpm 不自动解决依赖——安装一个包时如果缺少依赖会报错并提示缺少哪些依赖",
+        "SRPM (.src.rpm) 是包含源码和 spec 文件的 RPM 包，可用于重建二进制 RPM"
+      ],
+      "background": [
+        "Ubuntu 环境下对照：dpkg -i package.deb（安装）、dpkg -r（卸载）、dpkg -l（列出）、dpkg -L（文件列表）",
+        "rpm/dpkg 是底层工具，通常用户不直接使用而通过 apt/yum 间接调用",
+        "嵌入式自行构建的文件系统镜像中可离线使用 rpm/dpkg 安装额外包"
+      ],
+      "understand": [
+        "rpm2cpio 可将 RPM 包转换为 cpio 归档，然后解压提取其中的文件",
+        "rpm --rebuilddb 在 rpm 数据库损坏时重建",
+        "spec 文件定义 RPM 包的构建、安装和元信息，是制作 RPM 包的核心"
+      ]
+    },
+    "22.3": {
+      "core": [
+        "YUM (Yellowdog Updater Modified) 是 RPM 的高层包管理器，自动解决依赖和从仓库下载",
+        "yum install package 安装包并自动安装所有依赖；remove 卸载；update 更新特定包或全部",
+        "yum search keyword 搜索包；yum list installed 列出已安装包；yum list available 列出仓库中可用包",
+        "yum provides /path/to/file 查找哪个包提供了指定文件（排查文件缺失时的利器）",
+        "yum repolist 查看所有配置的软件仓库；yum-config-manager 管理仓库",
+        "/etc/yum.repos.d/*.repo 仓库配置文件：包含 baseurl、gpgcheck、enabled 等参数",
+        "Ubuntu 对应命令：apt search/install/remove/update/upgrade；apt-cache search/show",
+        "apt update 更新软件包列表（从仓库拉取最新索引文件）；apt upgrade 实际升级包——两个步骤不能混"
+      ],
+      "background": [
+        "Ubuntu 下用 apt 而非 yum：apt update && apt upgrade 定期执行保持系统安全和最新",
+        "apt 自动处理依赖是最核心的价值：安装一个包时自动拉取数十个依赖包",
+        "嵌入式 Ubuntu 系统同样使用 apt（armhf/arm64 版本）——能用 apt 安装的包就不需要交叉编译"
+      ],
+      "understand": [
+        "yum history 查看 YUM 操作历史；undo 回滚最近的操作",
+        "dnf (Dandified YUM) 是 yum 的下一代，Fedora 22+ 和 RHEL 8+ 默认使用",
+        "apt-mark hold/unhold 锁定特定包的版本防止意外升级"
+      ]
+    },
+    "23.1": {
+      "core": [
+        "X Window System (X11 或 X) 是 Linux/Unix 的图形窗口系统，采用客户端-服务器架构",
+        "X Server 管理显示硬件（显卡、显示器）、键盘、鼠标；X Client 是图形应用程序（如 Firefox、终端）",
+        "X Server 负责：绘制窗口、管理输入事件（键盘/鼠标）、将事件分发给对应的 X Client",
+        "X Client 通过 X 协议与 X Server 通信（发送绘制请求、接收用户输入事件）",
+        "Display Manager (显示管理器): GDM (GNOME)、LightDM、SDDM——提供图形登录界面",
+        "Window Manager (窗口管理器): 管理窗口的标题栏、边框、最大化/最小化、移动/缩放",
+        "Desktop Environment (桌面环境): GNOME、KDE、XFCE——WM + 应用程序 + 系统工具的完整集合",
+        "X11 Forwarding 使远程服务器上的 GUI 程序通过 SSH 隧道显示在本地机器上：ssh -X user@host"
+      ],
+      "background": [
+        "嵌入式 Linux 通常无图形界面（无头模式），GPU 用于 AI 推理而非显示",
+        "理解 X Window 架构有助于理解 Wayland（现代替代品）和嵌入式 GUI 框架（Qt、LVGL）",
+        "X11 Forwarding 在开发阶段非常有用：在服务器上运行可视化工具（如推理结果可视化）转发到本地"
+      ],
+      "understand": [
+        "Wayland 是 X11 的现代替代品：更简洁、更安全、移除网络透明性（减少安全攻击面）",
+        "X11 网络透明性使远程图形显示成为可能但也增加了安全风险",
+        "DISPLAY 环境变量（如 :0）指定 X Client 连接到哪个 X Server"
+      ]
+    },
+    "23.2": {
+      "core": [
+        "X Server 配置文件：/etc/X11/xorg.conf 或 /etc/X11/xorg.conf.d/*.conf（现代系统使用 /usr/share/X11/xorg.conf.d/）",
+        "Xorg 是 X Server 的实现；xorg.conf 分多个 Section：Device（显卡驱动）、Monitor（显示器参数）、Screen（屏幕配置）",
+        "自动配置：现代 Xorg 不需要手动编辑 xorg.conf——启动时自动检测硬件并加载相应驱动",
+        "显卡驱动 Section 指定 Driver 名（modesetting/nouveau/nvidia/radeon）",
+        "分辨率设置：xrandr 命令行工具查询和修改显示分辨率、刷新率、多显示器布局",
+        "输入设备配置：libinput 是 Xorg 的输入设备驱动（键盘、鼠标、触摸板、触摸屏）",
+        "xset 设置 X Server 参数（DPMS 节能、屏保、蜂鸣器开关）；xset q 查看当前设置",
+        "嵌入式开发板的图形输出通常通过 DRM/KMS (Direct Rendering Manager / Kernel Mode Setting) 直接写到 fbdev，不一定经过 X Server"
+      ],
+      "background": [
+        "嵌入式 Linux 头端设备（有显示屏的）可能运行 Xorg 或 Wayland，但更多使用直接帧缓冲 (framebuffer) 或 LVGL 等轻量级 GUI",
+        "无头嵌入式 AI 推理设备完全不需要 X Window——GPU 内存全部用于模型推理计算",
+        "xrandr 在开发阶段调试显示输出时非常实用"
+      ],
+      "understand": [
+        "XF86Config 是老式 XFree86 的配置文件名（历史命名，X.Org 分支后变为 xorg.conf）",
+        "logind 和 seat 概念：X Server 通过 logind 管理显示会话和输入设备",
+        "startx 脚本在命令行启动 X Server 和默认窗口管理器"
+      ]
+    },
+    "24.1": {
+      "core": [
+        "编译 Linux 内核的原因：添加新硬件驱动支持、裁剪内核尺寸（嵌入式设备存储有限）、启用特定调度或安全特性",
+        "嵌入式设备必须编译内核的情况：新增 ARM 板级支持 (BSP)、启用特定外设驱动、优化实时性",
+        "Linux 内核官网 kernel.org 下载源码；或使用发行版的源码包（如 apt install linux-source）",
+        "内核版本号格式：主版本.次版本.修订版（如 5.15.0）；LTS (Long Term Support) 版本长期维护适合嵌入式",
+        "内核源码顶层目录结构：arch/（平台相关代码）、drivers/（驱动）、fs/（文件系统）、net/（网络协议栈）、kernel/（核心）",
+        "当前运行的内核版本用 uname -r 查看；内核源码中 Makefile 顶部的 VERSION/PATCHLEVEL/SUBLEVEL 定义版本",
+        "嵌入式系统通常使用 LTS 内核 + 厂商补丁（如 NVIDIA Jetson 的 Linux kernel fork）",
+        "下载内核源码后应切换到与目标板相同的版本号（避免配置和驱动不兼容）"
+      ],
+      "background": [
+        "内核编译是嵌入式 Linux 工程师的核心技能——定制功能、裁剪体积、安全管理",
+        "从 MCU 理解：MCU 开发时选择 STM32 型号（确定外设和内存），Linux 则通过配置内核来适配硬件",
+        "本章是衔接后续设备树和板级移植的关键——嵌入式板子没有标准内核，内核必须为特定硬件定制"
+      ],
+      "understand": [
+        "长期稳定 (LTS) 内核周期约 6 年，嵌入式产品通常绑定一个 LTS 版本",
+        "linux-next 是汇集待合入主线补丁的测试树",
+        "stable、mainline、next 三条内核分支的关系和发布周期"
+      ]
+    },
+    "24.2": {
+      "core": [
+        "make menuconfig 是内核配置的图形界面（基于 ncurses），用于选择需要编译的功能和驱动",
+        "配置界面中每个选项有三种状态：内置（*，编译到内核）、模块（M，编译为 .ko 模块）、不选（空）",
+        "/ 键在 menuconfig 中搜索配置项，输入 CONFIG_SERIAL_8250 等符号名快速定位；make xconfig/gconfig 是图形替代界面",
+        "配置项之间的依赖关系：depends on、select、imply——A 依赖 B 时需先选中 B 才能选 A",
+        "配置保存后生成 .config 文件（文本格式），直接位于内核源码根目录",
+        "make oldconfig 基于现有 .config 更新配置（内核版本升级后新增选项会被提问）",
+        "make defconfig 生成当前架构的默认配置；distclean 清除 .config 和所有编译产物",
+        "嵌入式内核裁剪原则：只保留目标板需要的驱动，移除调试选项、不必要的文件系统和网络协议"
+      ],
+      "background": [
+        "ARM 嵌入式内核配置使用 ARCH=arm 或 ARCH=arm64，配以 CROSS_COMPILE=arm-linux-gnueabihf-",
+        "make menuconfig 中 `/?` 搜索驱动选项是内核移植时最高频的操作之一",
+        "硬件的设备树 .dts 文件中的 compatible 字符串需匹配驱动中的匹配表，驱动才会被加载"
+      ],
+      "understand": [
+        "Kconfig 语言定义内核配置选项的菜单结构和依赖关系（存储在各级目录的 Kconfig 文件中）",
+        "allyesconfig 和 allnoconfig 生成全部启用/全部禁用的配置，allnoconfig 是嵌入式裁剪的起点",
+        "savedefconfig 从当前 .config 生成最简的 defconfig 文件"
+      ]
+    },
+    "24.3": {
+      "core": [
+        "内核编译命令：make -j$(nproc) 使用所有 CPU 核心并行编译（编译内核非常耗时）",
+        "编译完成后：arch/x86/boot/bzImage（x86 内核映像）或 arch/arm/boot/zImage（ARM 压缩内核映像）",
+        "内核模块编译：make modules 编译所有标记为 M 的模块；编译同时生成 modules.order 和 modules.builtin",
+        "make modules_install 将编译好的 .ko 模块安装到 /lib/modules/$(KERNELRELEASE)/ 目录",
+        "make install 安装内核和 System.map 到 /boot 目录并更新 GRUB 配置（x86 桌面系统常用）",
+        "安装新内核后 GRUB 菜单会新增选项，默认保留旧内核作为回退选项",
+        "ARM 嵌入式板更新内核：将 zImage 和 .dtb 文件复制到 boot 分区，覆盖旧文件",
+        "内核编译前需确保有足够磁盘空间（源码约 1GB，编译后约 5-10GB）和足够内存（推荐 2GB+）"
+      ],
+      "background": [
+        "嵌入式设备第一次内核编译可能需要 30 分钟以上（取决于 CPU 性能），配置缓存可加速后续编译",
+        "内核编译是测试板端环境搭建的关键步骤（验证工具链、验证配置、验证硬件启动）",
+        "嵌入式更新内核需保留至少一个可启动的内核快照——新内核起不来还有回退机会"
+      ],
+      "understand": [
+        "System.map 包含内核所有符号的地址映射，用于调试和内核模块的符号解析",
+        "vmlinux 是未压缩的 ELF 格式内核（调试用），zImage/bzImage 是压缩后的可启动内核",
+        "KBUILD_BUILD_TIMESTAMP 和 KBUILD_BUILD_USER 环境变量控制内核构建的版本字符串"
+      ]
+    },
+    "24.4": {
+      "core": [
+        "单一模块编译在修改了某个驱动源码后不需要重新编译整个内核，大大节省时间",
+        "单独编译指定模块：make M=drivers/usb/serial/ 进入驱动目录单独编译；或 make drivers/usb/serial/usb-serial.ko",
+        "编译完成的 .ko 文件大小可用 ls -lh 查看，嵌入式设备关注模块大小以估算 flash 占用",
+        "模块安装到板端后使用 insmod/modprobe 加载，dmesg 查看加载日志确认是否成功",
+        "模块的符号依赖（__versions）必须与目标内核匹配——不同内核版本的模块通常情况下不能混用",
+        "module_init() 和 module_exit() 宏分别指定模块加载和卸载时的入口函数",
+        "内核模块编程基础：MODULE_LICENSE(\"GPL\")、MODULE_AUTHOR、MODULE_DESCRIPTION 等宏提供元信息",
+        "嵌入式开发中常常需要移植或编写新的内核模块来驱动板端外设（如 GPIO 扩展、SPI/I2C 设备）"
+      ],
+      "background": [
+        "单一模块编译是嵌入式驱动开发中迭代最快的路径：改代码 -> 编译模块 -> scp 到板端 -> insmod 测试",
+        "编写内核模块与编写用户程序完全不同（没有 libc、不能使用浮点运算、需要理解内核 API）",
+        "模块的 printk 输出通过 dmesg 查看，是内核模块调试的主要手段"
+      ],
+      "understand": [
+        "modprobe 加载模块时不指定路径，从 /lib/modules/$(uname -r)/ 中查找，依赖 depmod 生成的依赖文件",
+        "insmod 加载模块时若符号依赖未满足会报 Unknown symbol 错误",
+        "内核模块中的 EXPORT_SYMBOL 可将函数导出给其他模块使用（是内核符号可见性的控制机制）"
+      ]
+    }
+  }
+}

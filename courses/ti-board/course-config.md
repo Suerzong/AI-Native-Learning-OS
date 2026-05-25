@@ -51,8 +51,8 @@
   目标：从零到能控制板子
 
 第二层：扩展进阶篇（10-20节）
-  CMSIS-DSP → IQMath → Printf → 外部中断 → ADC进阶
-  → 系统时钟 → DAC进阶 → Default_Handler → Attach调试 → Hex/Bin
+  CMSIS-DSP → IQMath → Printf → 外部中断 → DMA基础 → DMA进阶
+  → ADC进阶 → 系统时钟 → DAC进阶 → Default_Handler → Attach调试 → Hex/Bin
   目标：从"能跑demo"到"能处理复杂工程问题"
 
 第三层：实战应用篇（21-30节）
@@ -61,7 +61,7 @@
   目标：外设组合成能跑的电赛小系统
 
 第四层：模块集成篇（31-46节）
-  OLED → MPU6050 → 超声波 → BNO08X → 陀螺仪系列
+  OLED → TFT LCD(SPI/DMA) → MPU6050 → 超声波 → BNO08X → 陀螺仪系列
   → VL53L0X → 材料清单
   目标：快速接入比赛常用模块
 ```
@@ -167,6 +167,7 @@
   - 格式化字符串在嵌入式中的开销
   - 浮点数打印配置遗漏
 - **对应网课**：13 Printf
+- **参考示例**：`code/layer-2-advanced/printf/`
 
 ### 技能 2.2：外部中断（对应网课 14）
 
@@ -191,18 +192,44 @@
   - 不理解时钟频率和功耗的关系
 - **对应网课**：16 系统时钟
 
-### 技能 2.4：ADC 进阶（对应网课 15）
+### 技能 2.4：DMA 基础（新增）
+
+- **微目标**：能理解 DMA 的工作原理（解放 CPU、后台搬运数据）；能配置 DMA 通道完成内存到外设的数据传输；能理解 DMA 触发源
+- **前置依赖**：技能 1.3、技能 2.3
+- **推进标准**：用 DMA 将数组数据搬运到 UART TX，不占用 CPU 循环。能解释为什么 DMA 比轮询效率高
+- **常见误区**：
+  - DMA 通道和外设触发源的映射搞错
+  - 忘记配置 DMA 传输长度（传多了或传少了）
+  - DMA 传输完成后没有回调/中断通知
+  - 不理解源地址和目标地址的自增模式
+- **对应网课**：无（补充内容）
+- **参考示例**：`code/layer-2-advanced/DMA_1/`
+
+### 技能 2.5：DMA 进阶 — FIFO 与多通道（新增）
+
+- **微目标**：能配置 DMA FIFO 模式；能同时使用多个 DMA 通道；能理解 DMA 配合 ADC 实现连续采样
+- **前置依赖**：技能 2.4
+- **推进标准**：用 DMA FIFO 模式实现 ADC 连续采样并存入缓冲区，CPU 可同时处理其他任务。配置两个 DMA 通道同时工作（如 ADC DMA + UART DMA）
+- **常见误区**：
+  - FIFO 阈值设置不合理导致溢出或空读
+  - 多通道 DMA 优先级冲突
+  - DMA 与中断的竞态条件
+- **对应网课**：无（补充内容）
+- **参考示例**：`code/layer-2-advanced/DMA_FIFO/`、`code/layer-2-advanced/DMAs_FIFO/`、`code/layer-2-advanced/ADCs_DMA/`
+
+### 技能 2.6：ADC 进阶（对应网课 15）
 
 - **微目标**：能配置 ADC 连续转换和多通道采样；能理解采样率对信号质量的影响
-- **前置依赖**：技能 1.5、技能 2.3
+- **前置依赖**：技能 1.5、技能 2.3、技能 2.4
 - **推进标准**：用 ADC 连续采样一个信号，通过 UART+printf 输出数据，用串口绘图工具观察波形
 - **常见误区**：
   - 采样率不够导致信号失真
   - 多通道采样时通道切换的延时问题
   - ADC 触发源配置错误
 - **对应网课**：15 ADC 进阶
+- **参考示例**：`code/layer-1-basics/ADC_Timer_Trigger/`、`code/layer-2-advanced/ADCs_DMA/`
 
-### 技能 2.5：CMSIS-DSP 与 IQMath（对应网课 11-12）
+### 技能 2.7：CMSIS-DSP 与 IQMath（对应网课 11-12）
 
 - **微目标**：能理解 CMSIS-DSP 库的作用；能使用 IQMath 进行定点数运算；能理解为什么 MCU 上需要定点数学库
 - **前置依赖**：技能 1.3
@@ -213,10 +240,10 @@
   - CMSIS-DSP 库的链接配置遗漏
 - **对应网课**：11 CMSIS-DSP、12 IQMath
 
-### 技能 2.6：DAC 进阶（对应网课 17）
+### 技能 2.8：DAC 进阶（对应网课 17）
 
 - **微目标**：能用 DMA 配合 DAC 输出任意波形；能理解 DMA 如何解放 CPU
-- **前置依赖**：技能 1.6、技能 2.4
+- **前置依赖**：技能 1.6、技能 2.6
 - **推进标准**：用 DMA + DAC 输出正弦波，CPU 可以同时做其他事情
 - **常见误区**：
   - DMA 通道和外设触发源的映射搞错
@@ -224,7 +251,7 @@
   - 波形表大小选择不合理
 - **对应网课**：17 DAC 进阶
 
-### 技能 2.7：故障排查专题（对应网课 18-20）
+### 技能 2.9：故障排查专题（对应网课 18-20）
 
 - **微目标**：能识别 Default_Handler 的触发原因；能使用 Attach 调试方法；能生成 Hex/Bin 文件用于量产或批量烧录
 - **前置依赖**：技能 2.2、技能 2.3
@@ -278,6 +305,7 @@
   - 只用一个传感器无法判断方向
   - 电机响应速度跟不上控制频率
 - **对应网课**：25 基本巡线跑、26 线内直线跑
+- **参考示例**：`code/layer-3-application/line-following-car/`（motor驱动+巡线控制+Python仿真）、`code/layer-3-application/Encoder_LP_MSPM0G3507_nortos_ticlang/`（编码器）
 
 ### 技能 3.4：测距与避障（对应网课 27）
 
@@ -290,6 +318,7 @@
   - 避障判断的阈值设置不合理
   - 电机控制信号和传感器读取的时序冲突
 - **对应网课**：27 测距和避障
+- **参考示例**：`code/layer-3-application/ultrasonic-obstacle/`（超声波驱动+OLED显示）
 
 ### 技能 3.5：标识识别（对应网课 28）
 
@@ -301,6 +330,7 @@
   - 状态机逻辑不完整，遇到未定义状态卡死
   - 光照条件变化导致识别失败
 - **对应网课**：28 标识的识别
+- **参考示例**：`code/layer-3-application/sign-recognition/`（OLED显示+Edge Impulse图像分类 `ei_image_classification.py`）
 
 ### 技能 3.6：调试器与开发板修复（对应网课 29-30）
 
@@ -321,17 +351,20 @@
 
 ## 第四层：模块集成篇
 
-### 技能 4.1：OLED 显示（对应网课 32、40-41）
+### 技能 4.1：OLED / TFT LCD 显示（对应网课 32、40-41）
 
-- **微目标**：能区分软件 IIC 和硬件 IIC 驱动 OLED；能移植 OLED 驱动代码；能显示字符、数字和简单图形
+- **微目标**：能区分软件 IIC 和硬件 IIC 驱动 OLED；能移植 OLED 驱动代码；能显示字符、数字和简单图形；了解 TFT LCD 的 SPI/DMA 驱动方式
 - **前置依赖**：技能 1.7
-- **推进标准**：在 OLED 上实时显示 ADC 采样值或巡线传感器状态
+- **推进标准**：在 OLED 上实时显示 ADC 采样值或巡线传感器状态。选做：用 SPI+DMA 驱动 TFT LCD 显示图形
 - **常见误区**：
   - IIC 地址搞错（7-bit 地址左移问题）
   - 软件 IIC 时序不准确导致花屏
   - 硬件 IIC 和软件 IIC 引脚冲突
   - OLED 刷新率太低导致显示卡顿
+  - TFT LCD SPI 模式配置错误（CPOL/CPHA）
+  - DMA 传输时 LCD 分辨率与缓冲区大小不匹配
 - **对应网课**：32 OLED、40 OLED、41 OLED 硬件 IIC
+- **参考示例**：`code/layer-4-integration/TFTlcd_spi_Hardware/`（硬件SPI）、`code/layer-4-integration/TFTlcd_spi_dma_Hardware/`（SPI+DMA）
 
 ### 技能 4.2：MPU6050 姿态传感器（对应网课 33、42-43）
 
@@ -378,6 +411,7 @@
   - 姿态融合算法不懂就直接用，数据异常不会排查
   - 陀螺仪零点漂移问题
 - **对应网课**：35 BNO08X、36 维特陀螺仪、38 ATK-MS6DSV 陀螺仪、39 逐飞 IMU660RB
+- **参考示例**：`code/layer-4-integration/IMU/`（ATK-MS901M UART通信+OLED显示）、`code/layer-4-integration/IMU901/`（IMU+ADC_DMA组合）
 
 ### 技能 4.6：材料选型与购买（对应网课 46）
 
@@ -397,11 +431,11 @@ GPIO (03)
   ↓
 Timer (04) ────────────────→ 系统时钟 (16) ──→ 通信波特率/定时精度
   ↓                            ↓
-PWM (05) ──→ 电机/舵机控制    ADC (06) ──→ ADC进阶 (15) ──→ 巡线传感器
-  ↓                            ↓
-UART (09)                     DAC (07) ──→ DAC进阶 (17)
-  ↓                            ↓
-Printf (13)                   外部中断 (14)
+PWM (05) ──→ 电机/舵机控制    ADC (06) ──→ DMA (新增) ──→ ADC进阶 (15) ──→ 巡线传感器
+  ↓                            ↓                ↓
+UART (09)                     DAC (07)    DMA FIFO/多通道      TFT LCD (SPI+DMA)
+  ↓                            ↓                ↓
+Printf (13)                   外部中断 (14)   DAC进阶 (17)
   ↓                            ↓
 CMSIS-DSP/IQMath (11-12)     Default_Handler (18)
                                 ↓
@@ -411,7 +445,7 @@ CMSIS-DSP/IQMath (11-12)     Default_Handler (18)
                                 ↓
                 巡线 (25-26) + 避障 (27) + 标识识别 (28)
                                 ↓
-        OLED (32) → MPU6050 (33) → 超声波 (34) → VL53L0X (37)
+        OLED/TFT LCD (32) → MPU6050 (33) → 超声波 (34) → VL53L0X (37)
                                 ↓
                     材料选型与购买 (46)
 ```
@@ -556,6 +590,20 @@ CMSIS-DSP/IQMath (11-12)     Default_Handler (18)
 | `drivers/uart_echo` | UART | 未开始 | 串口回显 |
 | `msp_subsystems/adc_to_uart` | ADC + UART | 未开始 | 采样后串口输出 |
 | `edgeAI/hello_world_ai` | Edge AI 入门 | 未开始 | MCU 端推理基础 |
+| `code/layer-2-advanced/printf/` | Printf 重定向 | 未开始 | UART printf 输出 |
+| `code/layer-2-advanced/DMA_1/` | DMA 基础 | 未开始 | DMA 内存→外设传输 |
+| `code/layer-2-advanced/DMA_FIFO/` | DMA FIFO | 未开始 | DMA FIFO 模式 |
+| `code/layer-2-advanced/DMAs_FIFO/` | DMA 多通道 | 未开始 | 多通道 DMA |
+| `code/layer-2-advanced/ADCs_DMA/` | ADC + DMA | 未开始 | DMA 配合 ADC 采样 |
+| `code/layer-1-basics/ADC_Timer_Trigger/` | ADC 定时触发 | 未开始 | 定时器触发 ADC |
+| `code/layer-3-application/line-following-car/` | 巡线小车 | 未开始 | motor驱动+巡线+Python仿真 |
+| `code/layer-3-application/Encoder_LP_MSPM0G3507_nortos_ticlang/` | 编码器 | 未开始 | 编码器读取 |
+| `code/layer-3-application/ultrasonic-obstacle/` | 超声波避障 | 未开始 | 超声波测距+OLED |
+| `code/layer-3-application/sign-recognition/` | 标识识别 | 未开始 | OLED+Edge Impulse图像分类 |
+| `code/layer-4-integration/IMU/` | IMU 姿态 | 未开始 | ATK-MS901M UART+OLED |
+| `code/layer-4-integration/IMU901/` | IMU + ADC | 未开始 | IMU+ADC_DMA 组合 |
+| `code/layer-4-integration/TFTlcd_spi_Hardware/` | TFT LCD SPI | 未开始 | 硬件 SPI 驱动 LCD |
+| `code/layer-4-integration/TFTlcd_spi_dma_Hardware/` | TFT LCD DMA | 未开始 | SPI+DMA 驱动 LCD |
 
 ---
 

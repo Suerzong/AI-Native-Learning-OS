@@ -39,6 +39,8 @@ $ARGUMENTS
 
 如果 `course-config.md` 不存在，请告诉用户该课程尚未配置教学引擎支持，并列出需要创建的文件。
 
+如果 `course-config.md` 声明 `source_mode: textbook-only`，后续教学必须只使用该课程明确列入的允许源。不得混入外部资料、工程例子、代码任务或未学过的大块内容。
+
 ---
 
 # 第三步：开始教学循环

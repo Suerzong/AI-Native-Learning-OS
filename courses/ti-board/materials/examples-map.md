@@ -60,3 +60,43 @@ materials/raw-sdk/mspm0_sdk_2_10_00_04/examples/nortos/LP_MSPM0G3507/
 | 波形分类 | `edgeAI/waveform_classifier_ai` | 时序分类 |
 | 字符识别 | `edgeAI/character_recognition` | 图像/字符任务 |
 | 数据采集 | `edgeAI/*_data_capture` | 采集训练/测试数据 |
+
+---
+
+# 电赛实战代码示例（`code/` 目录）
+
+这些是 Ethen 在电赛准备过程中积累的实战工程，按课程四层结构组织。
+
+## 第一层：基础入门
+
+| 技能 | 示例路径 | 用途 |
+|---|---|---|
+| ADC 定时触发 | `code/layer-1-basics/ADC_Timer_Trigger/` | 定时器触发 ADC 序列转换 |
+
+## 第二层：扩展进阶
+
+| 技能 | 示例路径 | 用途 |
+|---|---|---|
+| Printf 重定向 | `code/layer-2-advanced/printf/` | UART printf 调试输出 |
+| DMA 基础 | `code/layer-2-advanced/DMA_1/` | DMA 内存到外设的数据传输 |
+| DMA FIFO | `code/layer-2-advanced/DMA_FIFO/` | DMA FIFO 模式 |
+| DMA 多通道 | `code/layer-2-advanced/DMAs_FIFO/` | 多通道 DMA 同时工作 |
+| ADC + DMA | `code/layer-2-advanced/ADCs_DMA/` | DMA 配合 ADC 连续采样 |
+
+## 第三层：实战应用
+
+| 技能 | 示例路径 | 用途 |
+|---|---|---|
+| 巡线小车 | `code/layer-3-application/line-following-car/` | motor 驱动 + 巡线控制 + Python 仿真（`car_single_line.py`、`car_dual_lines.py`） |
+| 编码器 | `code/layer-3-application/Encoder_LP_MSPM0G3507_nortos_ticlang/` | 编码器读取与电机测速 |
+| 超声波避障 | `code/layer-3-application/ultrasonic-obstacle/` | 超声波测距 + OLED 显示 |
+| 标识识别 | `code/layer-3-application/sign-recognition/` | OLED 显示 + Edge Impulse 图像分类（`ei_image_classification.py`） |
+
+## 第四层：模块集成
+
+| 技能 | 示例路径 | 用途 |
+|---|---|---|
+| IMU 姿态 | `code/layer-4-integration/IMU/` | ATK-MS901M (UART) + OLED 显示 |
+| IMU + ADC | `code/layer-4-integration/IMU901/` | IMU + ADC_DMA 组合系统 |
+| TFT LCD (SPI) | `code/layer-4-integration/TFTlcd_spi_Hardware/` | 硬件 SPI 驱动 TFT LCD（含 GUI 库） |
+| TFT LCD (SPI+DMA) | `code/layer-4-integration/TFTlcd_spi_dma_Hardware/` | SPI + DMA 驱动 TFT LCD（高效传输） |
