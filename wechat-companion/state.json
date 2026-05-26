@@ -3,8 +3,8 @@
   "sent": {
     "morning": true,
     "midday": true,
-    "evening": false,
-    "sleep_review": false,
+    "evening": true,
+    "sleep_review": true,
     "autostart": true
   },
   "used_encouragements": [
