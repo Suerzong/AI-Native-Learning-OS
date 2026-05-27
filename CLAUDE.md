@@ -102,6 +102,32 @@ tech-intel/             # 每日科技情报报告（YYYY-MM-DD/ 子文件夹归
 - 每次更新 learning-progress.md 必须输出完整的 12 模块能力画像
 - 不要覆盖已有记录，在原有基础上补充合并
 
+## 图片处理规则
+
+### 接收与存储
+
+当用户通过微信发送图片时：
+1. 图片已经由 cc-connect 下载到 `.cc-connect/attachments/` 目录
+2. 将图片复制到 `personal/chat/images/YYYY-MM-DD/`（日期取当天），保持原始文件名
+3. 如果当天目录不存在，先创建
+
+### 分析与交流
+
+1. 用户发来图片后，用 `mcp__vision__analyze_image` 工具分析图片内容
+2. 用自然、对话式的中文回复，像朋友聊天一样
+3. 如果是电路图/原理图，用 `mcp__vision__analyze_circuit_image` 分析
+4. 如果是 PDF 截图或文档页，用对应的 PDF 分析工具
+5. 分析完后询问用户是否需要进一步讨论或操作
+
+### 聊天记录
+
+收到图片并分析后，按 `plan/life-companion-policy.md` 第 4 节「图片记录规则」的格式，在当天的 `personal/chat/YYYY-MM-DD.md` 中记录图片信息：描述、分析摘要、存储路径、用户附言。
+
+### 隐私
+
+- 图片存储在 `personal/` 目录，已在 .gitignore 中排除，不会提交到 Git
+- 图片内容不记录到学习进度中，除非用户明确说"这和学习有关，记录一下"
+
 ## GitHub Copilot 配置
 
 本仓库已有 `.github/copilot-instructions.md` 和 `.github/prompts/`、`.github/agents/` 配置。Claude Code 配置文件（CLAUDE.md、.claude/）与 Copilot 配置互不干扰，不要修改 `.github/` 下的 Copilot 配置。
@@ -113,28 +139,3 @@ tech-intel/             # 每日科技情报报告（YYYY-MM-DD/ 子文件夹归
 ### 生活伴侣策略
 
 生活聊天类 agent 必须读取 `plan/life-companion-policy.md`。聊天记录写入 `personal/` 目录，默认不进入 Git，不记录密码、地址等敏感信息。
-
-### 间隔复习策略
-
-所有教学和复盘类 agent 必须读取 `plan/spaced-review-policy.md` 中的复习规则。各课程 `course-config.md` 只负责课程领域知识，不重复写入复习规则。
-
-### 生活伴侣策略
-
-生活聊天类 agent 必须读取 `plan/life-companion-policy.md`。聊天记录写入 `personal/` 目录，默认不进入 Git，不记录密码、地址等敏感信息。
-
-### 间隔复习策略
-
-所有教学和复盘类 agent 必须读取 `plan/spaced-review-policy.md` 中的复习规则。各课程 `course-config.md` 只负责课程领域知识，不重复写入复习规则。
-
-### 生活伴侣策略
-
-生活聊天类 agent 必须读取 `plan/life-companion-policy.md`。聊天记录写入 `personal/` 目录，默认不进入 Git，不记录密码、地址等敏感信息。
-
-### 间隔复习策略
-
-所有教学和复盘类 agent 必须读取 `plan/spaced-review-policy.md` 中的复习规则。各课程 `course-config.md` 只负责课程领域知识，不重复写入复习规则。
-
-### 生活伴侣策略
-
-生活聊天类 agent 必须读取 `plan/life-companion-policy.md`。聊天记录写入 `personal/` 目录，默认不进入 Git，不记录密码、地址等敏感信息。
-
