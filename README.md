@@ -110,6 +110,8 @@ Implements Bloom's 2 Sigma problem: 1-on-1 tutoring + mastery learning = +2σ ac
 
 **Constraint highlights:** Source-isolated (textbook-only questions), full text traceability (every knowledge point maps to a paragraph `[XXXX]`), no advancement without mastery.
 
+![Sleep Review Report](docs/images/review-report.png)
+
 > Agent definition: `agents/mastery-learn.agent.md` (21KB)
 > Review engine: `tools/review_system.py` (30KB)
 
@@ -129,6 +131,10 @@ A 24/7 learning manager that covers your entire day through WeChat.
 
 **13+ WeChat commands** covering plan generation, mastery learning sessions, progress updates, tech intel triggers, and casual chat with automatic diary logging.
 
+![WeChat Companion Chat](docs/images/wechat-companion.png)
+
+![Morning Startup Report](docs/images/morning-plan.png)
+
 > Orchestrator: `tools/companion.py` (46KB)
 > Command reference: `WECHAT_COMMANDS.md`
 
@@ -145,6 +151,8 @@ Every morning at 7:00 AM, a focused Edge AI briefing lands in your inbox.
 | Tertiary | Chinese tech media | 机器之心, 量子位, 36氪 |
 
 Pipeline: GitHub Actions cron → parallel scraping with fallback → keyword filtering → Obsidian-compatible Markdown report → SMTP email delivery.
+
+![Tech Intel Morning Brief](docs/images/tech-intel-email.png)
 
 > Agent definition: `agents/tech-intel.agent.md` (19KB)
 > Scraper: `tools/tech_intel_cloud.py` (36KB)
