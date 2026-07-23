@@ -1,52 +1,103 @@
-# Tech intel temporary data files
-temp/*.json
-temp/hf_papers.json
-temp/hn_front.json
-temp/gh_*.json
-temp/arxiv_*.json
-
-# cc-connect WeChat bridge attachments (personal images)
+# ============================================
+# 隐私与个人数据
+# ============================================
+personal/
+Bills/
+inbox/
+bookmarks/
+daily-commentary/
+mentors/
+temp/
+temp.md
+reading/
+total/
+law-society-pub/
+Document/
 .cc-connect/
 
-# Claude Code local settings (contains personal permissions)
+# ============================================
+# 课程材料（个人笔记 + 版权顾虑）
+# ============================================
+courses/
+
+# ============================================
+# 每日记录（个人反思）
+# ============================================
+plan/record/
+plan/daily-plan.md
+plan/timetable.md
+plan/school-calendar.md
+
+# ============================================
+# 复习数据（个人学习数据）
+# ============================================
+review/
+
+# ============================================
+# WeChat 伴侣状态
+# ============================================
+wechat-companion/
+
+# ============================================
+# 技术情报存档（保留源码，排除每日报告）
+# ============================================
+tech-intel/20*/
+!tech-intel/sample/
+
+# ============================================
+# Claude Code 本地配置（含密钥和权限）
+# ============================================
 .claude/settings.local.json
+.claude/scheduled_tasks.json
+.claude/scheduled_tasks.lock
+.claude/projects/
 
+# ============================================
+# 平台特定数据
+# ============================================
+byrdocs_metadata.json
+byrdocs_metadata_new.json
+sync-local.sh
+ucloud-tasks/
+campus-info/
 
-# Private life/chat records
-personal/
+# ============================================
+# 项目与实验
+# ============================================
+projects/
 
-# OS files
-.DS_Store
-Thumbs.db
-
-# Python
-__pycache__/
-*.pyc
-
-# Large files (TI SDK and datasheets)
-courses/ti-board/materials/raw-sdk/
-courses/ti-board/materials/datasheets/*.pdf
-
-# Large temporary files
-temp/paper/
-temp/ai_tutorial_book-master.zip
-temp/ai_tutorial_book-master/
-
-# Large resource files
-resources/data-structure-exams/
-
-# Local secrets
+# ============================================
+# 环境变量与密钥
+# ============================================
 .env
 .env.local
 .env.*.local
 secrets/
 
-# Operational state (not source code)
+# ============================================
+# Python
+# ============================================
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.venv/
+venv/
+
+# ============================================
+# 日志与运行时状态
+# ============================================
 *.log
 review/send_log.json
-wechat-companion/state.json
 
-# Exclude tutorial book from language stats
-temp/ai_tutorial_book-master/
-ucloud-tasks/
-campus-info/
+# ============================================
+# 系统文件
+# ============================================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
